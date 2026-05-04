@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact — Utkarsh</title>
+<meta name="keywords" content="Cloud Engineer, DevOps Engineer, AWS, Terraform, Kubernetes, Docker, GitHub Actions, remote work, India, serverless, Python, infrastructure as code, CI/CD, cloud security, CSPM">
 <meta name="description" content="Get in touch with Utkarsh — open to cloud/security roles, freelance consulting, and research collaborations from June 2026.">
 <meta property="og:title" content="Contact — Utkarsh">
 <meta property="og:description" content="Open to full-time cloud/security roles, freelance work, and research collaborations from June 2026.">
@@ -80,7 +81,25 @@
     .contact-main-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     .form-row { grid-template-columns: 1fr; }
   }
+  .hire-me-link {
+    color: var(--accent) !important;
+    border: 1px solid rgba(57,255,133,.3);
+    padding: .2rem .65rem;
+    border-radius: 3px;
+    background: rgba(57,255,133,.06);
+    transition: background .2s, border-color .2s !important;
+  }
+  .hire-me-link:hover { background: rgba(57,255,133,.12) !important; border-color: rgba(57,255,133,.6) !important; }
 </style>
+<!-- Google Analytics -->
+<!-- Get your ID: analytics.google.com → Admin → Create Property → Web Stream -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DZ48W4D1EW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DZ48W4D1EW');
+</script>
 </head>
 <body>
 
@@ -89,9 +108,10 @@
   <ul class="nav-links">
     <li><a href="projects.html">Projects</a></li>
     <li><a href="resume.html">Resume</a></li>
-    <li><a href="contact.html">Contact</a></li>
+    <li><a href="contact.html" class="hire-me-link">Hire Me</a></li>
     <li><a href="https://github.com/UTKARSH698" target="_blank">GitHub ↗</a></li>
   </ul>
+  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme" title="Toggle light/dark">◑</button>
   <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
     <span></span><span></span><span></span>
   </button>
@@ -101,7 +121,7 @@
     <li><a href="index.html">Home</a></li>
     <li><a href="projects.html">Projects</a></li>
     <li><a href="resume.html">Resume</a></li>
-    <li><a href="contact.html">Contact</a></li>
+    <li><a href="contact.html" class="hire-me-link">Hire Me</a></li>
     <li><a href="https://github.com/UTKARSH698" target="_blank">GitHub ↗</a></li>
   </ul>
 </div>
@@ -110,7 +130,7 @@
   <div class="page-header fade-in">
     <div class="section-label">// contact</div>
     <h1 style="font-size:clamp(2rem,5vw,3.2rem);">Let's Talk</h1>
-    <p>Open to full-time cloud/security roles, freelance engagements, research collaborations, and TU Darmstadt connections.</p>
+    <p>Available for full-time remote cloud &amp; DevOps roles from July 2026. Open to US, EU, and global remote opportunities.</p>
   </div>
 
   <div class="contact-wrapper">
@@ -122,7 +142,15 @@
             <div class="cm-icon">@</div>
             <div class="cm-text">
               <div class="cm-label">Email</div>
-              <div class="cm-value">udaydeepak1928@gmail.com</div>
+              <div class="cm-value">udaydeepak1928@gmail.com <button class="copy-email-btn" onclick="copyEmail(this)">Copy</button></div>
+            </div>
+            <span class="cm-arrow">→</span>
+          </a>
+          <a href="tel:+917984764001" class="contact-method">
+            <div class="cm-icon" style="font-size:12px;">☎</div>
+            <div class="cm-text">
+              <div class="cm-label">Phone / WhatsApp</div>
+              <div class="cm-value">+91 79847 64001</div>
             </div>
             <span class="cm-arrow">→</span>
           </a>
@@ -145,11 +173,11 @@
         </div>
 
         <div class="availability-box">
-          <div class="avail-title">Availability — from Jun 2026</div>
-          <div class="avail-item"><span class="avail-dot dot-green"></span>Full-time cloud / security engineering roles</div>
-          <div class="avail-item"><span class="avail-dot dot-green"></span>Freelance cloud consulting &amp; architecture</div>
-          <div class="avail-item"><span class="avail-dot dot-yellow"></span>Research collaboration (formal methods / security)</div>
-          <div class="avail-item"><span class="avail-dot dot-yellow"></span>TU Darmstadt M.Sc. IT Security (WiSe 2026/27)</div>
+          <div class="avail-title">Availability — from Jul 2026</div>
+          <div class="avail-item"><span class="avail-dot dot-green"></span>Full-time remote cloud / DevOps engineering</div>
+          <div class="avail-item"><span class="avail-dot dot-green"></span>Contract / freelance cloud architecture</div>
+          <div class="avail-item"><span class="avail-dot dot-yellow"></span>Open source collaboration</div>
+          <div class="avail-item"><span class="avail-dot dot-yellow"></span>US / EU / global remote — timezone flexible</div>
           <div class="avail-item"><span class="avail-dot dot-muted"></span>Not looking for unpaid internships</div>
         </div>
       </div>
@@ -200,9 +228,10 @@
 
 <footer>
   <span>© 2026 — Utkarsh · Built with obsession</span>
-  <span>Gujarat, India → Darmstadt, Germany</span>
+  <span>Gujarat, India · Remote-Ready 🌍 · <a href="sitemap.xml" style="color:var(--muted);">Sitemap</a></span>
 </footer>
 
+<button class="scroll-top" id="scroll-top" aria-label="Scroll to top" title="Back to top">↑</button>
 <script src="shared.js"></script>
 <script>
   function validate(id, test) {

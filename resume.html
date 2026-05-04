@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Resume — Utkarsh</title>
+<meta name="keywords" content="Cloud Engineer, DevOps Engineer, AWS, Terraform, Kubernetes, Docker, GitHub Actions, remote work, India, serverless, Python, infrastructure as code, CI/CD, cloud security, CSPM">
 <meta name="description" content="Resume of Utkarsh — B.Tech CSE, Cloud & Security Engineer, graduating May/June 2026. Targeting TU Darmstadt M.Sc. IT Security.">
 <meta property="og:title" content="Resume — Utkarsh">
 <meta property="og:description" content="B.Tech CSE · Cloud & Security · 9.35 CGPA · TEJASKP AI SOFTWARE intern · TU Darmstadt applicant.">
@@ -96,7 +97,25 @@
   .tier-expert    { color: var(--accent);  border-color: rgba(57,255,133,.35); background: rgba(57,255,133,.06); }
   .tier-proficient{ color: var(--accent2); border-color: rgba(0,201,255,.3);   background: rgba(0,201,255,.05); }
   .tier-familiar  { color: var(--muted);   border-color: var(--border);        background: var(--bg); }
+  .hire-me-link {
+    color: var(--accent) !important;
+    border: 1px solid rgba(57,255,133,.3);
+    padding: .2rem .65rem;
+    border-radius: 3px;
+    background: rgba(57,255,133,.06);
+    transition: background .2s, border-color .2s !important;
+  }
+  .hire-me-link:hover { background: rgba(57,255,133,.12) !important; border-color: rgba(57,255,133,.6) !important; }
 </style>
+<!-- Google Analytics -->
+<!-- Get your ID: analytics.google.com → Admin → Create Property → Web Stream -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DZ48W4D1EW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DZ48W4D1EW');
+</script>
 </head>
 <body>
 
@@ -105,9 +124,10 @@
   <ul class="nav-links">
     <li><a href="projects.html">Projects</a></li>
     <li><a href="resume.html">Resume</a></li>
-    <li><a href="contact.html">Contact</a></li>
+    <li><a href="contact.html" class="hire-me-link">Hire Me</a></li>
     <li><a href="https://github.com/UTKARSH698" target="_blank">GitHub ↗</a></li>
   </ul>
+  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme" title="Toggle light/dark">◑</button>
   <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
     <span></span><span></span><span></span>
   </button>
@@ -117,7 +137,7 @@
     <li><a href="index.html">Home</a></li>
     <li><a href="projects.html">Projects</a></li>
     <li><a href="resume.html">Resume</a></li>
-    <li><a href="contact.html">Contact</a></li>
+    <li><a href="contact.html" class="hire-me-link">Hire Me</a></li>
     <li><a href="https://github.com/UTKARSH698" target="_blank">GitHub ↗</a></li>
   </ul>
 </div>
@@ -126,10 +146,14 @@
   <div class="page-header fade-in">
     <div class="section-label">// resume</div>
     <h1 style="font-size:clamp(2rem,5vw,3.2rem);">Curriculum Vitae</h1>
-    <p>B.Tech CSE · Cloud &amp; Security · Graduating May/June 2026 · Targeting TU Darmstadt M.Sc. IT Security</p>
+    <p>Cloud &amp; DevOps Engineer · AWS · Terraform · Kubernetes · Available for full-time remote roles from July 2026</p>
   </div>
 
   <div class="resume-wrapper">
+    <div style="background:var(--bg2);border:1px solid var(--border);border-radius:4px;padding:1.25rem 1.5rem;margin-bottom:2.5rem;font-size:13px;color:var(--muted);line-height:1.9;">
+      <span style="color:var(--accent);font-size:10px;text-transform:uppercase;letter-spacing:.1em;">Summary</span><br>
+      Cloud &amp; DevOps Engineer with hands-on experience building production-grade AWS infrastructure, serverless pipelines, and security automation systems. Proficient in <strong style="color:var(--text);font-weight:400;">Terraform, Kubernetes, Docker, and GitHub Actions CI/CD</strong>. Proven ability to design fault-tolerant distributed systems from scratch. <strong style="color:var(--accent);font-weight:400;">Available immediately for full-time remote roles.</strong>
+    </div>
     <div class="resume-grid">
 
       <!-- MAIN COLUMN -->
@@ -143,10 +167,12 @@
             </div>
             <div class="resume-entry-sub">TEJASKP AI SOFTWARE · On-site, Gujarat &nbsp;<span style="color:var(--accent);font-size:10px;">● Current</span></div>
             <ul class="resume-entry-desc">
-              <li>Designed and deployed CloudPulse — serverless real-time analytics platform across 15 AWS services (Lambda, Kinesis, DynamoDB, API Gateway, CloudWatch)</li>
-              <li>Built CloudFlow — distributed order processing system using SAGA choreography with Kubernetes and GitHub Actions CI/CD, automatic rollback on failure</li>
-              <li>Developed CSPM Tool for automated IAM misconfiguration detection and S3 security posture assessment with risk-scored remediation playbooks</li>
-              <li>Implemented Wikipedia RAG QA system using embeddings and vector search for intelligent document retrieval</li>
+              <li>Designed and managed AWS cloud infrastructure (EC2, VPC, IAM, S3, CloudWatch) in a production environment, ensuring high availability and security compliance</li>
+              <li>Provisioned infrastructure as code using Terraform modules — reduced manual setup time and enabled reproducible multi-environment deployments</li>
+              <li>Managed containerised workloads with Docker and Kubernetes; configured deployments, services, and resource limits across environments</li>
+              <li>Implemented IAM least-privilege policies and security group rules; contributed to internal cloud security posture reviews</li>
+              <li>Built and maintained GitHub Actions CI/CD pipelines for automated testing, Docker image builds, and deployment to cloud environments</li>
+              <li>Monitored infrastructure health using CloudWatch dashboards and alarms; set up structured logging and incident alerting</li>
             </ul>
           </div>
         </div>
@@ -160,10 +186,9 @@
             </div>
             <div class="resume-entry-sub">ITM Vocational University · Gujarat · CGPA: 9.35/10 · H+ APS Recognition</div>
             <ul class="resume-entry-desc">
-              <li>Specialisation in Cloud Technology and Information Security</li>
-              <li>Built AgriFuture India research thesis with TLA+-style formal verification — novel finding: TAR preservation requires atomic revocation, published on arXiv</li>
-              <li>ECTS equivalent: ~93.8 credits (well above TU Darmstadt's 60 ECTS minimum)</li>
-              <li>APS certificate in progress for German university application</li>
+              <li>Specialisation in Cloud Technology and Information Security — CGPA: 9.35 / 10</li>
+              <li>Built AgriFuture India research thesis with formal verification — novel finding on distributed marketplace security</li>
+              <li>Core coursework: distributed systems, cloud architecture, network security, operating systems</li>
             </ul>
           </div>
         </div>
@@ -172,64 +197,61 @@
           <h3>Key Projects</h3>
           <div class="resume-entry">
             <div class="resume-entry-header">
-              <span class="resume-entry-title">CloudPulse</span>
-              <span class="resume-entry-date">2026</span>
-            </div>
-            <div class="resume-entry-sub">AWS Lambda · Kinesis · DynamoDB · API Gateway · CloudWatch</div>
-            <ul class="resume-entry-desc">
-              <li>Serverless real-time event analytics across 15 AWS services — sub-100ms latency, fully observable</li>
-            </ul>
-          </div>
-          <div class="resume-entry">
-            <div class="resume-entry-header">
-              <span class="resume-entry-title">CloudFlow</span>
+              <span class="resume-entry-title">CloudFlow — Distributed SAGA Order Processing</span>
               <span class="resume-entry-date">2025–26</span>
             </div>
-            <div class="resume-entry-sub">Kubernetes · SAGA Pattern · GitHub Actions</div>
+            <div class="resume-entry-sub">Python · AWS Step Functions · Lambda · DynamoDB · SQS · CDK · LocalStack · X-Ray</div>
             <ul class="resume-entry-desc">
-              <li>Fault-tolerant distributed order processing with SAGA choreography and automatic compensating transactions</li>
+              <li>Built production-grade serverless order processing using SAGA choreography — coordinating reservation, payment, and confirmation across isolated Lambda functions without two-phase commit</li>
+              <li>Implemented automatic compensation on failure, idempotent handlers, and circuit-breaker pattern to prevent cascade failures</li>
+              <li>Achieved 1,100+ req/min at 50 concurrent threads with P99 latency &lt; 120ms (LocalStack); 30+ unit, integration, and failure-path tests</li>
             </ul>
           </div>
           <div class="resume-entry">
             <div class="resume-entry-header">
-              <span class="resume-entry-title">CSPM Tool</span>
+              <span class="resume-entry-title">CloudPulse — Real-Time Analytics Platform</span>
+              <span class="resume-entry-date">2026</span>
+            </div>
+            <div class="resume-entry-sub">Python · Kinesis · S3 · Athena · DynamoDB · Terraform · React · Cognito</div>
+            <ul class="resume-entry-desc">
+              <li>Designed dual-path Lambda Architecture: Kinesis speed layer for real-time counters and SQS → S3 batch layer for historical SQL queries via Athena</li>
+              <li>Secured API access with Cognito JWT auth; entire stack provisioned via Terraform within AWS Free Tier</li>
+            </ul>
+          </div>
+          <div class="resume-entry">
+            <div class="resume-entry-header">
+              <span class="resume-entry-title">CSPM — Cloud Security Posture Management</span>
               <span class="resume-entry-date">2025</span>
             </div>
-            <div class="resume-entry-sub">Python · Boto3 · AWS IAM · S3</div>
+            <div class="resume-entry-sub">Python · Lambda · EventBridge · SNS · S3 · CloudWatch · Terraform · GitHub Actions</div>
             <ul class="resume-entry-desc">
-              <li>IAM escalation path detection, S3 misconfiguration scanning, CI-compatible risk-scored findings</li>
-            </ul>
-          </div>
-          <div class="resume-entry">
-            <div class="resume-entry-header">
-              <span class="resume-entry-title">AgriFuture India — Research Thesis</span>
-              <span class="resume-entry-date">2024–25</span>
-            </div>
-            <div class="resume-entry-sub">TLA+ · BFS Model Checker · Formal Verification · arXiv</div>
-            <ul class="resume-entry-desc">
-              <li>Formal verification of distributed marketplace correctness; novel finding on TAR atomic revocation; arXiv preprint</li>
+              <li>Automated security scanning against CIS Benchmark v1.5 (IAM, S3, EC2, CloudTrail) on hourly EventBridge schedule</li>
+              <li>Critical findings trigger SNS alerts in &lt; 5 seconds; safe violations auto-corrected; all findings logged to S3 for audit trail</li>
             </ul>
           </div>
         </div>
 
         <div class="resume-section fade-in">
-          <h3>Languages &amp; Exams</h3>
+          <h3>Technical Skills</h3>
           <div class="resume-entry">
-            <div class="resume-entry-header">
-              <span class="resume-entry-title">English · IELTS Academic</span>
-            </div>
-            <div class="resume-entry-sub">Target: 7.0–7.5 overall band</div>
+            <div class="resume-entry-header"><span class="resume-entry-title">Cloud &amp; Infrastructure</span></div>
+            <div class="resume-entry-sub">AWS (Lambda, EC2, VPC, IAM, S3, EKS, ECS, SQS, SNS, Kinesis, DynamoDB, Athena, CloudWatch, EventBridge, X-Ray, Glue, Cognito)</div>
           </div>
           <div class="resume-entry">
-            <div class="resume-entry-header">
-              <span class="resume-entry-title">GRE</span>
-            </div>
-            <div class="resume-entry-sub">Quant 170 · Verbal 155 · AWA 3.5+ (TU Darmstadt entrance exam waiver target)</div>
+            <div class="resume-entry-header"><span class="resume-entry-title">IaC &amp; DevOps</span></div>
+            <div class="resume-entry-sub">Terraform · AWS CDK · Docker · Kubernetes (EKS) · Helm · GitHub Actions · CI/CD · LocalStack</div>
           </div>
           <div class="resume-entry">
-            <div class="resume-entry-header">
-              <span class="resume-entry-title">Hindi — Native</span>
-            </div>
+            <div class="resume-entry-header"><span class="resume-entry-title">Languages</span></div>
+            <div class="resume-entry-sub">Python 3.11+ · TypeScript · JavaScript · SQL · Bash</div>
+          </div>
+          <div class="resume-entry">
+            <div class="resume-entry-header"><span class="resume-entry-title">Distributed Systems</span></div>
+            <div class="resume-entry-sub">SAGA Pattern · Circuit Breakers · Event Sourcing · Idempotency · Lambda Architecture · Eventual Consistency · Microservices</div>
+          </div>
+          <div class="resume-entry" style="border-bottom:none;margin-bottom:0;padding-bottom:0;">
+            <div class="resume-entry-header"><span class="resume-entry-title">Security &amp; Monitoring</span></div>
+            <div class="resume-entry-sub">CIS Benchmark · IAM Least Privilege · CSPM · Zero-Trust · CloudWatch · X-Ray Tracing · pytest · moto · Load Testing</div>
           </div>
         </div>
       </div>
@@ -249,7 +271,7 @@
             <div class="skill-tier-tags">
               <span class="skill-tier-tag tier-expert">AWS</span>
               <span class="skill-tier-tag tier-expert">Python</span>
-              <span class="skill-tier-tag tier-expert">Cloud Security</span>
+              <span class="skill-tier-tag tier-expert">Terraform</span>
             </div>
           </div>
 
@@ -259,18 +281,18 @@
               <span class="skill-tier-tag tier-proficient">Kubernetes</span>
               <span class="skill-tier-tag tier-proficient">Docker</span>
               <span class="skill-tier-tag tier-proficient">GitHub Actions</span>
-              <span class="skill-tier-tag tier-proficient">Formal Methods</span>
-              <span class="skill-tier-tag tier-proficient">FastAPI</span>
+              <span class="skill-tier-tag tier-proficient">AWS CDK</span>
+              <span class="skill-tier-tag tier-proficient">CI/CD</span>
             </div>
           </div>
 
           <div class="skill-tier-group" style="border-bottom:none;padding-bottom:0;">
             <div class="skill-tier-label">Familiar</div>
             <div class="skill-tier-tags">
-              <span class="skill-tier-tag tier-familiar">Terraform</span>
-              <span class="skill-tier-tag tier-familiar">TLA+</span>
-              <span class="skill-tier-tag tier-familiar">RAG / LLMs</span>
-              <span class="skill-tier-tag tier-familiar">Node.js</span>
+              <span class="skill-tier-tag tier-familiar">Helm</span>
+              <span class="skill-tier-tag tier-familiar">TypeScript</span>
+              <span class="skill-tier-tag tier-familiar">LocalStack</span>
+              <span class="skill-tier-tag tier-familiar">Prometheus</span>
             </div>
           </div>
         </div>
@@ -313,6 +335,7 @@
   <span><a href="index.html">← Home</a></span>
 </footer>
 
+<button class="scroll-top" id="scroll-top" aria-label="Scroll to top" title="Back to top">↑</button>
 <script src="shared.js"></script>
 </body>
 </html>

@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Projects — Utkarsh</title>
+<meta name="keywords" content="Cloud Engineer, DevOps Engineer, AWS, Terraform, Kubernetes, Docker, GitHub Actions, remote work, India, serverless, Python, infrastructure as code, CI/CD, cloud security, CSPM">
 <meta name="description" content="Cloud infrastructure, security tooling, formal verification research, and EdTech projects by Utkarsh.">
 <meta property="og:title" content="Projects — Utkarsh">
 <meta property="og:description" content="CloudPulse, CloudFlow, CSPM Tool, AgriFuture India, Trovia — cloud, security, and research projects.">
@@ -65,7 +66,25 @@
   }
 
   @media (max-width: 600px) { .pcf-detail-grid { grid-template-columns: 1fr; } }
+  .hire-me-link {
+    color: var(--accent) !important;
+    border: 1px solid rgba(57,255,133,.3);
+    padding: .2rem .65rem;
+    border-radius: 3px;
+    background: rgba(57,255,133,.06);
+    transition: background .2s, border-color .2s !important;
+  }
+  .hire-me-link:hover { background: rgba(57,255,133,.12) !important; border-color: rgba(57,255,133,.6) !important; }
 </style>
+<!-- Google Analytics -->
+<!-- Get your ID: analytics.google.com → Admin → Create Property → Web Stream -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DZ48W4D1EW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DZ48W4D1EW');
+</script>
 </head>
 <body>
 
@@ -74,9 +93,10 @@
   <ul class="nav-links">
     <li><a href="projects.html">Projects</a></li>
     <li><a href="resume.html">Resume</a></li>
-    <li><a href="contact.html">Contact</a></li>
+    <li><a href="contact.html" class="hire-me-link">Hire Me</a></li>
     <li><a href="https://github.com/UTKARSH698" target="_blank">GitHub ↗</a></li>
   </ul>
+  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme" title="Toggle light/dark">◑</button>
   <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
     <span></span><span></span><span></span>
   </button>
@@ -86,7 +106,7 @@
     <li><a href="index.html">Home</a></li>
     <li><a href="projects.html">Projects</a></li>
     <li><a href="resume.html">Resume</a></li>
-    <li><a href="contact.html">Contact</a></li>
+    <li><a href="contact.html" class="hire-me-link">Hire Me</a></li>
     <li><a href="https://github.com/UTKARSH698" target="_blank">GitHub ↗</a></li>
   </ul>
 </div>
@@ -95,7 +115,7 @@
   <div class="page-header fade-in">
     <div class="section-label">// projects</div>
     <h1 style="font-size:clamp(2rem,5vw,3.2rem);">Things I've Built</h1>
-    <p>Cloud infrastructure, security tooling, formal verification research, and EdTech — built during internship and university.</p>
+    <p>Production-grade AWS infrastructure, serverless systems, distributed architectures, and security automation — built during internship and independently.</p>
   </div>
 
   <section>
@@ -115,12 +135,12 @@
             <span class="project-name">CloudPulse</span>
             <span class="badge-live">Live</span>
           </div>
-          <div class="project-tech">AWS Lambda · DynamoDB · API Gateway · Kinesis · S3 · CloudWatch · 15 services</div>
+          <div class="project-tech">Python · Kinesis · S3 · Athena · DynamoDB · Terraform · React · Cognito · Glue</div>
         </div>
         <span class="pcf-toggle">+</span>
       </div>
       <div class="pcf-body">
-        <div class="project-desc">Serverless real-time analytics platform for processing high-volume event streams. Designed for scale from day one — no servers to manage, automatic bursting, pay-per-invocation cost model.</div>
+        <div class="project-desc">Dual-path Lambda Architecture for real-time analytics: Kinesis speed layer for per-minute counters and SQS → S3 batch layer for historical SQL queries via Athena. Entire stack provisioned via Terraform, runs within AWS Free Tier. Secured with Cognito JWT authentication.</div>
         <div class="pcf-detail-grid">
           <div>
             <div class="pcf-detail-label">Architecture</div>
@@ -146,12 +166,12 @@
             <span class="project-name">CloudFlow</span>
             <span class="badge-live">Live</span>
           </div>
-          <div class="project-tech">Kubernetes · SAGA Choreography · GitHub Actions CI/CD · Distributed Systems</div>
+          <div class="project-tech">Python · AWS Step Functions · Lambda · DynamoDB · SQS · CDK · LocalStack · X-Ray</div>
         </div>
         <span class="pcf-toggle">+</span>
       </div>
       <div class="pcf-body">
-        <div class="project-desc">Fault-tolerant distributed order processing system implementing the SAGA choreography pattern for managing long-lived, multi-step transactions across microservices without distributed locks.</div>
+        <div class="project-desc">Production-grade serverless order processing system using the SAGA choreography pattern. Coordinates reservation, payment, and confirmation across isolated Lambda functions without two-phase commit. Achieved 1,100+ req/min at 50 concurrent threads with P99 latency &lt; 120ms.</div>
         <div class="pcf-detail-grid">
           <div>
             <div class="pcf-detail-label">Design Pattern</div>
@@ -174,12 +194,12 @@
       <div class="pcf-top" onclick="toggleCard(this)">
         <div class="pcf-meta">
           <div class="project-header"><span class="project-name">CSPM Tool</span></div>
-          <div class="project-tech">Python · Boto3 · AWS IAM · S3 · Security Automation · Compliance</div>
+          <div class="project-tech">Python · Lambda · EventBridge · SNS · S3 · CloudWatch · Terraform · GitHub Actions</div>
         </div>
         <span class="pcf-toggle">+</span>
       </div>
       <div class="pcf-body">
-        <div class="project-desc">Cloud Security Posture Management tool that continuously scans AWS environments for IAM privilege escalation paths and S3 misconfiguration risks, generating actionable remediation playbooks.</div>
+        <div class="project-desc">Automated security scanning system checking AWS environments against CIS Benchmark v1.5 (IAM, S3, EC2, CloudTrail) on an hourly EventBridge schedule. Critical findings trigger SNS alerts in &lt; 5 seconds; safe violations are auto-corrected; all findings logged to S3 for audit trail.</div>
         <div class="pcf-detail-grid">
           <div>
             <div class="pcf-detail-label">What It Detects</div>
@@ -267,6 +287,7 @@
   <span><a href="index.html">← Home</a></span>
 </footer>
 
+<button class="scroll-top" id="scroll-top" aria-label="Scroll to top" title="Back to top">↑</button>
 <script src="shared.js"></script>
 <script>
   function toggleCard(header) {

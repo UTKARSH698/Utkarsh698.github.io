@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Syne:wght@700;800&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    width: 1200px;
+    height: 630px;
+    overflow: hidden;
+  }
+  body {
+    background: #0a0a0b;
+    font-family: 'JetBrains Mono', monospace;
+    position: relative;
+  }
+  /* dot grid */
+  body::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: radial-gradient(rgba(57,255,133,.15) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  /* green glow top-left */
+  body::after {
+    content: '';
+    position: absolute;
+    width: 700px; height: 500px;
+    background: radial-gradient(ellipse, rgba(57,255,133,.07) 0%, transparent 65%);
+    top: -150px; left: -150px;
+    pointer-events: none;
+  }
+  .wrap {
+    position: absolute;
+    inset: 48px;
+    background: rgba(14,14,16,.95);
+    border: 1px solid rgba(57,255,133,.2);
+    border-radius: 10px;
+    padding: 52px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  /* top row */
+  .top { display: flex; justify-content: space-between; align-items: flex-start; }
+  .left { flex: 1; }
+  .prompt {
+    font-size: 16px; color: #444;
+    margin-bottom: 20px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .prompt .dollar { color: #39ff85; font-size: 18px; }
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: 80px; font-weight: 800;
+    color: #ececec; line-height: .95;
+    letter-spacing: -.03em;
+    margin-bottom: 14px;
+  }
+  .subtitle {
+    font-family: 'Syne', sans-serif;
+    font-size: 26px; font-weight: 700;
+    color: #444; letter-spacing: -.01em;
+  }
+  /* avatar */
+  .avatar {
+    width: 88px; height: 88px;
+    border-radius: 50%;
+    border: 2px solid rgba(57,255,133,.35);
+    background: #18181c;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Syne', sans-serif;
+    font-size: 26px; font-weight: 800;
+    color: #39ff85;
+    box-shadow: 0 0 0 6px rgba(57,255,133,.05), 0 0 30px rgba(57,255,133,.08);
+    flex-shrink: 0;
+    margin-left: 40px;
+  }
+  /* tags row */
+  .tags {
+    display: flex; gap: 10px; flex-wrap: wrap;
+    margin-top: 28px;
+  }
+  .tag {
+    font-size: 13px; color: #555;
+    border: 1px solid rgba(255,255,255,.07);
+    padding: 6px 16px; border-radius: 4px;
+    background: rgba(255,255,255,.02);
+    letter-spacing: .03em;
+  }
+  .tag.h {
+    color: #39ff85;
+    border-color: rgba(57,255,133,.3);
+    background: rgba(57,255,133,.05);
+  }
+  /* bottom row */
+  .bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .badge {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 15px; color: #39ff85;
+    border: 1px solid rgba(57,255,133,.3);
+    padding: 10px 22px; border-radius: 100px;
+    background: rgba(57,255,133,.07);
+    letter-spacing: .02em;
+  }
+  .badge-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #39ff85;
+    box-shadow: 0 0 8px rgba(57,255,133,.8);
+  }
+  .url-block { text-align: right; }
+  .url-label { font-size: 11px; color: #333; margin-bottom: 4px; letter-spacing: .08em; text-transform: uppercase; }
+  .url-val { font-size: 15px; color: #555; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="top">
+    <div class="left">
+      <div class="prompt"><span class="dollar">$</span> whoami</div>
+      <h1>Utkarsh<br>Batham</h1>
+      <div class="subtitle">Cloud &amp; DevOps Engineer</div>
+      <div class="tags">
+        <span class="tag h">AWS</span>
+        <span class="tag h">Terraform</span>
+        <span class="tag h">Kubernetes</span>
+        <span class="tag h">Python</span>
+        <span class="tag">Docker</span>
+        <span class="tag">GitHub Actions</span>
+        <span class="tag">SAGA Pattern</span>
+        <span class="tag">CIS Benchmark</span>
+      </div>
+    </div>
+    <div class="avatar">UK</div>
+  </div>
+
+  <div class="bottom">
+    <div class="badge">
+      <span class="badge-dot"></span>
+      Available for remote roles — Jul 2026
+    </div>
+    <div class="url-block">
+      <div class="url-label">Portfolio</div>
+      <div class="url-val">utkarsh698.github.io</div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

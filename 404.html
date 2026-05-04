@@ -51,7 +51,25 @@
     margin-bottom: 2rem;
   }
   .terminal-line span { color: var(--accent); }
+  .hire-me-link {
+    color: var(--accent) !important;
+    border: 1px solid rgba(57,255,133,.3);
+    padding: .2rem .65rem;
+    border-radius: 3px;
+    background: rgba(57,255,133,.06);
+    transition: background .2s, border-color .2s !important;
+  }
+  .hire-me-link:hover { background: rgba(57,255,133,.12) !important; border-color: rgba(57,255,133,.6) !important; }
 </style>
+<!-- Google Analytics -->
+<!-- Get your ID: analytics.google.com → Admin → Create Property → Web Stream -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DZ48W4D1EW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DZ48W4D1EW');
+</script>
 </head>
 <body>
 <nav>
@@ -59,9 +77,10 @@
   <ul class="nav-links">
     <li><a href="projects.html">Projects</a></li>
     <li><a href="resume.html">Resume</a></li>
-    <li><a href="contact.html">Contact</a></li>
+    <li><a href="contact.html" class="hire-me-link">Hire Me</a></li>
     <li><a href="https://github.com/UTKARSH698" target="_blank">GitHub ↗</a></li>
   </ul>
+  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme" title="Toggle light/dark">◑</button>
   <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
     <span></span><span></span><span></span>
   </button>
@@ -71,7 +90,7 @@
     <li><a href="index.html">Home</a></li>
     <li><a href="projects.html">Projects</a></li>
     <li><a href="resume.html">Resume</a></li>
-    <li><a href="contact.html">Contact</a></li>
+    <li><a href="contact.html" class="hire-me-link">Hire Me</a></li>
     <li><a href="https://github.com/UTKARSH698" target="_blank">GitHub ↗</a></li>
   </ul>
 </div>
@@ -93,6 +112,7 @@
   </div>
 </main>
 
+<button class="scroll-top" id="scroll-top" aria-label="Scroll to top" title="Back to top">↑</button>
 <script src="shared.js"></script>
 <script>
   // Show the bad path in the terminal line

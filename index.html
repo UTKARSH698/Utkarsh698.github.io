@@ -3,15 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Utkarsh — Cloud & Security Engineer</title>
-<meta name="description" content="Final-year B.Tech CSE student specialising in Cloud Technology & IT Security. Building serverless systems, CSPM tooling, and formally-verified distributed architectures.">
-<meta property="og:title" content="Utkarsh — Cloud & Security Engineer">
-<meta property="og:description" content="Building cloud-native systems that scale. CGPA 9.35 · 15+ AWS services · TU Darmstadt applicant.">
+<title>Utkarsh Batham — Cloud & DevOps Engineer</title>
+<meta name="keywords" content="Cloud Engineer, DevOps Engineer, AWS, Terraform, Kubernetes, Docker, GitHub Actions, remote work, India, serverless, Python, infrastructure as code, CI/CD, cloud security, CSPM">
+<meta name="description" content="Cloud & DevOps Engineer available for remote work. Building production-grade AWS infrastructure, serverless pipelines, Kubernetes systems, and security automation.">
+<meta property="og:title" content="Utkarsh Batham — Cloud & DevOps Engineer">
+<meta property="og:description" content="Cloud & DevOps Engineer · AWS · Terraform · Kubernetes · Available immediately for remote roles.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://utkarsh.dev">
+<meta property="og:url" content="https://utkarsh698.github.io">
+<meta property="og:image" content="https://utkarsh698.github.io/og-image.png">
+<meta name="twitter:image" content="https://utkarsh698.github.io/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Utkarsh — Cloud & Security Engineer">
-<meta name="twitter:description" content="Building cloud-native systems that scale. CGPA 9.35 · 15+ AWS services · TU Darmstadt applicant.">
+<meta name="twitter:title" content="Utkarsh Batham — Cloud & DevOps Engineer">
+<meta name="twitter:description" content="Cloud & DevOps Engineer · AWS · Terraform · Kubernetes · Available immediately for remote roles.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 <link rel="stylesheet" href="style.css">
 <style>
@@ -77,6 +81,15 @@
     opacity: 1;
   }
   .view-all:hover { color: var(--accent); opacity: 1; }
+
+  .hp-metric {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--accent);
+    font-weight: 400;
+    opacity: .8;
+    margin-left: .5rem;
+  }
 
   /* NOW SECTION */
   .now-grid {
@@ -144,7 +157,28 @@
   @media (max-width: 600px) {
     .now-grid { grid-template-columns: 1fr; }
   }
+  .linkedin-btn { border-color: rgba(0,119,181,.4); color: #0077b5; }
+  .linkedin-btn:hover { border-color: #0077b5; color: #0077b5; opacity: 1; }
+
+  .hire-me-link {
+    color: var(--accent) !important;
+    border: 1px solid rgba(57,255,133,.3);
+    padding: .2rem .65rem;
+    border-radius: 3px;
+    background: rgba(57,255,133,.06);
+    transition: background .2s, border-color .2s !important;
+  }
+  .hire-me-link:hover { background: rgba(57,255,133,.12) !important; border-color: rgba(57,255,133,.6) !important; }
 </style>
+<!-- Google Analytics -->
+<!-- Get your ID: analytics.google.com → Admin → Create Property → Web Stream -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DZ48W4D1EW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DZ48W4D1EW');
+</script>
 </head>
 <body>
 
@@ -153,9 +187,10 @@
   <ul class="nav-links">
     <li><a href="projects.html">Projects</a></li>
     <li><a href="resume.html">Resume</a></li>
-    <li><a href="contact.html">Contact</a></li>
+    <li><a href="contact.html" class="hire-me-link">Hire Me</a></li>
     <li><a href="https://github.com/UTKARSH698" target="_blank">GitHub ↗</a></li>
   </ul>
+  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme" title="Toggle light/dark">◑</button>
   <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
     <span></span><span></span><span></span>
   </button>
@@ -165,7 +200,7 @@
     <li><a href="index.html">Home</a></li>
     <li><a href="projects.html">Projects</a></li>
     <li><a href="resume.html">Resume</a></li>
-    <li><a href="contact.html">Contact</a></li>
+    <li><a href="contact.html" class="hire-me-link">Hire Me</a></li>
     <li><a href="https://github.com/UTKARSH698" target="_blank">GitHub ↗</a></li>
   </ul>
 </div>
@@ -175,33 +210,34 @@
     <div class="hero-top">
       <div>
         <div class="hero-prompt" id="typed-prompt"></div>
-        <h1>Utkarsh,<br><span class="age">Cloud &amp; Security Engineer</span></h1>
+        <h1>Utkarsh,<br><span class="age">Cloud &amp; DevOps Engineer</span></h1>
       </div>
       <img src="my_photo.png" alt="Utkarsh" class="avatar" style="object-fit:cover;">
     </div>
 
     <p class="hero-desc">
-      Final-year B.Tech CSE student at ITM Vocational University with a
-      <strong>9.35 CGPA</strong>. Building cloud-native systems that scale —
-      obsessed with <strong>security, formal verification, and infrastructure</strong>
-      that doesn't break at 3 AM.<br><br>
-      Currently interning at <strong>TEJASKP AI SOFTWARE</strong> on cloud
-      engineering &amp; security. Targeting <strong>TU Darmstadt M.Sc. IT Security</strong>
-      — because the EU's regulatory security gap won't close itself.
+      Cloud &amp; DevOps Engineer with hands-on experience building
+      <strong>production-grade AWS infrastructure</strong>, serverless pipelines, and
+      security automation systems. Proficient in <strong>Terraform, Kubernetes, Docker,
+      and GitHub Actions CI/CD</strong>.<br><br>
+      Currently finishing a 6-month internship at <strong>TEJASKP AI SOFTWARE</strong>
+      — available for <strong>full-time remote roles from July 2026</strong>.
+      I build fault-tolerant distributed systems that scale and don't break at 3 AM.
     </p>
 
     <div class="hero-stats">
       <div class="stat"><span class="stat-value">9.35</span><span class="stat-label">CGPA</span></div>
       <div class="stat"><span class="stat-value">15+</span><span class="stat-label">AWS Services</span></div>
       <div class="stat"><span class="stat-value">5</span><span class="stat-label">Projects</span></div>
-      <div class="stat"><span class="stat-value">6mo</span><span class="stat-label">Cloud Internship</span></div>
+      <div class="stat"><span class="stat-value">Jul'26</span><span class="stat-label">Available</span></div>
     </div>
 
     <div class="hero-cta">
-      <span class="open-badge">Open to opportunities — Jun 2026</span>
-      <a href="contact.html" class="btn btn-primary">Let's talk →</a>
+      <span class="open-badge">Available for remote roles — Jul 2026</span>
+      <a href="contact.html" class="btn btn-primary">Hire Me →</a>
       <a href="resume.html" class="btn btn-ghost">Resume</a>
       <a href="https://github.com/UTKARSH698" target="_blank" class="btn btn-ghost">GitHub ↗</a>
+      <a href="https://www.linkedin.com/in/utkarsh-batham-531913247" target="_blank" class="btn btn-ghost linkedin-btn">in LinkedIn ↗</a>
     </div>
   </section>
 
@@ -210,23 +246,25 @@
     <h2>Tools I Work With</h2>
     <div class="tools-grid">
       <span class="tool-tag hot">AWS</span>
-      <span class="tool-tag hot">Kubernetes</span>
-      <span class="tool-tag hot">Python</span>
       <span class="tool-tag hot">Terraform</span>
-      <span class="tool-tag">Docker</span>
-      <span class="tool-tag">GitHub Actions</span>
+      <span class="tool-tag hot">Python</span>
+      <span class="tool-tag hot">Kubernetes</span>
+      <span class="tool-tag hot">Docker</span>
+      <span class="tool-tag hot">GitHub Actions</span>
+      <span class="tool-tag">AWS CDK</span>
       <span class="tool-tag">Lambda</span>
+      <span class="tool-tag">Kinesis</span>
       <span class="tool-tag">DynamoDB</span>
-      <span class="tool-tag">IAM / S3</span>
+      <span class="tool-tag">S3 / Athena</span>
+      <span class="tool-tag">EventBridge</span>
+      <span class="tool-tag">IAM / SNS / SQS</span>
       <span class="tool-tag">CloudWatch</span>
-      <span class="tool-tag">TLA+</span>
-      <span class="tool-tag">PostgreSQL</span>
-      <span class="tool-tag">FastAPI</span>
+      <span class="tool-tag">X-Ray</span>
+      <span class="tool-tag">LocalStack</span>
+      <span class="tool-tag">Helm</span>
+      <span class="tool-tag">CI/CD</span>
       <span class="tool-tag">SAGA Pattern</span>
-      <span class="tool-tag">BFS Model Checking</span>
-      <span class="tool-tag">RAG / LLMs</span>
-      <span class="tool-tag">Linux</span>
-      <span class="tool-tag">Node.js</span>
+      <span class="tool-tag">Linux / Bash</span>
     </div>
   </section>
 
@@ -235,57 +273,52 @@
     <h2>Selected Work</h2>
 
     <div class="home-projects">
-      <a href="projects.html#cloudpulse" class="home-project">
+      <a href="projects.html#cloudflow" class="home-project">
         <div class="hp-left">
-          <span class="hp-badge badge-live">Live</span>
           <div class="hp-info">
-            <div class="hp-name">CloudPulse</div>
-            <div class="hp-tech">AWS Lambda · DynamoDB · Kinesis · 15 services</div>
+            <div class="hp-name">CloudFlow <span class="hp-metric">1,100+ req/min · P99 &lt;120ms</span></div>
+            <div class="hp-tech">Python · Step Functions · Lambda · DynamoDB · SQS · CDK · X-Ray</div>
           </div>
         </div>
         <span class="hp-arrow">→</span>
       </a>
-      <a href="projects.html#cloudflow" class="home-project">
+      <a href="projects.html#cloudpulse" class="home-project">
         <div class="hp-left">
-          <span class="hp-badge badge-live">Live</span>
           <div class="hp-info">
-            <div class="hp-name">CloudFlow</div>
-            <div class="hp-tech">Kubernetes · SAGA Pattern · GitHub Actions</div>
+            <div class="hp-name">CloudPulse <span class="hp-metric">Dual-path Lambda Architecture</span></div>
+            <div class="hp-tech">Python · Kinesis · S3 · Athena · Terraform · React · Cognito</div>
           </div>
         </div>
         <span class="hp-arrow">→</span>
       </a>
       <a href="projects.html#cspm" class="home-project">
         <div class="hp-left">
-          <span class="hp-badge" style="width:3.2rem;"></span>
           <div class="hp-info">
-            <div class="hp-name">CSPM Tool</div>
-            <div class="hp-tech">Python · AWS IAM · Security Automation · Boto3</div>
+            <div class="hp-name">CSPM Tool <span class="hp-metric">CIS Benchmark v1.5 · alerts &lt;5s</span></div>
+            <div class="hp-tech">Python · Lambda · EventBridge · SNS · Terraform · GitHub Actions</div>
           </div>
         </div>
         <span class="hp-arrow">→</span>
       </a>
       <a href="projects.html#agrifuture" class="home-project">
         <div class="hp-left">
-          <span class="hp-badge badge-research">Research</span>
           <div class="hp-info">
-            <div class="hp-name">AgriFuture India</div>
-            <div class="hp-tech">TLA+ · BFS Model Checker · arXiv preprint</div>
+            <div class="hp-name">AgriFuture India <span class="hp-metric">Research · arXiv</span></div>
+            <div class="hp-tech">Formal Verification · TLA+ · BFS Model Checker · Python</div>
+          </div>
+        </div>
+        <span class="hp-arrow">→</span>
+      </a>
+      <a href="projects.html#wikisearch" class="home-project">
+        <div class="hp-left">
+          <div class="hp-info">
+            <div class="hp-name">Wikipedia Smart Search</div>
+            <div class="hp-tech">Python · RAG · Vector Search · Embeddings · LLMs</div>
           </div>
         </div>
         <span class="hp-arrow">→</span>
       </a>
     </div>
-      <a href="projects.html#wikisearch" class="home-project">
-        <div class="hp-left">
-          <span class="hp-badge" style="width:3.2rem;"></span>
-          <div class="hp-info">
-            <div class="hp-name">Wikipedia Smart Search</div>
-            <div class="hp-tech">RAG · Vector Search · Embeddings · LLMs</div>
-          </div>
-        </div>
-        <span class="hp-arrow">→</span>
-      </a>
     <a href="projects.html" class="view-all">View all projects →</a>
   </section>
 
@@ -307,19 +340,19 @@
       <div class="now-card">
         <div class="now-card-top">
           <span class="now-dot dot-active"></span>
-          <span class="now-category">Studying</span>
+          <span class="now-category">Open to work</span>
         </div>
-        <div class="now-title">GRE Prep — targeting Quant 170, Verbal 155+</div>
-        <div class="now-desc">Structured vocabulary clusters and timed quant drills daily. GRE score needed to waive TU Darmstadt's entrance exam requirement. Exam in ~2 weeks.</div>
+        <div class="now-title">Actively applying for remote cloud / DevOps roles</div>
+        <div class="now-desc">Looking for full-time remote positions in cloud engineering, DevOps, or infrastructure. Available from July 2026. Open to US, EU, and global remote opportunities.</div>
       </div>
 
       <div class="now-card">
         <div class="now-card-top">
           <span class="now-dot dot-active"></span>
-          <span class="now-category">Applying</span>
+          <span class="now-category">Studying</span>
         </div>
-        <div class="now-title">TU Darmstadt M.Sc. IT Security — Winter 2026/27</div>
-        <div class="now-desc">Application package complete: CV, SOP, 3 LORs, APS certificate in progress. Portal opens June 1, physical documents deadline July 15. IELTS retake score pending.</div>
+        <div class="now-title">AWS SAA-C03 certification prep</div>
+        <div class="now-desc">Actively preparing for Solutions Architect Associate. First step in the SAA-C03 → CKA → Terraform Associate path. Exam scheduled for July 2026.</div>
       </div>
 
       <div class="now-card">
@@ -327,17 +360,8 @@
           <span class="now-dot dot-idle"></span>
           <span class="now-category">Reading</span>
         </div>
-        <div class="now-title">Security architecture + EU regulatory landscape</div>
-        <div class="now-desc">Focused on NIS2 Directive, GDPR enforcement gaps, and zero-trust architecture patterns — the intersection where cloud engineering meets IT security policy.</div>
-      </div>
-
-      <div class="now-card">
-        <div class="now-card-top">
-          <span class="now-dot dot-idle"></span>
-          <span class="now-category">Building</span>
-        </div>
-        <div class="now-title">Trovia — remote internship platform for Indian students</div>
-        <div class="now-desc">EdTech side project targeting Gujarat Tier-2/3 colleges. QR-verified certificates, ₹999/student model. Building the admin dashboard and certificate pipeline.</div>
+        <div class="now-title">Distributed systems design + cloud security patterns</div>
+        <div class="now-desc">Focused on CIS Benchmark hardening, zero-trust architecture, and production-grade resilience patterns — circuit breakers, idempotency, saga choreography.</div>
       </div>
 
       <div class="now-card">
@@ -345,20 +369,54 @@
           <span class="now-dot dot-soon"></span>
           <span class="now-category">Next</span>
         </div>
-        <div class="now-title">AWS SAA-C03 certification</div>
-        <div class="now-desc">Scheduled after internship ends in July. First step in the SAA-C03 → CKA → Terraform Associate certification path. Study materials ready.</div>
+        <div class="now-title">Certified Kubernetes Administrator (CKA)</div>
+        <div class="now-desc">After SAA-C03. Already working with Kubernetes daily during internship — CKA formalises that experience with a vendor-recognised credential.</div>
       </div>
 
     </div>
     <div class="now-updated">Last updated: May 2026</div>
   </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="fade-in" id="testimonials">
+    <div class="section-label">// testimonials</div>
+    <h2>What People Say</h2>
+    <div class="testimonials-grid">
+
+      <div class="testimonial-card">
+        <div class="testimonial-text">
+          Add a quote from your internship manager at TEJASKP here — even one sentence about your work on CloudPulse, CloudFlow, or CSPM will carry significant weight with recruiters.
+        </div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">TK</div>
+          <div>
+            <div class="testimonial-name">Manager, TEJASKP AI SOFTWARE</div>
+            <div class="testimonial-role">Cloud Engineering Internship · 2026</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card testimonial-pending">
+        <div class="tp-icon">✉</div>
+        <div class="tp-text">LOR from professor or academic supervisor<br>coming next week</div>
+      </div>
+
+      <div class="testimonial-card testimonial-pending">
+        <div class="tp-icon">✉</div>
+        <div class="tp-text">Second LOR or peer recommendation<br>coming next week</div>
+      </div>
+
+    </div>
+  </section>
+
 </main>
 
 <footer>
   <span>© 2026 — Utkarsh · Built with obsession</span>
-  <span>Gujarat, India → Darmstadt, Germany</span>
+  <span>Gujarat, India · Remote-Ready 🌍 · <a href="sitemap.xml" style="color:var(--muted);">Sitemap</a></span>
 </footer>
 
+<button class="scroll-top" id="scroll-top" aria-label="Scroll to top" title="Back to top">↑</button>
 <script src="shared.js"></script>
 <script>
   const el = document.getElementById('typed-prompt');

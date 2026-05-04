@@ -3,121 +3,80 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>404 — Utkarsh</title>
+<title>404 — Utkarsh Batham</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 <link rel="stylesheet" href="style.css">
-<style>
-  .error-page {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 2rem;
-  }
-  .error-code {
-    font-family: var(--mono);
-    font-size: clamp(5rem, 20vw, 10rem);
-    font-weight: 300;
-    color: var(--border2);
-    line-height: 1;
-    letter-spacing: -.04em;
-    margin-bottom: 1rem;
-    position: relative;
-  }
-  .error-code::after {
-    content: '404';
-    position: absolute;
-    inset: 0;
-    color: var(--accent);
-    clip-path: polygon(0 45%, 100% 45%, 100% 55%, 0 55%);
-    animation: glitch 3s infinite;
-  }
-  @keyframes glitch {
-    0%,90%,100% { transform: none; opacity: 1; }
-    92% { transform: translateX(-4px); opacity: .8; }
-    94% { transform: translateX(4px); opacity: .8; }
-    96% { transform: translateX(-2px); }
-    98% { transform: none; }
-  }
-  .error-msg { font-size: 13px; color: var(--muted); margin-bottom: 2.5rem; line-height: 1.8; max-width: 360px; }
-  .error-msg strong { color: var(--text); font-weight: 400; }
-  .error-links { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
-  .terminal-line {
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--muted);
-    margin-bottom: 2rem;
-  }
-  .terminal-line span { color: var(--accent); }
-  .hire-me-link {
-    color: var(--accent) !important;
-    border: 1px solid rgba(57,255,133,.3);
-    padding: .2rem .65rem;
-    border-radius: 3px;
-    background: rgba(57,255,133,.06);
-    transition: background .2s, border-color .2s !important;
-  }
-  .hire-me-link:hover { background: rgba(57,255,133,.12) !important; border-color: rgba(57,255,133,.6) !important; }
-</style>
-<!-- Google Analytics -->
-<!-- Get your ID: analytics.google.com → Admin → Create Property → Web Stream -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-DZ48W4D1EW"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-DZ48W4D1EW');
-</script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-DZ48W4D1EW');</script>
+<style>
+.err-page{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem}
+.err-num{
+  font-family:var(--sans);
+  font-size:clamp(7rem,28vw,16rem);
+  font-weight:800;line-height:1;letter-spacing:-.06em;
+  color:var(--ink3);position:relative;user-select:none;margin-bottom:.75rem;
+}
+.err-num::after{
+  content:'404';position:absolute;inset:0;
+  color:var(--g);
+  clip-path:polygon(0 42%,100% 42%,100% 58%,0 58%);
+  animation:glitch 3.5s infinite;
+}
+@keyframes glitch{
+  0%,86%,100%{transform:none;opacity:1}
+  88%{transform:translateX(-8px) skewX(-3deg);opacity:.85}
+  91%{transform:translateX(8px) skewX(2deg)}
+  94%{transform:translateX(-4px)}
+  97%{transform:none;opacity:.9}
+}
+.err-mono{font-size:.72rem;color:var(--muted);margin-bottom:2rem;font-family:var(--mono)}
+.err-mono span{color:var(--g)}
+.err-msg{font-size:.88rem;color:var(--muted);margin-bottom:2.5rem;line-height:1.8;max-width:360px}
+.err-msg strong{color:var(--text);font-weight:400}
+.err-btns{display:flex;gap:.65rem;flex-wrap:wrap;justify-content:center}
+</style>
 </head>
 <body>
-<nav>
-  <a href="index.html" class="nav-logo"><span>~/</span>utkarsh<span>.dev</span></a>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo"><span class="d">~/</span>utkarsh<span class="d">.dev</span><span class="cursor-blink"></span></a>
   <ul class="nav-links">
     <li><a href="projects.html">Projects</a></li>
+    <li><a href="notes.html">Build Log</a></li>
     <li><a href="resume.html">Resume</a></li>
-    <li><a href="contact.html" class="hire-me-link">Hire Me</a></li>
-    <li><a href="https://github.com/UTKARSH698" target="_blank">GitHub ↗</a></li>
+    <li><a href="contact.html" class="hire">Hire Me</a></li>
   </ul>
-  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme" title="Toggle light/dark">◑</button>
-  <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
-    <span></span><span></span><span></span>
-  </button>
+  <div class="nav-r">
+    <button class="nav-icon" id="theme-btn">◑</button>
+    <button class="nav-icon ham" id="ham"><span></span><span></span><span></span></button>
+  </div>
 </nav>
-<div class="nav-drawer" id="nav-drawer">
+<div class="nav-drawer" id="nav-drawer" style="display:none">
   <ul>
     <li><a href="index.html">Home</a></li>
     <li><a href="projects.html">Projects</a></li>
-    <li><a href="resume.html">Resume</a></li>
-    <li><a href="contact.html" class="hire-me-link">Hire Me</a></li>
-    <li><a href="https://github.com/UTKARSH698" target="_blank">GitHub ↗</a></li>
+    <li><a href="notes.html">Build Log</a></li>
+    <li><a href="contact.html">Hire Me</a></li>
   </ul>
 </div>
 
 <main>
-  <div class="error-page">
-    <div class="error-code">404</div>
-    <div class="terminal-line">$ find <span id="path-display">/page</span> — <span>not found</span></div>
-    <p class="error-msg">
-      This page doesn't exist — or it got<br>
-      <strong>deleted, moved, or never deployed.</strong><br>
-      Either way, the route returned nothing.
-    </p>
-    <div class="error-links">
-      <a href="index.html" class="btn btn-primary">← Go Home</a>
-      <a href="projects.html" class="btn btn-ghost">View Projects</a>
-      <a href="contact.html" class="btn btn-ghost">Contact</a>
+  <div class="err-page">
+    <div class="err-num">404</div>
+    <p class="err-mono">$ curl <span id="bad-path">https://utkarsh698.github.io/???</span> → <span>404 Not Found</span></p>
+    <p class="err-msg">Route doesn't exist — or it got <strong>deleted, moved, or never deployed.</strong><br>The infrastructure returned nothing.</p>
+    <div class="err-btns">
+      <a href="index.html" class="btn btn-p">← Home</a>
+      <a href="projects.html" class="btn btn-o">Projects</a>
+      <a href="contact.html" class="btn btn-o">Hire Me</a>
     </div>
   </div>
 </main>
 
-<button class="scroll-top" id="scroll-top" aria-label="Scroll to top" title="Back to top">↑</button>
 <script src="shared.js"></script>
 <script>
-  // Show the bad path in the terminal line
-  const p = document.getElementById('path-display');
-  if (p) p.textContent = location.pathname || '/???';
+  const p=document.getElementById('bad-path');
+  if(p)p.textContent='https://utkarsh698.github.io'+(location.pathname||'/???');
 </script>
 </body>
 </html>

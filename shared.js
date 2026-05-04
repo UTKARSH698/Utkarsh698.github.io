@@ -1,110 +1,94 @@
-// shared.js v3
+// shared.js — V3
+(function(){
 
-(function () {
-
-  // ── Active nav link ──────────────────────────────────────────
-  const page = location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav-links a, .nav-drawer a').forEach(a => {
-    const href = (a.getAttribute('href') || '').split('/').pop();
-    if (href === page) a.classList.add('active');
+  // Active nav
+  const pg = location.pathname.split('/').pop()||'index.html';
+  document.querySelectorAll('.nav-links a,.nav-drawer a').forEach(a=>{
+    if((a.getAttribute('href')||'').split('/').pop()===pg) a.classList.add('active');
   });
 
-  // ── Mobile hamburger ─────────────────────────────────────────
-  const toggle = document.getElementById('nav-toggle');
-  const drawer = document.getElementById('nav-drawer');
-  if (toggle && drawer) {
-    toggle.addEventListener('click', () => {
-      const open = toggle.classList.toggle('open');
-      drawer.classList.toggle('open', open);
-      document.body.style.overflow = open ? 'hidden' : '';
-    });
-    drawer.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
-        toggle.classList.remove('open');
-        drawer.classList.remove('open');
-        document.body.style.overflow = '';
-      });
-    });
-    document.addEventListener('click', e => {
-      if (!toggle.contains(e.target) && !drawer.contains(e.target)) {
-        toggle.classList.remove('open');
-        drawer.classList.remove('open');
-        document.body.style.overflow = '';
-      }
+  // Hamburger
+  const ham=document.getElementById('ham');
+  const drawer=document.getElementById('nav-drawer');
+  if(ham&&drawer){
+    const tog=open=>{
+      ham.classList.toggle('open',open);
+      drawer.classList.toggle('open',open);
+      drawer.style.display=open?'block':'none';
+      document.body.style.overflow=open?'hidden':'';
+    };
+    ham.addEventListener('click',()=>tog(!ham.classList.contains('open')));
+    drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>tog(false)));
+    document.addEventListener('click',e=>{
+      if(!ham.contains(e.target)&&!drawer.contains(e.target)) tog(false);
     });
   }
 
-  // ── Page transitions ─────────────────────────────────────────
+  // Page transitions
   document.body.classList.add('page-enter');
-  document.addEventListener('click', e => {
-    const link = e.target.closest('a');
-    if (!link) return;
-    const href = link.getAttribute('href');
-    if (!href || href.startsWith('#') || href.startsWith('mailto:') ||
-        href.startsWith('tel:') || href.startsWith('http') ||
-        link.target === '_blank') return;
+  document.addEventListener('click',e=>{
+    const lnk=e.target.closest('a');
+    if(!lnk) return;
+    const h=lnk.getAttribute('href')||'';
+    if(!h||h.startsWith('#')||h.startsWith('mailto:')||h.startsWith('tel:')||h.startsWith('http')||lnk.target==='_blank') return;
     e.preventDefault();
     document.body.classList.add('page-exit');
-    setTimeout(() => { window.location.href = href; }, 180);
+    setTimeout(()=>location.href=h,200);
   });
 
-  // ── Scroll-triggered fade-in ─────────────────────────────────
-  const fadeObserver = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.07 });
-  document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
+  // Scroll fade-in
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+  },{threshold:.05});
+  document.querySelectorAll('.fade').forEach(el=>io.observe(el));
 
-  // ── Skill bar animations ──────────────────────────────────────
-  const barObserver = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        const fill = e.target.querySelector('.skill-bar-fill');
-        if (fill) fill.style.width = fill.dataset.pct + '%';
-      }
-    });
-  }, { threshold: 0.3 });
-  document.querySelectorAll('.skill-bar-wrap').forEach(el => barObserver.observe(el));
+  // Scroll top
+  const top=document.getElementById('scroll-top');
+  if(top){
+    addEventListener('scroll',()=>top.classList.toggle('vis',scrollY>500),{passive:true});
+    top.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
+  }
 
-  // ── Scroll to top button ──────────────────────────────────────
-  const scrollBtn = document.getElementById('scroll-top');
-  if (scrollBtn) {
-    window.addEventListener('scroll', () => {
-      scrollBtn.classList.toggle('visible', window.scrollY > 400);
-    }, { passive: true });
-    scrollBtn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+  // Theme
+  const tb=document.getElementById('theme-btn');
+  const root=document.documentElement;
+  if(localStorage.getItem('theme')==='light'){root.classList.add('light');if(tb)tb.textContent='☀';}
+  if(tb){
+    tb.addEventListener('click',()=>{
+      const l=root.classList.toggle('light');
+      tb.textContent=l?'☀':'◑';
+      localStorage.setItem('theme',l?'light':'dark');
     });
   }
 
-  // ── Dark / Light theme toggle ─────────────────────────────────
-  const themeBtn = document.getElementById('theme-toggle');
-  const root = document.documentElement;
-  const saved = localStorage.getItem('theme');
-  if (saved === 'light') {
-    root.classList.add('light');
-    if (themeBtn) themeBtn.textContent = '☀';
-  }
-  if (themeBtn) {
-    themeBtn.addEventListener('click', () => {
-      const isLight = root.classList.toggle('light');
-      themeBtn.textContent = isLight ? '☀' : '◑';
-      localStorage.setItem('theme', isLight ? 'light' : 'dark');
-    });
-  }
-
-  // ── Copy email button ─────────────────────────────────────────
-  window.copyEmail = function(btn) {
-    navigator.clipboard.writeText('udaydeepak1928@gmail.com').then(() => {
-      btn.textContent = 'Copied!';
-      btn.classList.add('copied');
-      setTimeout(() => {
-        btn.textContent = 'Copy';
-        btn.classList.remove('copied');
-      }, 2000);
+  // Copy email
+  window.copyEmail=btn=>{
+    navigator.clipboard.writeText('udaydeepak1928@gmail.com').then(()=>{
+      const o=btn.textContent;
+      btn.textContent='Copied!';btn.classList.add('ok');
+      setTimeout(()=>{btn.textContent=o;btn.classList.remove('ok');},2000);
     });
   };
 
-  // ── Print resume ──────────────────────────────────────────────
-  window.printResume = function () { window.print(); };
+  // Number counter animation
+  window.animateCount=(el,target,duration=1400)=>{
+    const start=performance.now();
+    const update=now=>{
+      const p=Math.min((now-start)/duration,1);
+      const ease=1-Math.pow(1-p,3);
+      el.textContent=Math.round(ease*target).toLocaleString();
+      if(p<1) requestAnimationFrame(update);
+    };
+    requestAnimationFrame(update);
+  };
+
+  // Trigger counters when visible
+  document.querySelectorAll('[data-count]').forEach(el=>{
+    const target=parseInt(el.dataset.count);
+    const cio=new IntersectionObserver(entries=>{
+      if(entries[0].isIntersecting){animateCount(el,target);cio.disconnect();}
+    },{threshold:.3});
+    cio.observe(el);
+  });
 
 })();

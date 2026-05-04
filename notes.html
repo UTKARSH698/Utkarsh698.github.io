@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Build Log — Utkarsh Batham</title>
+<meta name="description" content="Engineering notes, build logs, and technical write-ups by Utkarsh Batham. Cloud infrastructure, distributed systems, platform engineering, security automation.">
+<meta property="og:title" content="Build Log — Utkarsh Batham">
+<meta property="og:image" content="https://utkarsh698.github.io/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<link rel="stylesheet" href="style.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DZ48W4D1EW"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-DZ48W4D1EW');</script>
+<style>
+.page-hero {
+  padding: calc(var(--nav-h) + 4.5rem) 0 3rem;
+  border-bottom: 1px solid var(--line);
+}
+.page-hero h1 {
+  font-family: var(--sans);
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 800; letter-spacing: -.04em;
+  color: var(--bright); line-height: .92;
+  margin-bottom: 1rem;
+}
+.page-hero p { font-size: .85rem; color: var(--muted); max-width: 480px; line-height: 1.8; }
+
+/* Status bar */
+.log-status {
+  display: flex; align-items: center; gap: 1.5rem;
+  padding: .85rem 1.25rem;
+  background: var(--ink2); border: 1px solid var(--line);
+  border-radius: 5px; margin: 2rem 0;
+  font-size: .68rem; flex-wrap: wrap;
+}
+.ls-item { display:flex; align-items:center; gap:.45rem; color:var(--muted); }
+.ls-dot { width:5px;height:5px;border-radius:50%;background:var(--g); }
+.ls-dot.idle { background:var(--g2); }
+
+/* Tag filter */
+.tag-bar { display:flex; gap:.4rem; flex-wrap:wrap; margin-bottom:2.5rem; padding-top:1.5rem; }
+.tb {
+  font-family:var(--mono); font-size:.62rem;
+  padding:.22rem .65rem; border:1px solid var(--line);
+  background:transparent; color:var(--muted);
+  border-radius:3px; cursor:pointer;
+  transition:all .15s; letter-spacing:.05em; text-transform:uppercase;
+}
+.tb:hover{border-color:var(--line2);color:var(--text)}
+.tb.on{border-color:var(--g);color:var(--g);background:var(--glow2)}
+
+/* Note cards */
+.notes-grid { display:flex; flex-direction:column; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:6px; overflow:hidden; margin-bottom:3rem; }
+
+.note-card {
+  background: var(--ink);
+  display: grid;
+  grid-template-columns: 120px 1fr auto;
+  gap: 1.5rem;
+  padding: 1.4rem 1.75rem;
+  transition: background .15s;
+  cursor: pointer;
+  position: relative;
+}
+.note-card::before {
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: 0; transition: width .2s var(--e);
+}
+.note-card.cloud::before { background: var(--g); }
+.note-card.security::before { background: var(--g3); }
+.note-card.devops::before { background: var(--g2); }
+.note-card.research::before { background: #a78bfa; }
+.note-card:hover { background: var(--ink2); }
+.note-card:hover::before { width: 2px; }
+
+.nc-meta { padding-top: .15rem; }
+.nc-date { font-size: .62rem; color: var(--muted); margin-bottom: .35rem; }
+.nc-reading { font-size: .58rem; color: var(--dust); display: flex; align-items: center; gap: .3rem; }
+
+.nc-body {}
+.nc-title { font-family: var(--sans); font-size: .95rem; font-weight: 600; color: var(--bright); margin-bottom: .4rem; line-height: 1.3; }
+.nc-excerpt { font-size: .72rem; color: var(--muted); line-height: 1.75; }
+.nc-tags { display:flex; gap:.35rem; margin-top: .65rem; flex-wrap:wrap; }
+
+.nc-arrow { color: var(--dust); font-size: .8rem; align-self: center; transition: color .15s; }
+.note-card:hover .nc-arrow { color: var(--g); }
+
+/* Coming soon notes */
+.note-card.placeholder { opacity: .55; cursor: default; }
+.note-card.placeholder:hover { background: var(--ink); }
+.note-card.placeholder::before { display: none; }
+.nc-wip { font-size: .58rem; color: var(--stone); border: 1px dashed var(--dust); padding: .15rem .45rem; border-radius: 3px; margin-left: .5rem; display: inline-block; vertical-align: middle; }
+
+/* Currently writing section */
+.writing-now {
+  background: var(--ink2); border: 1px solid var(--line);
+  border-radius: 6px; padding: 1.5rem;
+  margin-bottom: 3rem;
+}
+.wn-title { font-size:.6rem; color:var(--g); text-transform:uppercase; letter-spacing:.15em; margin-bottom:1rem; display:flex; align-items:center; gap:.5rem; }
+.wn-title::after { content: ''; flex:1; height:1px; background:var(--line); }
+.wn-items { display:flex; flex-direction:column; gap:.65rem; }
+.wn-item { display:flex; align-items:center; gap:.85rem; font-size:.78rem; }
+.wn-status { width:6px; height:6px; border-radius:50%; flex-shrink:0; }
+.wn-name { color: var(--text); flex: 1; }
+.wn-pct { font-size:.65rem; color:var(--muted); font-family:var(--mono); }
+.wn-bar { flex:0 0 80px; height:3px; background:var(--ink4); border-radius:2px; overflow:hidden; }
+.wn-fill { height:100%; background:var(--g); border-radius:2px; }
+
+@media(max-width:700px){
+  .note-card{grid-template-columns:1fr}
+  .nc-arrow{display:none}
+  .nc-meta{display:flex;gap:.75rem;align-items:center}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo"><span class="d">~/</span>utkarsh<span class="d">.dev</span><span class="cursor-blink"></span></a>
+  <ul class="nav-links">
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="notes.html">Build Log</a></li>
+    <li><a href="resume.html">Resume</a></li>
+    <li><a href="https://github.com/UTKARSH698" target="_blank">GitHub ↗</a></li>
+    <li><a href="contact.html" class="hire">Hire Me</a></li>
+  </ul>
+  <div class="nav-r">
+    <button class="nav-icon" id="theme-btn">◑</button>
+    <button class="nav-icon ham" id="ham"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav-drawer" id="nav-drawer" style="display:none">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="notes.html">Build Log</a></li>
+    <li><a href="resume.html">Resume</a></li>
+    <li><a href="contact.html">Hire Me</a></li>
+  </ul>
+</div>
+
+<main>
+<div class="wrap">
+
+  <div class="page-hero fade">
+    <p class="eyebrow">// build log</p>
+    <h1>Engineering Notes</h1>
+    <p>Things I've learned building distributed systems, debugging production failures, and figuring out what CIS Benchmark controls actually mean in practice.</p>
+  </div>
+
+  <div class="log-status fade">
+    <div class="ls-item"><span class="ls-dot"></span> 3 published</div>
+    <div class="ls-item"><span class="ls-dot idle"></span> 3 in progress</div>
+    <div class="ls-item" style="color:var(--dust)">Last post: May 2026</div>
+    <div class="ls-item" style="margin-left:auto;color:var(--dust);font-size:.6rem">Updated as I build and learn</div>
+  </div>
+
+  <!-- Currently writing -->
+  <div class="writing-now fade">
+    <div class="wn-title">Currently writing</div>
+    <div class="wn-items">
+      <div class="wn-item">
+        <span class="wn-status" style="background:var(--g)"></span>
+        <span class="wn-name">Kubernetes resource limits — what happens when you get them wrong</span>
+        <div class="wn-bar"><div class="wn-fill" style="width:75%"></div></div>
+        <span class="wn-pct">75%</span>
+      </div>
+      <div class="wn-item">
+        <span class="wn-status" style="background:var(--g2)"></span>
+        <span class="wn-name">EventBridge vs CloudWatch Events — the differences that matter</span>
+        <div class="wn-bar"><div class="wn-fill" style="width:40%;background:var(--g2)"></div></div>
+        <span class="wn-pct">40%</span>
+      </div>
+      <div class="wn-item">
+        <span class="wn-status" style="background:var(--dust)"></span>
+        <span class="wn-name">Idempotency in Lambda — patterns and when each breaks</span>
+        <div class="wn-bar"><div class="wn-fill" style="width:15%;background:var(--dust)"></div></div>
+        <span class="wn-pct">15%</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="tag-bar">
+    <button class="tb on" data-t="all">All</button>
+    <button class="tb" data-t="cloud">Cloud</button>
+    <button class="tb" data-t="security">Security</button>
+    <button class="tb" data-t="devops">DevOps</button>
+    <button class="tb" data-t="research">Research</button>
+  </div>
+
+  <div class="notes-grid fade">
+
+    <!-- Published -->
+    <div class="note-card cloud" data-tag="cloud">
+      <div class="nc-meta">
+        <div class="nc-date">May 2026</div>
+        <div class="nc-reading">⏱ 6 min read</div>
+      </div>
+      <div class="nc-body">
+        <div class="nc-title">Why SAGA choreography beats orchestration for microservices</div>
+        <p class="nc-excerpt">Built CloudFlow using choreography — each service reacts to events independently. No central brain. Here's what I learned about failure modes, compensating transactions, and idempotency under load at 1,100+ req/min.</p>
+        <div class="nc-tags">
+          <span class="tag g">Cloud</span>
+          <span class="tag">Distributed Systems</span>
+          <span class="tag">SAGA</span>
+        </div>
+      </div>
+      <span class="nc-arrow">→</span>
+    </div>
+
+    <div class="note-card security" data-tag="security">
+      <div class="nc-meta">
+        <div class="nc-date">Apr 2026</div>
+        <div class="nc-reading">⏱ 8 min read</div>
+      </div>
+      <div class="nc-body">
+        <div class="nc-title">CIS Benchmark v1.5 — what actually matters in the IAM section</div>
+        <p class="nc-excerpt">After building a CSPM tool that scans against CIS controls, here's what I found: most teams fail the same 4 IAM checks. The fixes are straightforward. The organisational politics around implementing them are not.</p>
+        <div class="nc-tags">
+          <span class="tag r">Security</span>
+          <span class="tag">IAM</span>
+          <span class="tag">CIS</span>
+        </div>
+      </div>
+      <span class="nc-arrow">→</span>
+    </div>
+
+    <div class="note-card devops" data-tag="devops">
+      <div class="nc-meta">
+        <div class="nc-date">Mar 2026</div>
+        <div class="nc-reading">⏱ 10 min read</div>
+      </div>
+      <div class="nc-body">
+        <div class="nc-title">Terraform state management at scale — the decisions nobody tells you about</div>
+        <p class="nc-excerpt">Remote state, workspaces, state locking, import vs refactor — a write-up of every mistake I made setting up Terraform for a multi-environment AWS setup from scratch. Some of these cost hours.</p>
+        <div class="nc-tags">
+          <span class="tag c">DevOps</span>
+          <span class="tag">Terraform</span>
+          <span class="tag">IaC</span>
+        </div>
+      </div>
+      <span class="nc-arrow">→</span>
+    </div>
+
+    <!-- In progress / placeholders -->
+    <div class="note-card cloud placeholder" data-tag="cloud">
+      <div class="nc-meta">
+        <div class="nc-date">Coming soon</div>
+      </div>
+      <div class="nc-body">
+        <div class="nc-title">Kubernetes resource limits — what happens when you get them wrong <span class="nc-wip">in progress</span></div>
+        <p class="nc-excerpt">OOMKilled pods, throttled CPUs, and why setting limits too tight is almost as bad as not setting them at all.</p>
+        <div class="nc-tags"><span class="tag">Kubernetes</span><span class="tag">DevOps</span></div>
+      </div>
+      <span class="nc-arrow">→</span>
+    </div>
+
+    <div class="note-card devops placeholder" data-tag="devops">
+      <div class="nc-meta">
+        <div class="nc-date">Coming soon</div>
+      </div>
+      <div class="nc-body">
+        <div class="nc-title">EventBridge vs CloudWatch Events — the differences that actually matter <span class="nc-wip">in progress</span></div>
+        <p class="nc-excerpt">They look the same. They're not. A guide to when to use which — and what breaks when you pick wrong.</p>
+        <div class="nc-tags"><span class="tag">AWS</span><span class="tag c">DevOps</span></div>
+      </div>
+      <span class="nc-arrow">→</span>
+    </div>
+
+    <div class="note-card research placeholder" data-tag="research">
+      <div class="nc-meta">
+        <div class="nc-date">Coming soon</div>
+      </div>
+      <div class="nc-body">
+        <div class="nc-title">What TLA+ taught me about distributed system correctness <span class="nc-wip">in progress</span></div>
+        <p class="nc-excerpt">How writing a formal spec for AgriFuture India changed the way I think about race conditions in every system I build.</p>
+        <div class="nc-tags"><span class="tag">Research</span><span class="tag">Formal Methods</span></div>
+      </div>
+      <span class="nc-arrow">→</span>
+    </div>
+
+  </div>
+
+</div>
+</main>
+
+<footer class="footer">
+  <div class="footer-in">
+    <span>© 2026 Utkarsh Batham</span>
+    <div style="display:flex;gap:1.5rem">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <span>Gujarat · Remote-Ready 🌍</span>
+  </div>
+</footer>
+
+<button class="scroll-top" id="scroll-top">↑</button>
+<script src="shared.js"></script>
+<script>
+document.querySelectorAll('.tb').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.tb').forEach(b=>b.classList.remove('on'));
+    btn.classList.add('on');
+    const t=btn.dataset.t;
+    document.querySelectorAll('.note-card').forEach(c=>{
+      c.style.display=(t==='all'||c.dataset.tag===t)?'':'none';
+    });
+  });
+});
+</script>
+</body>
+</html>

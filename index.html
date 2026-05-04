@@ -3,431 +3,713 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Utkarsh Batham — Cloud & DevOps Engineer</title>
-<meta name="keywords" content="Cloud Engineer, DevOps Engineer, AWS, Terraform, Kubernetes, Docker, GitHub Actions, remote work, India, serverless, Python, infrastructure as code, CI/CD, cloud security, CSPM">
-<meta name="description" content="Cloud & DevOps Engineer available for remote work. Building production-grade AWS infrastructure, serverless pipelines, Kubernetes systems, and security automation.">
-<meta property="og:title" content="Utkarsh Batham — Cloud & DevOps Engineer">
-<meta property="og:description" content="Cloud & DevOps Engineer · AWS · Terraform · Kubernetes · Available immediately for remote roles.">
+<title>Utkarsh Batham — Cloud Infrastructure & Security Automation Engineer</title>
+<meta name="description" content="Cloud Infrastructure & Security Automation Engineer. I build distributed systems, serverless pipelines, and security automation that holds under load. Available globally from July 2026.">
+<meta name="keywords" content="Cloud Engineer, DevOps, AWS, Terraform, Kubernetes, Docker, GitHub Actions, remote, India, Python, CI/CD, CSPM, platform engineering, security automation">
+<meta property="og:title" content="Utkarsh Batham — Cloud Infrastructure & Security Automation Engineer">
+<meta property="og:description" content="Cloud infrastructure, security automation, and platform engineering. Built to hold under load.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://utkarsh698.github.io">
 <meta property="og:image" content="https://utkarsh698.github.io/og-image.png">
-<meta name="twitter:image" content="https://utkarsh698.github.io/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Utkarsh Batham — Cloud & DevOps Engineer">
-<meta name="twitter:description" content="Cloud & DevOps Engineer · AWS · Terraform · Kubernetes · Available immediately for remote roles.">
+<meta name="twitter:image" content="https://utkarsh698.github.io/og-image.png">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 <link rel="stylesheet" href="style.css">
-<style>
-  #hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: calc(var(--nav-h) + 4rem) 0 4rem;
-    border-top: none;
-  }
-  .hero-prompt { font-size: 12px; color: var(--muted); margin-bottom: 1.5rem; min-height: 1.5em; }
-  h1 .age { color: var(--muted); font-weight: 400; }
-  .hero-desc { font-size: 14px; color: var(--muted); max-width: 600px; line-height: 1.9; margin-bottom: 2.5rem; }
-  .hero-desc strong { color: var(--text); font-weight: 400; }
-  .hero-cta { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
-
-  /* Avatar */
-  .hero-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 2rem; }
-  .avatar {
-    width: 80px; height: 80px;
-    border-radius: 50%;
-    border: 2px solid rgba(57,255,133,.3);
-    background: var(--bg2);
-    display: flex; align-items: center; justify-content: center;
-    font-family: var(--sans); font-size: 1.6rem; font-weight: 800;
-    color: var(--accent);
-    flex-shrink: 0;
-    letter-spacing: -.02em;
-    box-shadow: 0 0 0 4px rgba(57,255,133,.06);
-  }
-
-  /* Home project list */
-  .home-projects { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
-  .home-project {
-    background: var(--bg);
-    padding: 1.1rem 1.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-    transition: background .15s, padding-left .15s;
-    color: inherit;
-    opacity: 1;
-  }
-  .home-project:hover { background: var(--bg2); padding-left: 1.8rem; opacity: 1; }
-  .home-project:hover .hp-arrow { color: var(--accent); }
-  .hp-left { display: flex; align-items: center; gap: .75rem; min-width: 0; }
-  .hp-badge { flex-shrink: 0; }
-  .hp-info { min-width: 0; }
-  .hp-name { font-family: var(--sans); font-weight: 600; font-size: .95rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .hp-tech { font-size: 11px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .hp-arrow { color: var(--muted); font-size: 12px; transition: color .15s; flex-shrink: 0; }
-
-  .view-all {
-    margin-top: 1.25rem;
-    display: inline-flex;
-    align-items: center;
-    gap: .4rem;
-    font-size: 12px;
-    color: var(--muted);
-    transition: color .2s;
-    opacity: 1;
-  }
-  .view-all:hover { color: var(--accent); opacity: 1; }
-
-  .hp-metric {
-    font-family: var(--mono);
-    font-size: 10px;
-    color: var(--accent);
-    font-weight: 400;
-    opacity: .8;
-    margin-left: .5rem;
-  }
-
-  /* NOW SECTION */
-  .now-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    overflow: hidden;
-    margin-bottom: 1rem;
-  }
-
-  .now-card {
-    background: var(--bg);
-    padding: 1.4rem 1.5rem;
-    transition: background .2s;
-  }
-  .now-card:hover { background: var(--bg2); }
-
-  .now-card-top {
-    display: flex;
-    align-items: center;
-    gap: .5rem;
-    margin-bottom: .6rem;
-  }
-
-  .now-dot {
-    width: 7px; height: 7px;
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-  .dot-active { background: var(--accent); box-shadow: 0 0 6px rgba(57,255,133,.6); animation: pulse 2s ease-in-out infinite; }
-  .dot-idle   { background: var(--accent2); }
-  .dot-soon   { background: #f5c518; }
-
-  .now-category {
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: .12em;
-    color: var(--muted);
-  }
-
-  .now-title {
-    font-family: var(--sans);
-    font-size: .9rem;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: .5rem;
-    line-height: 1.3;
-  }
-
-  .now-desc {
-    font-size: 12px;
-    color: var(--muted);
-    line-height: 1.75;
-  }
-
-  .now-updated {
-    font-size: 11px;
-    color: var(--border2);
-    letter-spacing: .05em;
-  }
-
-  @media (max-width: 600px) {
-    .now-grid { grid-template-columns: 1fr; }
-  }
-  .linkedin-btn { border-color: rgba(0,119,181,.4); color: #0077b5; }
-  .linkedin-btn:hover { border-color: #0077b5; color: #0077b5; opacity: 1; }
-
-  .hire-me-link {
-    color: var(--accent) !important;
-    border: 1px solid rgba(57,255,133,.3);
-    padding: .2rem .65rem;
-    border-radius: 3px;
-    background: rgba(57,255,133,.06);
-    transition: background .2s, border-color .2s !important;
-  }
-  .hire-me-link:hover { background: rgba(57,255,133,.12) !important; border-color: rgba(57,255,133,.6) !important; }
-</style>
-<!-- Google Analytics -->
-<!-- Get your ID: analytics.google.com → Admin → Create Property → Web Stream -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-DZ48W4D1EW"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-DZ48W4D1EW');
-</script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-DZ48W4D1EW');</script>
+
+<style>
+/* ══════════════════════════════════════════════════════════
+   HERO — art-directed around the portrait
+   Portrait: dark charcoal bg, right-side neon green rim light
+   All green glows originate from that rim light source
+   ══════════════════════════════════════════════════════════ */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 0;
+  align-items: stretch;
+  padding-top: var(--nav-h);
+  position: relative;
+  overflow: hidden;
+  background: #080a0c;
+}
+
+/* Dot grid — left half, dissolves toward portrait */
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: radial-gradient(rgba(61,255,160,.09) 1px, transparent 1px);
+  background-size: 52px 52px;
+  mask-image: linear-gradient(90deg, rgba(0,0,0,.7) 0%, rgba(0,0,0,.25) 55%, transparent 78%);
+  pointer-events: none;
+}
+
+/* Divider — glows green where portrait meets page */
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 8%; bottom: 8%;
+  left: calc(100% - 420px);
+  width: 1px;
+  background: linear-gradient(180deg, transparent 0%, rgba(61,255,160,.06) 15%, rgba(61,255,160,.4) 50%, rgba(61,255,160,.06) 85%, transparent 100%);
+  pointer-events: none;
+}
+
+.hero-left {
+  padding: 5.5rem 4rem 5rem 2.5rem;
+  display: flex; flex-direction: column; justify-content: center;
+  position: relative; z-index: 1;
+}
+
+.hero-eyebrow { display: flex; align-items: center; gap: 1rem; margin-bottom: 2.75rem; }
+
+.hero-statement {
+  font-family: var(--mono); font-size: .8rem; color: var(--stone);
+  line-height: 1.65; margin-bottom: 2.25rem; max-width: 500px;
+  border-left: 2px solid var(--g); padding-left: 1.2rem; font-style: italic;
+}
+.hero-statement em { color: var(--soft); font-style: normal; }
+
+.hero-name {
+  font-family: var(--sans);
+  font-size: clamp(3.5rem, 8.5vw, 8rem);
+  font-weight: 800; line-height: .86; letter-spacing: -.045em;
+  color: var(--bright); margin-bottom: 2rem;
+}
+.hero-name .last { color: var(--dust); display: block; font-weight: 400; }
+
+.hero-line {
+  display: flex; align-items: center; gap: .75rem;
+  font-size: .76rem; color: var(--muted); margin-bottom: 2.5rem;
+}
+.hero-line::before { content: '→'; color: var(--g); }
+
+.hero-metrics {
+  display: flex; gap: 0;
+  background: rgba(13,14,18,.85);
+  border: 1px solid var(--line);
+  border-left: 2px solid rgba(61,255,160,.45);
+  border-radius: 0 5px 5px 0; overflow: hidden;
+  margin-bottom: 2.75rem; backdrop-filter: blur(4px);
+}
+.hm { flex: 1; padding: 1.15rem 1.3rem; border-right: 1px solid var(--line); }
+.hm:last-child { border-right: none; }
+.hm-val { font-family:var(--sans); font-size:1.65rem; font-weight:800; color:var(--g); line-height:1; letter-spacing:-.03em; }
+.hm-label { font-size:.57rem; color:var(--muted); text-transform:uppercase; letter-spacing:.1em; margin-top:.25rem; }
+
+.hero-cta { display:flex; gap:.65rem; flex-wrap:wrap; align-items:center; }
+
+/* ═══════════════════════════════════════════════════════════
+   PORTRAIT IDENTITY MODULE
+   Portrait: charcoal bg, green rim light on right edge
+   Module bg matches portrait exactly → seamless blend
+   Glow originates from rim light source
+   ═══════════════════════════════════════════════════════════ */
+.hero-right {
+  position: relative; overflow: hidden;
+  display: flex; flex-direction: column;
+  background: #0a0c0e;
+}
+
+/* Rim-light ambient — right edge, matching portrait lighting */
+.hero-right::after {
+  content: '';
+  position: absolute;
+  right: -60px; top: 5%; bottom: 5%; width: 220px;
+  background: radial-gradient(ellipse 55% 75% at 100% 42%,
+    rgba(61,255,160,.2) 0%, rgba(61,255,160,.07) 45%, transparent 70%);
+  pointer-events: none; z-index: 1;
+}
+
+/* Scanline sweep — very subtle */
+.hero-right::before {
+  content: '';
+  position: absolute; left: 0; right: 0; height: 100px;
+  background: linear-gradient(180deg, transparent, rgba(61,255,160,.022), transparent);
+  animation: scanline 7s ease-in-out infinite;
+  pointer-events: none; z-index: 4;
+}
+
+.photo-topbar {
+  background: rgba(5,6,8,.94);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(61,255,160,.09);
+  padding: .65rem 1.1rem;
+  display: flex; align-items: center; gap: .5rem;
+  font-size: .6rem; font-family: var(--mono);
+  position: relative; z-index: 5; flex-shrink: 0;
+}
+.ptb-dot { width: 7px; height: 7px; border-radius: 50%; }
+.ptb-red    { background: #ff5e5e; box-shadow: 0 0 5px rgba(255,94,94,.6); }
+.ptb-yellow { background: #f5c518; box-shadow: 0 0 5px rgba(245,197,24,.5); }
+.ptb-green  { background: var(--g); box-shadow: 0 0 7px rgba(61,255,160,.7); }
+.ptb-title  { color: var(--muted); margin-left: .4rem; flex: 1; letter-spacing: .04em; }
+.ptb-live {
+  display: flex; align-items: center; gap: .35rem;
+  font-size: .56rem; color: var(--g); letter-spacing: .06em;
+}
+.ptb-live-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--g); box-shadow: 0 0 5px var(--g);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.photo-frame { flex: 1; position: relative; overflow: hidden; }
+
+/* Left-edge fade — portrait bleeds seamlessly into page bg */
+.photo-frame::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, rgba(8,10,12,.75) 0%, rgba(8,10,12,.22) 18%, transparent 42%);
+  z-index: 2; pointer-events: none;
+}
+
+/* Bottom gradient — portrait fades into chips */
+.photo-frame::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0; height: 62%;
+  background: linear-gradient(0deg, rgba(8,10,12,1) 0%, rgba(8,10,12,.88) 28%, rgba(8,10,12,.45) 55%, transparent 100%);
+  z-index: 2; pointer-events: none;
+}
+
+.photo-frame img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center top; display: block;
+  filter: contrast(1.03) brightness(.97) saturate(1.04);
+  transition: filter .65s var(--e);
+}
+.hero-right:hover .photo-frame img {
+  filter: contrast(1.05) brightness(1.02) saturate(1.09);
+}
+
+/* Corner accents — top-right glows to match rim light source */
+.photo-corner-tr {
+  position: absolute; top: 0; right: 0;
+  width: 32px; height: 32px;
+  border-top: 2px solid rgba(61,255,160,.65);
+  border-right: 2px solid rgba(61,255,160,.65);
+  z-index: 6; pointer-events: none;
+  box-shadow: 5px -5px 22px rgba(61,255,160,.18);
+}
+.photo-corner-bl {
+  position: absolute; bottom: 0; left: 0;
+  width: 24px; height: 24px;
+  border-bottom: 1px solid rgba(61,255,160,.18);
+  border-left: 1px solid rgba(61,255,160,.18);
+  z-index: 6; pointer-events: none;
+}
+
+.photo-chips {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 1.6rem 1.25rem 1.4rem; z-index: 5;
+}
+.chip-row { display: flex; gap: .38rem; flex-wrap: wrap; margin-bottom: .42rem; }
+.chip {
+  display: inline-flex; align-items: center; gap: .35rem;
+  font-size: .59rem; font-family: var(--mono);
+  padding: .24rem .65rem; border-radius: 3px;
+  border: 1px solid rgba(255,255,255,.07);
+  background: rgba(5,6,8,.85); color: var(--soft);
+  backdrop-filter: blur(16px);
+  transition: border-color .2s, color .2s; letter-spacing: .03em;
+}
+.chip:hover { border-color: rgba(61,255,160,.22); color: var(--text); }
+.chip .cd { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
+.chip.g-chip { color: var(--g); border-color: rgba(61,255,160,.22); background: rgba(5,6,8,.9); }
+
+.chip-identity {
+  margin-top: .7rem; padding-top: .7rem;
+  border-top: 1px solid rgba(255,255,255,.055);
+}
+.chip-name {
+  font-family: var(--sans); font-size: .95rem; font-weight: 700;
+  color: var(--bright); margin-bottom: .2rem; letter-spacing: -.01em;
+}
+.chip-loc {
+  font-size: .6rem; color: var(--muted); font-family: var(--mono);
+  display: flex; align-items: center; gap: .5rem;
+}
+.chip-loc::before { content: '//'; color: rgba(61,255,160,.6); font-size: .55rem; }
+
+/* ── STRIP ───────────────────────────────────────────────── */
+.strip {
+  background: var(--ink2);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: .75rem 0;
+  overflow: hidden;
+}
+.strip-in {
+  display:flex;gap:3rem;align-items:center;
+  animation:marquee 28s linear infinite;
+  white-space:nowrap;width:max-content;
+}
+.strip-in:hover{animation-play-state:paused}
+.strip-item{display:flex;align-items:center;gap:.5rem;font-size:.65rem;color:var(--muted);letter-spacing:.06em}
+.strip-item .sd{color:var(--g);font-size:.5rem}
+
+/* ── SYSTEMS ─────────────────────────────────────────────── */
+.systems {
+  display: flex; flex-direction: column;
+  gap: 1px; background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 6px; overflow: hidden;
+}
+.srow {
+  background: var(--ink);
+  display: grid;
+  grid-template-columns: 2rem 1fr auto auto;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.2rem 1.75rem;
+  transition: all .18s;
+  text-decoration: none; color: inherit; opacity: 1;
+  position: relative;
+}
+.srow::before {
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: 0; background: var(--g);
+  transition: width .2s var(--e);
+}
+.srow:hover { background: var(--ink2); padding-left: 2.25rem; opacity: 1; }
+.srow:hover::before { width: 2px; }
+.srow:hover .sa { color: var(--g); }
+.sn { font-size:.6rem; color:var(--dust); font-family:var(--mono); }
+.sname { font-family:var(--sans); font-size:.92rem; font-weight:600; color:var(--bright); margin-bottom:.18rem; }
+.sstack { font-size:.62rem; color:var(--muted); }
+.smetric { font-size:.65rem; color:var(--g); font-family:var(--mono); white-space:nowrap; text-align:right; }
+.sa { color:var(--dust); font-size:.8rem; transition:color .18s; }
+
+/* ── STACK GRID ──────────────────────────────────────────── */
+.stack-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: .4rem;
+}
+.si {
+  display: flex; align-items: center; gap: .45rem;
+  padding: .6rem .8rem;
+  background: var(--ink2); border: 1px solid var(--line);
+  border-radius: 4px; font-size: .68rem;
+  color: var(--soft); transition: all .2s;
+  position: relative; overflow: hidden;
+}
+.si::before {
+  content: '';
+  position: absolute; bottom: 0; left: 0;
+  width: 0; height: 1px; background: var(--g);
+  transition: width .2s var(--e);
+}
+.si:hover { border-color: var(--line2); color: var(--text); }
+.si:hover::before { width: 100%; }
+.si.core { color: var(--g); border-color: rgba(61,255,160,.18); background: var(--glow2); }
+.si.core::before { background: var(--g2); }
+
+/* ── NOW GRID ────────────────────────────────────────────── */
+.now-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px; background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 6px; overflow: hidden;
+}
+.nc {
+  background: var(--ink); padding: 1.4rem 1.5rem;
+  transition: background .2s;
+  position: relative;
+}
+.nc:hover { background: var(--ink2); }
+.nc-lbl { font-size:.58rem; color:var(--muted); text-transform:uppercase; letter-spacing:.12em; margin-bottom:.5rem; display:flex; align-items:center; gap:.35rem; }
+.ndot { width:5px; height:5px; border-radius:50%; flex-shrink:0; }
+.don  { background:var(--g); box-shadow:0 0 5px var(--g); animation:pulse 2s infinite; }
+.dmid { background:var(--g2); }
+.doff { background:var(--dust); }
+.nc-title { font-family:var(--sans); font-size:.85rem; font-weight:600; color:var(--text); margin-bottom:.35rem; line-height:1.25; }
+.nc-desc { font-size:.7rem; color:var(--muted); line-height:1.7; }
+
+/* ── TESTIMONIALS ────────────────────────────────────────── */
+.test-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:1rem; }
+.tcard { padding:1.75rem; border-radius:6px; position:relative; }
+.tcard::before { content:'"'; position:absolute; top:1rem; left:1.5rem; font-family:var(--sans); font-size:3rem; font-weight:800; color:rgba(61,255,160,.12); line-height:1; }
+.tquote { font-size:.82rem; color:var(--soft); line-height:1.85; margin-bottom:1.25rem; padding-top:1.25rem; font-style:italic; }
+.tauthor { display:flex; align-items:center; gap:.7rem; }
+.tavatar { width:34px; height:34px; border-radius:50%; background:var(--ink3); border:1px solid var(--line2); display:flex; align-items:center; justify-content:center; font-family:var(--sans); font-size:.7rem; font-weight:700; color:var(--g); flex-shrink:0; }
+.tname { font-family:var(--sans); font-size:.8rem; font-weight:600; color:var(--bright); }
+.trole { font-size:.65rem; color:var(--muted); }
+.tpending { border-style:dashed; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; min-height:180px; padding:2rem; }
+.tpending-icon { font-size:1.2rem; opacity:.2; margin-bottom:.75rem; }
+.tpending-text { font-size:.7rem; color:var(--muted); line-height:1.7; }
+
+/* ── BUILD LOG SECTION ───────────────────────────────────── */
+.log-grid { display:flex; flex-direction:column; gap:0; }
+.log-entry {
+  display: grid;
+  grid-template-columns: 140px 1fr auto;
+  gap: 1.5rem;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--line);
+  align-items: start;
+}
+.log-entry:last-child { border-bottom: none; }
+.log-date { font-size:.62rem; color:var(--muted); padding-top:.1rem; font-family:var(--mono); }
+.log-content {}
+.log-title { font-family:var(--sans); font-size:.88rem; font-weight:600; color:var(--bright); margin-bottom:.25rem; }
+.log-desc { font-size:.72rem; color:var(--muted); line-height:1.7; }
+.log-tag { align-self:flex-start; }
+
+/* ── RESPONSIVE ──────────────────────────────────────────── */
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .hero-right{display:none}
+  .hero::after{display:none}
+  .hero-left{padding:4rem 1.5rem 3rem}
+  .hero-metrics{flex-wrap:wrap}
+  .now-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  .hero-name{font-size:3rem}
+  .stack-grid{grid-template-columns:repeat(auto-fill,minmax(100px,1fr))}
+  .srow{grid-template-columns:1fr auto}
+  .sn,.smetric{display:none}
+  .now-grid{grid-template-columns:1fr}
+  .log-entry{grid-template-columns:1fr;gap:.35rem}
+  .log-date{font-size:.58rem}
+}
+</style>
 </head>
 <body>
 
-<nav>
-  <a href="index.html" class="nav-logo"><span>~/</span>utkarsh<span>.dev</span></a>
+<nav class="nav">
+  <a href="index.html" class="nav-logo">
+    <span class="d">~/</span>utkarsh<span class="d">.dev</span>
+    <span class="cursor-blink"></span>
+  </a>
   <ul class="nav-links">
     <li><a href="projects.html">Projects</a></li>
+    <li><a href="notes.html">Build Log</a></li>
     <li><a href="resume.html">Resume</a></li>
-    <li><a href="contact.html" class="hire-me-link">Hire Me</a></li>
     <li><a href="https://github.com/UTKARSH698" target="_blank">GitHub ↗</a></li>
+    <li><a href="contact.html" class="hire">Hire Me</a></li>
   </ul>
-  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme" title="Toggle light/dark">◑</button>
-  <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
-    <span></span><span></span><span></span>
-  </button>
+  <div class="nav-r">
+    <button class="nav-icon" id="theme-btn" title="Toggle theme">◑</button>
+    <button class="nav-icon ham" id="ham" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </nav>
-<div class="nav-drawer" id="nav-drawer">
+<div class="nav-drawer" id="nav-drawer" style="display:none">
   <ul>
     <li><a href="index.html">Home</a></li>
     <li><a href="projects.html">Projects</a></li>
+    <li><a href="notes.html">Build Log</a></li>
     <li><a href="resume.html">Resume</a></li>
-    <li><a href="contact.html" class="hire-me-link">Hire Me</a></li>
     <li><a href="https://github.com/UTKARSH698" target="_blank">GitHub ↗</a></li>
+    <li><a href="contact.html">Hire Me</a></li>
   </ul>
 </div>
 
 <main>
-  <section id="hero">
-    <div class="hero-top">
-      <div>
-        <div class="hero-prompt" id="typed-prompt"></div>
-        <h1>Utkarsh,<br><span class="age">Cloud &amp; DevOps Engineer</span></h1>
-      </div>
-      <img src="my_photo.png" alt="Utkarsh" class="avatar" style="object-fit:cover;">
+
+<!-- ── HERO ───────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-left">
+
+    <div class="hero-eyebrow">
+      <span class="badge"><span class="pulse"></span>Open · Jul 2026 · Remote</span>
+      <span style="font-size:.6rem;color:var(--muted)">Vadodara, India</span>
     </div>
 
-    <p class="hero-desc">
-      Cloud &amp; DevOps Engineer with hands-on experience building
-      <strong>production-grade AWS infrastructure</strong>, serverless pipelines, and
-      security automation systems. Proficient in <strong>Terraform, Kubernetes, Docker,
-      and GitHub Actions CI/CD</strong>.<br><br>
-      Currently finishing a 6-month internship at <strong>TEJASKP AI SOFTWARE</strong>
-      — available for <strong>full-time remote roles from July 2026</strong>.
-      I build fault-tolerant distributed systems that scale and don't break at 3 AM.
+    <h1 class="hero-name fade d1">
+      Utkarsh<span class="last">Batham</span>
+    </h1>
+
+    <p class="hero-statement fade d2">
+      I build cloud systems that hold when traffic spikes, servers fail, and<br>
+      <em>someone pushes bad code on a Friday.</em>
     </p>
 
-    <div class="hero-stats">
-      <div class="stat"><span class="stat-value">9.35</span><span class="stat-label">CGPA</span></div>
-      <div class="stat"><span class="stat-value">15+</span><span class="stat-label">AWS Services</span></div>
-      <div class="stat"><span class="stat-value">5</span><span class="stat-label">Projects</span></div>
-      <div class="stat"><span class="stat-value">Jul'26</span><span class="stat-label">Available</span></div>
+    <p class="hero-line fade d2">
+      Cloud Infrastructure · Platform Engineering · Security Automation
+    </p>
+
+    <div class="hero-metrics fade d3">
+      <div class="hm">
+        <div class="hm-val" data-count="15">0</div>
+        <div class="hm-label">AWS Services</div>
+      </div>
+      <div class="hm">
+        <div class="hm-val">1.1K</div>
+        <div class="hm-label">Req/min peak</div>
+      </div>
+      <div class="hm">
+        <div class="hm-val">9.35</div>
+        <div class="hm-label">CGPA</div>
+      </div>
+      <div class="hm">
+        <div class="hm-val" data-count="5">0</div>
+        <div class="hm-label">Systems shipped</div>
+      </div>
     </div>
 
-    <div class="hero-cta">
-      <span class="open-badge">Available for remote roles — Jul 2026</span>
-      <a href="contact.html" class="btn btn-primary">Hire Me →</a>
-      <a href="resume.html" class="btn btn-ghost">Resume</a>
-      <a href="https://github.com/UTKARSH698" target="_blank" class="btn btn-ghost">GitHub ↗</a>
-      <a href="https://www.linkedin.com/in/utkarsh-batham-531913247" target="_blank" class="btn btn-ghost linkedin-btn">in LinkedIn ↗</a>
+    <div class="hero-cta fade d4">
+      <a href="contact.html" class="btn btn-p">Start a Conversation →</a>
+      <a href="projects.html" class="btn btn-o">View Systems</a>
+      <a href="resume.html" class="btn btn-ghost">Resume ↗</a>
     </div>
-  </section>
 
-  <section class="fade-in">
-    <div class="section-label">// stack</div>
-    <h2>Tools I Work With</h2>
-    <div class="tools-grid">
-      <span class="tool-tag hot">AWS</span>
-      <span class="tool-tag hot">Terraform</span>
-      <span class="tool-tag hot">Python</span>
-      <span class="tool-tag hot">Kubernetes</span>
-      <span class="tool-tag hot">Docker</span>
-      <span class="tool-tag hot">GitHub Actions</span>
-      <span class="tool-tag">AWS CDK</span>
-      <span class="tool-tag">Lambda</span>
-      <span class="tool-tag">Kinesis</span>
-      <span class="tool-tag">DynamoDB</span>
-      <span class="tool-tag">S3 / Athena</span>
-      <span class="tool-tag">EventBridge</span>
-      <span class="tool-tag">IAM / SNS / SQS</span>
-      <span class="tool-tag">CloudWatch</span>
-      <span class="tool-tag">X-Ray</span>
-      <span class="tool-tag">LocalStack</span>
-      <span class="tool-tag">Helm</span>
-      <span class="tool-tag">CI/CD</span>
-      <span class="tool-tag">SAGA Pattern</span>
-      <span class="tool-tag">Linux / Bash</span>
+  </div>
+
+  <div class="hero-right">
+
+    <!-- macOS-style status bar — green dot glows matching rim light -->
+    <div class="photo-topbar">
+      <span class="ptb-dot ptb-red"></span>
+      <span class="ptb-dot ptb-yellow"></span>
+      <span class="ptb-dot ptb-green"></span>
+      <span class="ptb-title">utkarsh@cloud:~$</span>
+      <span class="ptb-live"><span class="ptb-live-dot"></span>available</span>
     </div>
-  </section>
 
-  <section class="fade-in">
-    <div class="section-label">// featured</div>
-    <h2>Selected Work</h2>
-
-    <div class="home-projects">
-      <a href="projects.html#cloudflow" class="home-project">
-        <div class="hp-left">
-          <div class="hp-info">
-            <div class="hp-name">CloudFlow <span class="hp-metric">1,100+ req/min · P99 &lt;120ms</span></div>
-            <div class="hp-tech">Python · Step Functions · Lambda · DynamoDB · SQS · CDK · X-Ray</div>
-          </div>
-        </div>
-        <span class="hp-arrow">→</span>
-      </a>
-      <a href="projects.html#cloudpulse" class="home-project">
-        <div class="hp-left">
-          <div class="hp-info">
-            <div class="hp-name">CloudPulse <span class="hp-metric">Dual-path Lambda Architecture</span></div>
-            <div class="hp-tech">Python · Kinesis · S3 · Athena · Terraform · React · Cognito</div>
-          </div>
-        </div>
-        <span class="hp-arrow">→</span>
-      </a>
-      <a href="projects.html#cspm" class="home-project">
-        <div class="hp-left">
-          <div class="hp-info">
-            <div class="hp-name">CSPM Tool <span class="hp-metric">CIS Benchmark v1.5 · alerts &lt;5s</span></div>
-            <div class="hp-tech">Python · Lambda · EventBridge · SNS · Terraform · GitHub Actions</div>
-          </div>
-        </div>
-        <span class="hp-arrow">→</span>
-      </a>
-      <a href="projects.html#agrifuture" class="home-project">
-        <div class="hp-left">
-          <div class="hp-info">
-            <div class="hp-name">AgriFuture India <span class="hp-metric">Research · arXiv</span></div>
-            <div class="hp-tech">Formal Verification · TLA+ · BFS Model Checker · Python</div>
-          </div>
-        </div>
-        <span class="hp-arrow">→</span>
-      </a>
-      <a href="projects.html#wikisearch" class="home-project">
-        <div class="hp-left">
-          <div class="hp-info">
-            <div class="hp-name">Wikipedia Smart Search</div>
-            <div class="hp-tech">Python · RAG · Vector Search · Embeddings · LLMs</div>
-          </div>
-        </div>
-        <span class="hp-arrow">→</span>
-      </a>
+    <!-- Portrait — left edge blends into page, bottom fades into chips -->
+    <div class="photo-frame">
+      <img src="my_photo.png" alt="Utkarsh Batham — Cloud Infrastructure & Security Automation Engineer">
     </div>
-    <a href="projects.html" class="view-all">View all projects →</a>
-  </section>
 
-  <!-- NOW SECTION -->
-  <section class="fade-in" id="now">
-    <div class="section-label">// now</div>
-    <h2>What I'm Doing Now</h2>
-    <div class="now-grid">
+    <!-- Corner accents — top-right glows because that's where the rim light is -->
+    <div class="photo-corner-tr"></div>
+    <div class="photo-corner-bl"></div>
 
-      <div class="now-card">
-        <div class="now-card-top">
-          <span class="now-dot dot-active"></span>
-          <span class="now-category">Work</span>
-        </div>
-        <div class="now-title">Cloud Engineer Intern @ TEJASKP AI SOFTWARE</div>
-        <div class="now-desc">Wrapping up a 6-month on-site internship in Gujarat. Final deliverables: CloudPulse analytics platform, CloudFlow distributed system, and CSPM security tooling. Ends July 2026.</div>
+    <!-- Floating identity chips — anchored in portrait bottom gradient -->
+    <div class="photo-chips">
+      <div class="chip-row">
+        <span class="chip g-chip"><span class="cd" style="background:var(--g)"></span>AWS Expert</span>
+        <span class="chip g-chip"><span class="cd" style="background:var(--g)"></span>Terraform</span>
+        <span class="chip"><span class="cd" style="background:var(--g2)"></span>Kubernetes</span>
       </div>
-
-      <div class="now-card">
-        <div class="now-card-top">
-          <span class="now-dot dot-active"></span>
-          <span class="now-category">Open to work</span>
-        </div>
-        <div class="now-title">Actively applying for remote cloud / DevOps roles</div>
-        <div class="now-desc">Looking for full-time remote positions in cloud engineering, DevOps, or infrastructure. Available from July 2026. Open to US, EU, and global remote opportunities.</div>
+      <div class="chip-row">
+        <span class="chip"><span class="cd" style="background:#f5c518;box-shadow:0 0 4px rgba(245,197,24,.5)"></span>SAA-C03 · Jul 2026</span>
+        <span class="chip">CGPA 9.35</span>
+        <span class="chip">TEJASKP AI</span>
       </div>
-
-      <div class="now-card">
-        <div class="now-card-top">
-          <span class="now-dot dot-active"></span>
-          <span class="now-category">Studying</span>
-        </div>
-        <div class="now-title">AWS SAA-C03 certification prep</div>
-        <div class="now-desc">Actively preparing for Solutions Architect Associate. First step in the SAA-C03 → CKA → Terraform Associate path. Exam scheduled for July 2026.</div>
+      <div class="chip-row">
+        <span class="chip"><span class="cd" style="background:var(--g);box-shadow:0 0 4px rgba(61,255,160,.5)"></span>Remote-Ready · Timezone Flexible</span>
       </div>
-
-      <div class="now-card">
-        <div class="now-card-top">
-          <span class="now-dot dot-idle"></span>
-          <span class="now-category">Reading</span>
-        </div>
-        <div class="now-title">Distributed systems design + cloud security patterns</div>
-        <div class="now-desc">Focused on CIS Benchmark hardening, zero-trust architecture, and production-grade resilience patterns — circuit breakers, idempotency, saga choreography.</div>
+      <div class="chip-identity">
+        <div class="chip-name">Utkarsh Batham</div>
+        <div class="chip-loc">Cloud Infrastructure Engineer · Vadodara, India</div>
       </div>
-
-      <div class="now-card">
-        <div class="now-card-top">
-          <span class="now-dot dot-soon"></span>
-          <span class="now-category">Next</span>
-        </div>
-        <div class="now-title">Certified Kubernetes Administrator (CKA)</div>
-        <div class="now-desc">After SAA-C03. Already working with Kubernetes daily during internship — CKA formalises that experience with a vendor-recognised credential.</div>
-      </div>
-
     </div>
-    <div class="now-updated">Last updated: May 2026</div>
-  </section>
 
-  <!-- TESTIMONIALS -->
-  <section class="fade-in" id="testimonials">
-    <div class="section-label">// testimonials</div>
-    <h2>What People Say</h2>
-    <div class="testimonials-grid">
+  </div>
+</section>
 
-      <div class="testimonial-card">
-        <div class="testimonial-text">
-          Add a quote from your internship manager at TEJASKP here — even one sentence about your work on CloudPulse, CloudFlow, or CSPM will carry significant weight with recruiters.
-        </div>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">TK</div>
-          <div>
-            <div class="testimonial-name">Manager, TEJASKP AI SOFTWARE</div>
-            <div class="testimonial-role">Cloud Engineering Internship · 2026</div>
-          </div>
-        </div>
-      </div>
+<!-- ── STRIP ───────────────────────────────────────────────── -->
+<div class="strip">
+  <div class="strip-in">
+    <span class="strip-item"><span class="sd">▶</span> BUILDING — CloudFlow SAGA · 1,100+ req/min</span>
+    <span class="strip-item"><span class="sd">▶</span> AVAILABLE — Full-time remote from Jul 2026</span>
+    <span class="strip-item"><span class="sd">▶</span> STACK — AWS · Terraform · Kubernetes · Python · Docker</span>
+    <span class="strip-item"><span class="sd">▶</span> STUDYING — AWS SAA-C03 · CKA incoming</span>
+    <span class="strip-item"><span class="sd">▶</span> SECURITY — CIS Benchmark v1.5 · Zero-trust · IAM hardening</span>
+    <span class="strip-item"><span class="sd">▶</span> BUILDING — CloudFlow SAGA · 1,100+ req/min</span>
+    <span class="strip-item"><span class="sd">▶</span> AVAILABLE — Full-time remote from Jul 2026</span>
+    <span class="strip-item"><span class="sd">▶</span> STACK — AWS · Terraform · Kubernetes · Python · Docker</span>
+    <span class="strip-item"><span class="sd">▶</span> STUDYING — AWS SAA-C03 · CKA incoming</span>
+    <span class="strip-item"><span class="sd">▶</span> SECURITY — CIS Benchmark v1.5 · Zero-trust · IAM hardening</span>
+  </div>
+</div>
 
-      <div class="testimonial-card testimonial-pending">
-        <div class="tp-icon">✉</div>
-        <div class="tp-text">LOR from professor or academic supervisor<br>coming next week</div>
-      </div>
+<!-- ── SHIPPED SYSTEMS ─────────────────────────────────────── -->
+<div class="wrap">
+<section class="section">
+  <p class="eyebrow">// shipped</p>
+  <h2 class="st">Systems I've Built</h2>
 
-      <div class="testimonial-card testimonial-pending">
-        <div class="tp-icon">✉</div>
-        <div class="tp-text">Second LOR or peer recommendation<br>coming next week</div>
-      </div>
+  <div class="systems fade">
+    <a href="projects.html#cloudflow" class="srow">
+      <span class="sn">01</span>
+      <div><div class="sname">CloudFlow — Distributed SAGA Order System</div><div class="sstack">Python · Step Functions · Lambda · DynamoDB · SQS · CDK · X-Ray · LocalStack</div></div>
+      <span class="smetric">1,100+ req/min · P99 &lt;120ms · 30+ tests</span>
+      <span class="sa">→</span>
+    </a>
+    <a href="projects.html#cloudpulse" class="srow">
+      <span class="sn">02</span>
+      <div><div class="sname">CloudPulse — Real-Time Analytics Platform</div><div class="sstack">Python · Kinesis · S3 · Athena · Terraform · React · Cognito · Glue</div></div>
+      <span class="smetric">Dual-path Lambda Architecture</span>
+      <span class="sa">→</span>
+    </a>
+    <a href="projects.html#cspm" class="srow">
+      <span class="sn">03</span>
+      <div><div class="sname">CSPM — Cloud Security Posture Management</div><div class="sstack">Python · Lambda · EventBridge · SNS · S3 · Terraform · GitHub Actions</div></div>
+      <span class="smetric">CIS Benchmark v1.5 · &lt;5s alerts</span>
+      <span class="sa">→</span>
+    </a>
+    <a href="projects.html#agrifuture" class="srow">
+      <span class="sn">04</span>
+      <div><div class="sname">AgriFuture India — Formal Verification Research</div><div class="sstack">TLA+ · BFS Model Checker · Python · Formal Verification · arXiv</div></div>
+      <span class="smetric">Novel finding · Published</span>
+      <span class="sa">→</span>
+    </a>
+    <a href="projects.html#wikisearch" class="srow">
+      <span class="sn">05</span>
+      <div><div class="sname">Wikipedia Smart Search — RAG QA System</div><div class="sstack">Python · RAG · Vector Search · Embeddings · LLMs · Semantic retrieval</div></div>
+      <span class="smetric">Production RAG pipeline</span>
+      <span class="sa">→</span>
+    </a>
+  </div>
+</section>
 
+<!-- ── STACK ───────────────────────────────────────────────── -->
+<section class="section">
+  <p class="eyebrow">// stack</p>
+  <h2 class="st">Engineering Stack</h2>
+  <div class="stack-grid fade">
+    <div class="si core">☁ AWS</div>
+    <div class="si core">◈ Terraform</div>
+    <div class="si core">🐍 Python</div>
+    <div class="si core">⎈ Kubernetes</div>
+    <div class="si core">🐳 Docker</div>
+    <div class="si core">⚙ GitHub Actions</div>
+    <div class="si">λ Lambda</div>
+    <div class="si">∿ Kinesis</div>
+    <div class="si">◉ DynamoDB</div>
+    <div class="si">◎ S3 / Athena</div>
+    <div class="si">◷ EventBridge</div>
+    <div class="si">◬ CloudWatch</div>
+    <div class="si">◉ X-Ray</div>
+    <div class="si">◈ AWS CDK</div>
+    <div class="si">⎈ Helm</div>
+    <div class="si">◎ LocalStack</div>
+    <div class="si">◉ SNS / SQS</div>
+    <div class="si">◈ IAM / Cognito</div>
+    <div class="si">∿ SAGA Pattern</div>
+    <div class="si">◎ Linux / Bash</div>
+  </div>
+</section>
+
+<!-- ── NOW ─────────────────────────────────────────────────── -->
+<section class="section">
+  <p class="eyebrow">// now</p>
+  <h2 class="st">What's Running Right Now</h2>
+  <div class="now-grid fade">
+    <div class="nc">
+      <div class="nc-lbl"><span class="ndot don"></span> Active</div>
+      <div class="nc-title">Internship → TEJASKP AI SOFTWARE</div>
+      <div class="nc-desc">Finishing 6-month run. CloudFlow, CloudPulse, CSPM delivered. Wrapping up July 2026.</div>
     </div>
-  </section>
+    <div class="nc">
+      <div class="nc-lbl"><span class="ndot don"></span> Active</div>
+      <div class="nc-title">Job search — global remote only</div>
+      <div class="nc-desc">Cloud infrastructure, platform engineering, security automation. US, EU, APAC. No relocation required.</div>
+    </div>
+    <div class="nc">
+      <div class="nc-lbl"><span class="ndot don"></span> Studying</div>
+      <div class="nc-title">AWS SAA-C03 — exam July 2026</div>
+      <div class="nc-desc">Already deploying prod AWS daily. Certification formalises what's already in production.</div>
+    </div>
+    <div class="nc">
+      <div class="nc-lbl"><span class="ndot dmid"></span> Reading</div>
+      <div class="nc-title">Distributed systems + security depth</div>
+      <div class="nc-desc">Zero-trust architecture, CIS hardening, circuit breakers, idempotency, SAGA patterns.</div>
+    </div>
+    <div class="nc">
+      <div class="nc-lbl"><span class="ndot doff"></span> Next</div>
+      <div class="nc-title">CKA after SAA-C03</div>
+      <div class="nc-desc">Running Kubernetes in production already. CKA makes it official.</div>
+    </div>
+    <div class="nc">
+      <div class="nc-lbl"><span class="ndot doff"></span> Next</div>
+      <div class="nc-title">Open source — CSPM tooling</div>
+      <div class="nc-desc">Contributing to cloud security automation projects. Building in public.</div>
+    </div>
+  </div>
+  <p style="margin-top:.85rem;font-size:.6rem;color:var(--dust)">Last updated: May 2026</p>
+</section>
 
+<!-- ── BUILD LOG PREVIEW ───────────────────────────────────── -->
+<section class="section">
+  <p class="eyebrow">// build log</p>
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2.5rem">
+    <h2 class="st" style="margin:0">Engineering Notes</h2>
+    <a href="notes.html" class="btn btn-ghost" style="font-size:.7rem">View all →</a>
+  </div>
+
+  <div class="log-grid fade">
+    <div class="log-entry">
+      <div class="log-date">May 2026</div>
+      <div class="log-content">
+        <div class="log-title">Why SAGA choreography beats orchestration for microservices</div>
+        <div class="log-desc">Built CloudFlow using choreography — each service reacts to events independently. No central brain. Here's what I learned about failure modes, compensating transactions, and idempotency under load.</div>
+      </div>
+      <a href="notes.html" class="tag g">Cloud</a>
+    </div>
+    <div class="log-entry">
+      <div class="log-date">Apr 2026</div>
+      <div class="log-content">
+        <div class="log-title">CIS Benchmark v1.5 — what actually matters in the IAM section</div>
+        <div class="log-desc">After building a CSPM tool that scans against CIS controls, here's what I found: most teams fail the same 4 IAM checks. The fixes are straightforward. The politics around them are not.</div>
+      </div>
+      <a href="notes.html" class="tag r">Security</a>
+    </div>
+    <div class="log-entry">
+      <div class="log-date">Mar 2026</div>
+      <div class="log-content">
+        <div class="log-title">Terraform state management at scale — the decisions nobody tells you about</div>
+        <div class="log-desc">Remote state, workspaces, state locking, import vs refactor — a write-up of every mistake I made setting up Terraform for a multi-environment AWS setup from scratch.</div>
+      </div>
+      <a href="notes.html" class="tag c">DevOps</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ────────────────────────────────────────── -->
+<section class="section">
+  <p class="eyebrow">// proof</p>
+  <h2 class="st">What People Say</h2>
+
+  <div class="test-grid fade">
+    <div class="card g-hover tcard">
+      <p class="tquote">Add your internship manager's quote here — one strong sentence from someone who watched you work beats three paragraphs of self-description every time.</p>
+      <div class="tauthor">
+        <div class="tavatar">TK</div>
+        <div>
+          <div class="tname">Manager, TEJASKP AI SOFTWARE</div>
+          <div class="trole">Cloud Engineering · 2026</div>
+        </div>
+      </div>
+    </div>
+    <div class="card tcard tpending">
+      <div class="tpending-icon">✉</div>
+      <div class="tpending-text">LOR from academic supervisor<br>arriving next week</div>
+    </div>
+    <div class="card tcard tpending">
+      <div class="tpending-icon">✉</div>
+      <div class="tpending-text">Second recommendation<br>arriving next week</div>
+    </div>
+  </div>
+</section>
+
+</div><!-- /wrap -->
 </main>
 
-<footer>
-  <span>© 2026 — Utkarsh · Built with obsession</span>
-  <span>Gujarat, India · Remote-Ready 🌍 · <a href="sitemap.xml" style="color:var(--muted);">Sitemap</a></span>
+<footer class="footer">
+  <div class="footer-in">
+    <span>© 2026 Utkarsh Batham</span>
+    <div style="display:flex;gap:1.5rem">
+      <a href="https://github.com/UTKARSH698" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/utkarsh-batham-531913247" target="_blank">LinkedIn</a>
+      <a href="notes.html">Build Log</a>
+      <a href="sitemap.xml">Sitemap</a>
+    </div>
+    <span>Gujarat · Remote-Ready 🌍</span>
+  </div>
 </footer>
 
-<button class="scroll-top" id="scroll-top" aria-label="Scroll to top" title="Back to top">↑</button>
+<button class="scroll-top" id="scroll-top">↑</button>
 <script src="shared.js"></script>
-<script>
-  const el = document.getElementById('typed-prompt');
-  const text = '$ whoami';
-  let i = 0;
-  const cur = document.createElement('span');
-  cur.className = 'cursor';
-  function type() {
-    if (i < text.length) { el.textContent += text[i++]; el.appendChild(cur); setTimeout(type, 65); }
-  }
-  setTimeout(type, 400);
-</script>
 </body>
 </html>

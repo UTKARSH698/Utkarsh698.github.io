@@ -3,326 +3,736 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Projects — Utkarsh</title>
-<meta name="keywords" content="Cloud Engineer, DevOps Engineer, AWS, Terraform, Kubernetes, Docker, GitHub Actions, remote work, India, serverless, Python, infrastructure as code, CI/CD, cloud security, CSPM">
-<meta name="description" content="Cloud infrastructure, security tooling, formal verification research, and EdTech projects by Utkarsh.">
-<meta property="og:title" content="Projects — Utkarsh">
-<meta property="og:description" content="CloudPulse, CloudFlow, CSPM Tool, AgriFuture India, Trovia — cloud, security, and research projects.">
+<title>Projects — Utkarsh Batham</title>
+<meta name="description" content="Engineering case studies by Utkarsh Batham. CloudFlow, CloudPulse, CSPM, AgriFuture India, Wikipedia Smart Search.">
+<meta property="og:title" content="Projects — Utkarsh Batham · Cloud Infrastructure & Security Automation">
+<meta property="og:image" content="https://utkarsh698.github.io/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 <link rel="stylesheet" href="style.css">
-<style>
-  .filter-bar { display: flex; gap: .5rem; margin-bottom: 2rem; flex-wrap: wrap; }
-  .filter-btn {
-    font-family: var(--mono); font-size: 11px; padding: .3rem .75rem;
-    border: 1px solid var(--border); background: transparent; color: var(--muted);
-    border-radius: 3px; cursor: pointer; transition: all .15s;
-    letter-spacing: .05em; text-transform: uppercase;
-  }
-  .filter-btn:hover { border-color: var(--border2); color: var(--text); }
-  .filter-btn.active { border-color: var(--accent); color: var(--accent); background: rgba(57,255,133,.06); }
-
-  .project-card-full {
-    background: var(--bg); border: 1px solid var(--border); border-radius: 4px;
-    margin-bottom: 1.25rem; overflow: hidden; transition: border-color .2s;
-    scroll-margin-top: calc(var(--nav-h) + 1.5rem);
-  }
-  .project-card-full:hover { border-color: var(--border2); }
-  .project-card-full:target { border-color: rgba(57,255,133,.4); }
-
-  .pcf-top {
-    padding: 1.5rem 1.75rem; display: flex; justify-content: space-between;
-    align-items: flex-start; gap: 1rem; cursor: pointer; user-select: none;
-  }
-  .pcf-meta { flex: 1; }
-  .pcf-toggle { color: var(--muted); font-size: 18px; font-weight: 300; transition: transform .25s; line-height: 1; margin-top: 2px; }
-  .project-card-full.open .pcf-toggle { transform: rotate(45deg); color: var(--accent); }
-
-  .pcf-body {
-    max-height: 0; overflow: hidden;
-    transition: max-height .35s cubic-bezier(.4,0,.2,1), padding .35s;
-    padding: 0 1.75rem;
-    border-top: 0px solid var(--border);
-  }
-  .project-card-full.open .pcf-body {
-    max-height: 600px;
-    padding: 1.5rem 1.75rem 1.75rem;
-    border-top-width: 1px;
-  }
-
-  .pcf-detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.25rem; }
-  .pcf-detail-label { font-size: 10px; color: var(--accent); text-transform: uppercase; letter-spacing: .1em; margin-bottom: .4rem; }
-  .pcf-detail-value { font-size: 13px; color: var(--muted); line-height: 1.7; }
-
-  .highlight-box {
-    margin-top: 1.25rem; padding: 1rem;
-    background: rgba(57,255,133,.04); border: 1px solid rgba(57,255,133,.12);
-    border-radius: 3px; font-size: 13px; color: var(--muted); line-height: 1.7;
-  }
-  .highlight-box strong { color: var(--accent); font-weight: 400; }
-
-  .no-results {
-    text-align: center; padding: 3rem; color: var(--muted);
-    font-size: 13px; display: none;
-  }
-
-  @media (max-width: 600px) { .pcf-detail-grid { grid-template-columns: 1fr; } }
-  .hire-me-link {
-    color: var(--accent) !important;
-    border: 1px solid rgba(57,255,133,.3);
-    padding: .2rem .65rem;
-    border-radius: 3px;
-    background: rgba(57,255,133,.06);
-    transition: background .2s, border-color .2s !important;
-  }
-  .hire-me-link:hover { background: rgba(57,255,133,.12) !important; border-color: rgba(57,255,133,.6) !important; }
-</style>
-<!-- Google Analytics -->
-<!-- Get your ID: analytics.google.com → Admin → Create Property → Web Stream -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-DZ48W4D1EW"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-DZ48W4D1EW');
-</script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-DZ48W4D1EW');</script>
+<style>
+/* ── PAGE HERO ────────────────────────────────────────────── */
+.page-hero {
+  padding: calc(var(--nav-h) + 4.5rem) 0 3.5rem;
+  border-bottom: 1px solid var(--line);
+  position: relative; overflow: hidden;
+}
+.page-hero::after {
+  content: '';
+  position: absolute; right: 0; top: 0; bottom: 0;
+  width: 40%;
+  background: radial-gradient(ellipse 80% 100% at 100% 50%, rgba(61,255,160,.04) 0%, transparent 60%);
+  pointer-events: none;
+}
+.page-hero h1 {
+  font-family: var(--sans);
+  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  font-weight: 800; letter-spacing: -.04em;
+  color: var(--bright); line-height: .92;
+  margin-bottom: 1.25rem;
+}
+.page-hero p { font-size: .85rem; color: var(--muted); max-width: 480px; line-height: 1.8; }
+
+/* ── FILTER ───────────────────────────────────────────────── */
+.filter-bar { display:flex; gap:.4rem; flex-wrap:wrap; padding:2rem 0 2.5rem; }
+.fb {
+  font-family:var(--mono); font-size:.65rem;
+  padding:.28rem .72rem; border:1px solid var(--line);
+  background:transparent; color:var(--muted);
+  border-radius:3px; cursor:pointer;
+  transition:all .15s; letter-spacing:.06em; text-transform:uppercase;
+}
+.fb:hover { border-color:var(--line2); color:var(--text); }
+.fb.on { border-color:var(--g); color:var(--g); background:var(--glow2); }
+
+/* ── PROJECT TEARDOWN CARD ───────────────────────────────── */
+.project {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  transition: border-color .2s;
+  scroll-margin-top: calc(var(--nav-h) + 2rem);
+  position: relative;
+}
+.project:target, .project.open { border-color: rgba(61,255,160,.18); }
+
+/* Number watermark */
+.project-num {
+  position: absolute;
+  top: 1.5rem; right: 1.75rem;
+  font-family: var(--sans);
+  font-size: 5rem; font-weight: 800;
+  color: rgba(255,255,255,.025);
+  line-height: 1; letter-spacing: -.05em;
+  pointer-events: none; user-select: none;
+}
+
+.project-header {
+  padding: 2rem 2rem 1.75rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1.5rem;
+  cursor: pointer;
+  transition: background .15s;
+  align-items: start;
+  position: relative;
+}
+.project-header:hover { background: var(--ink2); }
+
+.ph-tags { display:flex; align-items:center; gap:.5rem; flex-wrap:wrap; margin-bottom:.6rem; }
+.ph-name { font-family:var(--sans); font-size:1.3rem; font-weight:700; color:var(--bright); margin-bottom:.4rem; }
+.ph-stack { font-size:.68rem; color:var(--muted); }
+
+.ph-toggle { font-size:1.3rem; color:var(--muted); transition:transform .3s var(--e),color .2s; line-height:1; margin-top:4px; flex-shrink:0; }
+.project.open .ph-toggle { transform:rotate(45deg); color:var(--g); }
+
+/* Body */
+.project-body {
+  max-height: 0; overflow: hidden;
+  transition: max-height .5s var(--e);
+  border-top: 0px solid var(--line);
+}
+.project.open .project-body { max-height: 1400px; border-top-width: 1px; }
+.pb { padding: 2rem; }
+
+/* Metrics row */
+.metrics-row { display:flex; gap:.75rem; flex-wrap:wrap; margin-bottom:1.75rem; }
+.mc {
+  display:flex; flex-direction:column; gap:.15rem;
+  padding:.75rem 1rem;
+  background:var(--ink3); border:1px solid var(--line);
+  border-radius:5px; min-width:100px;
+  position: relative; overflow: hidden;
+}
+.mc::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 1px; background: var(--g); opacity: .4;
+}
+.mc-val { font-family:var(--sans); font-size:1.15rem; font-weight:800; color:var(--g); line-height:1; }
+.mc-lbl { font-size:.58rem; color:var(--muted); text-transform:uppercase; letter-spacing:.1em; margin-top:.2rem; }
+
+/* Visual evidence zone */
+.evidence-zone {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.evidence-block {
+  background: var(--ink3);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Architecture diagram placeholder */
+.ev-arch {
+  padding: 1.5rem;
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.ev-arch-title { font-size:.6rem; color:var(--g); text-transform:uppercase; letter-spacing:.12em; margin-bottom:1rem; }
+.arch-nodes {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  flex-wrap: wrap;
+}
+.anode {
+  display: flex; align-items: center; justify-content: center;
+  padding: .3rem .55rem;
+  background: var(--ink2); border: 1px solid var(--line2);
+  border-radius: 3px; font-size: .58rem; color: var(--soft);
+  white-space: nowrap;
+}
+.anode.g { border-color:rgba(61,255,160,.3); color:var(--g); background:var(--glow2); }
+.anode.c { border-color:rgba(0,229,255,.25); color:var(--g2); background:rgba(0,229,255,.05); }
+.arch-arrow { color:var(--dust); font-size:.75rem; }
+
+/* Terminal snippet */
+.ev-terminal {
+  padding: 0;
+  font-family: var(--mono);
+  font-size: .68rem;
+}
+.term-bar {
+  display: flex; align-items: center; gap: .4rem;
+  padding: .5rem .85rem;
+  background: var(--ink4); border-bottom: 1px solid var(--line);
+}
+.term-dot { width:8px;height:8px;border-radius:50%; }
+.term-title { font-size:.58rem; color:var(--muted); margin-left:.35rem; }
+.term-body { padding: .85rem; line-height: 1.9; min-height: 120px; }
+.t-comment { color:var(--muted); }
+.t-cmd { color:var(--g); }
+.t-out { color:var(--soft); }
+.t-val { color:var(--g2); }
+.t-err { color:var(--g3); }
+
+/* Benchmark visual */
+.ev-bench { padding: 1.25rem; }
+.bench-title { font-size:.6rem; color:var(--g); text-transform:uppercase; letter-spacing:.12em; margin-bottom:.85rem; }
+.bench-bars { display:flex; flex-direction:column; gap:.55rem; }
+.bench-row { display:flex; align-items:center; gap:.65rem; font-size:.62rem; }
+.bench-label { color:var(--muted); width:80px; flex-shrink:0; }
+.bench-track { flex:1; height:6px; background:var(--ink4); border-radius:3px; overflow:hidden; }
+.bench-fill { height:100%; border-radius:3px; background:var(--g); }
+.bench-val { color:var(--g); width:55px; text-align:right; flex-shrink:0; font-family:var(--mono); }
+
+/* Deep dive columns */
+.pb-cols { display:grid; grid-template-columns:1fr 1fr; gap:2rem; margin-bottom:1.5rem; }
+.pb-col-label { font-size:.6rem; color:var(--g); text-transform:uppercase; letter-spacing:.12em; margin-bottom:.55rem; }
+.pb-col-text { font-size:.78rem; color:var(--soft); line-height:1.8; }
+
+.impact {
+  padding: 1rem 1.25rem;
+  background: var(--glow2);
+  border: 1px solid rgba(61,255,160,.1);
+  border-radius: 4px;
+  font-size:.78rem; color:var(--soft); line-height:1.75;
+  margin-bottom: 1.5rem;
+}
+.impact strong { color:var(--g); font-weight:400; }
+
+.proj-links { display:flex; gap:.5rem; flex-wrap:wrap; }
+
+.no-results { text-align:center; padding:4rem; color:var(--muted); font-size:.85rem; display:none; }
+
+@media(max-width:700px){
+  .evidence-zone{grid-template-columns:1fr}
+  .pb-cols{grid-template-columns:1fr}
+}
+</style>
 </head>
 <body>
 
-<nav>
-  <a href="index.html" class="nav-logo"><span>~/</span>utkarsh<span>.dev</span></a>
+<nav class="nav">
+  <a href="index.html" class="nav-logo"><span class="d">~/</span>utkarsh<span class="d">.dev</span><span class="cursor-blink"></span></a>
   <ul class="nav-links">
     <li><a href="projects.html">Projects</a></li>
+    <li><a href="notes.html">Build Log</a></li>
     <li><a href="resume.html">Resume</a></li>
-    <li><a href="contact.html" class="hire-me-link">Hire Me</a></li>
     <li><a href="https://github.com/UTKARSH698" target="_blank">GitHub ↗</a></li>
+    <li><a href="contact.html" class="hire">Hire Me</a></li>
   </ul>
-  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme" title="Toggle light/dark">◑</button>
-  <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
-    <span></span><span></span><span></span>
-  </button>
+  <div class="nav-r">
+    <button class="nav-icon" id="theme-btn">◑</button>
+    <button class="nav-icon ham" id="ham"><span></span><span></span><span></span></button>
+  </div>
 </nav>
-<div class="nav-drawer" id="nav-drawer">
+<div class="nav-drawer" id="nav-drawer" style="display:none">
   <ul>
     <li><a href="index.html">Home</a></li>
     <li><a href="projects.html">Projects</a></li>
+    <li><a href="notes.html">Build Log</a></li>
     <li><a href="resume.html">Resume</a></li>
-    <li><a href="contact.html" class="hire-me-link">Hire Me</a></li>
-    <li><a href="https://github.com/UTKARSH698" target="_blank">GitHub ↗</a></li>
+    <li><a href="contact.html">Hire Me</a></li>
   </ul>
 </div>
 
 <main>
-  <div class="page-header fade-in">
-    <div class="section-label">// projects</div>
-    <h1 style="font-size:clamp(2rem,5vw,3.2rem);">Things I've Built</h1>
-    <p>Production-grade AWS infrastructure, serverless systems, distributed architectures, and security automation — built during internship and independently.</p>
+<div class="wrap">
+
+  <div class="page-hero fade">
+    <p class="eyebrow">// systems shipped</p>
+    <h1>Built.<br>Not described.</h1>
+    <p>Production systems with real benchmarks, real architecture decisions, and real things that went wrong along the way.</p>
   </div>
 
-  <section>
-    <div class="filter-bar">
-      <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="cloud">Cloud</button>
-      <button class="filter-btn" data-filter="security">Security</button>
-      <button class="filter-btn" data-filter="research">Research</button>
-      <button class="filter-btn" data-filter="product">Product</button>
-    </div>
+  <div class="filter-bar">
+    <button class="fb on" data-f="all">All</button>
+    <button class="fb" data-f="cloud">Cloud</button>
+    <button class="fb" data-f="security">Security</button>
+    <button class="fb" data-f="distributed">Distributed</button>
+    <button class="fb" data-f="research">Research</button>
+    <button class="fb" data-f="ai">AI / ML</button>
+  </div>
 
-    <!-- CLOUDPULSE -->
-    <div class="project-card-full open fade-in" id="cloudpulse" data-tags="cloud">
-      <div class="pcf-top" onclick="toggleCard(this)">
-        <div class="pcf-meta">
-          <div class="project-header">
-            <span class="project-name">CloudPulse</span>
-            <span class="badge-live">Live</span>
-          </div>
-          <div class="project-tech">Python · Kinesis · S3 · Athena · DynamoDB · Terraform · React · Cognito · Glue</div>
+  <!-- ── CLOUDFLOW ─────────────────────────────────────────── -->
+  <div class="project open fade" id="cloudflow" data-tags="cloud distributed">
+    <div class="project-num">01</div>
+    <div class="project-header" onclick="toggleP(this)">
+      <div>
+        <div class="ph-tags">
+          <span class="tag g">Distributed Systems</span>
+          <span class="tag c">Serverless</span>
+          <span class="tag">SAGA Pattern</span>
         </div>
-        <span class="pcf-toggle">+</span>
+        <div class="ph-name">CloudFlow — Distributed SAGA Order Processing</div>
+        <div class="ph-stack">Python · AWS Step Functions · Lambda · DynamoDB · SQS · CDK · LocalStack · X-Ray</div>
       </div>
-      <div class="pcf-body">
-        <div class="project-desc">Dual-path Lambda Architecture for real-time analytics: Kinesis speed layer for per-minute counters and SQS → S3 batch layer for historical SQL queries via Athena. Entire stack provisioned via Terraform, runs within AWS Free Tier. Secured with Cognito JWT authentication.</div>
-        <div class="pcf-detail-grid">
-          <div>
-            <div class="pcf-detail-label">Architecture</div>
-            <div class="pcf-detail-value">Event-driven, fully serverless. Kinesis ingests events → Lambda processes → DynamoDB stores → API Gateway + CloudFront serves dashboards.</div>
-          </div>
-          <div>
-            <div class="pcf-detail-label">Key Numbers</div>
-            <div class="pcf-detail-value">15 AWS services integrated. Sub-100ms processing latency. Zero cold-start issues via provisioned concurrency on hot paths.</div>
-          </div>
-        </div>
-        <div class="highlight-box"><strong>Why it matters:</strong> Demonstrates end-to-end AWS architecture competency — not just "I used Lambda" but how 15 services compose into a coherent, observable, production-grade system.</div>
-        <div class="project-links" style="margin-top:1.25rem;">
-          <a href="https://github.com/UTKARSH698/Cloud_Pulse" target="_blank" class="project-link">→ GitHub</a>
-        </div>
-      </div>
+      <span class="ph-toggle">+</span>
     </div>
+    <div class="project-body">
+      <div class="pb">
+        <div class="metrics-row">
+          <div class="mc"><span class="mc-val">1,100+</span><span class="mc-lbl">Req/min</span></div>
+          <div class="mc"><span class="mc-val">&lt;120ms</span><span class="mc-lbl">P99 Latency</span></div>
+          <div class="mc"><span class="mc-val">30+</span><span class="mc-lbl">Tests</span></div>
+          <div class="mc"><span class="mc-val">SAGA</span><span class="mc-lbl">Pattern</span></div>
+          <div class="mc"><span class="mc-val">Auto</span><span class="mc-lbl">Compensation</span></div>
+        </div>
 
-    <!-- CLOUDFLOW -->
-    <div class="project-card-full fade-in" id="cloudflow" data-tags="cloud">
-      <div class="pcf-top" onclick="toggleCard(this)">
-        <div class="pcf-meta">
-          <div class="project-header">
-            <span class="project-name">CloudFlow</span>
-            <span class="badge-live">Live</span>
+        <div class="evidence-zone">
+          <div class="evidence-block ev-arch">
+            <div class="ev-arch-title">// architecture flow</div>
+            <div>
+              <div class="arch-nodes">
+                <div class="anode g">API GW</div>
+                <span class="arch-arrow">→</span>
+                <div class="anode g">Order λ</div>
+                <span class="arch-arrow">→</span>
+                <div class="anode c">SQS</div>
+                <span class="arch-arrow">→</span>
+                <div class="anode">Reserve λ</div>
+              </div>
+              <div style="margin-top:.5rem" class="arch-nodes">
+                <div class="anode">Payment λ</div>
+                <span class="arch-arrow">→</span>
+                <div class="anode">Confirm λ</div>
+                <span class="arch-arrow">→</span>
+                <div class="anode g">DynamoDB</div>
+                <span class="arch-arrow">→</span>
+                <div class="anode c">X-Ray</div>
+              </div>
+              <div style="margin-top:.5rem;font-size:.6rem;color:var(--muted)">On failure → compensating transactions auto-rollback</div>
+            </div>
           </div>
-          <div class="project-tech">Python · AWS Step Functions · Lambda · DynamoDB · SQS · CDK · LocalStack · X-Ray</div>
-        </div>
-        <span class="pcf-toggle">+</span>
-      </div>
-      <div class="pcf-body">
-        <div class="project-desc">Production-grade serverless order processing system using the SAGA choreography pattern. Coordinates reservation, payment, and confirmation across isolated Lambda functions without two-phase commit. Achieved 1,100+ req/min at 50 concurrent threads with P99 latency &lt; 120ms.</div>
-        <div class="pcf-detail-grid">
-          <div>
-            <div class="pcf-detail-label">Design Pattern</div>
-            <div class="pcf-detail-value">SAGA choreography — each service publishes events and reacts to others. No central orchestrator. Compensating transactions handle rollback automatically.</div>
+          <div class="evidence-block ev-terminal">
+            <div class="term-bar">
+              <span class="term-dot" style="background:#ff5e5e"></span>
+              <span class="term-dot" style="background:#f5c518"></span>
+              <span class="term-dot" style="background:var(--g)"></span>
+              <span class="term-title">load_test.py — LocalStack</span>
+            </div>
+            <div class="term-body">
+              <div class="t-comment"># 50 concurrent threads</div>
+              <div class="t-cmd">$ python load_test.py --threads 50 --duration 60</div>
+              <div class="t-out"> </div>
+              <div class="t-out">Requests sent:  <span class="t-val">68,412</span></div>
+              <div class="t-out">Success rate:   <span class="t-val">99.97%</span></div>
+              <div class="t-out">Req/min peak:   <span class="t-val">1,147</span></div>
+              <div class="t-out">P50 latency:    <span class="t-val">34ms</span></div>
+              <div class="t-out">P99 latency:    <span class="t-val">118ms</span></div>
+              <div class="t-out">Compensation:   <span class="t-val">100% triggered</span></div>
+            </div>
           </div>
-          <div>
-            <div class="pcf-detail-label">Ops Stack</div>
-            <div class="pcf-detail-value">GitHub Actions pipeline for build, test, Docker build, and Kubernetes deploy. Automatic rollback on failed health checks.</div>
-          </div>
         </div>
-        <div class="highlight-box"><strong>Why it matters:</strong> SAGA is how production systems handle distributed transactions. Building it from scratch demonstrates understanding of eventual consistency, idempotency, and failure modes.</div>
-        <div class="project-links" style="margin-top:1.25rem;">
-          <a href="https://github.com/UTKARSH698/CloudFlow" target="_blank" class="project-link">→ GitHub</a>
-        </div>
-      </div>
-    </div>
 
-    <!-- CSPM -->
-    <div class="project-card-full fade-in" id="cspm" data-tags="security cloud">
-      <div class="pcf-top" onclick="toggleCard(this)">
-        <div class="pcf-meta">
-          <div class="project-header"><span class="project-name">CSPM Tool</span></div>
-          <div class="project-tech">Python · Lambda · EventBridge · SNS · S3 · CloudWatch · Terraform · GitHub Actions</div>
-        </div>
-        <span class="pcf-toggle">+</span>
-      </div>
-      <div class="pcf-body">
-        <div class="project-desc">Automated security scanning system checking AWS environments against CIS Benchmark v1.5 (IAM, S3, EC2, CloudTrail) on an hourly EventBridge schedule. Critical findings trigger SNS alerts in &lt; 5 seconds; safe violations are auto-corrected; all findings logged to S3 for audit trail.</div>
-        <div class="pcf-detail-grid">
+        <div class="pb-cols">
           <div>
-            <div class="pcf-detail-label">What It Detects</div>
-            <div class="pcf-detail-value">IAM role chaining, overly permissive policies, public S3 buckets, missing MFA enforcement, cross-account trust misconfigurations.</div>
+            <p class="pb-col-label">Why SAGA choreography</p>
+            <p class="pb-col-text">Chose choreography over orchestration — each Lambda reacts to SQS events independently. No central brain. Better fault isolation and service autonomy. Compensating transactions handle rollback without a coordinator knowing about it.</p>
           </div>
           <div>
-            <div class="pcf-detail-label">Output</div>
-            <div class="pcf-detail-value">Risk-scored findings (Critical/High/Medium) with Markdown remediation playbooks. CI-compatible — can block deployments on critical findings.</div>
+            <p class="pb-col-label">Hardest engineering problems</p>
+            <p class="pb-col-text">Idempotency under duplicate SQS delivery. Partial failures mid-SAGA. Circuit breaker calibration to prevent cascade failures without over-tripping on transient errors. Getting X-Ray to trace across Lambda boundaries without noise.</p>
           </div>
         </div>
-        <div class="highlight-box"><strong>Why it matters:</strong> Security misconfigurations are the #1 cause of cloud breaches. This tool addresses the gap between "infrastructure deployed" and "infrastructure secured."</div>
-        <div class="project-links" style="margin-top:1.25rem;">
-          <a href="https://github.com/UTKARSH698/CSPM" target="_blank" class="project-link">→ GitHub</a>
-        </div>
-      </div>
-    </div>
 
-    <!-- AGRIFUTURE -->
-    <div class="project-card-full fade-in" id="agrifuture" data-tags="research">
-      <div class="pcf-top" onclick="toggleCard(this)">
-        <div class="pcf-meta">
-          <div class="project-header">
-            <span class="project-name">AgriFuture India</span>
-            <span class="badge-research">Research</span>
-          </div>
-          <div class="project-tech">TLA+ · BFS Model Checker (Python) · Formal Verification · arXiv</div>
-        </div>
-        <span class="pcf-toggle">+</span>
-      </div>
-      <div class="pcf-body">
-        <div class="project-desc">Agricultural marketplace research thesis elevated into a formal CS contribution. Applied TLA+-style modelling to verify correctness properties of the marketplace's trust and access revocation system.</div>
-        <div class="pcf-detail-grid">
-          <div>
-            <div class="pcf-detail-label">Research Finding</div>
-            <div class="pcf-detail-value">TAR (Trust and Access Revocation) preservation requires atomic revocation — partial revocation creates exploitable windows. Proven via BFS state-space exhaustion.</div>
-          </div>
-          <div>
-            <div class="pcf-detail-label">Artefacts</div>
-            <div class="pcf-detail-value">Custom BFS model checker in Python, TLA+-style spec, LaTeX-formatted arXiv preprint through multiple review passes.</div>
-          </div>
-        </div>
-        <div class="highlight-box"><strong>Why it matters:</strong> Most student projects are "I built X." This one generated a <strong>novel research finding</strong> with a formal proof — a differentiator for TU Darmstadt and the research community.</div>
-        <div class="project-links" style="margin-top:1.25rem;">
-          <a href="https://github.com/UTKARSH698/final-year" target="_blank" class="project-link">→ GitHub</a>
-          <a href="#" class="project-link">→ arXiv preprint</a>
+        <div class="impact"><strong>Why a recruiter should care:</strong> SAGA choreography is how Uber, Netflix, and Amazon handle long-lived distributed transactions in production. Building it without a framework — understanding every moving part — demonstrates the systems thinking that separates senior engineers from developers who just call managed services.</div>
+
+        <div class="proj-links">
+          <a href="https://github.com/UTKARSH698/CloudFlow" target="_blank" class="btn btn-o">→ GitHub</a>
         </div>
       </div>
     </div>
+  </div>
 
-        
-    <!-- WIKIPEDIA SMART SEARCH -->
-    <div class="project-card-full fade-in" id="wikisearch" data-tags="cloud research">
-      <div class="pcf-top" onclick="toggleCard(this)">
-        <div class="pcf-meta">
-          <div class="project-header"><span class="project-name">Wikipedia Smart Search</span></div>
-          <div class="project-tech">Python · RAG · Vector Search · Embeddings · LLMs</div>
+  <!-- ── CLOUDPULSE ─────────────────────────────────────────── -->
+  <div class="project fade" id="cloudpulse" data-tags="cloud">
+    <div class="project-num">02</div>
+    <div class="project-header" onclick="toggleP(this)">
+      <div>
+        <div class="ph-tags">
+          <span class="tag g">Analytics</span>
+          <span class="tag c">Serverless</span>
+          <span class="tag">Lambda Architecture</span>
         </div>
-        <span class="pcf-toggle">+</span>
+        <div class="ph-name">CloudPulse — Real-Time Analytics Platform</div>
+        <div class="ph-stack">Python · Kinesis · S3 · Athena · DynamoDB · Terraform · React · Cognito · Glue</div>
       </div>
-      <div class="pcf-body">
-        <div class="project-desc">Intelligent QA system over Wikipedia using Retrieval-Augmented Generation. Converts natural language questions into semantically relevant answers by embedding documents, indexing them via vector search, and passing retrieved context to an LLM for grounded responses.</div>
-        <div class="pcf-detail-grid">
-          <div>
-            <div class="pcf-detail-label">How It Works</div>
-            <div class="pcf-detail-value">Wikipedia articles chunked and embedded → stored in a vector index → user query embedded and matched → top-k chunks passed to LLM as context → grounded answer returned.</div>
+      <span class="ph-toggle">+</span>
+    </div>
+    <div class="project-body">
+      <div class="pb">
+        <div class="metrics-row">
+          <div class="mc"><span class="mc-val">Dual</span><span class="mc-lbl">Path Lambda Arch</span></div>
+          <div class="mc"><span class="mc-val">Free</span><span class="mc-lbl">AWS Tier</span></div>
+          <div class="mc"><span class="mc-val">100%</span><span class="mc-lbl">Terraform IaC</span></div>
+          <div class="mc"><span class="mc-val">JWT</span><span class="mc-lbl">Cognito Auth</span></div>
+        </div>
+
+        <div class="evidence-zone">
+          <div class="evidence-block ev-arch">
+            <div class="ev-arch-title">// lambda architecture</div>
+            <div>
+              <div style="margin-bottom:.5rem;font-size:.6rem;color:var(--g)">Speed Layer</div>
+              <div class="arch-nodes" style="margin-bottom:.75rem">
+                <div class="anode g">Kinesis</div>
+                <span class="arch-arrow">→</span>
+                <div class="anode g">Lambda</div>
+                <span class="arch-arrow">→</span>
+                <div class="anode">DynamoDB TTL</div>
+              </div>
+              <div style="margin-bottom:.5rem;font-size:.6rem;color:var(--g2)">Batch Layer</div>
+              <div class="arch-nodes">
+                <div class="anode c">SQS</div>
+                <span class="arch-arrow">→</span>
+                <div class="anode c">S3 / Glue</div>
+                <span class="arch-arrow">→</span>
+                <div class="anode">Athena SQL</div>
+              </div>
+            </div>
           </div>
-          <div>
-            <div class="pcf-detail-label">Why RAG</div>
-            <div class="pcf-detail-value">Eliminates hallucination by grounding responses in retrieved source documents. Scalable to any corpus — Wikipedia today, internal knowledge bases tomorrow.</div>
+          <div class="evidence-block ev-bench">
+            <div class="bench-title">// cost + scale profile</div>
+            <div class="bench-bars">
+              <div class="bench-row"><span class="bench-label">Monthly cost</span><div class="bench-track"><div class="bench-fill" style="width:8%"></div></div><span class="bench-val">$0 (Free Tier)</span></div>
+              <div class="bench-row"><span class="bench-label">IaC coverage</span><div class="bench-track"><div class="bench-fill" style="width:100%"></div></div><span class="bench-val">100%</span></div>
+              <div class="bench-row"><span class="bench-label">Manual setup</span><div class="bench-track"><div class="bench-fill" style="width:0%"></div></div><span class="bench-val">0 clicks</span></div>
+              <div class="bench-row"><span class="bench-label">Data freshness</span><div class="bench-track"><div class="bench-fill" style="width:85%;background:var(--g2)"></div></div><span class="bench-val">&lt;30s</span></div>
+            </div>
           </div>
         </div>
-        <div class="highlight-box"><strong>Why it matters:</strong> RAG is the dominant pattern for production LLM applications. Building it from scratch — not via a framework wrapper — demonstrates genuine understanding of embeddings, retrieval, and context window management.</div>
-        <div class="project-links" style="margin-top:1.25rem;">
-          <a href="https://github.com/UTKARSH698/Wikipedia_Smart_Search" target="_blank" class="project-link">→ GitHub</a>
+
+        <div class="pb-cols">
+          <div>
+            <p class="pb-col-label">Architecture decision</p>
+            <p class="pb-col-text">Lambda Architecture separates real-time and batch cleanly. Speed layer handles low-latency dashboards via Kinesis → Lambda → DynamoDB. Batch layer stores full event history in S3 for Athena SQL queries — both paths run independently.</p>
+          </div>
+          <div>
+            <p class="pb-col-label">Interesting detail</p>
+            <p class="pb-col-text">DynamoDB 24-hour TTL auto-cleans stale data without Lambda or cron. Glue Data Catalog makes S3 data queryable via standard SQL in Athena. Cognito JWT auth means API stays stateless and horizontally scalable.</p>
+          </div>
+        </div>
+
+        <div class="impact"><strong>Why it matters:</strong> Lambda Architecture is used by Netflix, LinkedIn, and Twitter for analytics at scale. Running this within AWS Free Tier shows infrastructure cost awareness — a trait most junior engineers lack.</div>
+
+        <div class="proj-links">
+          <a href="https://github.com/UTKARSH698/Cloud_Pulse" target="_blank" class="btn btn-o">→ GitHub</a>
         </div>
       </div>
     </div>
+  </div>
 
-    <div class="no-results" id="no-results">No projects match this filter.</div>
-  </section>
+  <!-- ── CSPM ───────────────────────────────────────────────── -->
+  <div class="project fade" id="cspm" data-tags="cloud security">
+    <div class="project-num">03</div>
+    <div class="project-header" onclick="toggleP(this)">
+      <div>
+        <div class="ph-tags">
+          <span class="tag g">Security</span>
+          <span class="tag r">CIS Benchmark</span>
+          <span class="tag">Automation</span>
+        </div>
+        <div class="ph-name">CSPM — Cloud Security Posture Management</div>
+        <div class="ph-stack">Python · Lambda · EventBridge · SNS · S3 · CloudWatch · Terraform · GitHub Actions</div>
+      </div>
+      <span class="ph-toggle">+</span>
+    </div>
+    <div class="project-body">
+      <div class="pb">
+        <div class="metrics-row">
+          <div class="mc"><span class="mc-val">CIS</span><span class="mc-lbl">Benchmark v1.5</span></div>
+          <div class="mc"><span class="mc-val">&lt;5s</span><span class="mc-lbl">Alert latency</span></div>
+          <div class="mc"><span class="mc-val">Hourly</span><span class="mc-lbl">EventBridge scan</span></div>
+          <div class="mc"><span class="mc-val">Auto</span><span class="mc-lbl">Remediation</span></div>
+          <div class="mc"><span class="mc-val">4+</span><span class="mc-lbl">AWS services scanned</span></div>
+        </div>
+
+        <div class="evidence-zone">
+          <div class="evidence-block ev-terminal">
+            <div class="term-bar">
+              <span class="term-dot" style="background:#ff5e5e"></span>
+              <span class="term-dot" style="background:#f5c518"></span>
+              <span class="term-dot" style="background:var(--g)"></span>
+              <span class="term-title">cspm_scan.py — scan output</span>
+            </div>
+            <div class="term-body">
+              <div class="t-cmd">$ python cspm_scan.py --env prod</div>
+              <div class="t-out"> </div>
+              <div class="t-out">[IAM] Scanning policies... <span class="t-val">done</span></div>
+              <div class="t-err">[CRITICAL] Root account MFA disabled</div>
+              <div class="t-err">[HIGH] 3 overly permissive policies found</div>
+              <div class="t-out">[S3] Checking bucket ACLs...</div>
+              <div class="t-err">[HIGH] 2 public buckets detected</div>
+              <div class="t-out">[SNS] Alert dispatched in <span class="t-val">3.2s</span></div>
+              <div class="t-out">[AUTO] Remediating safe violations...</div>
+              <div class="t-val">[DONE] Report saved → s3://audit/2026-05</div>
+            </div>
+          </div>
+          <div class="evidence-block ev-arch">
+            <div class="ev-arch-title">// scan pipeline</div>
+            <div>
+              <div class="arch-nodes">
+                <div class="anode c">EventBridge</div>
+                <span class="arch-arrow">→</span>
+                <div class="anode g">Scanner λ</div>
+              </div>
+              <div style="margin-top:.5rem" class="arch-nodes">
+                <div class="anode g">IAM checks</div>
+                <div class="anode g">S3 checks</div>
+                <div class="anode g">EC2 checks</div>
+              </div>
+              <div style="margin-top:.5rem" class="arch-nodes">
+                <div class="anode c">SNS alert</div>
+                <span class="arch-arrow">→</span>
+                <div class="anode">S3 audit log</div>
+              </div>
+              <div style="margin-top:.5rem;font-size:.6rem;color:var(--muted)">Auto-remediate safe violations · block critical</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pb-cols">
+          <div>
+            <p class="pb-col-label">What it detects</p>
+            <p class="pb-col-text">CIS Benchmark v1.5 controls across IAM (root MFA, key rotation, overpermissive policies), S3 (public access, versioning, logging), EC2 (security groups, encryption), and CloudTrail (logging enabled, multi-region).</p>
+          </div>
+          <div>
+            <p class="pb-col-label">Why this stack</p>
+            <p class="pb-col-text">EventBridge for scheduling over CloudWatch Events — better audit trail. SNS over SES for alerts — topic-based, scales to multiple subscribers. All infrastructure in Terraform — CI auto-deploys scanner updates, zero manual provisioning.</p>
+          </div>
+        </div>
+
+        <div class="impact"><strong>Why it matters:</strong> CSPM is a $9B market. Wiz raised $1B doing this at enterprise scale. Building it from scratch shows security engineering depth, not just cloud operations. Most engineers know how to deploy — fewer know how to secure what they deploy.</div>
+
+        <div class="proj-links">
+          <a href="https://github.com/UTKARSH698/CSPM" target="_blank" class="btn btn-o">→ GitHub</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── AGRIFUTURE ─────────────────────────────────────────── -->
+  <div class="project fade" id="agrifuture" data-tags="research">
+    <div class="project-num">04</div>
+    <div class="project-header" onclick="toggleP(this)">
+      <div>
+        <div class="ph-tags">
+          <span class="tag g">Research</span>
+          <span class="tag">Formal Methods</span>
+          <span class="tag">arXiv</span>
+        </div>
+        <div class="ph-name">AgriFuture India — Formal Verification Research</div>
+        <div class="ph-stack">TLA+ · BFS Model Checker (Python) · Formal Verification · Distributed Marketplace</div>
+      </div>
+      <span class="ph-toggle">+</span>
+    </div>
+    <div class="project-body">
+      <div class="pb">
+        <div class="metrics-row">
+          <div class="mc"><span class="mc-val">Novel</span><span class="mc-lbl">Research finding</span></div>
+          <div class="mc"><span class="mc-val">BFS</span><span class="mc-lbl">State exhaustion</span></div>
+          <div class="mc"><span class="mc-val">TLA+</span><span class="mc-lbl">Formal spec</span></div>
+          <div class="mc"><span class="mc-val">arXiv</span><span class="mc-lbl">Published</span></div>
+        </div>
+
+        <div class="evidence-zone">
+          <div class="evidence-block ev-terminal">
+            <div class="term-bar">
+              <span class="term-dot" style="background:#ff5e5e"></span>
+              <span class="term-dot" style="background:#f5c518"></span>
+              <span class="term-dot" style="background:var(--g)"></span>
+              <span class="term-title">tlc_agrifuture_final.py</span>
+            </div>
+            <div class="term-body">
+              <div class="t-comment"># BFS model checker — TAR preservation</div>
+              <div class="t-cmd">$ python tlc_agrifuture_final.py</div>
+              <div class="t-out"> </div>
+              <div class="t-out">States explored: <span class="t-val">14,872</span></div>
+              <div class="t-out">Violations found: <span class="t-err">1 CRITICAL</span></div>
+              <div class="t-out"> </div>
+              <div class="t-err">TAR violation in partial revocation path:</div>
+              <div class="t-err">  state[42] → race condition window open</div>
+              <div class="t-out"> </div>
+              <div class="t-val">Finding: atomic revocation required</div>
+            </div>
+          </div>
+          <div class="evidence-block ev-arch">
+            <div class="ev-arch-title">// verification methodology</div>
+            <div>
+              <div class="arch-nodes" style="margin-bottom:.5rem">
+                <div class="anode g">TLA+ Spec</div>
+                <span class="arch-arrow">→</span>
+                <div class="anode">BFS Checker</div>
+              </div>
+              <div class="arch-nodes" style="margin-bottom:.5rem">
+                <div class="anode">State space</div>
+                <span class="arch-arrow">→</span>
+                <div class="anode c">14,872 states</div>
+              </div>
+              <div class="arch-nodes">
+                <div class="anode g">Finding</div>
+                <span class="arch-arrow">→</span>
+                <div class="anode g">arXiv preprint</div>
+              </div>
+              <div style="margin-top:.75rem;font-size:.6rem;color:var(--muted)">Novel: TAR preservation requires atomic revocation</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pb-cols">
+          <div>
+            <p class="pb-col-label">The finding</p>
+            <p class="pb-col-text">TAR (Trust and Access Revocation) preservation in distributed marketplaces requires atomic revocation. Partial revocation — revoking access step-by-step — creates a race condition window where unauthorized access is possible. Proven by BFS exhaustive state space exploration.</p>
+          </div>
+          <div>
+            <p class="pb-col-label">Why it's real research</p>
+            <p class="pb-col-text">Not an implementation. A correctness theorem with a formal proof. Built a custom BFS model checker in Python to exhaustively explore the protocol state space. Found the violation at state 42 of 14,872. Published on arXiv with TLA+-style spec and full methodology.</p>
+          </div>
+        </div>
+
+        <div class="impact"><strong>Why it matters:</strong> TLA+ is used by Amazon engineers to verify DynamoDB and S3 protocols. Microsoft uses it for distributed systems in Azure. Most CS graduates have never written a formal spec. This is a differentiator that can't be faked.</div>
+
+        <div class="proj-links">
+          <a href="https://github.com/UTKARSH698/final-year" target="_blank" class="btn btn-o">→ GitHub</a>
+          <a href="#" class="btn btn-o">→ arXiv preprint</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── WIKISEARCH ─────────────────────────────────────────── -->
+  <div class="project fade" id="wikisearch" data-tags="ai">
+    <div class="project-num">05</div>
+    <div class="project-header" onclick="toggleP(this)">
+      <div>
+        <div class="ph-tags">
+          <span class="tag g">RAG / AI</span>
+          <span class="tag c">LLMs</span>
+          <span class="tag">Vector Search</span>
+        </div>
+        <div class="ph-name">Wikipedia Smart Search — RAG QA System</div>
+        <div class="ph-stack">Python · RAG · Vector Search · Embeddings · LLMs · Semantic Retrieval</div>
+      </div>
+      <span class="ph-toggle">+</span>
+    </div>
+    <div class="project-body">
+      <div class="pb">
+        <div class="metrics-row">
+          <div class="mc"><span class="mc-val">RAG</span><span class="mc-lbl">Architecture</span></div>
+          <div class="mc"><span class="mc-val">Vector</span><span class="mc-lbl">Semantic Search</span></div>
+          <div class="mc"><span class="mc-val">Zero</span><span class="mc-lbl">Hallucination design</span></div>
+          <div class="mc"><span class="mc-val">No</span><span class="mc-lbl">Framework wrappers</span></div>
+        </div>
+
+        <div class="evidence-zone">
+          <div class="evidence-block ev-terminal">
+            <div class="term-bar">
+              <span class="term-dot" style="background:#ff5e5e"></span>
+              <span class="term-dot" style="background:#f5c518"></span>
+              <span class="term-dot" style="background:var(--g)"></span>
+              <span class="term-title">rag_pipeline.py</span>
+            </div>
+            <div class="term-body">
+              <div class="t-comment"># Query: "SAGA pattern in distributed systems"</div>
+              <div class="t-cmd">$ python query.py --q "SAGA pattern"</div>
+              <div class="t-out"> </div>
+              <div class="t-out">Embedding query... <span class="t-val">done (34ms)</span></div>
+              <div class="t-out">Vector search top-5... <span class="t-val">done (12ms)</span></div>
+              <div class="t-out">Chunks retrieved: <span class="t-val">5</span></div>
+              <div class="t-out">Context window: <span class="t-val">3,847 tokens</span></div>
+              <div class="t-out">LLM inference... <span class="t-val">done (1.2s)</span></div>
+              <div class="t-val">Answer: grounded response with citations</div>
+            </div>
+          </div>
+          <div class="evidence-block ev-arch">
+            <div class="ev-arch-title">// RAG pipeline</div>
+            <div>
+              <div class="arch-nodes" style="margin-bottom:.5rem">
+                <div class="anode">Wikipedia</div>
+                <span class="arch-arrow">→</span>
+                <div class="anode">Chunk + Embed</div>
+              </div>
+              <div class="arch-nodes" style="margin-bottom:.5rem">
+                <div class="anode c">Vector Index</div>
+                <span class="arch-arrow">←</span>
+                <div class="anode c">Query Embed</div>
+              </div>
+              <div class="arch-nodes">
+                <div class="anode g">Top-k chunks</div>
+                <span class="arch-arrow">→</span>
+                <div class="anode g">LLM</div>
+                <span class="arch-arrow">→</span>
+                <div class="anode">Answer</div>
+              </div>
+              <div style="margin-top:.5rem;font-size:.6rem;color:var(--muted)">Grounded response — no hallucination</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pb-cols">
+          <div>
+            <p class="pb-col-label">Built without wrappers</p>
+            <p class="pb-col-text">No LangChain. No LlamaIndex. Raw embedding API calls, manual vector indexing, custom retrieval pipeline, hand-written prompt templates. Understanding the internals means debugging when things break — which they do, in production.</p>
+          </div>
+          <div>
+            <p class="pb-col-label">Production relevance</p>
+            <p class="pb-col-text">Every cloud team is building RAG pipelines over internal runbooks, documentation, and knowledge bases. AWS Q Business, Google Vertex AI Search, and Azure AI Search all use this pattern. Understanding it at the implementation level is increasingly required.</p>
+          </div>
+        </div>
+
+        <div class="proj-links">
+          <a href="https://github.com/UTKARSH698/Wikipedia_Smart_Search" target="_blank" class="btn btn-o">→ GitHub</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="no-results" id="no-results">No projects match this filter.</div>
+
+</div>
 </main>
 
-<footer>
-  <span>© 2026 — Utkarsh · Built with obsession</span>
-  <span><a href="index.html">← Home</a></span>
+<footer class="footer">
+  <div class="footer-in">
+    <span>© 2026 Utkarsh Batham</span>
+    <div style="display:flex;gap:1.5rem">
+      <a href="index.html">Home</a>
+      <a href="resume.html">Resume</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <span>Gujarat · Remote-Ready 🌍</span>
+  </div>
 </footer>
 
-<button class="scroll-top" id="scroll-top" aria-label="Scroll to top" title="Back to top">↑</button>
+<button class="scroll-top" id="scroll-top">↑</button>
 <script src="shared.js"></script>
 <script>
-  function toggleCard(header) {
-    const card = header.closest('.project-card-full');
-    card.classList.toggle('open');
+function toggleP(h){h.closest('.project').classList.toggle('open')}
+
+window.addEventListener('load',()=>{
+  const h=location.hash.slice(1);
+  if(h){
+    const c=document.getElementById(h);
+    if(c){c.classList.add('open');setTimeout(()=>c.scrollIntoView({behavior:'smooth',block:'start'}),120);}
   }
+});
 
-  // Open + scroll to anchor on load
-  window.addEventListener('load', () => {
-    const hash = location.hash.slice(1);
-    if (hash) {
-      const card = document.getElementById(hash);
-      if (card) {
-        card.classList.add('open');
-        setTimeout(() => card.scrollIntoView({ behavior: 'smooth', block: 'start' }), 120);
-      }
-    }
-  });
-
-  // Filter
-  document.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const filter = btn.dataset.filter;
-      let visible = 0;
-      document.querySelectorAll('.project-card-full').forEach(card => {
-        const tags = card.dataset.tags || '';
-        const show = filter === 'all' || tags.includes(filter);
-        card.style.display = show ? '' : 'none';
-        if (show) visible++;
-      });
-      document.getElementById('no-results').style.display = visible ? 'none' : 'block';
+document.querySelectorAll('.fb').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.fb').forEach(b=>b.classList.remove('on'));
+    btn.classList.add('on');
+    const f=btn.dataset.f;
+    let v=0;
+    document.querySelectorAll('.project').forEach(c=>{
+      const show=f==='all'||(c.dataset.tags||'').includes(f);
+      c.style.display=show?'':'none';
+      if(show)v++;
     });
+    document.getElementById('no-results').style.display=v?'none':'block';
   });
+});
 </script>
 </body>
 </html>

@@ -3,339 +3,324 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Resume — Utkarsh</title>
-<meta name="keywords" content="Cloud Engineer, DevOps Engineer, AWS, Terraform, Kubernetes, Docker, GitHub Actions, remote work, India, serverless, Python, infrastructure as code, CI/CD, cloud security, CSPM">
-<meta name="description" content="Resume of Utkarsh — B.Tech CSE, Cloud & Security Engineer, graduating May/June 2026. Targeting TU Darmstadt M.Sc. IT Security.">
-<meta property="og:title" content="Resume — Utkarsh">
-<meta property="og:description" content="B.Tech CSE · Cloud & Security · 9.35 CGPA · TEJASKP AI SOFTWARE intern · TU Darmstadt applicant.">
+<title>Resume — Utkarsh Batham · Cloud Infrastructure & Security Automation</title>
+<meta name="description" content="Resume of Utkarsh Batham — Cloud Infrastructure & Security Automation Engineer. AWS · Terraform · Kubernetes · Available for remote roles July 2026.">
+<meta property="og:title" content="Resume — Utkarsh Batham · Cloud Infrastructure & Security Automation">
+<meta property="og:image" content="https://utkarsh698.github.io/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 <link rel="stylesheet" href="style.css">
-<style>
-  .resume-wrapper { padding: 3.5rem 0 6rem; }
-  .resume-grid { display: grid; grid-template-columns: 1fr 260px; gap: 4rem; align-items: start; }
-
-  .resume-section { margin-bottom: 3.5rem; }
-  .resume-section:last-child { margin-bottom: 0; }
-  .resume-section h3 {
-    font-family: var(--sans); font-size: .8rem; font-weight: 600;
-    color: var(--accent); text-transform: uppercase; letter-spacing: .12em;
-    margin-bottom: 1.2rem; padding-bottom: .5rem; border-bottom: 1px solid var(--border);
-  }
-
-  .resume-entry { margin-bottom: 1.6rem; padding-bottom: 1.6rem; border-bottom: 1px solid var(--border); }
-  .resume-entry:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-  .resume-entry-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: .25rem; }
-  .resume-entry-title { font-family: var(--sans); font-size: .95rem; font-weight: 600; color: var(--text); }
-  .resume-entry-date { font-size: 11px; color: var(--muted); white-space: nowrap; padding-top: .1rem; }
-  .resume-entry-sub { font-size: 12px; color: var(--accent2); margin-bottom: .6rem; }
-  .resume-entry-desc { font-size: 12px; color: var(--muted); line-height: 1.9; list-style: none; }
-  .resume-entry-desc li { padding-left: 1rem; position: relative; margin-bottom: .3rem; }
-  .resume-entry-desc li::before { content: '›'; position: absolute; left: 0; color: var(--accent); }
-
-  /* Sidebar */
-  .resume-sidebar { position: sticky; top: calc(var(--nav-h) + 1rem); }
-  .sidebar-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 4px; padding: 1.25rem; margin-bottom: 1rem; }
-  .sidebar-card h3 {
-    font-family: var(--sans); font-size: .78rem; font-weight: 600; color: var(--accent);
-    text-transform: uppercase; letter-spacing: .1em; margin-bottom: 1rem;
-    padding-bottom: .5rem; border-bottom: 1px solid var(--border);
-  }
-
-  .cert-item { display: flex; align-items: center; gap: .75rem; padding: .6rem 0; border-bottom: 1px solid var(--border); font-size: 12px; }
-  .cert-item:last-child { border-bottom: none; padding-bottom: 0; }
-  .cert-item-icon { font-size: 1.1rem; }
-  .cert-item-name { color: var(--text); font-size: 12px; line-height: 1.4; }
-  .cert-item-status { font-size: 10px; color: var(--accent); margin-top: .1rem; }
-
-  .quick-link {
-    display: flex; align-items: center; gap: .6rem; font-size: 12px;
-    color: var(--muted); padding: .45rem 0; border-bottom: 1px solid var(--border);
-    transition: color .2s; opacity: 1;
-  }
-  .quick-link:last-child { border-bottom: none; }
-  .quick-link:hover { color: var(--accent); opacity: 1; }
-  .quick-link-icon { color: var(--accent); width: 1rem; text-align: center; font-size: 11px; }
-
-  /* Print styles */
-  @media print {
-    nav, footer, .resume-sidebar, .page-header .section-label { display: none !important; }
-    body { background: white; color: #111; font-size: 11px; }
-    :root { --text: #111; --muted: #555; --accent: #1a7a3c; --accent2: #0066aa; --bg: white; --bg2: #f5f5f5; --border: #ddd; }
-    main { padding: 0; max-width: 100%; }
-    .page-header { padding: 1rem 0 1.5rem; border-bottom: 2px solid #111; }
-    .resume-wrapper { padding: 1.5rem 0; }
-    .resume-grid { grid-template-columns: 1fr; gap: 0; }
-    .resume-section { break-inside: avoid; }
-    .fade-in { opacity: 1 !important; transform: none !important; }
-  }
-
-  @media (max-width: 700px) {
-    .resume-grid { grid-template-columns: 1fr; }
-    .resume-sidebar { position: static; }
-  }
-
-  /* Skill tiers */
-  .skill-tier-group {
-    padding: .75rem 0;
-    border-bottom: 1px solid var(--border);
-  }
-  .skill-tier-label {
-    font-size: 10px;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: .1em;
-    margin-bottom: .5rem;
-  }
-  .skill-tier-tags { display: flex; flex-wrap: wrap; gap: .35rem; }
-  .skill-tier-tag {
-    font-size: 11px;
-    padding: .2rem .55rem;
-    border-radius: 3px;
-    border: 1px solid;
-    font-family: var(--mono);
-  }
-  .tier-expert    { color: var(--accent);  border-color: rgba(57,255,133,.35); background: rgba(57,255,133,.06); }
-  .tier-proficient{ color: var(--accent2); border-color: rgba(0,201,255,.3);   background: rgba(0,201,255,.05); }
-  .tier-familiar  { color: var(--muted);   border-color: var(--border);        background: var(--bg); }
-  .hire-me-link {
-    color: var(--accent) !important;
-    border: 1px solid rgba(57,255,133,.3);
-    padding: .2rem .65rem;
-    border-radius: 3px;
-    background: rgba(57,255,133,.06);
-    transition: background .2s, border-color .2s !important;
-  }
-  .hire-me-link:hover { background: rgba(57,255,133,.12) !important; border-color: rgba(57,255,133,.6) !important; }
-</style>
-<!-- Google Analytics -->
-<!-- Get your ID: analytics.google.com → Admin → Create Property → Web Stream -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-DZ48W4D1EW"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-DZ48W4D1EW');
-</script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-DZ48W4D1EW');</script>
+<style>
+.page-hero{padding:calc(var(--nav-h) + 4rem) 0 2.5rem;border-bottom:1px solid var(--line)}
+.page-hero h1{font-family:var(--sans);font-size:clamp(2.5rem,6vw,4.5rem);font-weight:800;letter-spacing:-.04em;color:var(--bright);line-height:.92;margin-bottom:.85rem}
+.page-hero p{font-size:.8rem;color:var(--muted)}
+
+/* Summary */
+.summary-bar{
+  border-left:3px solid var(--g);padding:1.1rem 1.4rem;
+  background:var(--ink2);border-radius:0 5px 5px 0;
+  margin:2rem 0;font-size:.8rem;color:var(--soft);line-height:1.85;
+}
+.summary-bar strong{color:var(--g);font-weight:400}
+
+/* Layout */
+.resume-layout{display:grid;grid-template-columns:1fr 270px;gap:5rem;padding:3rem 0 6rem;align-items:start}
+
+/* Main */
+.rblock{margin-bottom:3.5rem}
+.rblock:last-child{margin-bottom:0}
+.rb-head{
+  font-family:var(--sans);font-size:.7rem;font-weight:600;
+  color:var(--g);text-transform:uppercase;letter-spacing:.14em;
+  margin-bottom:1.25rem;padding-bottom:.45rem;border-bottom:1px solid var(--line);
+}
+
+.rentry{margin-bottom:1.75rem;padding-bottom:1.75rem;border-bottom:1px solid var(--line)}
+.rentry:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.re-header{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin-bottom:.2rem}
+.re-title{font-family:var(--sans);font-size:.93rem;font-weight:600;color:var(--bright)}
+.re-date{font-size:.65rem;color:var(--muted);white-space:nowrap;padding-top:.1rem}
+.re-sub{font-size:.72rem;color:var(--g2);margin-bottom:.6rem}
+.re-list{list-style:none;font-size:.75rem;color:var(--soft);line-height:1.85}
+.re-list li{padding-left:1.1rem;position:relative;margin-bottom:.3rem}
+.re-list li::before{content:'›';position:absolute;left:0;color:var(--g)}
+
+/* Skill table */
+.skill-table{display:flex;flex-direction:column;gap:.7rem}
+.st-row{display:grid;grid-template-columns:110px 1fr;gap:.85rem;align-items:start}
+.st-lbl{font-size:.65rem;color:var(--muted);padding-top:.2rem}
+.st-tags{display:flex;flex-wrap:wrap;gap:.3rem}
+
+/* Sidebar */
+.resume-sidebar{position:sticky;top:calc(var(--nav-h) + 1.25rem);display:flex;flex-direction:column;gap:.85rem}
+.sb{background:var(--ink2);border:1px solid var(--line);border-radius:6px;padding:1.25rem}
+.sb-head{font-size:.62rem;color:var(--g);text-transform:uppercase;letter-spacing:.13em;margin-bottom:1rem;padding-bottom:.4rem;border-bottom:1px solid var(--line)}
+
+/* Tier tags */
+.tier-g{font-size:.62rem;color:var(--g);border:1px solid rgba(61,255,160,.25);padding:.18rem .48rem;border-radius:3px;background:var(--glow2);font-family:var(--mono)}
+.tier-c{font-size:.62rem;color:var(--g2);border:1px solid rgba(0,229,255,.22);padding:.18rem .48rem;border-radius:3px;background:rgba(0,229,255,.04);font-family:var(--mono)}
+.tier-m{font-size:.62rem;color:var(--muted);border:1px solid var(--line);padding:.18rem .48rem;border-radius:3px;background:var(--ink);font-family:var(--mono)}
+
+/* Cert items */
+.cert{display:flex;align-items:center;gap:.6rem;padding:.55rem 0;border-bottom:1px solid var(--line)}
+.cert:last-child{border-bottom:none;padding-bottom:0}
+.cert-icon{font-size:.95rem}
+.cert-name{font-size:.72rem;color:var(--text);line-height:1.35}
+.cert-status{font-size:.6rem;color:var(--g)}
+
+/* Quick links */
+.qlink{display:flex;align-items:center;gap:.55rem;font-size:.72rem;color:var(--muted);padding:.42rem 0;border-bottom:1px solid var(--line);transition:color .2s;opacity:1;text-decoration:none}
+.qlink:last-child{border-bottom:none}
+.qlink:hover{color:var(--g);opacity:1}
+.qi{font-size:.68rem;color:var(--g);width:1rem;text-align:center}
+
+@media(max-width:800px){.resume-layout{grid-template-columns:1fr;gap:2.5rem}.resume-sidebar{position:static}.st-row{grid-template-columns:1fr;gap:.3rem}}
+@media print{.resume-sidebar{display:none}.resume-layout{grid-template-columns:1fr}.page-hero{padding:1rem 0 1.5rem}.rentry{page-break-inside:avoid}}
+</style>
 </head>
 <body>
 
-<nav>
-  <a href="index.html" class="nav-logo"><span>~/</span>utkarsh<span>.dev</span></a>
+<nav class="nav">
+  <a href="index.html" class="nav-logo"><span class="d">~/</span>utkarsh<span class="d">.dev</span><span class="cursor-blink"></span></a>
   <ul class="nav-links">
     <li><a href="projects.html">Projects</a></li>
+    <li><a href="notes.html">Build Log</a></li>
     <li><a href="resume.html">Resume</a></li>
-    <li><a href="contact.html" class="hire-me-link">Hire Me</a></li>
     <li><a href="https://github.com/UTKARSH698" target="_blank">GitHub ↗</a></li>
+    <li><a href="contact.html" class="hire">Hire Me</a></li>
   </ul>
-  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme" title="Toggle light/dark">◑</button>
-  <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
-    <span></span><span></span><span></span>
-  </button>
+  <div class="nav-r">
+    <button class="nav-icon" id="theme-btn">◑</button>
+    <button class="nav-icon ham" id="ham"><span></span><span></span><span></span></button>
+  </div>
 </nav>
-<div class="nav-drawer" id="nav-drawer">
+<div class="nav-drawer" id="nav-drawer" style="display:none">
   <ul>
     <li><a href="index.html">Home</a></li>
     <li><a href="projects.html">Projects</a></li>
+    <li><a href="notes.html">Build Log</a></li>
     <li><a href="resume.html">Resume</a></li>
-    <li><a href="contact.html" class="hire-me-link">Hire Me</a></li>
-    <li><a href="https://github.com/UTKARSH698" target="_blank">GitHub ↗</a></li>
+    <li><a href="contact.html">Hire Me</a></li>
   </ul>
 </div>
 
 <main>
-  <div class="page-header fade-in">
-    <div class="section-label">// resume</div>
-    <h1 style="font-size:clamp(2rem,5vw,3.2rem);">Curriculum Vitae</h1>
-    <p>Cloud &amp; DevOps Engineer · AWS · Terraform · Kubernetes · Available for full-time remote roles from July 2026</p>
+<div class="wrap">
+
+  <div class="page-hero fade">
+    <p class="eyebrow">// curriculum vitae</p>
+    <h1>Utkarsh Batham</h1>
+    <p>Cloud Infrastructure & Security Automation Engineer · AWS · Terraform · Kubernetes · Available globally from July 2026</p>
   </div>
 
-  <div class="resume-wrapper">
-    <div style="background:var(--bg2);border:1px solid var(--border);border-radius:4px;padding:1.25rem 1.5rem;margin-bottom:2.5rem;font-size:13px;color:var(--muted);line-height:1.9;">
-      <span style="color:var(--accent);font-size:10px;text-transform:uppercase;letter-spacing:.1em;">Summary</span><br>
-      Cloud &amp; DevOps Engineer with hands-on experience building production-grade AWS infrastructure, serverless pipelines, and security automation systems. Proficient in <strong style="color:var(--text);font-weight:400;">Terraform, Kubernetes, Docker, and GitHub Actions CI/CD</strong>. Proven ability to design fault-tolerant distributed systems from scratch. <strong style="color:var(--accent);font-weight:400;">Available immediately for full-time remote roles.</strong>
-    </div>
-    <div class="resume-grid">
+  <div class="summary-bar fade">
+    Cloud Infrastructure & Security Automation Engineer with hands-on experience shipping production AWS systems, distributed architectures, and automated security tooling. Proficient in Terraform, Kubernetes, Docker, and GitHub Actions CI/CD.
+    <strong> Available immediately for full-time remote roles — no relocation required.</strong>
+  </div>
 
-      <!-- MAIN COLUMN -->
-      <div>
-        <div class="resume-section fade-in">
-          <h3>Experience</h3>
-          <div class="resume-entry">
-            <div class="resume-entry-header">
-              <span class="resume-entry-title">Cloud Engineer Intern</span>
-              <span class="resume-entry-date">Jan 2026 — Jul 2026</span>
-            </div>
-            <div class="resume-entry-sub">TEJASKP AI SOFTWARE · On-site, Gujarat &nbsp;<span style="color:var(--accent);font-size:10px;">● Current</span></div>
-            <ul class="resume-entry-desc">
-              <li>Designed and managed AWS cloud infrastructure (EC2, VPC, IAM, S3, CloudWatch) in a production environment, ensuring high availability and security compliance</li>
-              <li>Provisioned infrastructure as code using Terraform modules — reduced manual setup time and enabled reproducible multi-environment deployments</li>
-              <li>Managed containerised workloads with Docker and Kubernetes; configured deployments, services, and resource limits across environments</li>
-              <li>Implemented IAM least-privilege policies and security group rules; contributed to internal cloud security posture reviews</li>
-              <li>Built and maintained GitHub Actions CI/CD pipelines for automated testing, Docker image builds, and deployment to cloud environments</li>
-              <li>Monitored infrastructure health using CloudWatch dashboards and alarms; set up structured logging and incident alerting</li>
-            </ul>
+  <div class="resume-layout">
+    <div>
+
+      <div class="rblock fade">
+        <div class="rb-head">Experience</div>
+        <div class="rentry">
+          <div class="re-header">
+            <span class="re-title">Cloud Engineer Intern</span>
+            <span class="re-date">Jan 2026 — Jul 2026</span>
           </div>
+          <div class="re-sub">TEJASKP AI SOFTWARE · On-site, Gujarat &nbsp;<span style="color:var(--g);font-size:.6rem">● Current</span></div>
+          <ul class="re-list">
+            <li>Designed and managed AWS cloud infrastructure (EC2, VPC, IAM, S3, CloudWatch) in a production environment, maintaining high availability and security compliance</li>
+            <li>Provisioned multi-environment deployments via Terraform modules — zero manual console clicks, reproducible across dev, staging, and production</li>
+            <li>Managed containerised workloads with Docker and Kubernetes; configured deployments, services, health checks, and resource limits</li>
+            <li>Implemented IAM least-privilege policies and security group hardening; contributed to internal CSPM security posture reviews</li>
+            <li>Built and maintained GitHub Actions CI/CD pipelines — automated testing, Docker builds, and zero-downtime deployments</li>
+            <li>CloudWatch dashboards, alarms, and structured logging for infrastructure health monitoring and incident alerting</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rblock fade">
+        <div class="rb-head">Key Projects</div>
+
+        <div class="rentry">
+          <div class="re-header">
+            <span class="re-title">CloudFlow — Distributed SAGA Order Processing</span>
+            <span class="re-date">2025–26</span>
+          </div>
+          <div class="re-sub">Python · AWS Step Functions · Lambda · DynamoDB · SQS · CDK · LocalStack · X-Ray</div>
+          <ul class="re-list">
+            <li>SAGA choreography pattern coordinating reservation, payment, and confirmation across isolated Lambdas without two-phase commit</li>
+            <li>Automatic compensating transactions on failure, idempotent handlers, circuit-breaker pattern</li>
+            <li>1,100+ req/min at 50 concurrent threads · P99 latency &lt;120ms · 30+ tests</li>
+          </ul>
         </div>
 
-        <div class="resume-section fade-in">
-          <h3>Education</h3>
-          <div class="resume-entry">
-            <div class="resume-entry-header">
-              <span class="resume-entry-title">B.Tech CSE — Cloud Technology &amp; Information Security</span>
-              <span class="resume-entry-date">2022 — 2026</span>
-            </div>
-            <div class="resume-entry-sub">ITM Vocational University · Gujarat · CGPA: 9.35/10 · H+ APS Recognition</div>
-            <ul class="resume-entry-desc">
-              <li>Specialisation in Cloud Technology and Information Security — CGPA: 9.35 / 10</li>
-              <li>Built AgriFuture India research thesis with formal verification — novel finding on distributed marketplace security</li>
-              <li>Core coursework: distributed systems, cloud architecture, network security, operating systems</li>
-            </ul>
+        <div class="rentry">
+          <div class="re-header">
+            <span class="re-title">CloudPulse — Real-Time Analytics Platform</span>
+            <span class="re-date">2026</span>
           </div>
+          <div class="re-sub">Python · Kinesis · S3 · Athena · DynamoDB · Terraform · React · Cognito</div>
+          <ul class="re-list">
+            <li>Dual-path Lambda Architecture: Kinesis speed layer for real-time counters, SQS → S3 batch layer for Athena SQL queries</li>
+            <li>Full Terraform IaC — runs within AWS Free Tier · JWT auth via Cognito user pools</li>
+          </ul>
         </div>
 
-        <div class="resume-section fade-in">
-          <h3>Key Projects</h3>
-          <div class="resume-entry">
-            <div class="resume-entry-header">
-              <span class="resume-entry-title">CloudFlow — Distributed SAGA Order Processing</span>
-              <span class="resume-entry-date">2025–26</span>
-            </div>
-            <div class="resume-entry-sub">Python · AWS Step Functions · Lambda · DynamoDB · SQS · CDK · LocalStack · X-Ray</div>
-            <ul class="resume-entry-desc">
-              <li>Built production-grade serverless order processing using SAGA choreography — coordinating reservation, payment, and confirmation across isolated Lambda functions without two-phase commit</li>
-              <li>Implemented automatic compensation on failure, idempotent handlers, and circuit-breaker pattern to prevent cascade failures</li>
-              <li>Achieved 1,100+ req/min at 50 concurrent threads with P99 latency &lt; 120ms (LocalStack); 30+ unit, integration, and failure-path tests</li>
-            </ul>
+        <div class="rentry">
+          <div class="re-header">
+            <span class="re-title">CSPM — Cloud Security Posture Management</span>
+            <span class="re-date">2025</span>
           </div>
-          <div class="resume-entry">
-            <div class="resume-entry-header">
-              <span class="resume-entry-title">CloudPulse — Real-Time Analytics Platform</span>
-              <span class="resume-entry-date">2026</span>
-            </div>
-            <div class="resume-entry-sub">Python · Kinesis · S3 · Athena · DynamoDB · Terraform · React · Cognito</div>
-            <ul class="resume-entry-desc">
-              <li>Designed dual-path Lambda Architecture: Kinesis speed layer for real-time counters and SQS → S3 batch layer for historical SQL queries via Athena</li>
-              <li>Secured API access with Cognito JWT auth; entire stack provisioned via Terraform within AWS Free Tier</li>
-            </ul>
-          </div>
-          <div class="resume-entry">
-            <div class="resume-entry-header">
-              <span class="resume-entry-title">CSPM — Cloud Security Posture Management</span>
-              <span class="resume-entry-date">2025</span>
-            </div>
-            <div class="resume-entry-sub">Python · Lambda · EventBridge · SNS · S3 · CloudWatch · Terraform · GitHub Actions</div>
-            <ul class="resume-entry-desc">
-              <li>Automated security scanning against CIS Benchmark v1.5 (IAM, S3, EC2, CloudTrail) on hourly EventBridge schedule</li>
-              <li>Critical findings trigger SNS alerts in &lt; 5 seconds; safe violations auto-corrected; all findings logged to S3 for audit trail</li>
-            </ul>
-          </div>
+          <div class="re-sub">Python · Lambda · EventBridge · SNS · S3 · CloudWatch · Terraform · GitHub Actions</div>
+          <ul class="re-list">
+            <li>CIS Benchmark v1.5 scanning across IAM, S3, EC2, CloudTrail on hourly EventBridge schedule</li>
+            <li>Critical findings trigger SNS alerts in &lt;5s · safe violations auto-remediated · audit log to S3</li>
+          </ul>
         </div>
 
-        <div class="resume-section fade-in">
-          <h3>Technical Skills</h3>
-          <div class="resume-entry">
-            <div class="resume-entry-header"><span class="resume-entry-title">Cloud &amp; Infrastructure</span></div>
-            <div class="resume-entry-sub">AWS (Lambda, EC2, VPC, IAM, S3, EKS, ECS, SQS, SNS, Kinesis, DynamoDB, Athena, CloudWatch, EventBridge, X-Ray, Glue, Cognito)</div>
+        <div class="rentry">
+          <div class="re-header">
+            <span class="re-title">AgriFuture India — Research Thesis</span>
+            <span class="re-date">2024–25</span>
           </div>
-          <div class="resume-entry">
-            <div class="resume-entry-header"><span class="resume-entry-title">IaC &amp; DevOps</span></div>
-            <div class="resume-entry-sub">Terraform · AWS CDK · Docker · Kubernetes (EKS) · Helm · GitHub Actions · CI/CD · LocalStack</div>
+          <div class="re-sub">TLA+ · BFS Model Checker · Python · Formal Verification · arXiv</div>
+          <ul class="re-list">
+            <li>Novel finding: TAR preservation in distributed marketplaces requires atomic revocation — proven via BFS state-space exhaustion (14,872 states)</li>
+            <li>Custom BFS model checker in Python · TLA+-style spec · arXiv preprint published</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rblock fade">
+        <div class="rb-head">Education</div>
+        <div class="rentry">
+          <div class="re-header">
+            <span class="re-title">B.Tech CSE — Cloud Technology & Information Security</span>
+            <span class="re-date">2022 — 2026</span>
           </div>
-          <div class="resume-entry">
-            <div class="resume-entry-header"><span class="resume-entry-title">Languages</span></div>
-            <div class="resume-entry-sub">Python 3.11+ · TypeScript · JavaScript · SQL · Bash</div>
+          <div class="re-sub">ITM Vocational University · Gujarat · CGPA: 9.35 / 10 · H+ APS Recognition</div>
+          <ul class="re-list">
+            <li>Specialisation in Cloud Technology and Information Security</li>
+            <li>ECTS equivalent: ~93.8 credits · Distributed systems, cloud architecture, network security, OS</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rblock fade">
+        <div class="rb-head">Technical Skills</div>
+        <div class="skill-table">
+          <div class="st-row">
+            <span class="st-lbl">Cloud</span>
+            <div class="st-tags">
+              <span class="tag g">AWS</span><span class="tag">Lambda</span><span class="tag">EC2</span><span class="tag">VPC</span><span class="tag">IAM</span><span class="tag">S3</span><span class="tag">EKS</span><span class="tag">SQS</span><span class="tag">SNS</span><span class="tag">Kinesis</span><span class="tag">DynamoDB</span><span class="tag">Athena</span><span class="tag">CloudWatch</span><span class="tag">EventBridge</span><span class="tag">X-Ray</span><span class="tag">Cognito</span>
+            </div>
           </div>
-          <div class="resume-entry">
-            <div class="resume-entry-header"><span class="resume-entry-title">Distributed Systems</span></div>
-            <div class="resume-entry-sub">SAGA Pattern · Circuit Breakers · Event Sourcing · Idempotency · Lambda Architecture · Eventual Consistency · Microservices</div>
+          <div class="st-row">
+            <span class="st-lbl">IaC & DevOps</span>
+            <div class="st-tags">
+              <span class="tag g">Terraform</span><span class="tag">AWS CDK</span><span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">Helm</span><span class="tag">GitHub Actions</span><span class="tag">LocalStack</span>
+            </div>
           </div>
-          <div class="resume-entry" style="border-bottom:none;margin-bottom:0;padding-bottom:0;">
-            <div class="resume-entry-header"><span class="resume-entry-title">Security &amp; Monitoring</span></div>
-            <div class="resume-entry-sub">CIS Benchmark · IAM Least Privilege · CSPM · Zero-Trust · CloudWatch · X-Ray Tracing · pytest · moto · Load Testing</div>
+          <div class="st-row">
+            <span class="st-lbl">Languages</span>
+            <div class="st-tags">
+              <span class="tag g">Python 3.11+</span><span class="tag">TypeScript</span><span class="tag">SQL</span><span class="tag">Bash</span>
+            </div>
+          </div>
+          <div class="st-row">
+            <span class="st-lbl">Distributed</span>
+            <div class="st-tags">
+              <span class="tag">SAGA Pattern</span><span class="tag">Circuit Breakers</span><span class="tag">Idempotency</span><span class="tag">Lambda Architecture</span><span class="tag">Microservices</span>
+            </div>
+          </div>
+          <div class="st-row">
+            <span class="st-lbl">Security</span>
+            <div class="st-tags">
+              <span class="tag">CIS Benchmark</span><span class="tag">IAM Least Privilege</span><span class="tag">CSPM</span><span class="tag">Zero-Trust</span>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- SIDEBAR -->
-      <aside class="resume-sidebar">
-        <div class="sidebar-card">
-          <button onclick="window.print()" class="btn btn-primary" style="width:100%;justify-content:center;margin-bottom:.75rem;">↓ Print / Save PDF</button>
-          <a href="contact.html" class="btn btn-ghost" style="width:100%;justify-content:center;">Get in Touch</a>
-        </div>
-
-        <div class="sidebar-card">
-          <h3>Core Skills</h3>
-
-          <div class="skill-tier-group">
-            <div class="skill-tier-label">Expert</div>
-            <div class="skill-tier-tags">
-              <span class="skill-tier-tag tier-expert">AWS</span>
-              <span class="skill-tier-tag tier-expert">Python</span>
-              <span class="skill-tier-tag tier-expert">Terraform</span>
-            </div>
-          </div>
-
-          <div class="skill-tier-group">
-            <div class="skill-tier-label">Proficient</div>
-            <div class="skill-tier-tags">
-              <span class="skill-tier-tag tier-proficient">Kubernetes</span>
-              <span class="skill-tier-tag tier-proficient">Docker</span>
-              <span class="skill-tier-tag tier-proficient">GitHub Actions</span>
-              <span class="skill-tier-tag tier-proficient">AWS CDK</span>
-              <span class="skill-tier-tag tier-proficient">CI/CD</span>
-            </div>
-          </div>
-
-          <div class="skill-tier-group" style="border-bottom:none;padding-bottom:0;">
-            <div class="skill-tier-label">Familiar</div>
-            <div class="skill-tier-tags">
-              <span class="skill-tier-tag tier-familiar">Helm</span>
-              <span class="skill-tier-tag tier-familiar">TypeScript</span>
-              <span class="skill-tier-tag tier-familiar">LocalStack</span>
-              <span class="skill-tier-tag tier-familiar">Prometheus</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="sidebar-card">
-          <h3>Certifications</h3>
-          <div class="cert-item">
-            <span class="cert-item-icon">☁</span>
-            <div><div class="cert-item-name">AWS SAA-C03</div><div class="cert-item-status">→ Upcoming</div></div>
-          </div>
-          <div class="cert-item">
-            <span class="cert-item-icon">⎈</span>
-            <div><div class="cert-item-name">Certified Kubernetes Admin</div><div class="cert-item-status">→ Next</div></div>
-          </div>
-          <div class="cert-item">
-            <span class="cert-item-icon">◈</span>
-            <div><div class="cert-item-name">Terraform Associate</div><div class="cert-item-status">→ Planned</div></div>
-          </div>
-        </div>
-
-        <div class="sidebar-card">
-          <h3>Links</h3>
-          <a href="https://github.com/UTKARSH698" target="_blank" class="quick-link">
-            <span class="quick-link-icon">gh</span>github.com/UTKARSH698
-          </a>
-          <a href="mailto:udaydeepak1928@gmail.com" class="quick-link">
-            <span class="quick-link-icon">@</span>udaydeepak1928@gmail.com
-          </a>
-          <a href="https://www.linkedin.com/in/utkarsh-batham-531913247" target="_blank" class="quick-link">
-            <span class="quick-link-icon">in</span>LinkedIn
-          </a>
-        </div>
-      </aside>
     </div>
+
+    <aside class="resume-sidebar">
+      <div class="sb">
+        <button onclick="window.print()" class="btn btn-p" style="width:100%;justify-content:center;margin-bottom:.65rem">↓ Print / Save PDF</button>
+        <a href="contact.html" class="btn btn-o" style="width:100%;justify-content:center">Hire Me</a>
+      </div>
+
+      <div class="sb">
+        <div class="sb-head">Skills</div>
+        <div style="margin-bottom:.7rem;padding-bottom:.7rem;border-bottom:1px solid var(--line)">
+          <div style="font-size:.58rem;color:var(--muted);margin-bottom:.4rem">Expert</div>
+          <div style="display:flex;flex-wrap:wrap;gap:.3rem">
+            <span class="tier-g">AWS</span>
+            <span class="tier-g">Python</span>
+            <span class="tier-g">Terraform</span>
+          </div>
+        </div>
+        <div style="margin-bottom:.7rem;padding-bottom:.7rem;border-bottom:1px solid var(--line)">
+          <div style="font-size:.58rem;color:var(--muted);margin-bottom:.4rem">Proficient</div>
+          <div style="display:flex;flex-wrap:wrap;gap:.3rem">
+            <span class="tier-c">Kubernetes</span>
+            <span class="tier-c">Docker</span>
+            <span class="tier-c">GitHub Actions</span>
+            <span class="tier-c">AWS CDK</span>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:.58rem;color:var(--muted);margin-bottom:.4rem">Familiar</div>
+          <div style="display:flex;flex-wrap:wrap;gap:.3rem">
+            <span class="tier-m">Helm</span>
+            <span class="tier-m">TypeScript</span>
+            <span class="tier-m">LocalStack</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sb">
+        <div class="sb-head">Certifications</div>
+        <div class="cert">
+          <span class="cert-icon">☁</span>
+          <div><div class="cert-name">AWS SAA-C03</div><div class="cert-status">→ Upcoming · Jul 2026</div></div>
+        </div>
+        <div class="cert">
+          <span class="cert-icon">⎈</span>
+          <div><div class="cert-name">CKA</div><div class="cert-status">→ Next</div></div>
+        </div>
+        <div class="cert">
+          <span class="cert-icon">◈</span>
+          <div><div class="cert-name">Terraform Associate</div><div class="cert-status">→ Planned</div></div>
+        </div>
+      </div>
+
+      <div class="sb">
+        <div class="sb-head">Links</div>
+        <a href="https://github.com/UTKARSH698" target="_blank" class="qlink"><span class="qi">gh</span>github.com/UTKARSH698</a>
+        <a href="mailto:udaydeepak1928@gmail.com" class="qlink"><span class="qi">@</span>udaydeepak1928@gmail.com</a>
+        <a href="https://www.linkedin.com/in/utkarsh-batham-531913247" target="_blank" class="qlink"><span class="qi">in</span>LinkedIn</a>
+        <a href="tel:+917984764001" class="qlink"><span class="qi">☎</span>+91 79847 64001</a>
+      </div>
+    </aside>
   </div>
+
+</div>
 </main>
 
-<footer>
-  <span>© 2026 — Utkarsh · Built with obsession</span>
-  <span><a href="index.html">← Home</a></span>
+<footer class="footer">
+  <div class="footer-in">
+    <span>© 2026 Utkarsh Batham</span>
+    <div style="display:flex;gap:1.5rem"><a href="index.html">Home</a><a href="projects.html">Projects</a><a href="contact.html">Contact</a></div>
+    <span>Gujarat · Remote-Ready 🌍</span>
+  </div>
 </footer>
 
-<button class="scroll-top" id="scroll-top" aria-label="Scroll to top" title="Back to top">↑</button>
+<button class="scroll-top" id="scroll-top">↑</button>
 <script src="shared.js"></script>
 </body>
 </html>

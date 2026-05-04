@@ -133,7 +133,7 @@
         </div>
         <div class="highlight-box"><strong>Why it matters:</strong> Demonstrates end-to-end AWS architecture competency — not just "I used Lambda" but how 15 services compose into a coherent, observable, production-grade system.</div>
         <div class="project-links" style="margin-top:1.25rem;">
-          <a href="https://github.com/UTKARSH698" target="_blank" class="project-link">→ GitHub</a>
+          <a href="https://github.com/UTKARSH698/Cloud_Pulse" target="_blank" class="project-link">→ GitHub</a>
         </div>
       </div>
     </div>
@@ -164,7 +164,7 @@
         </div>
         <div class="highlight-box"><strong>Why it matters:</strong> SAGA is how production systems handle distributed transactions. Building it from scratch demonstrates understanding of eventual consistency, idempotency, and failure modes.</div>
         <div class="project-links" style="margin-top:1.25rem;">
-          <a href="https://github.com/UTKARSH698" target="_blank" class="project-link">→ GitHub</a>
+          <a href="https://github.com/UTKARSH698/CloudFlow" target="_blank" class="project-link">→ GitHub</a>
         </div>
       </div>
     </div>
@@ -192,7 +192,7 @@
         </div>
         <div class="highlight-box"><strong>Why it matters:</strong> Security misconfigurations are the #1 cause of cloud breaches. This tool addresses the gap between "infrastructure deployed" and "infrastructure secured."</div>
         <div class="project-links" style="margin-top:1.25rem;">
-          <a href="https://github.com/UTKARSH698" target="_blank" class="project-link">→ GitHub</a>
+          <a href="https://github.com/UTKARSH698/CSPM" target="_blank" class="project-link">→ GitHub</a>
         </div>
       </div>
     </div>
@@ -223,63 +223,37 @@
         </div>
         <div class="highlight-box"><strong>Why it matters:</strong> Most student projects are "I built X." This one generated a <strong>novel research finding</strong> with a formal proof — a differentiator for TU Darmstadt and the research community.</div>
         <div class="project-links" style="margin-top:1.25rem;">
-          <a href="https://github.com/UTKARSH698" target="_blank" class="project-link">→ GitHub</a>
+          <a href="https://github.com/UTKARSH698/final-year" target="_blank" class="project-link">→ GitHub</a>
           <a href="#" class="project-link">→ arXiv preprint</a>
         </div>
       </div>
     </div>
 
-    <!-- TROVIA -->
-    <div class="project-card-full fade-in" id="trovia" data-tags="product">
+        
+    <!-- WIKIPEDIA SMART SEARCH -->
+    <div class="project-card-full fade-in" id="wikisearch" data-tags="cloud research">
       <div class="pcf-top" onclick="toggleCard(this)">
         <div class="pcf-meta">
-          <div class="project-header"><span class="project-name">Trovia</span></div>
-          <div class="project-tech">HTML · CSS · JS · QR Verification · EdTech · ₹999/student SaaS</div>
+          <div class="project-header"><span class="project-name">Wikipedia Smart Search</span></div>
+          <div class="project-tech">Python · RAG · Vector Search · Embeddings · LLMs</div>
         </div>
         <span class="pcf-toggle">+</span>
       </div>
       <div class="pcf-body">
-        <div class="project-desc">Remote internship platform for Indian college students with QR-verified certificate issuance. Bridges the gap between Tier-2/3 Gujarat colleges and legitimate remote work opportunities.</div>
-        <div class="pcf-detail-grid">
-          <div>
-            <div class="pcf-detail-label">Business Model</div>
-            <div class="pcf-detail-value">₹999/student. Targeting Gujarat Tier-2/3 colleges. B2C with potential B2B expansion via college tie-ups.</div>
-          </div>
-          <div>
-            <div class="pcf-detail-label">Technical</div>
-            <div class="pcf-detail-value">Multi-page frontend, admin dashboard, QR code generation and verification pipeline, certificate issuance flow.</div>
-          </div>
-        </div>
-        <div class="highlight-box"><strong>Why it matters:</strong> Not just a project — a real product addressing a real gap in the Indian EdTech market. Entrepreneurial thinking, not just engineering execution.</div>
-        <div class="project-links" style="margin-top:1.25rem;">
-          <a href="https://github.com/UTKARSH698" target="_blank" class="project-link">→ GitHub</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- ROASTBOT -->
-    <div class="project-card-full fade-in" id="roastbot" data-tags="product">
-      <div class="pcf-top" onclick="toggleCard(this)">
-        <div class="pcf-meta">
-          <div class="project-header"><span class="project-name">RoastBot</span></div>
-          <div class="project-tech">Python · WhatsApp / Telegram / Web · NLP · Sports-Tech · Cricket</div>
-        </div>
-        <span class="pcf-toggle">+</span>
-      </div>
-      <div class="pcf-body">
-        <div class="project-desc">Cricket fan entertainment tool generating data-backed roasts in Hindi and English. Admin-only meme-training system controls roast style and quality. Deployable on WhatsApp, Telegram, or Web.</div>
+        <div class="project-desc">Intelligent QA system over Wikipedia using Retrieval-Augmented Generation. Converts natural language questions into semantically relevant answers by embedding documents, indexing them via vector search, and passing retrieved context to an LLM for grounded responses.</div>
         <div class="pcf-detail-grid">
           <div>
             <div class="pcf-detail-label">How It Works</div>
-            <div class="pcf-detail-value">Ingests live cricket data → generates contextual roasts via templated NLP + LLM layer → admin panel curates meme library and tone.</div>
+            <div class="pcf-detail-value">Wikipedia articles chunked and embedded → stored in a vector index → user query embedded and matched → top-k chunks passed to LLM as context → grounded answer returned.</div>
           </div>
           <div>
-            <div class="pcf-detail-label">Market</div>
-            <div class="pcf-detail-value">India's sports-tech and fan-engagement space. Cricket has ~1B fans globally — banter tools have massive organic reach potential.</div>
+            <div class="pcf-detail-label">Why RAG</div>
+            <div class="pcf-detail-value">Eliminates hallucination by grounding responses in retrieved source documents. Scalable to any corpus — Wikipedia today, internal knowledge bases tomorrow.</div>
           </div>
         </div>
+        <div class="highlight-box"><strong>Why it matters:</strong> RAG is the dominant pattern for production LLM applications. Building it from scratch — not via a framework wrapper — demonstrates genuine understanding of embeddings, retrieval, and context window management.</div>
         <div class="project-links" style="margin-top:1.25rem;">
-          <a href="https://github.com/UTKARSH698" target="_blank" class="project-link">→ GitHub</a>
+          <a href="https://github.com/UTKARSH698/Wikipedia_Smart_Search" target="_blank" class="project-link">→ GitHub</a>
         </div>
       </div>
     </div>

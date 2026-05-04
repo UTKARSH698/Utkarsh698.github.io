@@ -118,11 +118,11 @@
 
       <div class="fade-in">
         <div class="contact-methods">
-          <a href="mailto:your@email.com" class="contact-method">
+          <a href="mailto:udaydeepak1928@gmail.com" class="contact-method">
             <div class="cm-icon">@</div>
             <div class="cm-text">
               <div class="cm-label">Email</div>
-              <div class="cm-value">your@email.com</div>
+              <div class="cm-value">udaydeepak1928@gmail.com</div>
             </div>
             <span class="cm-arrow">→</span>
           </a>
@@ -134,11 +134,11 @@
             </div>
             <span class="cm-arrow">→</span>
           </a>
-          <a href="https://linkedin.com/in/yourprofile" target="_blank" class="contact-method">
+          <a href="https://www.linkedin.com/in/utkarsh-batham-531913247" target="_blank" class="contact-method">
             <div class="cm-icon">in</div>
             <div class="cm-text">
               <div class="cm-label">LinkedIn</div>
-              <div class="cm-value">Add your LinkedIn URL</div>
+              <div class="cm-value">Utkarsh Batham</div>
             </div>
             <span class="cm-arrow">→</span>
           </a>
@@ -224,14 +224,8 @@
     btn.classList.add('loading');
     btn.textContent = 'Sending…';
 
-    // ── Connect to Formspree ──────────────────────────────────────────────────
-    // 1. Sign up free at https://formspree.io
-    // 2. Create a form and copy your form ID (e.g. "xabc1234")
-    // 3. Replace YOUR_FORMSPREE_ID below and uncomment the fetch block
-    // ─────────────────────────────────────────────────────────────────────────
-
-    /*
-    fetch('https://formspree.io/f/YOUR_FORMSPREE_ID', {
+    // ── Formspree integration ─────────────────────────────────────────────────
+    fetch('https://formspree.io/f/mwvylbqq', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify({
@@ -243,13 +237,9 @@
     })
     .then(r => {
       if (r.ok) showSuccess();
-      else { btn.classList.remove('loading'); btn.textContent = 'Send Message →'; alert('Something went wrong. Please email directly.'); }
+      else { btn.classList.remove('loading'); btn.textContent = 'Send Message →'; alert('Something went wrong. Please email directly at udaydeepak1928@gmail.com'); }
     })
-    .catch(() => { btn.classList.remove('loading'); btn.textContent = 'Send Message →'; alert('Network error. Please email directly.'); });
-    */
-
-    // Remove this setTimeout once Formspree is connected:
-    setTimeout(showSuccess, 800);
+    .catch(() => { btn.classList.remove('loading'); btn.textContent = 'Send Message →'; alert('Network error. Please email directly at udaydeepak1928@gmail.com'); });
   }
 
   function showSuccess() {

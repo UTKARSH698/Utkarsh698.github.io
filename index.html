@@ -77,6 +77,73 @@
     opacity: 1;
   }
   .view-all:hover { color: var(--accent); opacity: 1; }
+
+  /* NOW SECTION */
+  .now-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
+
+  .now-card {
+    background: var(--bg);
+    padding: 1.4rem 1.5rem;
+    transition: background .2s;
+  }
+  .now-card:hover { background: var(--bg2); }
+
+  .now-card-top {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    margin-bottom: .6rem;
+  }
+
+  .now-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .dot-active { background: var(--accent); box-shadow: 0 0 6px rgba(57,255,133,.6); animation: pulse 2s ease-in-out infinite; }
+  .dot-idle   { background: var(--accent2); }
+  .dot-soon   { background: #f5c518; }
+
+  .now-category {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    color: var(--muted);
+  }
+
+  .now-title {
+    font-family: var(--sans);
+    font-size: .9rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: .5rem;
+    line-height: 1.3;
+  }
+
+  .now-desc {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.75;
+  }
+
+  .now-updated {
+    font-size: 11px;
+    color: var(--border2);
+    letter-spacing: .05em;
+  }
+
+  @media (max-width: 600px) {
+    .now-grid { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
@@ -208,18 +275,82 @@
         </div>
         <span class="hp-arrow">→</span>
       </a>
-      <a href="projects.html#trovia" class="home-project">
+    </div>
+      <a href="projects.html#wikisearch" class="home-project">
         <div class="hp-left">
           <span class="hp-badge" style="width:3.2rem;"></span>
           <div class="hp-info">
-            <div class="hp-name">Trovia</div>
-            <div class="hp-tech">EdTech · QR Certificates · ₹999/student · Gujarat</div>
+            <div class="hp-name">Wikipedia Smart Search</div>
+            <div class="hp-tech">RAG · Vector Search · Embeddings · LLMs</div>
           </div>
         </div>
         <span class="hp-arrow">→</span>
       </a>
-    </div>
     <a href="projects.html" class="view-all">View all projects →</a>
+  </section>
+
+  <!-- NOW SECTION -->
+  <section class="fade-in" id="now">
+    <div class="section-label">// now</div>
+    <h2>What I'm Doing Now</h2>
+    <div class="now-grid">
+
+      <div class="now-card">
+        <div class="now-card-top">
+          <span class="now-dot dot-active"></span>
+          <span class="now-category">Work</span>
+        </div>
+        <div class="now-title">Cloud Engineer Intern @ TEJASKP AI SOFTWARE</div>
+        <div class="now-desc">Wrapping up a 6-month on-site internship in Gujarat. Final deliverables: CloudPulse analytics platform, CloudFlow distributed system, and CSPM security tooling. Ends July 2026.</div>
+      </div>
+
+      <div class="now-card">
+        <div class="now-card-top">
+          <span class="now-dot dot-active"></span>
+          <span class="now-category">Studying</span>
+        </div>
+        <div class="now-title">GRE Prep — targeting Quant 170, Verbal 155+</div>
+        <div class="now-desc">Structured vocabulary clusters and timed quant drills daily. GRE score needed to waive TU Darmstadt's entrance exam requirement. Exam in ~2 weeks.</div>
+      </div>
+
+      <div class="now-card">
+        <div class="now-card-top">
+          <span class="now-dot dot-active"></span>
+          <span class="now-category">Applying</span>
+        </div>
+        <div class="now-title">TU Darmstadt M.Sc. IT Security — Winter 2026/27</div>
+        <div class="now-desc">Application package complete: CV, SOP, 3 LORs, APS certificate in progress. Portal opens June 1, physical documents deadline July 15. IELTS retake score pending.</div>
+      </div>
+
+      <div class="now-card">
+        <div class="now-card-top">
+          <span class="now-dot dot-idle"></span>
+          <span class="now-category">Reading</span>
+        </div>
+        <div class="now-title">Security architecture + EU regulatory landscape</div>
+        <div class="now-desc">Focused on NIS2 Directive, GDPR enforcement gaps, and zero-trust architecture patterns — the intersection where cloud engineering meets IT security policy.</div>
+      </div>
+
+      <div class="now-card">
+        <div class="now-card-top">
+          <span class="now-dot dot-idle"></span>
+          <span class="now-category">Building</span>
+        </div>
+        <div class="now-title">Trovia — remote internship platform for Indian students</div>
+        <div class="now-desc">EdTech side project targeting Gujarat Tier-2/3 colleges. QR-verified certificates, ₹999/student model. Building the admin dashboard and certificate pipeline.</div>
+      </div>
+
+      <div class="now-card">
+        <div class="now-card-top">
+          <span class="now-dot dot-soon"></span>
+          <span class="now-category">Next</span>
+        </div>
+        <div class="now-title">AWS SAA-C03 certification</div>
+        <div class="now-desc">Scheduled after internship ends in July. First step in the SAA-C03 → CKA → Terraform Associate certification path. Study materials ready.</div>
+      </div>
+
+    </div>
+    <div class="now-updated">Last updated: May 2026</div>
   </section>
 </main>
 

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Utkarsh</title>
+<meta name="description" content="Get in touch with Utkarsh — open to cloud/security roles, freelance consulting, and research collaborations from June 2026.">
+<meta property="og:title" content="Contact — Utkarsh">
+<meta property="og:description" content="Open to full-time cloud/security roles, freelance work, and research collaborations from June 2026.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<link rel="stylesheet" href="style.css">
+<style>
+  .contact-wrapper { padding: 3.5rem 0 8rem; }
+  .contact-main-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 4rem; align-items: start; }
+
+  .contact-methods { display: flex; flex-direction: column; gap: 0; margin-bottom: 2rem; }
+  .contact-method {
+    display: flex; align-items: center; gap: 1rem;
+    padding: .9rem 0; border-bottom: 1px solid var(--border);
+    transition: padding-left .15s; color: inherit; opacity: 1;
+  }
+  .contact-method:first-child { border-top: 1px solid var(--border); }
+  .contact-method:hover { padding-left: .5rem; opacity: 1; }
+  .contact-method:hover .cm-arrow { color: var(--accent); }
+  .contact-method:hover .cm-icon { border-color: var(--accent); }
+
+  .cm-icon {
+    width: 2rem; height: 2rem; border: 1px solid var(--border); border-radius: 3px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; color: var(--accent); font-family: var(--mono);
+    flex-shrink: 0; transition: border-color .15s;
+  }
+  .cm-text { flex: 1; }
+  .cm-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; }
+  .cm-value { font-size: 13px; color: var(--text); }
+  .cm-arrow { color: var(--muted); font-size: 13px; transition: color .15s; }
+
+  .availability-box { background: var(--bg2); border: 1px solid var(--border); border-radius: 4px; padding: 1.25rem; }
+  .avail-title { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; margin-bottom: .75rem; }
+  .avail-item { display: flex; align-items: center; gap: .6rem; font-size: 12px; color: var(--muted); padding: .3rem 0; }
+  .avail-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+  .dot-green { background: var(--accent); }
+  .dot-yellow { background: #f5c518; }
+  .dot-muted { background: #444; }
+
+  /* Form card */
+  .contact-form-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 4px; padding: 2rem; }
+  .form-title { font-family: var(--sans); font-size: 1.1rem; font-weight: 600; margin-bottom: .4rem; }
+  .form-subtitle { font-size: 12px; color: var(--muted); margin-bottom: 1.75rem; line-height: 1.6; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  /* Sending state */
+  .send-btn { width: 100%; justify-content: center; position: relative; }
+  .send-btn.loading { opacity: .7; pointer-events: none; }
+
+  /* Success */
+  .form-success {
+    display: none; text-align: center; padding: 2.5rem 1rem;
+    color: var(--accent); font-size: 13px; line-height: 1.9;
+  }
+  .form-success-icon {
+    width: 48px; height: 48px; border-radius: 50%;
+    border: 2px solid rgba(57,255,133,.4);
+    background: rgba(57,255,133,.06);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem; margin: 0 auto 1.25rem;
+  }
+  .form-success strong { display: block; font-family: var(--sans); font-size: 1.1rem; margin-bottom: .5rem; }
+  .form-success span { color: var(--muted); }
+
+  /* Validation feedback */
+  .input-group .err {
+    font-size: 10px; color: #ff6b6b; margin-top: .3rem; display: none;
+  }
+  .input-group.has-error input,
+  .input-group.has-error textarea { border-color: rgba(255,107,107,.5); }
+  .input-group.has-error .err { display: block; }
+
+  @media (max-width: 700px) {
+    .contact-main-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo"><span>~/</span>utkarsh<span>.dev</span></a>
+  <ul class="nav-links">
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="resume.html">Resume</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="https://github.com/UTKARSH698" target="_blank">GitHub ↗</a></li>
+  </ul>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-drawer" id="nav-drawer">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="resume.html">Resume</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="https://github.com/UTKARSH698" target="_blank">GitHub ↗</a></li>
+  </ul>
+</div>
+
+<main>
+  <div class="page-header fade-in">
+    <div class="section-label">// contact</div>
+    <h1 style="font-size:clamp(2rem,5vw,3.2rem);">Let's Talk</h1>
+    <p>Open to full-time cloud/security roles, freelance engagements, research collaborations, and TU Darmstadt connections.</p>
+  </div>
+
+  <div class="contact-wrapper">
+    <div class="contact-main-grid">
+
+      <div class="fade-in">
+        <div class="contact-methods">
+          <a href="mailto:your@email.com" class="contact-method">
+            <div class="cm-icon">@</div>
+            <div class="cm-text">
+              <div class="cm-label">Email</div>
+              <div class="cm-value">your@email.com</div>
+            </div>
+            <span class="cm-arrow">→</span>
+          </a>
+          <a href="https://github.com/UTKARSH698" target="_blank" class="contact-method">
+            <div class="cm-icon">gh</div>
+            <div class="cm-text">
+              <div class="cm-label">GitHub</div>
+              <div class="cm-value">UTKARSH698</div>
+            </div>
+            <span class="cm-arrow">→</span>
+          </a>
+          <a href="https://linkedin.com/in/yourprofile" target="_blank" class="contact-method">
+            <div class="cm-icon">in</div>
+            <div class="cm-text">
+              <div class="cm-label">LinkedIn</div>
+              <div class="cm-value">Add your LinkedIn URL</div>
+            </div>
+            <span class="cm-arrow">→</span>
+          </a>
+        </div>
+
+        <div class="availability-box">
+          <div class="avail-title">Availability — from Jun 2026</div>
+          <div class="avail-item"><span class="avail-dot dot-green"></span>Full-time cloud / security engineering roles</div>
+          <div class="avail-item"><span class="avail-dot dot-green"></span>Freelance cloud consulting &amp; architecture</div>
+          <div class="avail-item"><span class="avail-dot dot-yellow"></span>Research collaboration (formal methods / security)</div>
+          <div class="avail-item"><span class="avail-dot dot-yellow"></span>TU Darmstadt M.Sc. IT Security (WiSe 2026/27)</div>
+          <div class="avail-item"><span class="avail-dot dot-muted"></span>Not looking for unpaid internships</div>
+        </div>
+      </div>
+
+      <div class="contact-form-card fade-in">
+        <div id="form-wrap">
+          <div class="form-title">Send a message</div>
+          <div class="form-subtitle">I try to respond within 24–48 hours. For urgent enquiries, email directly.</div>
+
+          <div class="form-row">
+            <div class="input-group" id="ig-name">
+              <label>Name</label>
+              <input type="text" id="f-name" placeholder="Your name" autocomplete="name">
+              <div class="err">Please enter your name.</div>
+            </div>
+            <div class="input-group" id="ig-email">
+              <label>Email</label>
+              <input type="email" id="f-email" placeholder="your@email.com" autocomplete="email">
+              <div class="err">Please enter a valid email.</div>
+            </div>
+          </div>
+
+          <div class="input-group" id="ig-subject">
+            <label>Subject</label>
+            <input type="text" id="f-subject" placeholder="e.g. Full-time role · Freelance project · Research collab">
+            <div class="err">Please enter a subject.</div>
+          </div>
+
+          <div class="input-group" id="ig-message">
+            <label>Message</label>
+            <textarea id="f-message" rows="6" placeholder="Tell me what you're working on and how I can help..."></textarea>
+            <div class="err">Please enter a message.</div>
+          </div>
+
+          <button class="btn btn-primary send-btn" id="send-btn" onclick="submitForm()">Send Message →</button>
+        </div>
+
+        <div class="form-success" id="form-success">
+          <div class="form-success-icon">✓</div>
+          <strong>Message sent!</strong>
+          <span>I'll get back to you within 24–48 hours.<br>In the meantime, check out my <a href="projects.html">projects</a>.</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer>
+  <span>© 2026 — Utkarsh · Built with obsession</span>
+  <span>Gujarat, India → Darmstadt, Germany</span>
+</footer>
+
+<script src="shared.js"></script>
+<script>
+  function validate(id, test) {
+    const ig = document.getElementById('ig-' + id);
+    const val = document.getElementById('f-' + id).value.trim();
+    const ok = test(val);
+    ig.classList.toggle('has-error', !ok);
+    return ok;
+  }
+
+  function submitForm() {
+    const okName    = validate('name',    v => v.length > 0);
+    const okEmail   = validate('email',   v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v));
+    const okSubject = validate('subject', v => v.length > 0);
+    const okMsg     = validate('message', v => v.length > 0);
+    if (!okName || !okEmail || !okSubject || !okMsg) return;
+
+    const btn = document.getElementById('send-btn');
+    btn.classList.add('loading');
+    btn.textContent = 'Sending…';
+
+    // ── Connect to Formspree ──────────────────────────────────────────────────
+    // 1. Sign up free at https://formspree.io
+    // 2. Create a form and copy your form ID (e.g. "xabc1234")
+    // 3. Replace YOUR_FORMSPREE_ID below and uncomment the fetch block
+    // ─────────────────────────────────────────────────────────────────────────
+
+    /*
+    fetch('https://formspree.io/f/YOUR_FORMSPREE_ID', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        name:    document.getElementById('f-name').value.trim(),
+        email:   document.getElementById('f-email').value.trim(),
+        subject: document.getElementById('f-subject').value.trim(),
+        message: document.getElementById('f-message').value.trim()
+      })
+    })
+    .then(r => {
+      if (r.ok) showSuccess();
+      else { btn.classList.remove('loading'); btn.textContent = 'Send Message →'; alert('Something went wrong. Please email directly.'); }
+    })
+    .catch(() => { btn.classList.remove('loading'); btn.textContent = 'Send Message →'; alert('Network error. Please email directly.'); });
+    */
+
+    // Remove this setTimeout once Formspree is connected:
+    setTimeout(showSuccess, 800);
+  }
+
+  function showSuccess() {
+    document.getElementById('form-wrap').style.display = 'none';
+    document.getElementById('form-success').style.display = 'block';
+  }
+
+  // Clear error state on input
+  ['name','email','subject','message'].forEach(id => {
+    const el = document.getElementById('f-' + id);
+    if (el) el.addEventListener('input', () => {
+      document.getElementById('ig-' + id).classList.remove('has-error');
+    });
+  });
+
+  // Tab between inputs with Enter
+  const inputs = Array.from(document.querySelectorAll('.input-group input'));
+  inputs.forEach((inp, i) => {
+    inp.addEventListener('keydown', e => {
+      if (e.key === 'Enter' && inputs[i + 1]) { e.preventDefault(); inputs[i + 1].focus(); }
+    });
+  });
+</script>
+</body>
+</html>

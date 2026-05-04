@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 — Utkarsh</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<link rel="stylesheet" href="style.css">
+<style>
+  .error-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+  }
+  .error-code {
+    font-family: var(--mono);
+    font-size: clamp(5rem, 20vw, 10rem);
+    font-weight: 300;
+    color: var(--border2);
+    line-height: 1;
+    letter-spacing: -.04em;
+    margin-bottom: 1rem;
+    position: relative;
+  }
+  .error-code::after {
+    content: '404';
+    position: absolute;
+    inset: 0;
+    color: var(--accent);
+    clip-path: polygon(0 45%, 100% 45%, 100% 55%, 0 55%);
+    animation: glitch 3s infinite;
+  }
+  @keyframes glitch {
+    0%,90%,100% { transform: none; opacity: 1; }
+    92% { transform: translateX(-4px); opacity: .8; }
+    94% { transform: translateX(4px); opacity: .8; }
+    96% { transform: translateX(-2px); }
+    98% { transform: none; }
+  }
+  .error-msg { font-size: 13px; color: var(--muted); margin-bottom: 2.5rem; line-height: 1.8; max-width: 360px; }
+  .error-msg strong { color: var(--text); font-weight: 400; }
+  .error-links { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+  .terminal-line {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 2rem;
+  }
+  .terminal-line span { color: var(--accent); }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo"><span>~/</span>utkarsh<span>.dev</span></a>
+  <ul class="nav-links">
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="resume.html">Resume</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="https://github.com/UTKARSH698" target="_blank">GitHub ↗</a></li>
+  </ul>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-drawer" id="nav-drawer">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="resume.html">Resume</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="https://github.com/UTKARSH698" target="_blank">GitHub ↗</a></li>
+  </ul>
+</div>
+
+<main>
+  <div class="error-page">
+    <div class="error-code">404</div>
+    <div class="terminal-line">$ find <span id="path-display">/page</span> — <span>not found</span></div>
+    <p class="error-msg">
+      This page doesn't exist — or it got<br>
+      <strong>deleted, moved, or never deployed.</strong><br>
+      Either way, the route returned nothing.
+    </p>
+    <div class="error-links">
+      <a href="index.html" class="btn btn-primary">← Go Home</a>
+      <a href="projects.html" class="btn btn-ghost">View Projects</a>
+      <a href="contact.html" class="btn btn-ghost">Contact</a>
+    </div>
+  </div>
+</main>
+
+<script src="shared.js"></script>
+<script>
+  // Show the bad path in the terminal line
+  const p = document.getElementById('path-display');
+  if (p) p.textContent = location.pathname || '/???';
+</script>
+</body>
+</html>

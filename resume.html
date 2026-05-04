@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resume — Utkarsh</title>
+<meta name="description" content="Resume of Utkarsh — B.Tech CSE, Cloud & Security Engineer, graduating May/June 2026. Targeting TU Darmstadt M.Sc. IT Security.">
+<meta property="og:title" content="Resume — Utkarsh">
+<meta property="og:description" content="B.Tech CSE · Cloud & Security · 9.35 CGPA · TEJASKP AI SOFTWARE intern · TU Darmstadt applicant.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<link rel="stylesheet" href="style.css">
+<style>
+  .resume-wrapper { padding: 3.5rem 0 6rem; }
+  .resume-grid { display: grid; grid-template-columns: 1fr 260px; gap: 4rem; align-items: start; }
+
+  .resume-section { margin-bottom: 3.5rem; }
+  .resume-section:last-child { margin-bottom: 0; }
+  .resume-section h3 {
+    font-family: var(--sans); font-size: .8rem; font-weight: 600;
+    color: var(--accent); text-transform: uppercase; letter-spacing: .12em;
+    margin-bottom: 1.2rem; padding-bottom: .5rem; border-bottom: 1px solid var(--border);
+  }
+
+  .resume-entry { margin-bottom: 1.6rem; padding-bottom: 1.6rem; border-bottom: 1px solid var(--border); }
+  .resume-entry:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .resume-entry-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: .25rem; }
+  .resume-entry-title { font-family: var(--sans); font-size: .95rem; font-weight: 600; color: var(--text); }
+  .resume-entry-date { font-size: 11px; color: var(--muted); white-space: nowrap; padding-top: .1rem; }
+  .resume-entry-sub { font-size: 12px; color: var(--accent2); margin-bottom: .6rem; }
+  .resume-entry-desc { font-size: 12px; color: var(--muted); line-height: 1.9; list-style: none; }
+  .resume-entry-desc li { padding-left: 1rem; position: relative; margin-bottom: .3rem; }
+  .resume-entry-desc li::before { content: '›'; position: absolute; left: 0; color: var(--accent); }
+
+  /* Sidebar */
+  .resume-sidebar { position: sticky; top: calc(var(--nav-h) + 1rem); }
+  .sidebar-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 4px; padding: 1.25rem; margin-bottom: 1rem; }
+  .sidebar-card h3 {
+    font-family: var(--sans); font-size: .78rem; font-weight: 600; color: var(--accent);
+    text-transform: uppercase; letter-spacing: .1em; margin-bottom: 1rem;
+    padding-bottom: .5rem; border-bottom: 1px solid var(--border);
+  }
+
+  .cert-item { display: flex; align-items: center; gap: .75rem; padding: .6rem 0; border-bottom: 1px solid var(--border); font-size: 12px; }
+  .cert-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .cert-item-icon { font-size: 1.1rem; }
+  .cert-item-name { color: var(--text); font-size: 12px; line-height: 1.4; }
+  .cert-item-status { font-size: 10px; color: var(--accent); margin-top: .1rem; }
+
+  .quick-link {
+    display: flex; align-items: center; gap: .6rem; font-size: 12px;
+    color: var(--muted); padding: .45rem 0; border-bottom: 1px solid var(--border);
+    transition: color .2s; opacity: 1;
+  }
+  .quick-link:last-child { border-bottom: none; }
+  .quick-link:hover { color: var(--accent); opacity: 1; }
+  .quick-link-icon { color: var(--accent); width: 1rem; text-align: center; font-size: 11px; }
+
+  /* Print styles */
+  @media print {
+    nav, footer, .resume-sidebar, .page-header .section-label { display: none !important; }
+    body { background: white; color: #111; font-size: 11px; }
+    :root { --text: #111; --muted: #555; --accent: #1a7a3c; --accent2: #0066aa; --bg: white; --bg2: #f5f5f5; --border: #ddd; }
+    main { padding: 0; max-width: 100%; }
+    .page-header { padding: 1rem 0 1.5rem; border-bottom: 2px solid #111; }
+    .resume-wrapper { padding: 1.5rem 0; }
+    .resume-grid { grid-template-columns: 1fr; gap: 0; }
+    .resume-section { break-inside: avoid; }
+    .fade-in { opacity: 1 !important; transform: none !important; }
+  }
+
+  @media (max-width: 700px) {
+    .resume-grid { grid-template-columns: 1fr; }
+    .resume-sidebar { position: static; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo"><span>~/</span>utkarsh<span>.dev</span></a>
+  <ul class="nav-links">
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="resume.html">Resume</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="https://github.com/UTKARSH698" target="_blank">GitHub ↗</a></li>
+  </ul>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-drawer" id="nav-drawer">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="resume.html">Resume</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="https://github.com/UTKARSH698" target="_blank">GitHub ↗</a></li>
+  </ul>
+</div>
+
+<main>
+  <div class="page-header fade-in">
+    <div class="section-label">// resume</div>
+    <h1 style="font-size:clamp(2rem,5vw,3.2rem);">Curriculum Vitae</h1>
+    <p>B.Tech CSE · Cloud &amp; Security · Graduating May/June 2026 · Targeting TU Darmstadt M.Sc. IT Security</p>
+  </div>
+
+  <div class="resume-wrapper">
+    <div class="resume-grid">
+
+      <!-- MAIN COLUMN -->
+      <div>
+        <div class="resume-section fade-in">
+          <h3>Experience</h3>
+          <div class="resume-entry">
+            <div class="resume-entry-header">
+              <span class="resume-entry-title">Cloud Engineer Intern</span>
+              <span class="resume-entry-date">Jan 2026 — Jul 2026</span>
+            </div>
+            <div class="resume-entry-sub">TEJASKP AI SOFTWARE · On-site, Gujarat &nbsp;<span style="color:var(--accent);font-size:10px;">● Current</span></div>
+            <ul class="resume-entry-desc">
+              <li>Designed and deployed CloudPulse — serverless real-time analytics platform across 15 AWS services (Lambda, Kinesis, DynamoDB, API Gateway, CloudWatch)</li>
+              <li>Built CloudFlow — distributed order processing system using SAGA choreography with Kubernetes and GitHub Actions CI/CD, automatic rollback on failure</li>
+              <li>Developed CSPM Tool for automated IAM misconfiguration detection and S3 security posture assessment with risk-scored remediation playbooks</li>
+              <li>Implemented Wikipedia RAG QA system using embeddings and vector search for intelligent document retrieval</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="resume-section fade-in">
+          <h3>Education</h3>
+          <div class="resume-entry">
+            <div class="resume-entry-header">
+              <span class="resume-entry-title">B.Tech CSE — Cloud Technology &amp; Information Security</span>
+              <span class="resume-entry-date">2022 — 2026</span>
+            </div>
+            <div class="resume-entry-sub">ITM Vocational University · Gujarat · CGPA: 9.35/10 · H+ APS Recognition</div>
+            <ul class="resume-entry-desc">
+              <li>Specialisation in Cloud Technology and Information Security</li>
+              <li>Built AgriFuture India research thesis with TLA+-style formal verification — novel finding: TAR preservation requires atomic revocation, published on arXiv</li>
+              <li>ECTS equivalent: ~93.8 credits (well above TU Darmstadt's 60 ECTS minimum)</li>
+              <li>APS certificate in progress for German university application</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="resume-section fade-in">
+          <h3>Key Projects</h3>
+          <div class="resume-entry">
+            <div class="resume-entry-header">
+              <span class="resume-entry-title">CloudPulse</span>
+              <span class="resume-entry-date">2026</span>
+            </div>
+            <div class="resume-entry-sub">AWS Lambda · Kinesis · DynamoDB · API Gateway · CloudWatch</div>
+            <ul class="resume-entry-desc">
+              <li>Serverless real-time event analytics across 15 AWS services — sub-100ms latency, fully observable</li>
+            </ul>
+          </div>
+          <div class="resume-entry">
+            <div class="resume-entry-header">
+              <span class="resume-entry-title">CloudFlow</span>
+              <span class="resume-entry-date">2025–26</span>
+            </div>
+            <div class="resume-entry-sub">Kubernetes · SAGA Pattern · GitHub Actions</div>
+            <ul class="resume-entry-desc">
+              <li>Fault-tolerant distributed order processing with SAGA choreography and automatic compensating transactions</li>
+            </ul>
+          </div>
+          <div class="resume-entry">
+            <div class="resume-entry-header">
+              <span class="resume-entry-title">CSPM Tool</span>
+              <span class="resume-entry-date">2025</span>
+            </div>
+            <div class="resume-entry-sub">Python · Boto3 · AWS IAM · S3</div>
+            <ul class="resume-entry-desc">
+              <li>IAM escalation path detection, S3 misconfiguration scanning, CI-compatible risk-scored findings</li>
+            </ul>
+          </div>
+          <div class="resume-entry">
+            <div class="resume-entry-header">
+              <span class="resume-entry-title">AgriFuture India — Research Thesis</span>
+              <span class="resume-entry-date">2024–25</span>
+            </div>
+            <div class="resume-entry-sub">TLA+ · BFS Model Checker · Formal Verification · arXiv</div>
+            <ul class="resume-entry-desc">
+              <li>Formal verification of distributed marketplace correctness; novel finding on TAR atomic revocation; arXiv preprint</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="resume-section fade-in">
+          <h3>Languages &amp; Exams</h3>
+          <div class="resume-entry">
+            <div class="resume-entry-header">
+              <span class="resume-entry-title">English · IELTS Academic</span>
+            </div>
+            <div class="resume-entry-sub">Target: 7.0–7.5 overall band</div>
+          </div>
+          <div class="resume-entry">
+            <div class="resume-entry-header">
+              <span class="resume-entry-title">GRE</span>
+            </div>
+            <div class="resume-entry-sub">Quant 170 · Verbal 155 · AWA 3.5+ (TU Darmstadt entrance exam waiver target)</div>
+          </div>
+          <div class="resume-entry">
+            <div class="resume-entry-header">
+              <span class="resume-entry-title">Hindi — Native</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SIDEBAR -->
+      <aside class="resume-sidebar">
+        <div class="sidebar-card">
+          <button onclick="window.print()" class="btn btn-primary" style="width:100%;justify-content:center;margin-bottom:.75rem;">↓ Print / Save PDF</button>
+          <a href="contact.html" class="btn btn-ghost" style="width:100%;justify-content:center;">Get in Touch</a>
+        </div>
+
+        <div class="sidebar-card">
+          <h3>Core Skills</h3>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-label"><span>AWS</span><span>95%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-pct="95"></div></div>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-label"><span>Python</span><span>90%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-pct="90"></div></div>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-label"><span>Cloud Security</span><span>85%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-pct="85"></div></div>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-label"><span>Kubernetes</span><span>80%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-pct="80"></div></div>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-label"><span>Formal Methods</span><span>75%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-pct="75"></div></div>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-label"><span>Terraform</span><span>70%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-pct="70"></div></div>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <h3>Certifications</h3>
+          <div class="cert-item">
+            <span class="cert-item-icon">☁</span>
+            <div><div class="cert-item-name">AWS SAA-C03</div><div class="cert-item-status">→ Upcoming</div></div>
+          </div>
+          <div class="cert-item">
+            <span class="cert-item-icon">⎈</span>
+            <div><div class="cert-item-name">Certified Kubernetes Admin</div><div class="cert-item-status">→ Next</div></div>
+          </div>
+          <div class="cert-item">
+            <span class="cert-item-icon">◈</span>
+            <div><div class="cert-item-name">Terraform Associate</div><div class="cert-item-status">→ Planned</div></div>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <h3>Links</h3>
+          <a href="https://github.com/UTKARSH698" target="_blank" class="quick-link">
+            <span class="quick-link-icon">gh</span>github.com/UTKARSH698
+          </a>
+          <a href="mailto:your@email.com" class="quick-link">
+            <span class="quick-link-icon">@</span>your@email.com
+          </a>
+          <a href="https://linkedin.com/in/yourprofile" target="_blank" class="quick-link">
+            <span class="quick-link-icon">in</span>LinkedIn
+          </a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <span>© 2026 — Utkarsh · Built with obsession</span>
+  <span><a href="index.html">← Home</a></span>
+</footer>
+
+<script src="shared.js"></script>
+</body>
+</html>

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects — Utkarsh</title>
+<meta name="description" content="Cloud infrastructure, security tooling, formal verification research, and EdTech projects by Utkarsh.">
+<meta property="og:title" content="Projects — Utkarsh">
+<meta property="og:description" content="CloudPulse, CloudFlow, CSPM Tool, AgriFuture India, Trovia — cloud, security, and research projects.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<link rel="stylesheet" href="style.css">
+<style>
+  .filter-bar { display: flex; gap: .5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+  .filter-btn {
+    font-family: var(--mono); font-size: 11px; padding: .3rem .75rem;
+    border: 1px solid var(--border); background: transparent; color: var(--muted);
+    border-radius: 3px; cursor: pointer; transition: all .15s;
+    letter-spacing: .05em; text-transform: uppercase;
+  }
+  .filter-btn:hover { border-color: var(--border2); color: var(--text); }
+  .filter-btn.active { border-color: var(--accent); color: var(--accent); background: rgba(57,255,133,.06); }
+
+  .project-card-full {
+    background: var(--bg); border: 1px solid var(--border); border-radius: 4px;
+    margin-bottom: 1.25rem; overflow: hidden; transition: border-color .2s;
+    scroll-margin-top: calc(var(--nav-h) + 1.5rem);
+  }
+  .project-card-full:hover { border-color: var(--border2); }
+  .project-card-full:target { border-color: rgba(57,255,133,.4); }
+
+  .pcf-top {
+    padding: 1.5rem 1.75rem; display: flex; justify-content: space-between;
+    align-items: flex-start; gap: 1rem; cursor: pointer; user-select: none;
+  }
+  .pcf-meta { flex: 1; }
+  .pcf-toggle { color: var(--muted); font-size: 18px; font-weight: 300; transition: transform .25s; line-height: 1; margin-top: 2px; }
+  .project-card-full.open .pcf-toggle { transform: rotate(45deg); color: var(--accent); }
+
+  .pcf-body {
+    max-height: 0; overflow: hidden;
+    transition: max-height .35s cubic-bezier(.4,0,.2,1), padding .35s;
+    padding: 0 1.75rem;
+    border-top: 0px solid var(--border);
+  }
+  .project-card-full.open .pcf-body {
+    max-height: 600px;
+    padding: 1.5rem 1.75rem 1.75rem;
+    border-top-width: 1px;
+  }
+
+  .pcf-detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.25rem; }
+  .pcf-detail-label { font-size: 10px; color: var(--accent); text-transform: uppercase; letter-spacing: .1em; margin-bottom: .4rem; }
+  .pcf-detail-value { font-size: 13px; color: var(--muted); line-height: 1.7; }
+
+  .highlight-box {
+    margin-top: 1.25rem; padding: 1rem;
+    background: rgba(57,255,133,.04); border: 1px solid rgba(57,255,133,.12);
+    border-radius: 3px; font-size: 13px; color: var(--muted); line-height: 1.7;
+  }
+  .highlight-box strong { color: var(--accent); font-weight: 400; }
+
+  .no-results {
+    text-align: center; padding: 3rem; color: var(--muted);
+    font-size: 13px; display: none;
+  }
+
+  @media (max-width: 600px) { .pcf-detail-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo"><span>~/</span>utkarsh<span>.dev</span></a>
+  <ul class="nav-links">
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="resume.html">Resume</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="https://github.com/UTKARSH698" target="_blank">GitHub ↗</a></li>
+  </ul>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-drawer" id="nav-drawer">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="resume.html">Resume</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="https://github.com/UTKARSH698" target="_blank">GitHub ↗</a></li>
+  </ul>
+</div>
+
+<main>
+  <div class="page-header fade-in">
+    <div class="section-label">// projects</div>
+    <h1 style="font-size:clamp(2rem,5vw,3.2rem);">Things I've Built</h1>
+    <p>Cloud infrastructure, security tooling, formal verification research, and EdTech — built during internship and university.</p>
+  </div>
+
+  <section>
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="cloud">Cloud</button>
+      <button class="filter-btn" data-filter="security">Security</button>
+      <button class="filter-btn" data-filter="research">Research</button>
+      <button class="filter-btn" data-filter="product">Product</button>
+    </div>
+
+    <!-- CLOUDPULSE -->
+    <div class="project-card-full open fade-in" id="cloudpulse" data-tags="cloud">
+      <div class="pcf-top" onclick="toggleCard(this)">
+        <div class="pcf-meta">
+          <div class="project-header">
+            <span class="project-name">CloudPulse</span>
+            <span class="badge-live">Live</span>
+          </div>
+          <div class="project-tech">AWS Lambda · DynamoDB · API Gateway · Kinesis · S3 · CloudWatch · 15 services</div>
+        </div>
+        <span class="pcf-toggle">+</span>
+      </div>
+      <div class="pcf-body">
+        <div class="project-desc">Serverless real-time analytics platform for processing high-volume event streams. Designed for scale from day one — no servers to manage, automatic bursting, pay-per-invocation cost model.</div>
+        <div class="pcf-detail-grid">
+          <div>
+            <div class="pcf-detail-label">Architecture</div>
+            <div class="pcf-detail-value">Event-driven, fully serverless. Kinesis ingests events → Lambda processes → DynamoDB stores → API Gateway + CloudFront serves dashboards.</div>
+          </div>
+          <div>
+            <div class="pcf-detail-label">Key Numbers</div>
+            <div class="pcf-detail-value">15 AWS services integrated. Sub-100ms processing latency. Zero cold-start issues via provisioned concurrency on hot paths.</div>
+          </div>
+        </div>
+        <div class="highlight-box"><strong>Why it matters:</strong> Demonstrates end-to-end AWS architecture competency — not just "I used Lambda" but how 15 services compose into a coherent, observable, production-grade system.</div>
+        <div class="project-links" style="margin-top:1.25rem;">
+          <a href="https://github.com/UTKARSH698" target="_blank" class="project-link">→ GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CLOUDFLOW -->
+    <div class="project-card-full fade-in" id="cloudflow" data-tags="cloud">
+      <div class="pcf-top" onclick="toggleCard(this)">
+        <div class="pcf-meta">
+          <div class="project-header">
+            <span class="project-name">CloudFlow</span>
+            <span class="badge-live">Live</span>
+          </div>
+          <div class="project-tech">Kubernetes · SAGA Choreography · GitHub Actions CI/CD · Distributed Systems</div>
+        </div>
+        <span class="pcf-toggle">+</span>
+      </div>
+      <div class="pcf-body">
+        <div class="project-desc">Fault-tolerant distributed order processing system implementing the SAGA choreography pattern for managing long-lived, multi-step transactions across microservices without distributed locks.</div>
+        <div class="pcf-detail-grid">
+          <div>
+            <div class="pcf-detail-label">Design Pattern</div>
+            <div class="pcf-detail-value">SAGA choreography — each service publishes events and reacts to others. No central orchestrator. Compensating transactions handle rollback automatically.</div>
+          </div>
+          <div>
+            <div class="pcf-detail-label">Ops Stack</div>
+            <div class="pcf-detail-value">GitHub Actions pipeline for build, test, Docker build, and Kubernetes deploy. Automatic rollback on failed health checks.</div>
+          </div>
+        </div>
+        <div class="highlight-box"><strong>Why it matters:</strong> SAGA is how production systems handle distributed transactions. Building it from scratch demonstrates understanding of eventual consistency, idempotency, and failure modes.</div>
+        <div class="project-links" style="margin-top:1.25rem;">
+          <a href="https://github.com/UTKARSH698" target="_blank" class="project-link">→ GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CSPM -->
+    <div class="project-card-full fade-in" id="cspm" data-tags="security cloud">
+      <div class="pcf-top" onclick="toggleCard(this)">
+        <div class="pcf-meta">
+          <div class="project-header"><span class="project-name">CSPM Tool</span></div>
+          <div class="project-tech">Python · Boto3 · AWS IAM · S3 · Security Automation · Compliance</div>
+        </div>
+        <span class="pcf-toggle">+</span>
+      </div>
+      <div class="pcf-body">
+        <div class="project-desc">Cloud Security Posture Management tool that continuously scans AWS environments for IAM privilege escalation paths and S3 misconfiguration risks, generating actionable remediation playbooks.</div>
+        <div class="pcf-detail-grid">
+          <div>
+            <div class="pcf-detail-label">What It Detects</div>
+            <div class="pcf-detail-value">IAM role chaining, overly permissive policies, public S3 buckets, missing MFA enforcement, cross-account trust misconfigurations.</div>
+          </div>
+          <div>
+            <div class="pcf-detail-label">Output</div>
+            <div class="pcf-detail-value">Risk-scored findings (Critical/High/Medium) with Markdown remediation playbooks. CI-compatible — can block deployments on critical findings.</div>
+          </div>
+        </div>
+        <div class="highlight-box"><strong>Why it matters:</strong> Security misconfigurations are the #1 cause of cloud breaches. This tool addresses the gap between "infrastructure deployed" and "infrastructure secured."</div>
+        <div class="project-links" style="margin-top:1.25rem;">
+          <a href="https://github.com/UTKARSH698" target="_blank" class="project-link">→ GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- AGRIFUTURE -->
+    <div class="project-card-full fade-in" id="agrifuture" data-tags="research">
+      <div class="pcf-top" onclick="toggleCard(this)">
+        <div class="pcf-meta">
+          <div class="project-header">
+            <span class="project-name">AgriFuture India</span>
+            <span class="badge-research">Research</span>
+          </div>
+          <div class="project-tech">TLA+ · BFS Model Checker (Python) · Formal Verification · arXiv</div>
+        </div>
+        <span class="pcf-toggle">+</span>
+      </div>
+      <div class="pcf-body">
+        <div class="project-desc">Agricultural marketplace research thesis elevated into a formal CS contribution. Applied TLA+-style modelling to verify correctness properties of the marketplace's trust and access revocation system.</div>
+        <div class="pcf-detail-grid">
+          <div>
+            <div class="pcf-detail-label">Research Finding</div>
+            <div class="pcf-detail-value">TAR (Trust and Access Revocation) preservation requires atomic revocation — partial revocation creates exploitable windows. Proven via BFS state-space exhaustion.</div>
+          </div>
+          <div>
+            <div class="pcf-detail-label">Artefacts</div>
+            <div class="pcf-detail-value">Custom BFS model checker in Python, TLA+-style spec, LaTeX-formatted arXiv preprint through multiple review passes.</div>
+          </div>
+        </div>
+        <div class="highlight-box"><strong>Why it matters:</strong> Most student projects are "I built X." This one generated a <strong>novel research finding</strong> with a formal proof — a differentiator for TU Darmstadt and the research community.</div>
+        <div class="project-links" style="margin-top:1.25rem;">
+          <a href="https://github.com/UTKARSH698" target="_blank" class="project-link">→ GitHub</a>
+          <a href="#" class="project-link">→ arXiv preprint</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- TROVIA -->
+    <div class="project-card-full fade-in" id="trovia" data-tags="product">
+      <div class="pcf-top" onclick="toggleCard(this)">
+        <div class="pcf-meta">
+          <div class="project-header"><span class="project-name">Trovia</span></div>
+          <div class="project-tech">HTML · CSS · JS · QR Verification · EdTech · ₹999/student SaaS</div>
+        </div>
+        <span class="pcf-toggle">+</span>
+      </div>
+      <div class="pcf-body">
+        <div class="project-desc">Remote internship platform for Indian college students with QR-verified certificate issuance. Bridges the gap between Tier-2/3 Gujarat colleges and legitimate remote work opportunities.</div>
+        <div class="pcf-detail-grid">
+          <div>
+            <div class="pcf-detail-label">Business Model</div>
+            <div class="pcf-detail-value">₹999/student. Targeting Gujarat Tier-2/3 colleges. B2C with potential B2B expansion via college tie-ups.</div>
+          </div>
+          <div>
+            <div class="pcf-detail-label">Technical</div>
+            <div class="pcf-detail-value">Multi-page frontend, admin dashboard, QR code generation and verification pipeline, certificate issuance flow.</div>
+          </div>
+        </div>
+        <div class="highlight-box"><strong>Why it matters:</strong> Not just a project — a real product addressing a real gap in the Indian EdTech market. Entrepreneurial thinking, not just engineering execution.</div>
+        <div class="project-links" style="margin-top:1.25rem;">
+          <a href="https://github.com/UTKARSH698" target="_blank" class="project-link">→ GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ROASTBOT -->
+    <div class="project-card-full fade-in" id="roastbot" data-tags="product">
+      <div class="pcf-top" onclick="toggleCard(this)">
+        <div class="pcf-meta">
+          <div class="project-header"><span class="project-name">RoastBot</span></div>
+          <div class="project-tech">Python · WhatsApp / Telegram / Web · NLP · Sports-Tech · Cricket</div>
+        </div>
+        <span class="pcf-toggle">+</span>
+      </div>
+      <div class="pcf-body">
+        <div class="project-desc">Cricket fan entertainment tool generating data-backed roasts in Hindi and English. Admin-only meme-training system controls roast style and quality. Deployable on WhatsApp, Telegram, or Web.</div>
+        <div class="pcf-detail-grid">
+          <div>
+            <div class="pcf-detail-label">How It Works</div>
+            <div class="pcf-detail-value">Ingests live cricket data → generates contextual roasts via templated NLP + LLM layer → admin panel curates meme library and tone.</div>
+          </div>
+          <div>
+            <div class="pcf-detail-label">Market</div>
+            <div class="pcf-detail-value">India's sports-tech and fan-engagement space. Cricket has ~1B fans globally — banter tools have massive organic reach potential.</div>
+          </div>
+        </div>
+        <div class="project-links" style="margin-top:1.25rem;">
+          <a href="https://github.com/UTKARSH698" target="_blank" class="project-link">→ GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="no-results" id="no-results">No projects match this filter.</div>
+  </section>
+</main>
+
+<footer>
+  <span>© 2026 — Utkarsh · Built with obsession</span>
+  <span><a href="index.html">← Home</a></span>
+</footer>
+
+<script src="shared.js"></script>
+<script>
+  function toggleCard(header) {
+    const card = header.closest('.project-card-full');
+    card.classList.toggle('open');
+  }
+
+  // Open + scroll to anchor on load
+  window.addEventListener('load', () => {
+    const hash = location.hash.slice(1);
+    if (hash) {
+      const card = document.getElementById(hash);
+      if (card) {
+        card.classList.add('open');
+        setTimeout(() => card.scrollIntoView({ behavior: 'smooth', block: 'start' }), 120);
+      }
+    }
+  });
+
+  // Filter
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      let visible = 0;
+      document.querySelectorAll('.project-card-full').forEach(card => {
+        const tags = card.dataset.tags || '';
+        const show = filter === 'all' || tags.includes(filter);
+        card.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+      document.getElementById('no-results').style.display = visible ? 'none' : 'block';
+    });
+  });
+</script>
+</body>
+</html>

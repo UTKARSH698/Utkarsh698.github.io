@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Utkarsh — Cloud & Security Engineer</title>
+<meta name="description" content="Final-year B.Tech CSE student specialising in Cloud Technology & IT Security. Building serverless systems, CSPM tooling, and formally-verified distributed architectures.">
+<meta property="og:title" content="Utkarsh — Cloud & Security Engineer">
+<meta property="og:description" content="Building cloud-native systems that scale. CGPA 9.35 · 15+ AWS services · TU Darmstadt applicant.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://utkarsh.dev">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Utkarsh — Cloud & Security Engineer">
+<meta name="twitter:description" content="Building cloud-native systems that scale. CGPA 9.35 · 15+ AWS services · TU Darmstadt applicant.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<link rel="stylesheet" href="style.css">
+<style>
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: calc(var(--nav-h) + 4rem) 0 4rem;
+    border-top: none;
+  }
+  .hero-prompt { font-size: 12px; color: var(--muted); margin-bottom: 1.5rem; min-height: 1.5em; }
+  h1 .age { color: var(--muted); font-weight: 400; }
+  .hero-desc { font-size: 14px; color: var(--muted); max-width: 600px; line-height: 1.9; margin-bottom: 2.5rem; }
+  .hero-desc strong { color: var(--text); font-weight: 400; }
+  .hero-cta { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+
+  /* Avatar */
+  .hero-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 2rem; }
+  .avatar {
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    border: 2px solid rgba(57,255,133,.3);
+    background: var(--bg2);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--sans); font-size: 1.6rem; font-weight: 800;
+    color: var(--accent);
+    flex-shrink: 0;
+    letter-spacing: -.02em;
+    box-shadow: 0 0 0 4px rgba(57,255,133,.06);
+  }
+
+  /* Home project list */
+  .home-projects { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+  .home-project {
+    background: var(--bg);
+    padding: 1.1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    transition: background .15s, padding-left .15s;
+    color: inherit;
+    opacity: 1;
+  }
+  .home-project:hover { background: var(--bg2); padding-left: 1.8rem; opacity: 1; }
+  .home-project:hover .hp-arrow { color: var(--accent); }
+  .hp-left { display: flex; align-items: center; gap: .75rem; min-width: 0; }
+  .hp-badge { flex-shrink: 0; }
+  .hp-info { min-width: 0; }
+  .hp-name { font-family: var(--sans); font-weight: 600; font-size: .95rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .hp-tech { font-size: 11px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .hp-arrow { color: var(--muted); font-size: 12px; transition: color .15s; flex-shrink: 0; }
+
+  .view-all {
+    margin-top: 1.25rem;
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    font-size: 12px;
+    color: var(--muted);
+    transition: color .2s;
+    opacity: 1;
+  }
+  .view-all:hover { color: var(--accent); opacity: 1; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo"><span>~/</span>utkarsh<span>.dev</span></a>
+  <ul class="nav-links">
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="resume.html">Resume</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="https://github.com/UTKARSH698" target="_blank">GitHub ↗</a></li>
+  </ul>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-drawer" id="nav-drawer">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="resume.html">Resume</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="https://github.com/UTKARSH698" target="_blank">GitHub ↗</a></li>
+  </ul>
+</div>
+
+<main>
+  <section id="hero">
+    <div class="hero-top">
+      <div>
+        <div class="hero-prompt" id="typed-prompt"></div>
+        <h1>Utkarsh,<br><span class="age">Cloud &amp; Security Engineer</span></h1>
+      </div>
+      <img src="my_photo.png" alt="Utkarsh" class="avatar" style="object-fit:cover;">
+    </div>
+
+    <p class="hero-desc">
+      Final-year B.Tech CSE student at ITM Vocational University with a
+      <strong>9.35 CGPA</strong>. Building cloud-native systems that scale —
+      obsessed with <strong>security, formal verification, and infrastructure</strong>
+      that doesn't break at 3 AM.<br><br>
+      Currently interning at <strong>TEJASKP AI SOFTWARE</strong> on cloud
+      engineering &amp; security. Targeting <strong>TU Darmstadt M.Sc. IT Security</strong>
+      — because the EU's regulatory security gap won't close itself.
+    </p>
+
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-value">9.35</span><span class="stat-label">CGPA</span></div>
+      <div class="stat"><span class="stat-value">15+</span><span class="stat-label">AWS Services</span></div>
+      <div class="stat"><span class="stat-value">5</span><span class="stat-label">Projects</span></div>
+      <div class="stat"><span class="stat-value">6mo</span><span class="stat-label">Cloud Internship</span></div>
+    </div>
+
+    <div class="hero-cta">
+      <span class="open-badge">Open to opportunities — Jun 2026</span>
+      <a href="contact.html" class="btn btn-primary">Let's talk →</a>
+      <a href="resume.html" class="btn btn-ghost">Resume</a>
+      <a href="https://github.com/UTKARSH698" target="_blank" class="btn btn-ghost">GitHub ↗</a>
+    </div>
+  </section>
+
+  <section class="fade-in">
+    <div class="section-label">// stack</div>
+    <h2>Tools I Work With</h2>
+    <div class="tools-grid">
+      <span class="tool-tag hot">AWS</span>
+      <span class="tool-tag hot">Kubernetes</span>
+      <span class="tool-tag hot">Python</span>
+      <span class="tool-tag hot">Terraform</span>
+      <span class="tool-tag">Docker</span>
+      <span class="tool-tag">GitHub Actions</span>
+      <span class="tool-tag">Lambda</span>
+      <span class="tool-tag">DynamoDB</span>
+      <span class="tool-tag">IAM / S3</span>
+      <span class="tool-tag">CloudWatch</span>
+      <span class="tool-tag">TLA+</span>
+      <span class="tool-tag">PostgreSQL</span>
+      <span class="tool-tag">FastAPI</span>
+      <span class="tool-tag">SAGA Pattern</span>
+      <span class="tool-tag">BFS Model Checking</span>
+      <span class="tool-tag">RAG / LLMs</span>
+      <span class="tool-tag">Linux</span>
+      <span class="tool-tag">Node.js</span>
+    </div>
+  </section>
+
+  <section class="fade-in">
+    <div class="section-label">// featured</div>
+    <h2>Selected Work</h2>
+
+    <div class="home-projects">
+      <a href="projects.html#cloudpulse" class="home-project">
+        <div class="hp-left">
+          <span class="hp-badge badge-live">Live</span>
+          <div class="hp-info">
+            <div class="hp-name">CloudPulse</div>
+            <div class="hp-tech">AWS Lambda · DynamoDB · Kinesis · 15 services</div>
+          </div>
+        </div>
+        <span class="hp-arrow">→</span>
+      </a>
+      <a href="projects.html#cloudflow" class="home-project">
+        <div class="hp-left">
+          <span class="hp-badge badge-live">Live</span>
+          <div class="hp-info">
+            <div class="hp-name">CloudFlow</div>
+            <div class="hp-tech">Kubernetes · SAGA Pattern · GitHub Actions</div>
+          </div>
+        </div>
+        <span class="hp-arrow">→</span>
+      </a>
+      <a href="projects.html#cspm" class="home-project">
+        <div class="hp-left">
+          <span class="hp-badge" style="width:3.2rem;"></span>
+          <div class="hp-info">
+            <div class="hp-name">CSPM Tool</div>
+            <div class="hp-tech">Python · AWS IAM · Security Automation · Boto3</div>
+          </div>
+        </div>
+        <span class="hp-arrow">→</span>
+      </a>
+      <a href="projects.html#agrifuture" class="home-project">
+        <div class="hp-left">
+          <span class="hp-badge badge-research">Research</span>
+          <div class="hp-info">
+            <div class="hp-name">AgriFuture India</div>
+            <div class="hp-tech">TLA+ · BFS Model Checker · arXiv preprint</div>
+          </div>
+        </div>
+        <span class="hp-arrow">→</span>
+      </a>
+      <a href="projects.html#trovia" class="home-project">
+        <div class="hp-left">
+          <span class="hp-badge" style="width:3.2rem;"></span>
+          <div class="hp-info">
+            <div class="hp-name">Trovia</div>
+            <div class="hp-tech">EdTech · QR Certificates · ₹999/student · Gujarat</div>
+          </div>
+        </div>
+        <span class="hp-arrow">→</span>
+      </a>
+    </div>
+    <a href="projects.html" class="view-all">View all projects →</a>
+  </section>
+</main>
+
+<footer>
+  <span>© 2026 — Utkarsh · Built with obsession</span>
+  <span>Gujarat, India → Darmstadt, Germany</span>
+</footer>
+
+<script src="shared.js"></script>
+<script>
+  const el = document.getElementById('typed-prompt');
+  const text = '$ whoami';
+  let i = 0;
+  const cur = document.createElement('span');
+  cur.className = 'cursor';
+  function type() {
+    if (i < text.length) { el.textContent += text[i++]; el.appendChild(cur); setTimeout(type, 65); }
+  }
+  setTimeout(type, 400);
+</script>
+</body>
+</html>

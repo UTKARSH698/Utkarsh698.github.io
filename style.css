@@ -619,67 +619,82 @@ figcaption .fig-num {
   gap: 3.5rem;
   align-items: start;
 }
-/* Cutout portrait — no card, no border, no container. The subject sits directly
-   on the cream page with a soft drop-shadow that respects the PNG alpha, so
-   only the figure casts a shadow (not a rectangle). */
+/* Editorial portrait niche — the cutout subject stands in a soft arched panel
+   that gives it a "home" on the page, with a captioned plate line below. The
+   figure still casts an alpha-aware drop-shadow so it lifts off the niche. */
 .cover-photo {
   position: relative;
   background: transparent;
   border: 0;
   overflow: visible;
   isolation: isolate;
-  /* Drop-shadow respects alpha — only the subject silhouette gets a shadow */
-  filter: drop-shadow(0 18px 24px rgba(26, 22, 18, .18))
-          drop-shadow(0 4px 8px rgba(26, 22, 18, .08));
+  padding-bottom: 2.1rem;          /* room for the caption rule */
+}
+/* The arched niche behind the figure */
+.cover-photo::before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 50%;
+  bottom: 2.1rem;
+  transform: translateX(-50%);
+  width: 112%;
+  height: 88%;
+  z-index: -1;
+  background:
+    radial-gradient(125% 96% at 50% 16%,
+      color-mix(in srgb, var(--ochre) 26%, var(--paper)) 0%,
+      color-mix(in srgb, var(--sage)  14%, var(--paper)) 52%,
+      color-mix(in srgb, var(--sage)   5%, var(--paper)) 78%,
+      transparent 100%);
+  border: 1px solid color-mix(in srgb, var(--ink) 9%, transparent);
+  border-bottom: 0;
+  /* tall arch top, gently rounded base */
+  border-radius: 48% 48% 16px 16px / 60% 60% 16px 16px;
 }
 .cover-photo img {
   width: 100%;
   height: auto;
   display: block;
-  /* Slight grade so the cutout reads consistently on cream paper */
-  filter: saturate(.97) contrast(1.02);
+  position: relative;
+  /* Slight grade + alpha-aware shadow so the figure lifts off the niche */
+  filter: saturate(.98) contrast(1.02)
+          drop-shadow(0 16px 22px rgba(26, 22, 18, .22))
+          drop-shadow(0 4px 8px rgba(26, 22, 18, .10));
+  /* Dissolve the hard torso crop into the page */
+  -webkit-mask-image: linear-gradient(180deg, #000 84%, transparent 99%);
+          mask-image: linear-gradient(180deg, #000 84%, transparent 99%);
 }
-/* No pseudo-element decorations — the cutout speaks for itself */
-.cover-photo::before,
 .cover-photo::after { display: none; }
-.cover-photo-cap { display: none; }
-
-/* Dark mode — cutout subject against ink page. Shadow is deeper + warmer to
-   suggest the subject is lit from above and standing on a dark surface. */
-:root.ink .cover-photo {
-  background: transparent;
-  filter: drop-shadow(0 22px 32px rgba(0, 0, 0, .55))
-          drop-shadow(0 6px 10px rgba(0, 0, 0, .3));
-}
-:root.ink .cover-photo img {
-  filter: saturate(.92) contrast(1.04) brightness(.96);
-}
-:root.ink .cover-photo::before {
-  background:
-    linear-gradient(180deg,
-      color-mix(in srgb, var(--ochre) 16%, transparent) 0%,
-      transparent 30%,
-      transparent 68%,
-      color-mix(in srgb, var(--accent) 18%, transparent) 100%);
-  mix-blend-mode: overlay;
-}
-:root.ink .cover-photo::after {
-  background:
-    radial-gradient(125% 115% at 50% 45%,
-      transparent 55%,
-      color-mix(in srgb, var(--paper) 42%, transparent) 92%,
-      color-mix(in srgb, var(--paper) 70%, transparent) 100%);
-}
 
 .cover-photo-cap {
-  position: absolute; left: 0; right: 0; bottom: -.25rem;
-  /* No background needed — page paper shows through the masked photo bottom */
-  padding: .4rem 1rem 0;
-  font-family: var(--mono); font-size: .65rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding-top: .5rem;
+  border-top: 1px solid var(--rule);
+  font-family: var(--mono); font-size: .62rem;
+  letter-spacing: .13em; text-transform: uppercase;
   color: var(--ink-3);
-  letter-spacing: .08em; text-transform: uppercase;
-  text-align: center;
-  z-index: 4;
+}
+.cover-photo-cap span:first-child { color: var(--ink-2, var(--ink)); }
+
+/* Dark mode — warm-lit niche against the ink page */
+:root.ink .cover-photo::before {
+  background:
+    radial-gradient(125% 96% at 50% 16%,
+      color-mix(in srgb, var(--ochre) 22%, var(--paper)) 0%,
+      color-mix(in srgb, var(--accent) 12%, var(--paper)) 50%,
+      color-mix(in srgb, var(--paper) 92%, transparent) 80%,
+      transparent 100%);
+  border-color: color-mix(in srgb, var(--paper) 14%, transparent);
+}
+:root.ink .cover-photo img {
+  filter: saturate(.94) contrast(1.04) brightness(.97)
+          drop-shadow(0 20px 30px rgba(0, 0, 0, .55))
+          drop-shadow(0 6px 10px rgba(0, 0, 0, .32));
 }
 
 .cover-tag {

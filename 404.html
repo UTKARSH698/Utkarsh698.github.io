@@ -3,80 +3,346 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>404 — Utkarsh Batham</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<title>Errata — Utkarsh Batham · Vol. 2026</title>
+<meta name="description" content="The page you requested is not in this issue. Head to the cover, or pick another folio.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23ede6d6'/><rect x='25' y='25' width='50' height='50' fill='%23b8410e'/></svg>">
 <link rel="stylesheet" href="style.css">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-DZ48W4D1EW"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-DZ48W4D1EW');</script>
+
 <style>
-.err-page{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem}
-.err-num{
-  font-family:var(--sans);
-  font-size:clamp(7rem,28vw,16rem);
-  font-weight:800;line-height:1;letter-spacing:-.06em;
-  color:var(--ink3);position:relative;user-select:none;margin-bottom:.75rem;
+.errata-wrap {
+  padding: 5rem 0 7rem;
+  min-height: calc(100vh - var(--nav-h));
+  display: flex; align-items: center;
 }
-.err-num::after{
-  content:'404';position:absolute;inset:0;
-  color:var(--g);
-  clip-path:polygon(0 42%,100% 42%,100% 58%,0 58%);
-  animation:glitch 3.5s infinite;
+.errata-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 4rem;
+  align-items: start;
+  width: 100%;
 }
-@keyframes glitch{
-  0%,86%,100%{transform:none;opacity:1}
-  88%{transform:translateX(-8px) skewX(-3deg);opacity:.85}
-  91%{transform:translateX(8px) skewX(2deg)}
-  94%{transform:translateX(-4px)}
-  97%{transform:none;opacity:.9}
+.errata-stamp {
+  position: relative;
+  aspect-ratio: 1;
+  max-width: 380px;
+  background: var(--paper-2);
+  border: 1px solid var(--rule);
+  border-radius: var(--rad);
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  padding: 2rem;
+  text-align: center;
 }
-.err-mono{font-size:.72rem;color:var(--muted);margin-bottom:2rem;font-family:var(--mono)}
-.err-mono span{color:var(--g)}
-.err-msg{font-size:.88rem;color:var(--muted);margin-bottom:2.5rem;line-height:1.8;max-width:360px}
-.err-msg strong{color:var(--text);font-weight:400}
-.err-btns{display:flex;gap:.65rem;flex-wrap:wrap;justify-content:center}
+.errata-stamp::before, .errata-stamp::after {
+  content: '';
+  position: absolute;
+  left: 1.5rem; right: 1.5rem;
+  height: 1px; background: var(--ink);
+}
+.errata-stamp::before { top: 1.5rem; }
+.errata-stamp::after  { bottom: 1.5rem; }
+.errata-stamp-num {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(5rem, 14vw, 8.5rem);
+  line-height: 1;
+  letter-spacing: -.05em;
+  color: var(--ink);
+  font-variation-settings: 'opsz' 144, 'SOFT' 30;
+  margin: .5rem 0;
+}
+.errata-stamp-num .accent { color: var(--accent); }
+.errata-stamp-eyebrow {
+  font-family: var(--mono);
+  font-size: .7rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.errata-stamp-eyebrow .e-num { color: var(--accent); }
+.errata-stamp-cap {
+  font-family: var(--mono);
+  font-size: .65rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-top: 1rem;
+}
+
+.errata-strike {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: .72rem;
+  letter-spacing: .04em;
+  color: var(--accent);
+  padding: .35rem .75rem;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.errata-strike .dot {
+  display: inline-block;
+  width: 6px; height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  margin-right: .4rem;
+  vertical-align: middle;
+}
+
+.errata-h {
+  font-family: var(--serif);
+  font-weight: 350;
+  font-size: clamp(2.5rem, 5.5vw, 4.25rem);
+  line-height: 1;
+  letter-spacing: -.03em;
+  color: var(--ink);
+  margin: 0 0 1.5rem;
+  font-variation-settings: 'opsz' 144, 'SOFT' 40;
+}
+.errata-h em { font-style: italic; color: var(--accent-2); }
+:root.ink .errata-h em { color: var(--accent); }
+
+.errata-deck {
+  font-family: var(--serif);
+  font-size: clamp(1.1rem, 1.5vw, 1.25rem);
+  line-height: 1.55;
+  color: var(--ink-2);
+  margin: 0 0 2rem;
+  max-width: 52ch;
+  font-variation-settings: 'opsz' 14;
+}
+
+.errata-record {
+  font-family: var(--mono);
+  font-size: .78rem;
+  background: var(--paper-2);
+  border: 1px solid var(--rule);
+  border-radius: var(--rad);
+  padding: 1rem 1.25rem;
+  margin-bottom: 2rem;
+  display: flex; align-items: center; gap: .75rem;
+  flex-wrap: wrap;
+}
+.errata-record .er-k {
+  font-size: .62rem; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--ink-3);
+}
+.errata-record .er-v {
+  color: var(--ink);
+  overflow: hidden; text-overflow: ellipsis;
+  white-space: nowrap; max-width: 100%;
+}
+.errata-record .er-strike {
+  text-decoration: line-through;
+  color: var(--accent);
+}
+
+.errata-cta {
+  display: flex; gap: .65rem; flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+
+.errata-jump {
+  border-top: 1px solid var(--rule);
+  padding-top: 1.5rem;
+}
+.errata-jump-head {
+  font-family: var(--mono);
+  font-size: .65rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 1rem;
+}
+.errata-jump-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .5rem;
+}
+.errata-jump-row {
+  display: grid;
+  grid-template-columns: 40px 1fr auto;
+  align-items: baseline;
+  gap: .75rem;
+  padding: .85rem .25rem;
+  border-bottom: 1px dotted var(--rule-soft);
+  transition: padding-left var(--t-fast);
+}
+.errata-jump-row:hover { padding-left: .75rem; }
+.errata-jump-row .ej-num {
+  font-family: var(--mono);
+  font-size: .68rem;
+  color: var(--accent);
+  letter-spacing: .04em;
+}
+.errata-jump-row .ej-title {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  color: var(--ink);
+  font-variation-settings: 'opsz' 14;
+}
+.errata-jump-row .ej-arrow {
+  font-family: var(--mono);
+  font-size: .68rem;
+  color: var(--ink-3);
+}
+
+@media (max-width: 880px) {
+  .errata-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .errata-stamp { max-width: 280px; margin: 0 auto; }
+  .errata-jump-grid { grid-template-columns: 1fr; }
+}
 </style>
 </head>
 <body>
 
-<nav class="nav">
-  <a href="index.html" class="nav-logo"><span class="d">~/</span>utkarsh<span class="d">.dev</span><span class="cursor-blink"></span></a>
-  <ul class="nav-links">
-    <li><a href="projects.html">Projects</a></li>
-    <li><a href="notes.html">Build Log</a></li>
-    <li><a href="resume.html">Resume</a></li>
-    <li><a href="contact.html" class="hire">Hire Me</a></li>
-  </ul>
-  <div class="nav-r">
-    <button class="nav-icon" id="theme-btn">◑</button>
-    <button class="nav-icon ham" id="ham"><span></span><span></span><span></span></button>
+<nav class="masthead">
+  <div class="masthead-in">
+    <a href="index.html" class="wordmark">
+      <span class="wm-mark"></span>
+      Utkarsh Batham
+      <span class="wm-sub">Vol. 2026</span>
+    </a>
+    <ul class="nav-index">
+      <li><a href="index.html"><span class="num">01</span>Cover</a></li>
+      <li><a href="projects.html"><span class="num">02</span>Work</a></li>
+      <li><a href="notes.html"><span class="num">03</span>Dispatches</a></li>
+      <li><a href="resume.html"><span class="num">04</span>Dossier</a></li>
+      <li><a href="contact.html"><span class="num">05</span>Contact</a></li>
+    </ul>
+    <div class="masthead-r">
+      <button class="icon-btn" id="theme-btn" aria-label="Toggle theme">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+      <button class="icon-btn ham" id="ham" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </nav>
 <div class="nav-drawer" id="nav-drawer" style="display:none">
   <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="projects.html">Projects</a></li>
-    <li><a href="notes.html">Build Log</a></li>
-    <li><a href="contact.html">Hire Me</a></li>
+    <li><a href="index.html"><span class="num">01</span>Cover</a></li>
+    <li><a href="projects.html"><span class="num">02</span>Work</a></li>
+    <li><a href="notes.html"><span class="num">03</span>Dispatches</a></li>
+    <li><a href="resume.html"><span class="num">04</span>Dossier</a></li>
+    <li><a href="contact.html"><span class="num">05</span>Contact</a></li>
   </ul>
 </div>
 
 <main>
-  <div class="err-page">
-    <div class="err-num">404</div>
-    <p class="err-mono">$ curl <span id="bad-path">https://utkarsh698.github.io/???</span> → <span>404 Not Found</span></p>
-    <p class="err-msg">Route doesn't exist — or it got <strong>deleted, moved, or never deployed.</strong><br>The infrastructure returned nothing.</p>
-    <div class="err-btns">
-      <a href="index.html" class="btn btn-p">← Home</a>
-      <a href="projects.html" class="btn btn-o">Projects</a>
-      <a href="contact.html" class="btn btn-o">Hire Me</a>
+  <div class="wrap">
+    <div class="errata-wrap">
+      <div class="errata-grid">
+
+        <!-- Left: ink stamp -->
+        <div class="errata-stamp fade">
+          <span class="errata-stamp-eyebrow">Folio <span class="e-num">№</span></span>
+          <div class="errata-stamp-num">4<span class="accent">0</span>4</div>
+          <span class="errata-stamp-cap">Not in this issue</span>
+        </div>
+
+        <!-- Right: errata note -->
+        <div class="fade fade-1">
+          <span class="errata-strike">
+            <span class="dot"></span>
+            Errata · Page not found
+          </span>
+
+          <h1 class="errata-h">A folio has gone <em>missing.</em></h1>
+
+          <p class="errata-deck">
+            The page you requested isn't in this issue — it was moved, renamed,
+            or never went to press. The good news: everything else is right where it should be.
+          </p>
+
+          <div class="errata-record">
+            <span class="er-k">Requested</span>
+            <span class="er-v er-strike" id="bad-path">/???</span>
+          </div>
+
+          <div class="errata-cta">
+            <a href="index.html" class="btn btn-ink">← Back to the cover</a>
+            <a href="projects.html" class="btn btn-line">Read the work</a>
+          </div>
+
+          <div class="errata-jump">
+            <div class="errata-jump-head">In this issue · Folios</div>
+            <div class="errata-jump-grid">
+              <a href="index.html" class="errata-jump-row">
+                <span class="ej-num">№ 01</span>
+                <span class="ej-title">Cover</span>
+                <span class="ej-arrow">→</span>
+              </a>
+              <a href="projects.html" class="errata-jump-row">
+                <span class="ej-num">№ 02</span>
+                <span class="ej-title">Work</span>
+                <span class="ej-arrow">→</span>
+              </a>
+              <a href="notes.html" class="errata-jump-row">
+                <span class="ej-num">№ 03</span>
+                <span class="ej-title">Dispatches</span>
+                <span class="ej-arrow">→</span>
+              </a>
+              <a href="resume.html" class="errata-jump-row">
+                <span class="ej-num">№ 04</span>
+                <span class="ej-title">Dossier</span>
+                <span class="ej-arrow">→</span>
+              </a>
+              <a href="contact.html" class="errata-jump-row" style="grid-column:span 2">
+                <span class="ej-num">№ 05</span>
+                <span class="ej-title">Correspondence</span>
+                <span class="ej-arrow">→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
   </div>
 </main>
 
+<footer class="colophon">
+  <div class="colophon-grid">
+    <div class="colophon-brand">
+      <h4>Utkarsh Batham</h4>
+      <p>Cloud infrastructure &amp; security automation engineer. Designing systems that survive contact with real traffic. Vadodara, India — open to remote roles globally.</p>
+      <span class="imp">Vol. 2026 · Issue 06 · Errata</span>
+    </div>
+    <div class="colophon-col">
+      <h5>Sections</h5>
+      <a href="index.html">01 — Cover</a>
+      <a href="projects.html">02 — Work</a>
+      <a href="notes.html">03 — Dispatches</a>
+      <a href="resume.html">04 — Dossier</a>
+      <a href="contact.html">05 — Contact</a>
+    </div>
+    <div class="colophon-col">
+      <h5>Elsewhere</h5>
+      <a href="https://github.com/UTKARSH698" target="_blank" rel="noopener">GitHub ↗</a>
+      <a href="https://www.linkedin.com/in/utkarsh-batham-531913247" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a href="mailto:udaydeepak1928@gmail.com">Email</a>
+    </div>
+    <div class="colophon-col">
+      <h5>Colophon</h5>
+      <p style="font-size:.78rem;color:var(--ink-3);line-height:1.55;margin:0">Set in <em>Fraunces</em> &amp; <em>Inter</em>. Hand-written HTML &amp; CSS. Maintained from Vadodara, India.</p>
+    </div>
+  </div>
+  <div class="colophon-foot">
+    <span>© 2026 Utkarsh Batham</span>
+    <span>Last revised · Jun 2026</span>
+    <span>Vol. 2026 · Issue 06</span>
+  </div>
+</footer>
+
 <script src="shared.js"></script>
 <script>
-  const p=document.getElementById('bad-path');
-  if(p)p.textContent='https://utkarsh698.github.io'+(location.pathname||'/???');
+  const p = document.getElementById('bad-path');
+  if (p) p.textContent = location.pathname || '/???';
 </script>
 </body>
 </html>

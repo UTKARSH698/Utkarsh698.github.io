@@ -3,736 +3,841 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Projects — Utkarsh Batham</title>
-<meta name="description" content="Engineering case studies by Utkarsh Batham. CloudFlow, CloudPulse, CSPM, AgriFuture India, Wikipedia Smart Search.">
-<meta property="og:title" content="Projects — Utkarsh Batham · Cloud Infrastructure & Security Automation">
-<meta property="og:image" content="https://utkarsh698.github.io/og-image.png">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<title>Work — Utkarsh Batham · Vol. 2026</title>
+<meta name="description" content="Eight pieces by Utkarsh Batham &mdash; six production systems (distributed SAGA orchestration on AWS, real-time Lambda-architecture analytics, CIS-v1.5 cloud security posture management, a six-module Gemini AI agricultural platform, an InsightFace photo matcher, retrieval-augmented QA over Wikipedia), a merged grafana/alloy-scenarios PR, and a TLA+-style formal-verification preprint on distributed RBAC security invariants.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23ede6d6'/><rect x='25' y='25' width='50' height='50' fill='%23b8410e'/></svg>">
 <link rel="stylesheet" href="style.css">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-DZ48W4D1EW"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-DZ48W4D1EW');</script>
-<style>
-/* ── PAGE HERO ────────────────────────────────────────────── */
-.page-hero {
-  padding: calc(var(--nav-h) + 4.5rem) 0 3.5rem;
-  border-bottom: 1px solid var(--line);
-  position: relative; overflow: hidden;
-}
-.page-hero::after {
-  content: '';
-  position: absolute; right: 0; top: 0; bottom: 0;
-  width: 40%;
-  background: radial-gradient(ellipse 80% 100% at 100% 50%, rgba(61,255,160,.04) 0%, transparent 60%);
-  pointer-events: none;
-}
-.page-hero h1 {
-  font-family: var(--sans);
-  font-size: clamp(2.8rem, 7vw, 5.5rem);
-  font-weight: 800; letter-spacing: -.04em;
-  color: var(--bright); line-height: .92;
-  margin-bottom: 1.25rem;
-}
-.page-hero p { font-size: .85rem; color: var(--muted); max-width: 480px; line-height: 1.8; }
-
-/* ── FILTER ───────────────────────────────────────────────── */
-.filter-bar { display:flex; gap:.4rem; flex-wrap:wrap; padding:2rem 0 2.5rem; }
-.fb {
-  font-family:var(--mono); font-size:.65rem;
-  padding:.28rem .72rem; border:1px solid var(--line);
-  background:transparent; color:var(--muted);
-  border-radius:3px; cursor:pointer;
-  transition:all .15s; letter-spacing:.06em; text-transform:uppercase;
-}
-.fb:hover { border-color:var(--line2); color:var(--text); }
-.fb.on { border-color:var(--g); color:var(--g); background:var(--glow2); }
-
-/* ── PROJECT TEARDOWN CARD ───────────────────────────────── */
-.project {
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  overflow: hidden;
-  margin-bottom: 2rem;
-  transition: border-color .2s;
-  scroll-margin-top: calc(var(--nav-h) + 2rem);
-  position: relative;
-}
-.project:target, .project.open { border-color: rgba(61,255,160,.18); }
-
-/* Number watermark */
-.project-num {
-  position: absolute;
-  top: 1.5rem; right: 1.75rem;
-  font-family: var(--sans);
-  font-size: 5rem; font-weight: 800;
-  color: rgba(255,255,255,.025);
-  line-height: 1; letter-spacing: -.05em;
-  pointer-events: none; user-select: none;
-}
-
-.project-header {
-  padding: 2rem 2rem 1.75rem;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 1.5rem;
-  cursor: pointer;
-  transition: background .15s;
-  align-items: start;
-  position: relative;
-}
-.project-header:hover { background: var(--ink2); }
-
-.ph-tags { display:flex; align-items:center; gap:.5rem; flex-wrap:wrap; margin-bottom:.6rem; }
-.ph-name { font-family:var(--sans); font-size:1.3rem; font-weight:700; color:var(--bright); margin-bottom:.4rem; }
-.ph-stack { font-size:.68rem; color:var(--muted); }
-
-.ph-toggle { font-size:1.3rem; color:var(--muted); transition:transform .3s var(--e),color .2s; line-height:1; margin-top:4px; flex-shrink:0; }
-.project.open .ph-toggle { transform:rotate(45deg); color:var(--g); }
-
-/* Body */
-.project-body {
-  max-height: 0; overflow: hidden;
-  transition: max-height .5s var(--e);
-  border-top: 0px solid var(--line);
-}
-.project.open .project-body { max-height: 1400px; border-top-width: 1px; }
-.pb { padding: 2rem; }
-
-/* Metrics row */
-.metrics-row { display:flex; gap:.75rem; flex-wrap:wrap; margin-bottom:1.75rem; }
-.mc {
-  display:flex; flex-direction:column; gap:.15rem;
-  padding:.75rem 1rem;
-  background:var(--ink3); border:1px solid var(--line);
-  border-radius:5px; min-width:100px;
-  position: relative; overflow: hidden;
-}
-.mc::after {
-  content: '';
-  position: absolute; bottom: 0; left: 0; right: 0;
-  height: 1px; background: var(--g); opacity: .4;
-}
-.mc-val { font-family:var(--sans); font-size:1.15rem; font-weight:800; color:var(--g); line-height:1; }
-.mc-lbl { font-size:.58rem; color:var(--muted); text-transform:uppercase; letter-spacing:.1em; margin-top:.2rem; }
-
-/* Visual evidence zone */
-.evidence-zone {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  margin-bottom: 1.75rem;
-}
-
-.evidence-block {
-  background: var(--ink3);
-  border: 1px solid var(--line);
-  border-radius: 5px;
-  overflow: hidden;
-  position: relative;
-}
-
-/* Architecture diagram placeholder */
-.ev-arch {
-  padding: 1.5rem;
-  min-height: 160px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.ev-arch-title { font-size:.6rem; color:var(--g); text-transform:uppercase; letter-spacing:.12em; margin-bottom:1rem; }
-.arch-nodes {
-  display: flex;
-  align-items: center;
-  gap: .4rem;
-  flex-wrap: wrap;
-}
-.anode {
-  display: flex; align-items: center; justify-content: center;
-  padding: .3rem .55rem;
-  background: var(--ink2); border: 1px solid var(--line2);
-  border-radius: 3px; font-size: .58rem; color: var(--soft);
-  white-space: nowrap;
-}
-.anode.g { border-color:rgba(61,255,160,.3); color:var(--g); background:var(--glow2); }
-.anode.c { border-color:rgba(0,229,255,.25); color:var(--g2); background:rgba(0,229,255,.05); }
-.arch-arrow { color:var(--dust); font-size:.75rem; }
-
-/* Terminal snippet */
-.ev-terminal {
-  padding: 0;
-  font-family: var(--mono);
-  font-size: .68rem;
-}
-.term-bar {
-  display: flex; align-items: center; gap: .4rem;
-  padding: .5rem .85rem;
-  background: var(--ink4); border-bottom: 1px solid var(--line);
-}
-.term-dot { width:8px;height:8px;border-radius:50%; }
-.term-title { font-size:.58rem; color:var(--muted); margin-left:.35rem; }
-.term-body { padding: .85rem; line-height: 1.9; min-height: 120px; }
-.t-comment { color:var(--muted); }
-.t-cmd { color:var(--g); }
-.t-out { color:var(--soft); }
-.t-val { color:var(--g2); }
-.t-err { color:var(--g3); }
-
-/* Benchmark visual */
-.ev-bench { padding: 1.25rem; }
-.bench-title { font-size:.6rem; color:var(--g); text-transform:uppercase; letter-spacing:.12em; margin-bottom:.85rem; }
-.bench-bars { display:flex; flex-direction:column; gap:.55rem; }
-.bench-row { display:flex; align-items:center; gap:.65rem; font-size:.62rem; }
-.bench-label { color:var(--muted); width:80px; flex-shrink:0; }
-.bench-track { flex:1; height:6px; background:var(--ink4); border-radius:3px; overflow:hidden; }
-.bench-fill { height:100%; border-radius:3px; background:var(--g); }
-.bench-val { color:var(--g); width:55px; text-align:right; flex-shrink:0; font-family:var(--mono); }
-
-/* Deep dive columns */
-.pb-cols { display:grid; grid-template-columns:1fr 1fr; gap:2rem; margin-bottom:1.5rem; }
-.pb-col-label { font-size:.6rem; color:var(--g); text-transform:uppercase; letter-spacing:.12em; margin-bottom:.55rem; }
-.pb-col-text { font-size:.78rem; color:var(--soft); line-height:1.8; }
-
-.impact {
-  padding: 1rem 1.25rem;
-  background: var(--glow2);
-  border: 1px solid rgba(61,255,160,.1);
-  border-radius: 4px;
-  font-size:.78rem; color:var(--soft); line-height:1.75;
-  margin-bottom: 1.5rem;
-}
-.impact strong { color:var(--g); font-weight:400; }
-
-.proj-links { display:flex; gap:.5rem; flex-wrap:wrap; }
-
-.no-results { text-align:center; padding:4rem; color:var(--muted); font-size:.85rem; display:none; }
-
-@media(max-width:700px){
-  .evidence-zone{grid-template-columns:1fr}
-  .pb-cols{grid-template-columns:1fr}
-}
-</style>
 </head>
 <body>
 
-<nav class="nav">
-  <a href="index.html" class="nav-logo"><span class="d">~/</span>utkarsh<span class="d">.dev</span><span class="cursor-blink"></span></a>
-  <ul class="nav-links">
-    <li><a href="projects.html">Projects</a></li>
-    <li><a href="notes.html">Build Log</a></li>
-    <li><a href="resume.html">Resume</a></li>
-    <li><a href="https://github.com/UTKARSH698" target="_blank">GitHub ↗</a></li>
-    <li><a href="contact.html" class="hire">Hire Me</a></li>
-  </ul>
-  <div class="nav-r">
-    <button class="nav-icon" id="theme-btn">◑</button>
-    <button class="nav-icon ham" id="ham"><span></span><span></span><span></span></button>
+<nav class="masthead">
+  <div class="masthead-in">
+    <a href="index.html" class="wordmark">
+      <span class="wm-mark"></span>
+      Utkarsh Batham
+      <span class="wm-sub">Vol. 2026</span>
+    </a>
+    <ul class="nav-index">
+      <li><a href="index.html"><span class="num">01</span>Cover</a></li>
+      <li><a href="projects.html"><span class="num">02</span>Work</a></li>
+      <li><a href="notes.html"><span class="num">03</span>Dispatches</a></li>
+      <li><a href="resume.html"><span class="num">04</span>Dossier</a></li>
+      <li><a href="contact.html"><span class="num">05</span>Contact</a></li>
+    </ul>
+    <div class="masthead-r">
+      <button class="icon-btn" id="theme-btn" aria-label="Toggle theme">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+      <button class="icon-btn ham" id="ham" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </nav>
 <div class="nav-drawer" id="nav-drawer" style="display:none">
   <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="projects.html">Projects</a></li>
-    <li><a href="notes.html">Build Log</a></li>
-    <li><a href="resume.html">Resume</a></li>
-    <li><a href="contact.html">Hire Me</a></li>
+    <li><a href="index.html"><span class="num">01</span>Cover</a></li>
+    <li><a href="projects.html"><span class="num">02</span>Work</a></li>
+    <li><a href="notes.html"><span class="num">03</span>Dispatches</a></li>
+    <li><a href="resume.html"><span class="num">04</span>Dossier</a></li>
+    <li><a href="contact.html"><span class="num">05</span>Contact</a></li>
   </ul>
 </div>
 
 <main>
-<div class="wrap">
 
-  <div class="page-hero fade">
-    <p class="eyebrow">// systems shipped</p>
-    <h1>Built.<br>Not described.</h1>
-    <p>Production systems with real benchmarks, real architecture decisions, and real things that went wrong along the way.</p>
+<header class="folio-head">
+  <div class="wrap">
+    <div class="folio-meta">
+      <span><span class="fm-l">Folio 02</span> · The Work</span>
+      <span>Vol. 2026 · Issue 06</span>
+      <span>8 features &middot; ~24 min read</span>
+    </div>
+
+    <h1 class="display h-display-lg fade">Features<br>from the <em>field.</em></h1>
+    <p class="lead fade fade-1" style="margin-top:2rem;max-width:62ch">
+      Eight pieces — six shipped systems, one merged upstream contribution, and one formal-methods
+      preprint. Each written out with the parts that make engineering real: architecture decisions,
+      the failure mode I cared about, and the trade-off I had to live with.
+    </p>
+
+    <div class="filters fade fade-2">
+      <button class="filter-pill active" data-filter="all">All <span class="fp-num">08</span></button>
+      <button class="filter-pill" data-filter="cloud">Cloud <span class="fp-num">04</span></button>
+      <button class="filter-pill" data-filter="distributed">Distributed <span class="fp-num">03</span></button>
+      <button class="filter-pill" data-filter="security">Security <span class="fp-num">02</span></button>
+      <button class="filter-pill" data-filter="ai">AI / ML <span class="fp-num">03</span></button>
+      <button class="filter-pill" data-filter="oss">Open Source <span class="fp-num">01</span></button>
+      <button class="filter-pill" data-filter="research">Research <span class="fp-num">01</span></button>
+    </div>
   </div>
+</header>
 
-  <div class="filter-bar">
-    <button class="fb on" data-f="all">All</button>
-    <button class="fb" data-f="cloud">Cloud</button>
-    <button class="fb" data-f="security">Security</button>
-    <button class="fb" data-f="distributed">Distributed</button>
-    <button class="fb" data-f="research">Research</button>
-    <button class="fb" data-f="ai">AI / ML</button>
-  </div>
+<!-- ── FEATURE 01 — CLOUDFLOW ──────────────────────────── -->
+<article class="feature" id="cloudflow" data-cat="cloud distributed">
+  <div class="wrap">
+    <div class="feature-meta">
+      <span><span class="fm-cat">Feature № 01</span> · Distributed Systems</span>
+      <span>Shipped · Mar 2026</span>
+    </div>
 
-  <!-- ── CLOUDFLOW ─────────────────────────────────────────── -->
-  <div class="project open fade" id="cloudflow" data-tags="cloud distributed">
-    <div class="project-num">01</div>
-    <div class="project-header" onclick="toggleP(this)">
+    <div class="feature-head fade">
+      <div class="feature-num">01</div>
       <div>
-        <div class="ph-tags">
-          <span class="tag g">Distributed Systems</span>
-          <span class="tag c">Serverless</span>
-          <span class="tag">SAGA Pattern</span>
-        </div>
-        <div class="ph-name">CloudFlow — Distributed SAGA Order Processing</div>
-        <div class="ph-stack">Python · AWS Step Functions · Lambda · DynamoDB · SQS · CDK · LocalStack · X-Ray</div>
+        <h2 class="feature-title">CloudFlow &mdash; <em>a SAGA-orchestrated order pipeline.</em></h2>
+        <p class="feature-deck">A serverless order-processing system on AWS: Step Functions SAGA with compensation, event-sourced order log in DynamoDB, idempotency-as-replay-prevention, and a DynamoDB-backed circuit breaker that survives Lambda cold starts.</p>
       </div>
-      <span class="ph-toggle">+</span>
     </div>
-    <div class="project-body">
-      <div class="pb">
-        <div class="metrics-row">
-          <div class="mc"><span class="mc-val">1,100+</span><span class="mc-lbl">Req/min</span></div>
-          <div class="mc"><span class="mc-val">&lt;120ms</span><span class="mc-lbl">P99 Latency</span></div>
-          <div class="mc"><span class="mc-val">30+</span><span class="mc-lbl">Tests</span></div>
-          <div class="mc"><span class="mc-val">SAGA</span><span class="mc-lbl">Pattern</span></div>
-          <div class="mc"><span class="mc-val">Auto</span><span class="mc-lbl">Compensation</span></div>
-        </div>
 
-        <div class="evidence-zone">
-          <div class="evidence-block ev-arch">
-            <div class="ev-arch-title">// architecture flow</div>
-            <div>
-              <div class="arch-nodes">
-                <div class="anode g">API GW</div>
-                <span class="arch-arrow">→</span>
-                <div class="anode g">Order λ</div>
-                <span class="arch-arrow">→</span>
-                <div class="anode c">SQS</div>
-                <span class="arch-arrow">→</span>
-                <div class="anode">Reserve λ</div>
-              </div>
-              <div style="margin-top:.5rem" class="arch-nodes">
-                <div class="anode">Payment λ</div>
-                <span class="arch-arrow">→</span>
-                <div class="anode">Confirm λ</div>
-                <span class="arch-arrow">→</span>
-                <div class="anode g">DynamoDB</div>
-                <span class="arch-arrow">→</span>
-                <div class="anode c">X-Ray</div>
-              </div>
-              <div style="margin-top:.5rem;font-size:.6rem;color:var(--muted)">On failure → compensating transactions auto-rollback</div>
-            </div>
-          </div>
-          <div class="evidence-block ev-terminal">
-            <div class="term-bar">
-              <span class="term-dot" style="background:#ff5e5e"></span>
-              <span class="term-dot" style="background:#f5c518"></span>
-              <span class="term-dot" style="background:var(--g)"></span>
-              <span class="term-title">load_test.py — LocalStack</span>
-            </div>
-            <div class="term-body">
-              <div class="t-comment"># 50 concurrent threads</div>
-              <div class="t-cmd">$ python load_test.py --threads 50 --duration 60</div>
-              <div class="t-out"> </div>
-              <div class="t-out">Requests sent:  <span class="t-val">68,412</span></div>
-              <div class="t-out">Success rate:   <span class="t-val">99.97%</span></div>
-              <div class="t-out">Req/min peak:   <span class="t-val">1,147</span></div>
-              <div class="t-out">P50 latency:    <span class="t-val">34ms</span></div>
-              <div class="t-out">P99 latency:    <span class="t-val">118ms</span></div>
-              <div class="t-out">Compensation:   <span class="t-val">100% triggered</span></div>
-            </div>
-          </div>
-        </div>
+    <div class="feature-body fade fade-1">
+      <div class="feature-main">
+        <p class="body-prose dropcap">
+          E-commerce checkout is the textbook example of a workflow where things go wrong in interesting ways. Inventory locks, payment processors return 5xx, and you still need to either ship the order or release the stock. CloudFlow models the entire flow as a SAGA &mdash; a sequence of forward steps each paired with a compensating action, orchestrated by AWS Step Functions, with every state transition appended to an immutable event log in DynamoDB.
+        </p>
 
-        <div class="pb-cols">
-          <div>
-            <p class="pb-col-label">Why SAGA choreography</p>
-            <p class="pb-col-text">Chose choreography over orchestration — each Lambda reacts to SQS events independently. No central brain. Better fault isolation and service autonomy. Compensating transactions handle rollback without a coordinator knowing about it.</p>
-          </div>
-          <div>
-            <p class="pb-col-label">Hardest engineering problems</p>
-            <p class="pb-col-text">Idempotency under duplicate SQS delivery. Partial failures mid-SAGA. Circuit breaker calibration to prevent cascade failures without over-tripping on transient errors. Getting X-Ray to trace across Lambda boundaries without noise.</p>
-          </div>
-        </div>
+        <h3><span class="h-num">i.</span> The problem worth solving</h3>
+        <p class="body-prose">
+          Naive synchronous checkout pipelines hide failure: when one step times out, the others have already mutated state. The system needs <strong>atomicity across services that don&#x2019;t share a transaction</strong>. SAGA gives you that &mdash; but only if compensations are idempotent, retries are safe, and partial failure of the orchestrator itself doesn&#x2019;t leave money on the table.
+        </p>
 
-        <div class="impact"><strong>Why a recruiter should care:</strong> SAGA choreography is how Uber, Netflix, and Amazon handle long-lived distributed transactions in production. Building it without a framework — understanding every moving part — demonstrates the systems thinking that separates senior engineers from developers who just call managed services.</div>
+        <h3><span class="h-num">ii.</span> Architecture</h3>
+        <figure class="fig">
+          <div class="diagram">
+            <div class="dia-row"><span class="dia-label">Ingress</span><span class="dia-node">API Gateway</span><span class="dia-arrow">&rarr;</span><span class="dia-node">Order &lambda;</span><span class="dia-arrow">&rarr;</span><span class="dia-node accent">Step Functions SAGA</span></div>
+            <div class="dia-row"><span class="dia-label">Forward</span><span class="dia-node">Inventory &lambda; · reserve</span><span class="dia-arrow">&rarr;</span><span class="dia-node">Payment &lambda; · charge</span><span class="dia-arrow">&rarr;</span><span class="dia-node">Order &lambda; · confirm</span><span class="dia-arrow">&rarr;</span><span class="dia-node accent">CONFIRMED</span></div>
+            <div class="dia-row"><span class="dia-label">Compensate</span><span class="dia-node">Inventory · release</span><span class="dia-arrow">&larr;</span><span class="dia-node">Payment failed</span><span class="dia-arrow">&middot;</span><span class="dia-node">Notification &lambda; · SQS</span></div>
+            <div class="dia-row"><span class="dia-label">State</span><span class="dia-node">DynamoDB · orders (event log)</span><span class="dia-arrow">&middot;</span><span class="dia-node">idempotency</span><span class="dia-arrow">&middot;</span><span class="dia-node">circuit-breakers</span></div>
+            <div class="dia-row"><span class="dia-label">Tail</span><span class="dia-node">EventBridge</span><span class="dia-arrow">&middot;</span><span class="dia-node">DLQ × 3</span><span class="dia-arrow">&rarr;</span><span class="dia-node">DLQ Processor &lambda;</span><span class="dia-arrow">&rarr;</span><span class="dia-node">CloudWatch / X-Ray</span></div>
+          </div>
+          <figcaption><span class="fig-num">Fig. 01</span> CloudFlow &middot; 5 Lambdas, Step Functions SAGA, DynamoDB-per-service, full compensation path.</figcaption>
+        </figure>
 
-        <div class="proj-links">
-          <a href="https://github.com/UTKARSH698/CloudFlow" target="_blank" class="btn btn-o">→ GitHub</a>
-        </div>
+        <h3><span class="h-num">iii.</span> The hard part</h3>
+        <p class="body-prose">
+          The interesting failure mode wasn&#x2019;t payment outages &mdash; it was <strong>oversell under concurrent decrement</strong>. Two orders hitting inventory at the same time can both pass a check-and-decrement if the read isn&#x2019;t atomic. I solved it with DynamoDB conditional writes (<code>UpdateItem</code> with a <code>quantity &gt;= requested</code> condition); one writer wins, the other catches <code>ConditionalCheckFailedException</code> and the SAGA compensates cleanly. The same primitive does double duty for idempotency: every handler uses an <code>attribute_not_exists</code> conditional insert keyed by the request&#x2019;s idempotency token, which closes the at-least-once SQS replay vector at the database layer rather than in application code.
+        </p>
+
+        <p class="pull">
+          Under load test, the circuit breaker fast-fails in under a millisecond when the payment processor is degraded, instead of letting Step Functions burn 30 seconds waiting for a provider timeout.
+          <span class="pull-attr">&mdash; Notes from <code>scripts/load_test.py</code> against LocalStack</span>
+        </p>
+
+        <h3><span class="h-num">iv.</span> Measured behaviour</h3>
+        <p class="body-prose">
+          Against LocalStack, 10 concurrent threads / 50 orders gave <strong>1,100+ req/min</strong>, P50 47 ms, P95 89 ms, P99 120 ms. Throughput plateaus near 1,300 req/min at 20 threads &mdash; the LocalStack Docker container is the bottleneck, not the design. On real AWS, DynamoDB partitions scale horizontally and the same correctness properties hold; only the absolute clock changes. 50+ tests cover failure paths under both moto mocks (unit) and LocalStack (integration), including duplicate orders, payment declines, circuit-open fast-fail, and atomic oversell rejection.
+        </p>
+
+        <h3><span class="h-num">v.</span> The open consistency question</h3>
+        <p class="body-prose">
+          Compensation is designed so that partial rollback cannot produce an exploitable inconsistent state, but that property is argued by case analysis over the failure modes I could construct &mdash; not proved. If Step Functions itself fails mid-compensation, the system relies on the assumption that every retried compensating step eventually delivers, which the AWS SLA does not guarantee under all disruption modes. This is the same shape of gap that shows up in CSPM remediation (per-check fixes that don&#x2019;t compose into system-level safety) and in CloudPulse (speed-path / batch-path divergence) &mdash; the throughline of the research I want to pursue: <em>formal verification of distributed security and consistency policies, not just per-component tests</em>.
+        </p>
       </div>
+
+      <aside class="feature-aside">
+        <div class="aside-block">
+          <h4>Issue Brief</h4>
+          <div class="aside-fact"><span class="af-k">Status</span><span class="af-v">Shipped</span></div>
+          <div class="aside-fact"><span class="af-k">Built</span><span class="af-v">Q1 2026</span></div>
+          <div class="aside-fact"><span class="af-k">Lambdas</span><span class="af-v">5 · DynamoDB ×5</span></div>
+          <div class="aside-fact"><span class="af-k">Throughput</span><span class="af-v">1,100+ req/min</span></div>
+          <div class="aside-fact"><span class="af-k">P50 / P99</span><span class="af-v">47 ms · 120 ms</span></div>
+          <div class="aside-fact"><span class="af-k">CB fast-fail</span><span class="af-v">&lt;1 ms</span></div>
+          <div class="aside-fact"><span class="af-k">Tests</span><span class="af-v">50+ · moto + LocalStack</span></div>
+          <div class="aside-fact"><span class="af-k">IaC</span><span class="af-v">AWS CDK · 5 stacks</span></div>
+        </div>
+        <div class="aside-block">
+          <h4>Tags</h4>
+          <div style="display:flex;flex-wrap:wrap;gap:.35rem">
+            <span class="tag tag-accent">SAGA</span>
+            <span class="tag">Step Functions</span>
+            <span class="tag">DynamoDB</span>
+            <span class="tag">Event Sourcing</span>
+            <span class="tag">Idempotency</span>
+            <span class="tag">Circuit Breaker</span>
+            <span class="tag">AWS CDK</span>
+            <span class="tag">X-Ray</span>
+          </div>
+        </div>
+        <div class="aside-block">
+          <h4>References</h4>
+          <a href="https://github.com/UTKARSH698/CloudFlow/tree/main/demo" target="_blank" rel="noopener" class="arrow-link arrow-link-accent">Watch 4 demo GIFs →</a>
+          <a href="https://github.com/UTKARSH698/CloudFlow" target="_blank" rel="noopener" class="arrow-link">GitHub repo · README →</a>
+        </div>
+      </aside>
     </div>
   </div>
+</article>
 
-  <!-- ── CLOUDPULSE ─────────────────────────────────────────── -->
-  <div class="project fade" id="cloudpulse" data-tags="cloud">
-    <div class="project-num">02</div>
-    <div class="project-header" onclick="toggleP(this)">
+<!-- ── FEATURE 02 — CLOUDPULSE ─────────────────────────── -->
+<article class="feature" id="cloudpulse" data-cat="cloud distributed">
+  <div class="wrap">
+    <div class="feature-meta">
+      <span><span class="fm-cat">Feature № 02</span> · Real-Time Analytics</span>
+      <span>Shipped · Mar 2026</span>
+    </div>
+
+    <div class="feature-head fade">
+      <div class="feature-num">02</div>
       <div>
-        <div class="ph-tags">
-          <span class="tag g">Analytics</span>
-          <span class="tag c">Serverless</span>
-          <span class="tag">Lambda Architecture</span>
-        </div>
-        <div class="ph-name">CloudPulse — Real-Time Analytics Platform</div>
-        <div class="ph-stack">Python · Kinesis · S3 · Athena · DynamoDB · Terraform · React · Cognito · Glue</div>
+        <h2 class="feature-title">CloudPulse — <em>a real-time analytics platform on AWS serverless.</em></h2>
+        <p class="feature-deck">A production-grade Lambda Architecture platform — batch and speed layers over the same event stream, Kinesis dual-write at ingest, Hive-partitioned S3 + Athena for history, DynamoDB counters for the live dashboard. Five Lambdas, 15 Terraform files, inside the AWS Free Tier.</p>
       </div>
-      <span class="ph-toggle">+</span>
     </div>
-    <div class="project-body">
-      <div class="pb">
-        <div class="metrics-row">
-          <div class="mc"><span class="mc-val">Dual</span><span class="mc-lbl">Path Lambda Arch</span></div>
-          <div class="mc"><span class="mc-val">Free</span><span class="mc-lbl">AWS Tier</span></div>
-          <div class="mc"><span class="mc-val">100%</span><span class="mc-lbl">Terraform IaC</span></div>
-          <div class="mc"><span class="mc-val">JWT</span><span class="mc-lbl">Cognito Auth</span></div>
-        </div>
 
-        <div class="evidence-zone">
-          <div class="evidence-block ev-arch">
-            <div class="ev-arch-title">// lambda architecture</div>
-            <div>
-              <div style="margin-bottom:.5rem;font-size:.6rem;color:var(--g)">Speed Layer</div>
-              <div class="arch-nodes" style="margin-bottom:.75rem">
-                <div class="anode g">Kinesis</div>
-                <span class="arch-arrow">→</span>
-                <div class="anode g">Lambda</div>
-                <span class="arch-arrow">→</span>
-                <div class="anode">DynamoDB TTL</div>
-              </div>
-              <div style="margin-bottom:.5rem;font-size:.6rem;color:var(--g2)">Batch Layer</div>
-              <div class="arch-nodes">
-                <div class="anode c">SQS</div>
-                <span class="arch-arrow">→</span>
-                <div class="anode c">S3 / Glue</div>
-                <span class="arch-arrow">→</span>
-                <div class="anode">Athena SQL</div>
-              </div>
-            </div>
-          </div>
-          <div class="evidence-block ev-bench">
-            <div class="bench-title">// cost + scale profile</div>
-            <div class="bench-bars">
-              <div class="bench-row"><span class="bench-label">Monthly cost</span><div class="bench-track"><div class="bench-fill" style="width:8%"></div></div><span class="bench-val">$0 (Free Tier)</span></div>
-              <div class="bench-row"><span class="bench-label">IaC coverage</span><div class="bench-track"><div class="bench-fill" style="width:100%"></div></div><span class="bench-val">100%</span></div>
-              <div class="bench-row"><span class="bench-label">Manual setup</span><div class="bench-track"><div class="bench-fill" style="width:0%"></div></div><span class="bench-val">0 clicks</span></div>
-              <div class="bench-row"><span class="bench-label">Data freshness</span><div class="bench-track"><div class="bench-fill" style="width:85%;background:var(--g2)"></div></div><span class="bench-val">&lt;30s</span></div>
-            </div>
-          </div>
-        </div>
+    <div class="feature-body fade fade-1">
+      <div class="feature-main">
+        <p class="body-prose dropcap">
+          Most analytics tutorials end at &quot;send events to a database, query later.&quot; The interesting failures live in the seam between <em>real-time</em> and <em>historical</em> — the dashboard that updates instantly versus the SQL that scans ninety days. CloudPulse is built on the <strong>Lambda Architecture</strong> pattern: two paths, one source of truth, an honest answer to <q>what should I trust right now?</q>
+        </p>
 
-        <div class="pb-cols">
-          <div>
-            <p class="pb-col-label">Architecture decision</p>
-            <p class="pb-col-text">Lambda Architecture separates real-time and batch cleanly. Speed layer handles low-latency dashboards via Kinesis → Lambda → DynamoDB. Batch layer stores full event history in S3 for Athena SQL queries — both paths run independently.</p>
-          </div>
-          <div>
-            <p class="pb-col-label">Interesting detail</p>
-            <p class="pb-col-text">DynamoDB 24-hour TTL auto-cleans stale data without Lambda or cron. Glue Data Catalog makes S3 data queryable via standard SQL in Athena. Cognito JWT auth means API stays stateless and horizontally scalable.</p>
-          </div>
-        </div>
+        <h3><span class="h-num">i.</span> The pattern</h3>
+        <p class="body-prose">
+          Every event hits a single Cognito-authed ingest endpoint and forks. The <strong>batch path</strong> lands in S3 in a Hive-partitioned layout (<code>events/year=…/event_type=…/</code>) and becomes queryable via Athena SQL — slow, durable, complete. The <strong>speed path</strong> lands in DynamoDB as per-minute counters with 24-hour TTL and is queryable in ~12 ms — fast, lossy, recent. Same data, two materializations, chosen at query time.
+        </p>
 
-        <div class="impact"><strong>Why it matters:</strong> Lambda Architecture is used by Netflix, LinkedIn, and Twitter for analytics at scale. Running this within AWS Free Tier shows infrastructure cost awareness — a trait most junior engineers lack.</div>
+        <h3><span class="h-num">ii.</span> Architecture</h3>
+        <figure class="fig">
+          <div class="diagram">
+            <div class="dia-row"><span class="dia-label">Ingress</span><span class="dia-node">Client</span><span class="dia-arrow">→</span><span class="dia-node">API Gateway · Cognito JWT</span><span class="dia-arrow">→</span><span class="dia-node accent">Ingest Lambda</span></div>
+            <div class="dia-row"><span class="dia-label">Batch</span><span class="dia-arrow">→</span><span class="dia-node">SQS</span><span class="dia-arrow">→</span><span class="dia-node">Worker</span><span class="dia-arrow">→</span><span class="dia-node">S3 · Hive</span><span class="dia-arrow">→</span><span class="dia-node">Glue Crawler</span><span class="dia-arrow">→</span><span class="dia-node">Athena</span></div>
+            <div class="dia-row"><span class="dia-label">Speed</span><span class="dia-arrow">→</span><span class="dia-node">Kinesis · 1 shard</span><span class="dia-arrow">→</span><span class="dia-node">Stream Processor</span><span class="dia-arrow">→</span><span class="dia-node">DynamoDB · TTL 24h</span></div>
+            <div class="dia-row"><span class="dia-label">Egress</span><span class="dia-arrow">→</span><span class="dia-node">Query Lambda · /query</span><span class="dia-arrow">·</span><span class="dia-node">Realtime Lambda · /realtime</span></div>
+          </div>
+          <figcaption><span class="fig-num">Fig. 02</span> CloudPulse · ingest, dual-write fork, batch &amp; speed materializations.</figcaption>
+        </figure>
 
-        <div class="proj-links">
-          <a href="https://github.com/UTKARSH698/Cloud_Pulse" target="_blank" class="btn btn-o">→ GitHub</a>
-        </div>
+        <h3><span class="h-num">iii.</span> The dual-write decision</h3>
+        <p class="body-prose">
+          The ingest Lambda writes to SQS <em>and</em> Kinesis on every request. SQS is the durable enqueue — if anything else breaks, S3 still ends up with the event. Kinesis is <strong>fail-open</strong> — if it errors, the live counters lag for a minute but the historical record is never at risk. That asymmetry is deliberate. The dashboard going stale is an inconvenience; losing the audit trail is a different category of problem.
+        </p>
+
+        <p class="pull">
+          Speed answers in 12&nbsp;ms. Batch answers in ~1.8&nbsp;s after partition pruning. The dual-write costs ~30&nbsp;ms at ingest. Everything fits inside the AWS Free Tier.
+          <span class="pull-attr">— Dev deployment benchmarks</span>
+        </p>
+
+        <h3><span class="h-num">iv.</span> The open consistency question</h3>
+        <p class="body-prose">
+          The two layers can diverge. Speed says 4,200 events this minute; batch (a few minutes later) says 4,215. Most of the time it doesn't matter. But if anyone uses the speed layer for anomaly detection — error-rate alerting, fraud-spike triggers — a diverged counter could suppress a real signal until the batch path corrects it, possibly after the incident window has closed. That's the same problem CSPM and CloudFlow surface in different clothing: <strong>per-component correctness doesn't compose into system-level correctness</strong>. It's the research problem, restated.
+        </p>
       </div>
+
+      <aside class="feature-aside">
+        <div class="aside-block">
+          <h4>Issue Brief</h4>
+          <div class="aside-fact"><span class="af-k">Status</span><span class="af-v">Shipped</span></div>
+          <div class="aside-fact"><span class="af-k">Built</span><span class="af-v">Q1 2026</span></div>
+          <div class="aside-fact"><span class="af-k">Stack</span><span class="af-v">Python · AWS</span></div>
+          <div class="aside-fact"><span class="af-k">Lambdas</span><span class="af-v">5 functions</span></div>
+          <div class="aside-fact"><span class="af-k">Ingest p50</span><span class="af-v">~ 55 ms</span></div>
+          <div class="aside-fact"><span class="af-k">Realtime p50</span><span class="af-v">~ 12 ms</span></div>
+          <div class="aside-fact"><span class="af-k">Athena</span><span class="af-v">~ 1.8 s</span></div>
+          <div class="aside-fact"><span class="af-k">IAM</span><span class="af-v">8 roles · 23 policies</span></div>
+        </div>
+        <div class="aside-block">
+          <h4>Tags</h4>
+          <div style="display:flex;flex-wrap:wrap;gap:.35rem">
+            <span class="tag tag-accent">Lambda Architecture</span>
+            <span class="tag">Kinesis</span>
+            <span class="tag">Athena</span>
+            <span class="tag">DynamoDB</span>
+            <span class="tag">Glue</span>
+            <span class="tag">Cognito JWT</span>
+            <span class="tag">Terraform</span>
+          </div>
+        </div>
+        <div class="aside-block">
+          <h4>References</h4>
+          <a href="https://github.com/UTKARSH698/Cloud_Pulse" target="_blank" rel="noopener" class="arrow-link arrow-link-accent">GitHub repo · README →</a>
+        </div>
+      </aside>
     </div>
   </div>
+</article>
 
-  <!-- ── CSPM ───────────────────────────────────────────────── -->
-  <div class="project fade" id="cspm" data-tags="cloud security">
-    <div class="project-num">03</div>
-    <div class="project-header" onclick="toggleP(this)">
+<!-- ── FEATURE 03 — CSPM ───────────────────────────────── -->
+<article class="feature" id="cspm" data-cat="security cloud">
+  <div class="wrap">
+    <div class="feature-meta">
+      <span><span class="fm-cat">Feature № 03</span> · Cloud Security</span>
+      <span>Shipped · Feb 2026</span>
+    </div>
+
+    <div class="feature-head fade">
+      <div class="feature-num">03</div>
       <div>
-        <div class="ph-tags">
-          <span class="tag g">Security</span>
-          <span class="tag r">CIS Benchmark</span>
-          <span class="tag">Automation</span>
-        </div>
-        <div class="ph-name">CSPM — Cloud Security Posture Management</div>
-        <div class="ph-stack">Python · Lambda · EventBridge · SNS · S3 · CloudWatch · Terraform · GitHub Actions</div>
+        <h2 class="feature-title">CSPM — <em>automated posture management for AWS.</em></h2>
+        <p class="feature-deck">A serverless CSPM agent that runs 23 CIS-v1.5 checks across S3, IAM, EC2 Security Groups, and CloudTrail, scores compliance, alerts on critical findings, and safely auto-remediates the subset it can — DRY_RUN-by-default until you flip the flag.</p>
       </div>
-      <span class="ph-toggle">+</span>
     </div>
-    <div class="project-body">
-      <div class="pb">
-        <div class="metrics-row">
-          <div class="mc"><span class="mc-val">CIS</span><span class="mc-lbl">Benchmark v1.5</span></div>
-          <div class="mc"><span class="mc-val">&lt;5s</span><span class="mc-lbl">Alert latency</span></div>
-          <div class="mc"><span class="mc-val">Hourly</span><span class="mc-lbl">EventBridge scan</span></div>
-          <div class="mc"><span class="mc-val">Auto</span><span class="mc-lbl">Remediation</span></div>
-          <div class="mc"><span class="mc-val">4+</span><span class="mc-lbl">AWS services scanned</span></div>
-        </div>
 
-        <div class="evidence-zone">
-          <div class="evidence-block ev-terminal">
-            <div class="term-bar">
-              <span class="term-dot" style="background:#ff5e5e"></span>
-              <span class="term-dot" style="background:#f5c518"></span>
-              <span class="term-dot" style="background:var(--g)"></span>
-              <span class="term-title">cspm_scan.py — scan output</span>
-            </div>
-            <div class="term-body">
-              <div class="t-cmd">$ python cspm_scan.py --env prod</div>
-              <div class="t-out"> </div>
-              <div class="t-out">[IAM] Scanning policies... <span class="t-val">done</span></div>
-              <div class="t-err">[CRITICAL] Root account MFA disabled</div>
-              <div class="t-err">[HIGH] 3 overly permissive policies found</div>
-              <div class="t-out">[S3] Checking bucket ACLs...</div>
-              <div class="t-err">[HIGH] 2 public buckets detected</div>
-              <div class="t-out">[SNS] Alert dispatched in <span class="t-val">3.2s</span></div>
-              <div class="t-out">[AUTO] Remediating safe violations...</div>
-              <div class="t-val">[DONE] Report saved → s3://audit/2026-05</div>
-            </div>
-          </div>
-          <div class="evidence-block ev-arch">
-            <div class="ev-arch-title">// scan pipeline</div>
-            <div>
-              <div class="arch-nodes">
-                <div class="anode c">EventBridge</div>
-                <span class="arch-arrow">→</span>
-                <div class="anode g">Scanner λ</div>
-              </div>
-              <div style="margin-top:.5rem" class="arch-nodes">
-                <div class="anode g">IAM checks</div>
-                <div class="anode g">S3 checks</div>
-                <div class="anode g">EC2 checks</div>
-              </div>
-              <div style="margin-top:.5rem" class="arch-nodes">
-                <div class="anode c">SNS alert</div>
-                <span class="arch-arrow">→</span>
-                <div class="anode">S3 audit log</div>
-              </div>
-              <div style="margin-top:.5rem;font-size:.6rem;color:var(--muted)">Auto-remediate safe violations · block critical</div>
-            </div>
-          </div>
-        </div>
+    <div class="feature-body fade fade-1">
+      <div class="feature-main">
+        <p class="body-prose dropcap">
+          Cloud breaches almost never come from sophisticated attacks. They come from an S3 bucket left public, SSH open to the world, a root account with no MFA. CSPM catches the boring ones automatically, alerts you the moment they appear, and fixes the safe ones without human intervention. The interesting design choices live in <em>which</em> findings it&#x2019;s willing to fix without asking — and what it does about the ones it isn&#x2019;t.
+        </p>
 
-        <div class="pb-cols">
-          <div>
-            <p class="pb-col-label">What it detects</p>
-            <p class="pb-col-text">CIS Benchmark v1.5 controls across IAM (root MFA, key rotation, overpermissive policies), S3 (public access, versioning, logging), EC2 (security groups, encryption), and CloudTrail (logging enabled, multi-region).</p>
-          </div>
-          <div>
-            <p class="pb-col-label">Why this stack</p>
-            <p class="pb-col-text">EventBridge for scheduling over CloudWatch Events — better audit trail. SNS over SES for alerts — topic-based, scales to multiple subscribers. All infrastructure in Terraform — CI auto-deploys scanner updates, zero manual provisioning.</p>
-          </div>
-        </div>
+        <h3><span class="h-num">i.</span> What it checks</h3>
+        <p class="body-prose">
+          Twenty-three checks against the <strong>CIS AWS Foundations Benchmark v1.5</strong>, grouped across four services: four S3 checks (Block Public Access, versioning, access logging, default encryption); four IAM checks (root MFA, root access keys, password policy, access-key age &gt; 90 days); nine EC2 Security Group checks (SSH, RDP, MySQL, PostgreSQL, MongoDB, Redis, Elasticsearch, all-traffic, default SG); and six CloudTrail checks (trail exists, multi-region, log-file validation, CloudWatch Logs integration, log-bucket privacy, logging state). Each rule emits a finding with severity, asset reference, and an explicit remediation step.
+        </p>
 
-        <div class="impact"><strong>Why it matters:</strong> CSPM is a $9B market. Wiz raised $1B doing this at enterprise scale. Building it from scratch shows security engineering depth, not just cloud operations. Most engineers know how to deploy — fewer know how to secure what they deploy.</div>
+        <h3><span class="h-num">ii.</span> Two details most tools miss</h3>
+        <p class="body-prose">
+          Security-group checks usually match on the exact port number. A rule allowing <code>TCP 0–65535</code> exposes SSH but evades a tool that only looks for <code>port=22</code>. CSPM&#x2019;s SG checks are <strong>port-range aware</strong> — the sensitive port is flagged if it falls anywhere within the rule&#x2019;s allowed range. Similarly, most tools only cover IPv4 (<code>0.0.0.0/0</code>) and skip IPv6 (<code>::/0</code>); CSPM checks both, independently.
+        </p>
 
-        <div class="proj-links">
-          <a href="https://github.com/UTKARSH698/CSPM" target="_blank" class="btn btn-o">→ GitHub</a>
-        </div>
+        <h3><span class="h-num">iii.</span> Architecture</h3>
+        <figure class="fig">
+          <div class="diagram">
+            <div class="dia-row"><span class="dia-label">Schedule</span><span class="dia-node">EventBridge · hourly</span><span class="dia-arrow">→</span><span class="dia-node accent">Scanner Lambda</span></div>
+            <div class="dia-row"><span class="dia-label">Audit</span><span class="dia-arrow">→</span><span class="dia-node">S3</span><span class="dia-arrow">·</span><span class="dia-node">IAM</span><span class="dia-arrow">·</span><span class="dia-node">EC2 / SG</span><span class="dia-arrow">·</span><span class="dia-node">CloudTrail</span></div>
+            <div class="dia-row"><span class="dia-label">Sink</span><span class="dia-arrow">→</span><span class="dia-node">S3 · findings JSON</span><span class="dia-arrow">·</span><span class="dia-node">SNS · email</span><span class="dia-arrow">·</span><span class="dia-node">CloudWatch · score</span></div>
+            <div class="dia-row"><span class="dia-label">Remediate</span><span class="dia-arrow">→</span><span class="dia-node">Remediator Lambda · async</span><span class="dia-arrow">→</span><span class="dia-node">S3 BPA</span><span class="dia-arrow">·</span><span class="dia-node">SG rule revoke</span></div>
+          </div>
+          <figcaption><span class="fig-num">Fig. 03</span> CSPM · hourly scan, finding fan-out, safe-action auto-remediation.</figcaption>
+        </figure>
+
+        <h3><span class="h-num">iv.</span> DRY_RUN by default</h3>
+        <p class="body-prose">
+          The remediator ships with <code>DRY_RUN=true</code>. It logs every fix it <em>would</em> make without touching anything. You flip the flag once you&#x2019;ve reviewed your first findings. Even with auto-remediation enabled, only safe actions are taken: enabling S3 Block Public Access, enabling S3 versioning, and revoking open SSH / RDP / all-traffic Security Group rules. IAM and CloudTrail findings are flagged for human review — automatically rotating access keys or modifying trail config in production is a category of risk this system deliberately refuses.
+        </p>
+
+        <p class="pull">
+          First scan on a brand-new AWS account: 80% compliance, three critical findings. Scanner finishes in under six seconds regardless of finding count — the remediator runs async via <code>InvocationType=Event</code>.
+          <span class="pull-attr">— Initial deployment log</span>
+        </p>
+
+        <h3><span class="h-num">v.</span> The open formal question</h3>
+        <p class="body-prose">
+          Applying fix A then fix B in dependency order is <em>locally</em> safe. What it isn&#x2019;t is <em>formally proved</em> complete under all concurrent misconfiguration states. Under <em>k</em> simultaneous misconfigurations with interdependent remediation actions, does dependency-ordering always produce a globally consistent final state? The current heuristic prevents the cases I could construct — but I cannot prove it handles all of them. That&#x2019;s the same gap CloudFlow and CloudPulse surface in different clothing: per-component correctness doesn&#x2019;t compose into system-level correctness. The research problem, again.
+        </p>
       </div>
+
+      <aside class="feature-aside">
+        <div class="aside-block">
+          <h4>Issue Brief</h4>
+          <div class="aside-fact"><span class="af-k">Status</span><span class="af-v">Shipped</span></div>
+          <div class="aside-fact"><span class="af-k">Built</span><span class="af-v">Q1 2026</span></div>
+          <div class="aside-fact"><span class="af-k">Standard</span><span class="af-v">CIS AWS v1.5</span></div>
+          <div class="aside-fact"><span class="af-k">Checks</span><span class="af-v">23 · 4 services</span></div>
+          <div class="aside-fact"><span class="af-k">Tests</span><span class="af-v">64 · moto mocks</span></div>
+          <div class="aside-fact"><span class="af-k">Scanner</span><span class="af-v">&lt; 6 s · async remediator</span></div>
+          <div class="aside-fact"><span class="af-k">First scan</span><span class="af-v">80% compliance</span></div>
+          <div class="aside-fact"><span class="af-k">IaC</span><span class="af-v">Terraform · 19 resources</span></div>
+        </div>
+        <div class="aside-block">
+          <h4>Tags</h4>
+          <div style="display:flex;flex-wrap:wrap;gap:.35rem">
+            <span class="tag tag-accent">CSPM</span>
+            <span class="tag">CIS v1.5</span>
+            <span class="tag">IAM</span>
+            <span class="tag">EC2 / SG</span>
+            <span class="tag">CloudTrail</span>
+            <span class="tag">Lambda</span>
+            <span class="tag">Terraform</span>
+          </div>
+        </div>
+        <div class="aside-block">
+          <h4>References</h4>
+          <a href="https://github.com/UTKARSH698/CSPM" target="_blank" rel="noopener" class="arrow-link arrow-link-accent">GitHub repo · README →</a>
+        </div>
+      </aside>
     </div>
   </div>
+</article>
 
-  <!-- ── AGRIFUTURE ─────────────────────────────────────────── -->
-  <div class="project fade" id="agrifuture" data-tags="research">
-    <div class="project-num">04</div>
-    <div class="project-header" onclick="toggleP(this)">
+<!-- ── FEATURE 04 — AGRIFUTURE PLATFORM ─────────────────── -->
+<article class="feature" id="agrifuture" data-cat="ai distributed">
+  <div class="wrap">
+    <div class="feature-meta">
+      <span><span class="fm-cat">Feature &numero; 04</span> &middot; AI Platform &middot; Final-Year Project</span>
+      <span>Live on Render &middot; 2025</span>
+    </div>
+
+    <div class="feature-head fade">
+      <div class="feature-num">04</div>
       <div>
-        <div class="ph-tags">
-          <span class="tag g">Research</span>
-          <span class="tag">Formal Methods</span>
-          <span class="tag">arXiv</span>
-        </div>
-        <div class="ph-name">AgriFuture India — Formal Verification Research</div>
-        <div class="ph-stack">TLA+ · BFS Model Checker (Python) · Formal Verification · Distributed Marketplace</div>
+        <h2 class="feature-title">AgriFuture &mdash; <em>six Gemini AI modules behind one Express server.</em></h2>
+        <p class="feature-deck">An AI-powered agricultural intelligence platform: crop recommendation, disease detection, drone terrain analysis, market forecasting, digital twin simulation, and conversational AgriBot &mdash; each backed by Google Gemini with a different prompting strategy. Plus live mandi prices, Razorpay commerce with HMAC verification, JWT auth with email + SMS OTP, and a PWA that works offline.</p>
       </div>
-      <span class="ph-toggle">+</span>
     </div>
-    <div class="project-body">
-      <div class="pb">
-        <div class="metrics-row">
-          <div class="mc"><span class="mc-val">Novel</span><span class="mc-lbl">Research finding</span></div>
-          <div class="mc"><span class="mc-val">BFS</span><span class="mc-lbl">State exhaustion</span></div>
-          <div class="mc"><span class="mc-val">TLA+</span><span class="mc-lbl">Formal spec</span></div>
-          <div class="mc"><span class="mc-val">arXiv</span><span class="mc-lbl">Published</span></div>
-        </div>
 
-        <div class="evidence-zone">
-          <div class="evidence-block ev-terminal">
-            <div class="term-bar">
-              <span class="term-dot" style="background:#ff5e5e"></span>
-              <span class="term-dot" style="background:#f5c518"></span>
-              <span class="term-dot" style="background:var(--g)"></span>
-              <span class="term-title">tlc_agrifuture_final.py</span>
-            </div>
-            <div class="term-body">
-              <div class="t-comment"># BFS model checker — TAR preservation</div>
-              <div class="t-cmd">$ python tlc_agrifuture_final.py</div>
-              <div class="t-out"> </div>
-              <div class="t-out">States explored: <span class="t-val">14,872</span></div>
-              <div class="t-out">Violations found: <span class="t-err">1 CRITICAL</span></div>
-              <div class="t-out"> </div>
-              <div class="t-err">TAR violation in partial revocation path:</div>
-              <div class="t-err">  state[42] → race condition window open</div>
-              <div class="t-out"> </div>
-              <div class="t-val">Finding: atomic revocation required</div>
-            </div>
-          </div>
-          <div class="evidence-block ev-arch">
-            <div class="ev-arch-title">// verification methodology</div>
-            <div>
-              <div class="arch-nodes" style="margin-bottom:.5rem">
-                <div class="anode g">TLA+ Spec</div>
-                <span class="arch-arrow">→</span>
-                <div class="anode">BFS Checker</div>
-              </div>
-              <div class="arch-nodes" style="margin-bottom:.5rem">
-                <div class="anode">State space</div>
-                <span class="arch-arrow">→</span>
-                <div class="anode c">14,872 states</div>
-              </div>
-              <div class="arch-nodes">
-                <div class="anode g">Finding</div>
-                <span class="arch-arrow">→</span>
-                <div class="anode g">arXiv preprint</div>
-              </div>
-              <div style="margin-top:.75rem;font-size:.6rem;color:var(--muted)">Novel: TAR preservation requires atomic revocation</div>
-            </div>
-          </div>
-        </div>
+    <div class="feature-body fade fade-1">
+      <div class="feature-main">
+        <p class="body-prose dropcap">
+          AgriFuture started as a final-year project and ended up being the one I built end-to-end myself &mdash; 56 TypeScript files, ~12,500 lines, six AI modules, real payments, real OTP, and a PWA shell. It&#x2019;s the project where I learned that &ldquo;put an LLM behind it&rdquo; isn&#x2019;t the engineering &mdash; the engineering is everything around the LLM that makes it safe to expose.
+        </p>
 
-        <div class="pb-cols">
-          <div>
-            <p class="pb-col-label">The finding</p>
-            <p class="pb-col-text">TAR (Trust and Access Revocation) preservation in distributed marketplaces requires atomic revocation. Partial revocation — revoking access step-by-step — creates a race condition window where unauthorized access is possible. Proven by BFS exhaustive state space exploration.</p>
-          </div>
-          <div>
-            <p class="pb-col-label">Why it's real research</p>
-            <p class="pb-col-text">Not an implementation. A correctness theorem with a formal proof. Built a custom BFS model checker in Python to exhaustively explore the protocol state space. Found the violation at state 42 of 14,872. Published on arXiv with TLA+-style spec and full methodology.</p>
-          </div>
-        </div>
+        <h3><span class="h-num">i.</span> Six AI modules, one Gemini key</h3>
+        <p class="body-prose">
+          A single Express 5 server routes to six distinct AI surfaces via <code>geminiService.ts</code>: <strong>Crop Recommendation</strong> (soil parameters &rarr; structured JSON with confidence scores), <strong>Disease Detector</strong> (multi-modal: image + symptom text &rarr; severity Low/Moderate/High + pathogen + treatment), <strong>AgriDrone V2</strong> (coordinate &rarr; satellite terrain description &rarr; NDVI / irrigation map / soil-health gauge), <strong>Market Forecasting</strong> (30-day price predictions with sentiment), <strong>Digital Twin</strong> (visual node-network field simulation), and <strong>AgriBot</strong> (streaming conversational AI). Crop / Disease / Drone / Market sit on Gemini 2.5 Flash; Digital Twin and AgriBot use Gemini 3 Flash. Each module is a different prompting strategy &mdash; structured JSON extraction, multi-modal vision, coordinate-grounded narrative &mdash; not the same prompt with different inputs.
+        </p>
 
-        <div class="impact"><strong>Why it matters:</strong> TLA+ is used by Amazon engineers to verify DynamoDB and S3 protocols. Microsoft uses it for distributed systems in Azure. Most CS graduates have never written a formal spec. This is a differentiator that can't be faked.</div>
+        <h3><span class="h-num">ii.</span> Security is middleware, not afterthought</h3>
+        <p class="body-prose">
+          The interesting engineering on a project like this isn&#x2019;t the AI calls &mdash; it&#x2019;s the boundary around them. JWT in <strong>httpOnly cookies</strong> (not <code>localStorage</code>), bcrypt with 10 salt rounds, OTP via both Nodemailer (Gmail SMTP) and MSG91 SMS with cryptographically random codes stored in Postgres with a 15-minute TTL so server restarts don&#x2019;t invalidate them, <strong>rate limiting at the middleware layer</strong> (5 OTP / 15&nbsp;min and 10 login / 15&nbsp;min per IP), Helmet security headers, and Zod schema validation on every input &mdash; the same schemas run on the client and the server, so the API can&#x2019;t receive a shape it didn&#x2019;t validate. Razorpay payments are committed only after server-side <strong>HMAC signature verification</strong>, which closes the forged-completion-event replay vector that breaks naive checkout flows.
+        </p>
 
-        <div class="proj-links">
-          <a href="https://github.com/UTKARSH698/final-year" target="_blank" class="btn btn-o">→ GitHub</a>
-          <a href="#" class="btn btn-o">→ arXiv preprint</a>
-        </div>
+        <p class="pull">
+          The same Gemini API key routes to six distinct intelligence layers via one dispatcher &mdash; what looks like &ldquo;an AI platform&rdquo; from outside is really six different prompt-engineering decisions stitched behind one auth and rate-limit boundary.
+          <span class="pull-attr">&mdash; Design note</span>
+        </p>
+
+        <h3><span class="h-num">iii.</span> Surface</h3>
+        <p class="body-prose">
+          React 19 + TypeScript 5.8 + Vite 6 + Tailwind 4 + Framer Motion 12 on the client; Express 5 + Node.js + PostgreSQL on the server; 44+ shared TypeScript interfaces between client and server so the same Zod schemas validate at the form layer and the API boundary. Live mandi prices (27+ crops) and Open-Meteo weather (no API key) are hydrated server-side so the client never waits on a third-party. <strong>AgriStore</strong> (58+ products) wraps Razorpay with HMAC verification; an admin dashboard with bar charts and sparklines surfaces user activity, expense tracking, and report history. PWA with cache-first service worker, install prompts, and seven Indian-language localisations. CI/CD via GitHub Actions; one-click deploys configured for both Render (<code>render.yaml</code>) and Railway (<code>railway.json</code>).
+        </p>
+
+        <h3><span class="h-num">iv.</span> Honest limits</h3>
+        <p class="body-prose">
+          Gemini API latency adds 1&ndash;3&nbsp;s per AI call and there&#x2019;s no response-caching layer &mdash; tolerable for an advisory product, not for high-traffic. Single-region Postgres on Render free tier with no read replicas or pgBouncer pooling. When the Gemini quota is exhausted, some modules fall back to mock data so the live demo stays usable on a cold-started free-tier dyno. The path to production is documented in <code>TECHNICAL.md</code>.
+        </p>
       </div>
+
+      <aside class="feature-aside">
+        <div class="aside-block">
+          <h4>Issue Brief</h4>
+          <div class="aside-fact"><span class="af-k">Status</span><span class="af-v">Live &middot; Render</span></div>
+          <div class="aside-fact"><span class="af-k">Built</span><span class="af-v">2025 &middot; solo (final-year)</span></div>
+          <div class="aside-fact"><span class="af-k">Frontend</span><span class="af-v">React 19 &middot; TS 5.8 &middot; Vite 6</span></div>
+          <div class="aside-fact"><span class="af-k">Backend</span><span class="af-v">Node &middot; Express 5 &middot; PG</span></div>
+          <div class="aside-fact"><span class="af-k">AI</span><span class="af-v">Gemini 2.5 &amp; 3 Flash &middot; 6 modules</span></div>
+          <div class="aside-fact"><span class="af-k">Auth</span><span class="af-v">JWT httpOnly &middot; OTP email + SMS</span></div>
+          <div class="aside-fact"><span class="af-k">Payments</span><span class="af-v">Razorpay &middot; HMAC verify</span></div>
+          <div class="aside-fact"><span class="af-k">Scale</span><span class="af-v">~12.5K LOC &middot; 56 TS files</span></div>
+          <div class="aside-fact"><span class="af-k">i18n</span><span class="af-v">7 Indian languages</span></div>
+          <div class="aside-fact"><span class="af-k">Mode</span><span class="af-v">PWA &middot; offline core</span></div>
+        </div>
+        <div class="aside-block">
+          <h4>Tags</h4>
+          <div style="display:flex;flex-wrap:wrap;gap:.35rem">
+            <span class="tag tag-accent">Gemini</span>
+            <span class="tag">React 19</span>
+            <span class="tag">Express 5</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">JWT + OTP</span>
+            <span class="tag">Razorpay HMAC</span>
+            <span class="tag">Zod e2e</span>
+            <span class="tag">PWA</span>
+          </div>
+        </div>
+        <div class="aside-block">
+          <h4>References</h4>
+          <a href="https://final-year-pjf9.onrender.com/" target="_blank" rel="noopener" class="arrow-link arrow-link-accent">Live demo &middot; Render &rarr;</a>
+          <a href="https://github.com/UTKARSH698" target="_blank" rel="noopener" class="arrow-link">GitHub profile &rarr;</a>
+        </div>
+      </aside>
     </div>
   </div>
+</article>
 
-  <!-- ── WIKISEARCH ─────────────────────────────────────────── -->
-  <div class="project fade" id="wikisearch" data-tags="ai">
-    <div class="project-num">05</div>
-    <div class="project-header" onclick="toggleP(this)">
+<!-- ── FEATURE 05 — AI PHOTO MATCHER ────────────────────── -->
+<article class="feature" id="photo-matcher" data-cat="ai">
+  <div class="wrap">
+    <div class="feature-meta">
+      <span><span class="fm-cat">Feature &numero; 05</span> &middot; AI / Computer Vision</span>
+      <span>Shipped &middot; 2026 &middot; TEJASKP</span>
+    </div>
+
+    <div class="feature-head fade">
+      <div class="feature-num">05</div>
       <div>
-        <div class="ph-tags">
-          <span class="tag g">RAG / AI</span>
-          <span class="tag c">LLMs</span>
-          <span class="tag">Vector Search</span>
-        </div>
-        <div class="ph-name">Wikipedia Smart Search — RAG QA System</div>
-        <div class="ph-stack">Python · RAG · Vector Search · Embeddings · LLMs · Semantic Retrieval</div>
+        <h2 class="feature-title">AI Photo Matcher &mdash; <em>find your photos at a wedding by uploading one selfie.</em></h2>
+        <p class="feature-deck">A full-stack event-photography platform: photographers upload albums, faces are indexed by InsightFace, guests pay via Razorpay (or demo mode), upload one selfie, and get back only the photos they appear in. Matching is scoped to a single event for privacy.</p>
       </div>
-      <span class="ph-toggle">+</span>
     </div>
-    <div class="project-body">
-      <div class="pb">
-        <div class="metrics-row">
-          <div class="mc"><span class="mc-val">RAG</span><span class="mc-lbl">Architecture</span></div>
-          <div class="mc"><span class="mc-val">Vector</span><span class="mc-lbl">Semantic Search</span></div>
-          <div class="mc"><span class="mc-val">Zero</span><span class="mc-lbl">Hallucination design</span></div>
-          <div class="mc"><span class="mc-val">No</span><span class="mc-lbl">Framework wrappers</span></div>
-        </div>
 
-        <div class="evidence-zone">
-          <div class="evidence-block ev-terminal">
-            <div class="term-bar">
-              <span class="term-dot" style="background:#ff5e5e"></span>
-              <span class="term-dot" style="background:#f5c518"></span>
-              <span class="term-dot" style="background:var(--g)"></span>
-              <span class="term-title">rag_pipeline.py</span>
-            </div>
-            <div class="term-body">
-              <div class="t-comment"># Query: "SAGA pattern in distributed systems"</div>
-              <div class="t-cmd">$ python query.py --q "SAGA pattern"</div>
-              <div class="t-out"> </div>
-              <div class="t-out">Embedding query... <span class="t-val">done (34ms)</span></div>
-              <div class="t-out">Vector search top-5... <span class="t-val">done (12ms)</span></div>
-              <div class="t-out">Chunks retrieved: <span class="t-val">5</span></div>
-              <div class="t-out">Context window: <span class="t-val">3,847 tokens</span></div>
-              <div class="t-out">LLM inference... <span class="t-val">done (1.2s)</span></div>
-              <div class="t-val">Answer: grounded response with citations</div>
-            </div>
-          </div>
-          <div class="evidence-block ev-arch">
-            <div class="ev-arch-title">// RAG pipeline</div>
-            <div>
-              <div class="arch-nodes" style="margin-bottom:.5rem">
-                <div class="anode">Wikipedia</div>
-                <span class="arch-arrow">→</span>
-                <div class="anode">Chunk + Embed</div>
-              </div>
-              <div class="arch-nodes" style="margin-bottom:.5rem">
-                <div class="anode c">Vector Index</div>
-                <span class="arch-arrow">←</span>
-                <div class="anode c">Query Embed</div>
-              </div>
-              <div class="arch-nodes">
-                <div class="anode g">Top-k chunks</div>
-                <span class="arch-arrow">→</span>
-                <div class="anode g">LLM</div>
-                <span class="arch-arrow">→</span>
-                <div class="anode">Answer</div>
-              </div>
-              <div style="margin-top:.5rem;font-size:.6rem;color:var(--muted)">Grounded response — no hallucination</div>
-            </div>
-          </div>
-        </div>
+    <div class="feature-body fade fade-1">
+      <div class="feature-main">
+        <p class="body-prose dropcap">
+          Wedding and event photographers ship guests an album of 2,000+ photos. Guests want the 30 they&#x2019;re actually in. Today they scroll. Photo Matcher cuts that to a single selfie upload &mdash; InsightFace embeds every face in the album at upload time, the guest&#x2019;s selfie is embedded the same way, cosine similarity against just <em>this event&#x2019;s</em> embeddings returns the personalised gallery.
+        </p>
 
-        <div class="pb-cols">
-          <div>
-            <p class="pb-col-label">Built without wrappers</p>
-            <p class="pb-col-text">No LangChain. No LlamaIndex. Raw embedding API calls, manual vector indexing, custom retrieval pipeline, hand-written prompt templates. Understanding the internals means debugging when things break — which they do, in production.</p>
-          </div>
-          <div>
-            <p class="pb-col-label">Production relevance</p>
-            <p class="pb-col-text">Every cloud team is building RAG pipelines over internal runbooks, documentation, and knowledge bases. AWS Q Business, Google Vertex AI Search, and Azure AI Search all use this pattern. Understanding it at the implementation level is increasingly required.</p>
-          </div>
-        </div>
+        <h3><span class="h-num">i.</span> Team of three, my slice</h3>
+        <p class="body-prose">
+          Three-person build at TEJASKP: a frontend engineer on the Next.js / Tailwind UI, an ML engineer on the InsightFace pipeline, and me on <strong>backend + integration</strong> &mdash; FastAPI service layer, PostgreSQL schema (events, photos, faces with coordinates &amp; confidence, match sessions), JWT auth for photographers, multipart S3 upload handling, QR-code generation for event sharing, and the full Razorpay payment flow with a graceful demo-mode bypass when keys aren&#x2019;t configured. The integration seam &mdash; making the AI pipeline run automatically after upload and exposing it cleanly through public endpoints &mdash; was mine.
+        </p>
 
-        <div class="proj-links">
-          <a href="https://github.com/UTKARSH698/Wikipedia_Smart_Search" target="_blank" class="btn btn-o">→ GitHub</a>
-        </div>
+        <h3><span class="h-num">ii.</span> Architecture</h3>
+        <figure class="fig">
+          <div class="diagram">
+            <div class="dia-row"><span class="dia-label">Photographer</span><span class="dia-node">Next.js dashboard</span><span class="dia-arrow">&rarr;</span><span class="dia-node">FastAPI &middot; JWT</span><span class="dia-arrow">&rarr;</span><span class="dia-node accent">S3 &middot; event-images/&lt;event_id&gt;/</span></div>
+            <div class="dia-row"><span class="dia-label">Index</span><span class="dia-node">Auto-process &lambda;</span><span class="dia-arrow">&rarr;</span><span class="dia-node">OpenCV read</span><span class="dia-arrow">&rarr;</span><span class="dia-node">InsightFace detect + embed</span><span class="dia-arrow">&rarr;</span><span class="dia-node">Postgres &middot; faces(coords, conf, event_id, photo_id)</span></div>
+            <div class="dia-row"><span class="dia-label">Guest</span><span class="dia-node">QR / link</span><span class="dia-arrow">&rarr;</span><span class="dia-node">Razorpay or demo pay</span><span class="dia-arrow">&rarr;</span><span class="dia-node">IG follow confirm</span><span class="dia-arrow">&rarr;</span><span class="dia-node">Selfie upload</span></div>
+            <div class="dia-row"><span class="dia-label">Match</span><span class="dia-node">Validate: exactly 1 face</span><span class="dia-arrow">&rarr;</span><span class="dia-node">Cosine vs <em>this event only</em></span><span class="dia-arrow">&rarr;</span><span class="dia-node accent">Personalised gallery &middot; ZIP download</span></div>
+          </div>
+          <figcaption><span class="fig-num">Fig. 05</span> Photo Matcher &middot; index-at-upload, match-on-demand, event-scoped for privacy.</figcaption>
+        </figure>
+
+        <h3><span class="h-num">iii.</span> Two decisions worth defending</h3>
+        <p class="body-prose">
+          <strong>Index at upload, not at match.</strong> The expensive operation (InsightFace detection + 512-dim embedding) happens once per photo when the album is uploaded, not once per guest. Match time then collapses to a Postgres query + a tight cosine-similarity loop over <em>only this event&#x2019;s</em> embeddings. A wedding with 2,000 photos and 200 guests does 2,000 detections, not 400,000.
+        </p>
+        <p class="body-prose">
+          <strong>Event-scoped matching as a privacy primitive.</strong> The query <code>WHERE faces.event_id = :current_event</code> isn&#x2019;t a performance choice &mdash; it&#x2019;s a policy boundary. A guest&#x2019;s selfie can&#x2019;t leak across events; the threshold (<code>FACE_MATCH_THRESHOLD=0.45</code>) and minimum face confidence (<code>SELFIE_MIN_FACE_CONFIDENCE=0.55</code>) are tunable, but the event scope is structural. The selfie validator also rejects any image that doesn&#x2019;t contain <strong>exactly one</strong> face, which closes the &ldquo;group photo as input&rdquo; abuse vector.
+        </p>
+
+        <p class="pull">
+          The interesting backend problem wasn&#x2019;t the face matching &mdash; it was making the AI pipeline behave like a synchronous experience while running asynchronously, and degrading the Razorpay path to a demo-mode bypass without changing any frontend code.
+          <span class="pull-attr">&mdash; Integration notes</span>
+        </p>
+
+        <h3><span class="h-num">iv.</span> Honest limits</h3>
+        <p class="body-prose">
+          Cosine similarity over InsightFace embeddings is a strong baseline but isn&#x2019;t robust to large pose / lighting / age gaps; a guest who looks meaningfully different from their selfie won&#x2019;t match. Threshold tuning trades recall for false positives, and at scale (10K+ photos per event) the per-event linear scan needs an ANN index (HNSW / FAISS-per-event) rather than a Postgres-side loop. Both are next-iteration concerns rather than design flaws.
+        </p>
       </div>
+
+      <aside class="feature-aside">
+        <div class="aside-block">
+          <h4>Issue Brief</h4>
+          <div class="aside-fact"><span class="af-k">Status</span><span class="af-v">Shipped</span></div>
+          <div class="aside-fact"><span class="af-k">Built</span><span class="af-v">2026 &middot; TEJASKP</span></div>
+          <div class="aside-fact"><span class="af-k">Team</span><span class="af-v">3 &middot; backend + integration mine</span></div>
+          <div class="aside-fact"><span class="af-k">Backend</span><span class="af-v">FastAPI &middot; SQLAlchemy &middot; Postgres</span></div>
+          <div class="aside-fact"><span class="af-k">Frontend</span><span class="af-v">Next.js &middot; TS &middot; Tailwind</span></div>
+          <div class="aside-fact"><span class="af-k">AI</span><span class="af-v">InsightFace &middot; OpenCV &middot; ONNX</span></div>
+          <div class="aside-fact"><span class="af-k">Storage</span><span class="af-v">AWS S3</span></div>
+          <div class="aside-fact"><span class="af-k">Auth</span><span class="af-v">JWT (HS256)</span></div>
+          <div class="aside-fact"><span class="af-k">Payments</span><span class="af-v">Razorpay + demo bypass</span></div>
+          <div class="aside-fact"><span class="af-k">Match scope</span><span class="af-v">per-event only</span></div>
+        </div>
+        <div class="aside-block">
+          <h4>Tags</h4>
+          <div style="display:flex;flex-wrap:wrap;gap:.35rem">
+            <span class="tag tag-accent">FastAPI</span>
+            <span class="tag">InsightFace</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">AWS S3</span>
+            <span class="tag">JWT</span>
+            <span class="tag">Razorpay</span>
+            <span class="tag">Next.js</span>
+            <span class="tag">Computer Vision</span>
+          </div>
+        </div>
+        <div class="aside-block">
+          <h4>References</h4>
+          <a href="https://github.com/UTKARSH698" target="_blank" rel="noopener" class="arrow-link arrow-link-accent">GitHub profile &rarr;</a>
+        </div>
+      </aside>
     </div>
   </div>
+</article>
 
-  <div class="no-results" id="no-results">No projects match this filter.</div>
+<!-- ── FEATURE 05 — WIKIQA RAG ─────────────────────────── -->
+<article class="feature" id="wikiqa" data-cat="ai">
+  <div class="wrap">
+    <div class="feature-meta">
+      <span><span class="fm-cat">Feature &numero; 06</span> &middot; AI / ML</span>
+      <span>Shipped &middot; 2026</span>
+    </div>
 
-</div>
+    <div class="feature-head fade">
+      <div class="feature-num">06</div>
+      <div>
+        <h2 class="feature-title">WikiQA RAG &mdash; <em>retrieval-augmented question answering, end-to-end.</em></h2>
+        <p class="feature-deck">A full RAG pipeline over live Wikipedia: NLTK sentence-boundary chunking, bi-encoder retrieval over FAISS or Pinecone, cross-encoder re-ranking, a custom source-diversity guarantee, multi-LLM generation with SSE token streaming, and an LLM-as-judge faithfulness evaluator.</p>
+      </div>
+    </div>
+
+    <div class="feature-body fade fade-1">
+      <div class="feature-main">
+        <p class="body-prose dropcap">
+          Most RAG demos stop at &ldquo;embed corpus, retrieve top-k, prompt LLM.&rdquo; The interesting failures live one layer deeper &mdash; answer collapse to a single source article, retrieval that quietly degrades on multi-topic queries, and no honest measurement of faithfulness. WikiQA was the excuse to build the whole stack, including the evaluator.
+        </p>
+
+        <h3><span class="h-num">i.</span> The pipeline</h3>
+        <p class="body-prose">
+          Fetch 1&ndash;5 Wikipedia articles, strip markup, chunk into <strong>overlapping sentence windows via NLTK</strong> (1-sentence overlap, so context isn&#x2019;t cut at chunk edges). Encode with <code>all-MiniLM-L6-v2</code> &rarr; 384-dim L2-normalised vectors. FAISS <code>IndexFlatIP</code> for exact cosine, or a Pinecone serverless drop-in behind a <code>VECTOR_STORE</code> flag. The bi-encoder is fast but scores query and passage independently &mdash; a cross-encoder (<code>ms-marco-MiniLM-L-6-v2</code>) then re-scores the candidate set jointly. Cost: <strong>+500 ms latency, +20 points of Precision@5</strong> (0.60 &rarr; 0.80; MRR 0.68 &rarr; 0.85 on 8 benchmark queries). Worth it for accuracy-critical use; toggleable for RAM-constrained boxes.
+        </p>
+
+        <h3><span class="h-num">ii.</span> Source diversity &mdash; the step that isn&#x2019;t in the tutorials</h3>
+        <p class="body-prose">
+          The cross-encoder will happily fill all five top-k slots from the single most-relevant article and silently drop every other source. Great for precision, terrible for the LLM&#x2019;s context breadth. The fix is not a penalty &mdash; it&#x2019;s a <strong>guarantee</strong>. An O(n) post-rank step <em>reserves one slot per unique fetched article</em> before filling the remaining slots by cross-encoder score. Zero latency cost. Noticeable improvement on multi-topic queries (&ldquo;Compare Python and Rust memory models&rdquo;), which were the worst category before.
+        </p>
+
+        <h3><span class="h-num">iii.</span> Measuring faithfulness</h3>
+        <p class="body-prose">
+          Precision@k and MRR tell you whether the right passages were retrieved &mdash; not whether the LLM stayed faithful to them. So the generator&#x2019;s LLM is asked, on its own output, &ldquo;Given only these passages, is this answer supported? YES or NO.&rdquo; Same pattern as Cohere&#x2019;s RAG evaluator and Ragas. Not ground truth, but it catches the most common failure mode &mdash; plausible-sounding facts the model invented that aren&#x2019;t in the retrieved Wikipedia text.
+        </p>
+
+        <p class="pull">
+          The honest signal isn&#x2019;t &ldquo;did the LLM say something plausible&rdquo; &mdash; it&#x2019;s <em>can a second pass trace every claim back to a passage we actually retrieved.</em>
+          <span class="pull-attr">&mdash; Eval notes</span>
+        </p>
+
+        <h3><span class="h-num">iv.</span> Production surface</h3>
+        <p class="body-prose">
+          FastAPI v4 backend &middot; React 18 + Vite + Tailwind chat UI &middot; SSE token streaming via <code>/ask/stream</code> for word-by-word output &middot; multi-LLM dispatcher (Groq <code>llama-3.3-70b</code> default, OpenAI, Anthropic, local <code>flan-t5-small</code>) &middot; JWT auth with per-user SQLite history &middot; content-hash FAISS persistence (re-running the same query skips both re-encoding and re-fetching) &middot; Prometheus metrics + Grafana dashboard via docker-compose &middot; 46 pytest cases &middot; Docker image + GitHub Actions CI/CD &middot; tuned to fit a t2.micro (1&nbsp;GB RAM + 2&nbsp;GB swap).
+        </p>
+      </div>
+
+      <aside class="feature-aside">
+        <div class="aside-block">
+          <h4>Issue Brief</h4>
+          <div class="aside-fact"><span class="af-k">Status</span><span class="af-v">Shipped</span></div>
+          <div class="aside-fact"><span class="af-k">Built</span><span class="af-v">2026 · TEJASKP</span></div>
+          <div class="aside-fact"><span class="af-k">Team</span><span class="af-v">3 · pipeline + backend mine</span></div>
+          <div class="aside-fact"><span class="af-k">Bi-encoder</span><span class="af-v">MiniLM-L6 · 384-d</span></div>
+          <div class="aside-fact"><span class="af-k">Re-rank</span><span class="af-v">ms-marco MiniLM-L-6</span></div>
+          <div class="aside-fact"><span class="af-k">Vector store</span><span class="af-v">FAISS &middot; Pinecone</span></div>
+          <div class="aside-fact"><span class="af-k">P@5 / MRR</span><span class="af-v">0.80 &middot; 0.85</span></div>
+          <div class="aside-fact"><span class="af-k">Re-rank cost</span><span class="af-v">+500 ms</span></div>
+          <div class="aside-fact"><span class="af-k">LLMs</span><span class="af-v">Groq &middot; OAI &middot; Anthropic &middot; local</span></div>
+          <div class="aside-fact"><span class="af-k">Tests</span><span class="af-v">46 &middot; pytest</span></div>
+          <div class="aside-fact"><span class="af-k">Deploy</span><span class="af-v">Docker &middot; t2.micro</span></div>
+        </div>
+        <div class="aside-block">
+          <h4>Tags</h4>
+          <div style="display:flex;flex-wrap:wrap;gap:.35rem">
+            <span class="tag tag-accent">RAG</span>
+            <span class="tag">FAISS</span>
+            <span class="tag">Pinecone</span>
+            <span class="tag">Cross-Encoder</span>
+            <span class="tag">NLTK</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">SSE Stream</span>
+            <span class="tag">React 18</span>
+            <span class="tag">Prometheus</span>
+          </div>
+        </div>
+        <div class="aside-block">
+          <h4>References</h4>
+          <a href="https://github.com/UTKARSH698/Wikipedia_Smart_Search" target="_blank" rel="noopener" class="arrow-link arrow-link-accent">GitHub repo &middot; README &rarr;</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</article>
+
+<!-- ── FEATURE 07 — GRAFANA ALLOY (OSS) ─────────────────── -->
+<article class="feature" id="alloy" data-cat="oss cloud">
+  <div class="wrap">
+    <div class="feature-meta">
+      <span><span class="fm-cat">Feature &numero; 07</span> &middot; Open Source &middot; Observability</span>
+      <span>Merged &middot; May 2026</span>
+    </div>
+
+    <div class="feature-head fade">
+      <div class="feature-num">07</div>
+      <div>
+        <h2 class="feature-title">Grafana Alloy — <em>a CloudWatch metrics scenario, merged upstream.</em></h2>
+        <p class="feature-deck">PR&nbsp;<a href="https://github.com/grafana/alloy-scenarios/pull/147" target="_blank" rel="noopener" style="color:inherit;border-bottom:1px solid currentColor;text-decoration:none">#147</a> to <strong>grafana/alloy-scenarios</strong> — a self-contained, AWS-free walkthrough of pulling CloudWatch metrics into Prometheus through Grafana Alloy. Closed issue #98; merged by Grafana DevRel with all 12 CI checks green.</p>
+      </div>
+    </div>
+
+    <div class="feature-body fade fade-1">
+      <div class="feature-main">
+        <p class="body-prose dropcap">
+          Grafana Alloy is Grafana&#x2019;s OpenTelemetry-flavoured collector. Its <em>alloy-scenarios</em> repo is the official examples bench — each folder is a runnable docker-compose stack a new user can clone and see real telemetry inside two minutes. Issue&nbsp;#98 asked for a CloudWatch metrics scenario that didn&#x2019;t require an AWS account, so reviewers and curious engineers could try it without spinning up real infrastructure. I picked it up and shipped the scenario end-to-end.
+        </p>
+
+        <h3><span class="h-num">i.</span> The architecture</h3>
+        <p class="body-prose">
+          Six files, one <code>docker compose up</code>. <strong>LocalStack</strong> emulates the CloudWatch and STS APIs on port&nbsp;4566. A Python <strong>boto3 seeder</strong> publishes synthetic <em>AWS/EC2 CPUUtilization</em> metrics on a 30-second cadence so the scenario has a live signal to scrape. Alloy&#x2019;s <code>prometheus.exporter.cloudwatch</code> block is pointed at LocalStack via <code>AWS_ENDPOINT_URL</code>; the YACE SDK underneath doesn&#x2019;t care that the endpoint isn&#x2019;t real AWS. Prometheus scrapes Alloy, and metrics appear in the local stack within ~90 seconds of startup.
+        </p>
+
+        <h3><span class="h-num">ii.</span> The part that took the longest</h3>
+        <p class="body-prose">
+          The interesting bit wasn&#x2019;t the Alloy config — it was the seam where Alloy&#x2019;s exporter trusts the AWS SDK to do the right thing. The exporter doesn&#x2019;t expose an <code>endpoint-url</code> knob; it expects an SDK already configured to hit real AWS. Threading <code>AWS_ENDPOINT_URL</code> through the container environment so both the exporter and the seeder agree on where &quot;AWS&quot; lives took longer to verify than to write. That detail is now documented in the scenario README so the next contributor doesn&#x2019;t re-derive it.
+        </p>
+
+        <h3><span class="h-num">iii.</span> What it&#x2019;s for</h3>
+        <p class="body-prose">
+          New engineers learning Alloy can clone the scenario and have a working CloudWatch-to-Prometheus pipeline running locally before lunch. Existing Alloy users have a known-good config to copy when they wire up real AWS. The PR also pinned a LocalStack version (<code>image-versions.env</code>) so the scenario doesn&#x2019;t silently rot when upstream containers update.
+        </p>
+
+        <p class="pull">
+          <q>Huge thank you for this contribution.</q>
+          <span class="pull-attr">— Jayclifford345, Grafana DevRel, on merge</span>
+        </p>
+      </div>
+
+      <aside class="feature-aside">
+        <div class="aside-block">
+          <h4>Issue Brief</h4>
+          <div class="aside-fact"><span class="af-k">Status</span><span class="af-v" style="color:var(--sage,#4a6b54);font-weight:700">Merged</span></div>
+          <div class="aside-fact"><span class="af-k">Date</span><span class="af-v">13 May 2026</span></div>
+          <div class="aside-fact"><span class="af-k">Repo</span><span class="af-v">grafana/alloy-scenarios</span></div>
+          <div class="aside-fact"><span class="af-k">PR №</span><span class="af-v">#147</span></div>
+          <div class="aside-fact"><span class="af-k">Closes</span><span class="af-v">Issue #98</span></div>
+          <div class="aside-fact"><span class="af-k">CI</span><span class="af-v">12 / 12 green</span></div>
+          <div class="aside-fact"><span class="af-k">Files</span><span class="af-v">6 added / modified</span></div>
+        </div>
+        <div class="aside-block">
+          <h4>Tags</h4>
+          <div style="display:flex;flex-wrap:wrap;gap:.35rem">
+            <span class="tag tag-accent">Grafana Alloy</span>
+            <span class="tag">CloudWatch</span>
+            <span class="tag">LocalStack</span>
+            <span class="tag">Prometheus</span>
+            <span class="tag">YACE</span>
+            <span class="tag">Docker Compose</span>
+            <span class="tag">Python · boto3</span>
+          </div>
+        </div>
+        <div class="aside-block">
+          <h4>References</h4>
+          <a href="https://github.com/grafana/alloy-scenarios/pull/147" target="_blank" rel="noopener" class="arrow-link arrow-link-accent">View merged PR · grafana/alloy-scenarios#147 →</a>
+          <a href="https://github.com/grafana/alloy-scenarios/issues/98" target="_blank" rel="noopener" class="arrow-link">Original issue · #98 →</a>
+          <a href="https://github.com/grafana/alloy-scenarios/tree/main/cloudwatch-metrics" target="_blank" rel="noopener" class="arrow-link">Scenario folder on main →</a>
+          <a href="https://github.com/UTKARSH698/alloy-scenarios" target="_blank" rel="noopener" class="arrow-link">My fork →</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</article>
+
+<!-- ── FEATURE 08 — RESEARCH / FORMAL VERIFICATION ─────── -->
+<article class="feature" id="security-invariants" data-cat="research security" style="border-top:3px double var(--ink-2,#3a3a3a)">
+  <div class="wrap">
+    <div class="feature-meta">
+      <span><span class="fm-cat" style="color:var(--accent,#b8410e)">Research &numero; 01</span> &middot; Formal Methods &middot; Distributed Security</span>
+      <span>Preprint &middot; May 2026</span>
+    </div>
+
+    <div class="feature-head fade">
+      <div class="feature-num">08</div>
+      <div>
+        <span class="tag tag-accent" style="margin-bottom:.75rem;display:inline-block">Preprint · not peer-reviewed</span>
+        <h2 class="feature-title">When Local Correctness Is Not Enough — <em>a TLA&#x207A;-style proof that three RBAC invariants break under concurrency.</em></h2>
+        <p class="feature-deck">A formal specification and a TLC-equivalent model checker for three security invariants that every individual service upholds, yet the <strong>composed</strong> system violates under specific cross-service interleavings. Complete state-space exploration; all three counterexamples reproduced. Zenodo&nbsp;<a href="https://doi.org/10.5281/zenodo.20099386" target="_blank" rel="noopener" style="color:inherit;border-bottom:1px solid currentColor;text-decoration:none">doi:10.5281/zenodo.20099386</a>.</p>
+      </div>
+    </div>
+
+    <div class="feature-body fade fade-1">
+      <div class="feature-main">
+        <p class="body-prose dropcap">
+          While building a multi-role RBAC marketplace I hit a concurrent-order race that a per-service correctness argument said couldn&#x2019;t happen. This paper is the formalisation of why it can. It models a five-service distributed topology — Identity, Order, Inventory, API Gateway, Notification — and states three invariants precisely, then lets a breadth-first checker enumerate <em>every</em> reachable state and test each invariant at each one. The point is honest and narrow: a property proven locally per service is not preserved under composition.
+        </p>
+
+        <h3><span class="h-num">i.</span> The three invariants</h3>
+        <p class="body-prose">
+          <strong>RPS</strong> (Role-Permission Separation) and <strong>APC</strong> (API Gateway Policy Consistency) both require a service&#x2019;s policy cache to stay a subset of what the user&#x2019;s <em>current</em> roles authorise — broken when a role is revoked or downgraded but the gateway cache sits stale inside its TTL window. <strong>TAR</strong> (Transaction Atomicity Under Revocation) requires that no order stays pending for a user whose token was revoked — broken when revocation is re-checked only at confirm-time, leaving a reachable <code>(revoked &and; pending)</code> state. Each holds per-service; the composition does not.
+        </p>
+
+        <h3><span class="h-num">ii.</span> The correction that mattered</h3>
+        <p class="body-prose">
+          An earlier draft indexed the cache invariant by <em>role label</em> — <code>cache[s][r] &sube; permissions(r)</code>. That predicate is trivially true: <code>permissions</code> is a static map, so it can never be falsified. The authorisation decision a gateway actually makes is over a user&#x2019;s <em>effective</em> permission set, which is what changes under role mutation. The spec and checker now both verify the user-indexed form <code>cache[s][u] &sube; permissions(roles[u])</code> — the version that can actually be violated, and is.
+        </p>
+
+        <h3><span class="h-num">iii.</span> What the numbers say</h3>
+        <p class="body-prose">
+          On the finite instantiation <code>Users={u0,u1}, Roles={ADMIN,BUYER,FARMER}</code>, the buggy spec reaches <strong>188,160</strong> distinct states — all three invariants violated — while the fixed spec collapses to <strong>4,928</strong> and stays clean. The defect doesn&#x2019;t merely permit unsafe states; it <em>enlarges</em> the reachable space, because each independent stale-cache configuration is its own state. Under the fix the cache is a deterministic function of the role assignment, so that explosion disappears. One command reproduces the whole run.
+        </p>
+
+        <p class="pull">
+          <q>TAR preservation requires revocation to cancel pending orders atomically, in the same transition step. The checker surfaced an exploitable intermediate state the original engineering argument never anticipated.</q>
+          <span class="pull-attr">— Headline finding</span>
+        </p>
+
+        <h3><span class="h-num">iv.</span> Scope &amp; honesty</h3>
+        <p class="body-prose">
+          This is <strong>forward-looking architectural analysis</strong>, not a forensic audit of running code, and the preprint is not peer-reviewed. The contribution is the invariant <em>specification</em>, the machine-checked <em>violation traces</em>, and a verified <em>fix</em> — at the architectural level. The deployed system that motivated it (AgriFuture) is a single Express server; the formal model targets the five-service topology that single server would grow into. I&#x2019;d rather state that plainly than overclaim.
+        </p>
+      </div>
+
+      <aside class="feature-aside">
+        <div class="aside-block">
+          <h4>Paper Brief</h4>
+          <div class="aside-fact"><span class="af-k">Status</span><span class="af-v" style="color:var(--accent,#b8410e);font-weight:700">Preprint</span></div>
+          <div class="aside-fact"><span class="af-k">Venue</span><span class="af-v">Zenodo (v1)</span></div>
+          <div class="aside-fact"><span class="af-k">DOI</span><span class="af-v">10.5281/zenodo.20099386</span></div>
+          <div class="aside-fact"><span class="af-k">Released</span><span class="af-v">9 May 2026</span></div>
+          <div class="aside-fact"><span class="af-k">Buggy spec</span><span class="af-v">188,160 states · all 3 violated</span></div>
+          <div class="aside-fact"><span class="af-k">Fixed spec</span><span class="af-v">4,928 states · clean</span></div>
+          <div class="aside-fact"><span class="af-k">Method</span><span class="af-v">BFS · TLC-equivalent</span></div>
+        </div>
+        <div class="aside-block">
+          <h4>Tags</h4>
+          <div style="display:flex;flex-wrap:wrap;gap:.35rem">
+            <span class="tag tag-accent">TLA⁺ / TLC</span>
+            <span class="tag">Formal Verification</span>
+            <span class="tag">Model Checking</span>
+            <span class="tag">Distributed RBAC</span>
+            <span class="tag">Concurrency</span>
+            <span class="tag">Security Invariants</span>
+            <span class="tag">Python</span>
+          </div>
+        </div>
+        <div class="aside-block">
+          <h4>References</h4>
+          <a href="https://doi.org/10.5281/zenodo.20099386" target="_blank" rel="noopener" class="arrow-link arrow-link-accent">Read the preprint · Zenodo →</a>
+          <a href="https://github.com/UTKARSH698/security-invariants-rbac" target="_blank" rel="noopener" class="arrow-link">Spec, checker &amp; traces · GitHub →</a>
+          <a href="https://github.com/UTKARSH698/agrifuture-platform" target="_blank" rel="noopener" class="arrow-link">The system that motivated it →</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</article>
+
+<!-- ── END-OF-ISSUE CTA ────────────────────────────────── -->
+<section class="editor-section" style="text-align:center;border-bottom:none">
+  <div class="wrap">
+    <span class="eyebrow"><span class="e-mark"></span><span class="e-num">§ 99</span> End of issue</span>
+    <h2 class="display h-display" style="margin:1.5rem 0 1rem">Want one of these for <em>your</em> team?</h2>
+    <p class="body-prose" style="margin:0 auto 2rem">I'm available globally from July 2026 for cloud, platform, or security engineering work.</p>
+    <div style="display:flex;justify-content:center;gap:.65rem;flex-wrap:wrap">
+      <a href="contact.html" class="btn btn-ink">Write a letter →</a>
+      <a href="resume.html" class="btn btn-line">Read the dossier</a>
+    </div>
+  </div>
+</section>
+
 </main>
 
-<footer class="footer">
-  <div class="footer-in">
-    <span>© 2026 Utkarsh Batham</span>
-    <div style="display:flex;gap:1.5rem">
-      <a href="index.html">Home</a>
-      <a href="resume.html">Resume</a>
-      <a href="contact.html">Contact</a>
+<footer class="colophon">
+  <div class="colophon-grid">
+    <div class="colophon-brand">
+      <h4>Utkarsh Batham</h4>
+      <p>Cloud infrastructure &amp; security automation engineer. Designing systems that survive contact with real traffic. Vadodara, India — open to remote roles globally.</p>
+      <span class="imp">Vol. 2026 · Issue 06 · Folio 02</span>
     </div>
-    <span>Gujarat · Remote-Ready 🌍</span>
+    <div class="colophon-col">
+      <h5>Sections</h5>
+      <a href="index.html">01 — Cover</a>
+      <a href="projects.html">02 — Work</a>
+      <a href="notes.html">03 — Dispatches</a>
+      <a href="resume.html">04 — Dossier</a>
+      <a href="contact.html">05 — Contact</a>
+    </div>
+    <div class="colophon-col">
+      <h5>Elsewhere</h5>
+      <a href="https://github.com/UTKARSH698" target="_blank" rel="noopener">GitHub ↗</a>
+      <a href="https://www.linkedin.com/in/utkarsh-batham-531913247" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a href="mailto:udaydeepak1928@gmail.com">Email</a>
+    </div>
+    <div class="colophon-col">
+      <h5>Colophon</h5>
+      <p style="font-size:.78rem;color:var(--ink-3);line-height:1.55;margin:0">Set in <em>Fraunces</em> &amp; <em>Inter</em>. Hand-written HTML &amp; CSS. Maintained from Vadodara, India.</p>
+    </div>
+  </div>
+  <div class="colophon-foot">
+    <span>© 2026 Utkarsh Batham</span>
+    <span>Last revised · Jun 2026</span>
+    <span>Vol. 2026 · Issue 06</span>
   </div>
 </footer>
 
-<button class="scroll-top" id="scroll-top">↑</button>
+<button class="scroll-top" id="scroll-top" aria-label="Scroll to top">↑</button>
 <script src="shared.js"></script>
 <script>
-function toggleP(h){h.closest('.project').classList.toggle('open')}
-
-window.addEventListener('load',()=>{
-  const h=location.hash.slice(1);
-  if(h){
-    const c=document.getElementById(h);
-    if(c){c.classList.add('open');setTimeout(()=>c.scrollIntoView({behavior:'smooth',block:'start'}),120);}
-  }
-});
-
-document.querySelectorAll('.fb').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    document.querySelectorAll('.fb').forEach(b=>b.classList.remove('on'));
-    btn.classList.add('on');
-    const f=btn.dataset.f;
-    let v=0;
-    document.querySelectorAll('.project').forEach(c=>{
-      const show=f==='all'||(c.dataset.tags||'').includes(f);
-      c.style.display=show?'':'none';
-      if(show)v++;
+(function(){
+  const pills = document.querySelectorAll('.filter-pill');
+  const articles = document.querySelectorAll('article[data-cat]');
+  pills.forEach(p => p.addEventListener('click', () => {
+    pills.forEach(x => x.classList.remove('active'));
+    p.classList.add('active');
+    const f = p.dataset.filter;
+    articles.forEach(a => {
+      const cats = (a.dataset.cat || '').split(/\s+/);
+      a.style.display = (f === 'all' || cats.includes(f)) ? '' : 'none';
     });
-    document.getElementById('no-results').style.display=v?'none':'block';
-  });
-});
+  }));
+})();
 </script>
 </body>
 </html>

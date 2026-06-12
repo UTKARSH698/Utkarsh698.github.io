@@ -3,713 +3,437 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Utkarsh Batham — Cloud Infrastructure & Security Automation Engineer</title>
-<meta name="description" content="Cloud Infrastructure & Security Automation Engineer. I build distributed systems, serverless pipelines, and security automation that holds under load. Available globally from July 2026.">
-<meta name="keywords" content="Cloud Engineer, DevOps, AWS, Terraform, Kubernetes, Docker, GitHub Actions, remote, India, Python, CI/CD, CSPM, platform engineering, security automation">
-<meta property="og:title" content="Utkarsh Batham — Cloud Infrastructure & Security Automation Engineer">
-<meta property="og:description" content="Cloud infrastructure, security automation, and platform engineering. Built to hold under load.">
+<title>Utkarsh Batham — Cloud Engineer · Vol. 2026</title>
+<meta name="description" content="Utkarsh Batham — Cloud infrastructure, distributed systems, and security automation. AWS, Terraform, Kubernetes, Python. Open to global remote roles from July 2026.">
+<meta name="keywords" content="Cloud Engineer, DevOps, AWS, Terraform, Kubernetes, Docker, Python, CSPM, platform engineering, remote, India">
+<meta property="og:title" content="Utkarsh Batham — Cloud Engineer">
+<meta property="og:description" content="Cloud infrastructure, distributed systems, and security automation. Available globally from July 2026.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://utkarsh698.github.io">
 <meta property="og:image" content="https://utkarsh698.github.io/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://utkarsh698.github.io/og-image.png">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23ede6d6'/><rect x='25' y='25' width='50' height='50' fill='%23b8410e'/></svg>">
 <link rel="stylesheet" href="style.css">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-DZ48W4D1EW"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-DZ48W4D1EW');</script>
-
-<style>
-/* ══════════════════════════════════════════════════════════
-   HERO — art-directed around the portrait
-   Portrait: dark charcoal bg, right-side neon green rim light
-   All green glows originate from that rim light source
-   ══════════════════════════════════════════════════════════ */
-.hero {
-  min-height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 420px;
-  gap: 0;
-  align-items: stretch;
-  padding-top: var(--nav-h);
-  position: relative;
-  overflow: hidden;
-  background: #080a0c;
-}
-
-/* Dot grid — left half, dissolves toward portrait */
-.hero::before {
-  content: '';
-  position: absolute; inset: 0;
-  background-image: radial-gradient(rgba(61,255,160,.09) 1px, transparent 1px);
-  background-size: 52px 52px;
-  mask-image: linear-gradient(90deg, rgba(0,0,0,.7) 0%, rgba(0,0,0,.25) 55%, transparent 78%);
-  pointer-events: none;
-}
-
-/* Divider — glows green where portrait meets page */
-.hero::after {
-  content: '';
-  position: absolute;
-  top: 8%; bottom: 8%;
-  left: calc(100% - 420px);
-  width: 1px;
-  background: linear-gradient(180deg, transparent 0%, rgba(61,255,160,.06) 15%, rgba(61,255,160,.4) 50%, rgba(61,255,160,.06) 85%, transparent 100%);
-  pointer-events: none;
-}
-
-.hero-left {
-  padding: 5.5rem 4rem 5rem 2.5rem;
-  display: flex; flex-direction: column; justify-content: center;
-  position: relative; z-index: 1;
-}
-
-.hero-eyebrow { display: flex; align-items: center; gap: 1rem; margin-bottom: 2.75rem; }
-
-.hero-statement {
-  font-family: var(--mono); font-size: .8rem; color: var(--stone);
-  line-height: 1.65; margin-bottom: 2.25rem; max-width: 500px;
-  border-left: 2px solid var(--g); padding-left: 1.2rem; font-style: italic;
-}
-.hero-statement em { color: var(--soft); font-style: normal; }
-
-.hero-name {
-  font-family: var(--sans);
-  font-size: clamp(3.5rem, 8.5vw, 8rem);
-  font-weight: 800; line-height: .86; letter-spacing: -.045em;
-  color: var(--bright); margin-bottom: 2rem;
-}
-.hero-name .last { color: var(--dust); display: block; font-weight: 400; }
-
-.hero-line {
-  display: flex; align-items: center; gap: .75rem;
-  font-size: .76rem; color: var(--muted); margin-bottom: 2.5rem;
-}
-.hero-line::before { content: '→'; color: var(--g); }
-
-.hero-metrics {
-  display: flex; gap: 0;
-  background: rgba(13,14,18,.85);
-  border: 1px solid var(--line);
-  border-left: 2px solid rgba(61,255,160,.45);
-  border-radius: 0 5px 5px 0; overflow: hidden;
-  margin-bottom: 2.75rem; backdrop-filter: blur(4px);
-}
-.hm { flex: 1; padding: 1.15rem 1.3rem; border-right: 1px solid var(--line); }
-.hm:last-child { border-right: none; }
-.hm-val { font-family:var(--sans); font-size:1.65rem; font-weight:800; color:var(--g); line-height:1; letter-spacing:-.03em; }
-.hm-label { font-size:.57rem; color:var(--muted); text-transform:uppercase; letter-spacing:.1em; margin-top:.25rem; }
-
-.hero-cta { display:flex; gap:.65rem; flex-wrap:wrap; align-items:center; }
-
-/* ═══════════════════════════════════════════════════════════
-   PORTRAIT IDENTITY MODULE
-   Portrait: charcoal bg, green rim light on right edge
-   Module bg matches portrait exactly → seamless blend
-   Glow originates from rim light source
-   ═══════════════════════════════════════════════════════════ */
-.hero-right {
-  position: relative; overflow: hidden;
-  display: flex; flex-direction: column;
-  background: #0a0c0e;
-}
-
-/* Rim-light ambient — right edge, matching portrait lighting */
-.hero-right::after {
-  content: '';
-  position: absolute;
-  right: -60px; top: 5%; bottom: 5%; width: 220px;
-  background: radial-gradient(ellipse 55% 75% at 100% 42%,
-    rgba(61,255,160,.2) 0%, rgba(61,255,160,.07) 45%, transparent 70%);
-  pointer-events: none; z-index: 1;
-}
-
-/* Scanline sweep — very subtle */
-.hero-right::before {
-  content: '';
-  position: absolute; left: 0; right: 0; height: 100px;
-  background: linear-gradient(180deg, transparent, rgba(61,255,160,.022), transparent);
-  animation: scanline 7s ease-in-out infinite;
-  pointer-events: none; z-index: 4;
-}
-
-.photo-topbar {
-  background: rgba(5,6,8,.94);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(61,255,160,.09);
-  padding: .65rem 1.1rem;
-  display: flex; align-items: center; gap: .5rem;
-  font-size: .6rem; font-family: var(--mono);
-  position: relative; z-index: 5; flex-shrink: 0;
-}
-.ptb-dot { width: 7px; height: 7px; border-radius: 50%; }
-.ptb-red    { background: #ff5e5e; box-shadow: 0 0 5px rgba(255,94,94,.6); }
-.ptb-yellow { background: #f5c518; box-shadow: 0 0 5px rgba(245,197,24,.5); }
-.ptb-green  { background: var(--g); box-shadow: 0 0 7px rgba(61,255,160,.7); }
-.ptb-title  { color: var(--muted); margin-left: .4rem; flex: 1; letter-spacing: .04em; }
-.ptb-live {
-  display: flex; align-items: center; gap: .35rem;
-  font-size: .56rem; color: var(--g); letter-spacing: .06em;
-}
-.ptb-live-dot {
-  width: 5px; height: 5px; border-radius: 50%;
-  background: var(--g); box-shadow: 0 0 5px var(--g);
-  animation: pulse 2s ease-in-out infinite;
-}
-
-.photo-frame { flex: 1; position: relative; overflow: hidden; }
-
-/* Left-edge fade — portrait bleeds seamlessly into page bg */
-.photo-frame::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: linear-gradient(90deg, rgba(8,10,12,.75) 0%, rgba(8,10,12,.22) 18%, transparent 42%);
-  z-index: 2; pointer-events: none;
-}
-
-/* Bottom gradient — portrait fades into chips */
-.photo-frame::after {
-  content: '';
-  position: absolute; bottom: 0; left: 0; right: 0; height: 62%;
-  background: linear-gradient(0deg, rgba(8,10,12,1) 0%, rgba(8,10,12,.88) 28%, rgba(8,10,12,.45) 55%, transparent 100%);
-  z-index: 2; pointer-events: none;
-}
-
-.photo-frame img {
-  width: 100%; height: 100%;
-  object-fit: cover; object-position: center top; display: block;
-  filter: contrast(1.03) brightness(.97) saturate(1.04);
-  transition: filter .65s var(--e);
-}
-.hero-right:hover .photo-frame img {
-  filter: contrast(1.05) brightness(1.02) saturate(1.09);
-}
-
-/* Corner accents — top-right glows to match rim light source */
-.photo-corner-tr {
-  position: absolute; top: 0; right: 0;
-  width: 32px; height: 32px;
-  border-top: 2px solid rgba(61,255,160,.65);
-  border-right: 2px solid rgba(61,255,160,.65);
-  z-index: 6; pointer-events: none;
-  box-shadow: 5px -5px 22px rgba(61,255,160,.18);
-}
-.photo-corner-bl {
-  position: absolute; bottom: 0; left: 0;
-  width: 24px; height: 24px;
-  border-bottom: 1px solid rgba(61,255,160,.18);
-  border-left: 1px solid rgba(61,255,160,.18);
-  z-index: 6; pointer-events: none;
-}
-
-.photo-chips {
-  position: absolute; left: 0; right: 0; bottom: 0;
-  padding: 1.6rem 1.25rem 1.4rem; z-index: 5;
-}
-.chip-row { display: flex; gap: .38rem; flex-wrap: wrap; margin-bottom: .42rem; }
-.chip {
-  display: inline-flex; align-items: center; gap: .35rem;
-  font-size: .59rem; font-family: var(--mono);
-  padding: .24rem .65rem; border-radius: 3px;
-  border: 1px solid rgba(255,255,255,.07);
-  background: rgba(5,6,8,.85); color: var(--soft);
-  backdrop-filter: blur(16px);
-  transition: border-color .2s, color .2s; letter-spacing: .03em;
-}
-.chip:hover { border-color: rgba(61,255,160,.22); color: var(--text); }
-.chip .cd { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
-.chip.g-chip { color: var(--g); border-color: rgba(61,255,160,.22); background: rgba(5,6,8,.9); }
-
-.chip-identity {
-  margin-top: .7rem; padding-top: .7rem;
-  border-top: 1px solid rgba(255,255,255,.055);
-}
-.chip-name {
-  font-family: var(--sans); font-size: .95rem; font-weight: 700;
-  color: var(--bright); margin-bottom: .2rem; letter-spacing: -.01em;
-}
-.chip-loc {
-  font-size: .6rem; color: var(--muted); font-family: var(--mono);
-  display: flex; align-items: center; gap: .5rem;
-}
-.chip-loc::before { content: '//'; color: rgba(61,255,160,.6); font-size: .55rem; }
-
-/* ── STRIP ───────────────────────────────────────────────── */
-.strip {
-  background: var(--ink2);
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  padding: .75rem 0;
-  overflow: hidden;
-}
-.strip-in {
-  display:flex;gap:3rem;align-items:center;
-  animation:marquee 28s linear infinite;
-  white-space:nowrap;width:max-content;
-}
-.strip-in:hover{animation-play-state:paused}
-.strip-item{display:flex;align-items:center;gap:.5rem;font-size:.65rem;color:var(--muted);letter-spacing:.06em}
-.strip-item .sd{color:var(--g);font-size:.5rem}
-
-/* ── SYSTEMS ─────────────────────────────────────────────── */
-.systems {
-  display: flex; flex-direction: column;
-  gap: 1px; background: var(--line);
-  border: 1px solid var(--line);
-  border-radius: 6px; overflow: hidden;
-}
-.srow {
-  background: var(--ink);
-  display: grid;
-  grid-template-columns: 2rem 1fr auto auto;
-  align-items: center;
-  gap: 1.5rem;
-  padding: 1.2rem 1.75rem;
-  transition: all .18s;
-  text-decoration: none; color: inherit; opacity: 1;
-  position: relative;
-}
-.srow::before {
-  content: '';
-  position: absolute; left: 0; top: 0; bottom: 0;
-  width: 0; background: var(--g);
-  transition: width .2s var(--e);
-}
-.srow:hover { background: var(--ink2); padding-left: 2.25rem; opacity: 1; }
-.srow:hover::before { width: 2px; }
-.srow:hover .sa { color: var(--g); }
-.sn { font-size:.6rem; color:var(--dust); font-family:var(--mono); }
-.sname { font-family:var(--sans); font-size:.92rem; font-weight:600; color:var(--bright); margin-bottom:.18rem; }
-.sstack { font-size:.62rem; color:var(--muted); }
-.smetric { font-size:.65rem; color:var(--g); font-family:var(--mono); white-space:nowrap; text-align:right; }
-.sa { color:var(--dust); font-size:.8rem; transition:color .18s; }
-
-/* ── STACK GRID ──────────────────────────────────────────── */
-.stack-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  gap: .4rem;
-}
-.si {
-  display: flex; align-items: center; gap: .45rem;
-  padding: .6rem .8rem;
-  background: var(--ink2); border: 1px solid var(--line);
-  border-radius: 4px; font-size: .68rem;
-  color: var(--soft); transition: all .2s;
-  position: relative; overflow: hidden;
-}
-.si::before {
-  content: '';
-  position: absolute; bottom: 0; left: 0;
-  width: 0; height: 1px; background: var(--g);
-  transition: width .2s var(--e);
-}
-.si:hover { border-color: var(--line2); color: var(--text); }
-.si:hover::before { width: 100%; }
-.si.core { color: var(--g); border-color: rgba(61,255,160,.18); background: var(--glow2); }
-.si.core::before { background: var(--g2); }
-
-/* ── NOW GRID ────────────────────────────────────────────── */
-.now-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px; background: var(--line);
-  border: 1px solid var(--line);
-  border-radius: 6px; overflow: hidden;
-}
-.nc {
-  background: var(--ink); padding: 1.4rem 1.5rem;
-  transition: background .2s;
-  position: relative;
-}
-.nc:hover { background: var(--ink2); }
-.nc-lbl { font-size:.58rem; color:var(--muted); text-transform:uppercase; letter-spacing:.12em; margin-bottom:.5rem; display:flex; align-items:center; gap:.35rem; }
-.ndot { width:5px; height:5px; border-radius:50%; flex-shrink:0; }
-.don  { background:var(--g); box-shadow:0 0 5px var(--g); animation:pulse 2s infinite; }
-.dmid { background:var(--g2); }
-.doff { background:var(--dust); }
-.nc-title { font-family:var(--sans); font-size:.85rem; font-weight:600; color:var(--text); margin-bottom:.35rem; line-height:1.25; }
-.nc-desc { font-size:.7rem; color:var(--muted); line-height:1.7; }
-
-/* ── TESTIMONIALS ────────────────────────────────────────── */
-.test-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:1rem; }
-.tcard { padding:1.75rem; border-radius:6px; position:relative; }
-.tcard::before { content:'"'; position:absolute; top:1rem; left:1.5rem; font-family:var(--sans); font-size:3rem; font-weight:800; color:rgba(61,255,160,.12); line-height:1; }
-.tquote { font-size:.82rem; color:var(--soft); line-height:1.85; margin-bottom:1.25rem; padding-top:1.25rem; font-style:italic; }
-.tauthor { display:flex; align-items:center; gap:.7rem; }
-.tavatar { width:34px; height:34px; border-radius:50%; background:var(--ink3); border:1px solid var(--line2); display:flex; align-items:center; justify-content:center; font-family:var(--sans); font-size:.7rem; font-weight:700; color:var(--g); flex-shrink:0; }
-.tname { font-family:var(--sans); font-size:.8rem; font-weight:600; color:var(--bright); }
-.trole { font-size:.65rem; color:var(--muted); }
-.tpending { border-style:dashed; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; min-height:180px; padding:2rem; }
-.tpending-icon { font-size:1.2rem; opacity:.2; margin-bottom:.75rem; }
-.tpending-text { font-size:.7rem; color:var(--muted); line-height:1.7; }
-
-/* ── BUILD LOG SECTION ───────────────────────────────────── */
-.log-grid { display:flex; flex-direction:column; gap:0; }
-.log-entry {
-  display: grid;
-  grid-template-columns: 140px 1fr auto;
-  gap: 1.5rem;
-  padding: 1.1rem 0;
-  border-bottom: 1px solid var(--line);
-  align-items: start;
-}
-.log-entry:last-child { border-bottom: none; }
-.log-date { font-size:.62rem; color:var(--muted); padding-top:.1rem; font-family:var(--mono); }
-.log-content {}
-.log-title { font-family:var(--sans); font-size:.88rem; font-weight:600; color:var(--bright); margin-bottom:.25rem; }
-.log-desc { font-size:.72rem; color:var(--muted); line-height:1.7; }
-.log-tag { align-self:flex-start; }
-
-/* ── RESPONSIVE ──────────────────────────────────────────── */
-@media(max-width:900px){
-  .hero{grid-template-columns:1fr}
-  .hero-right{display:none}
-  .hero::after{display:none}
-  .hero-left{padding:4rem 1.5rem 3rem}
-  .hero-metrics{flex-wrap:wrap}
-  .now-grid{grid-template-columns:1fr 1fr}
-}
-@media(max-width:600px){
-  .hero-name{font-size:3rem}
-  .stack-grid{grid-template-columns:repeat(auto-fill,minmax(100px,1fr))}
-  .srow{grid-template-columns:1fr auto}
-  .sn,.smetric{display:none}
-  .now-grid{grid-template-columns:1fr}
-  .log-entry{grid-template-columns:1fr;gap:.35rem}
-  .log-date{font-size:.58rem}
-}
-</style>
 </head>
 <body>
 
-<nav class="nav">
-  <a href="index.html" class="nav-logo">
-    <span class="d">~/</span>utkarsh<span class="d">.dev</span>
-    <span class="cursor-blink"></span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="projects.html">Projects</a></li>
-    <li><a href="notes.html">Build Log</a></li>
-    <li><a href="resume.html">Resume</a></li>
-    <li><a href="https://github.com/UTKARSH698" target="_blank">GitHub ↗</a></li>
-    <li><a href="contact.html" class="hire">Hire Me</a></li>
-  </ul>
-  <div class="nav-r">
-    <button class="nav-icon" id="theme-btn" title="Toggle theme">◑</button>
-    <button class="nav-icon ham" id="ham" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
+<nav class="masthead">
+  <div class="masthead-in">
+    <a href="index.html" class="wordmark">
+      <span class="wm-mark"></span>
+      Utkarsh Batham
+      <span class="wm-sub">Vol. 2026</span>
+    </a>
+    <ul class="nav-index">
+      <li><a href="index.html"><span class="num">01</span>Cover</a></li>
+      <li><a href="projects.html"><span class="num">02</span>Work</a></li>
+      <li><a href="notes.html"><span class="num">03</span>Dispatches</a></li>
+      <li><a href="resume.html"><span class="num">04</span>Dossier</a></li>
+      <li><a href="contact.html"><span class="num">05</span>Contact</a></li>
+    </ul>
+    <div class="masthead-r">
+      <button class="icon-btn" id="theme-btn" aria-label="Toggle theme">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+      <button class="icon-btn ham" id="ham" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </nav>
 <div class="nav-drawer" id="nav-drawer" style="display:none">
   <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="projects.html">Projects</a></li>
-    <li><a href="notes.html">Build Log</a></li>
-    <li><a href="resume.html">Resume</a></li>
-    <li><a href="https://github.com/UTKARSH698" target="_blank">GitHub ↗</a></li>
-    <li><a href="contact.html">Hire Me</a></li>
+    <li><a href="index.html"><span class="num">01</span>Cover</a></li>
+    <li><a href="projects.html"><span class="num">02</span>Work</a></li>
+    <li><a href="notes.html"><span class="num">03</span>Dispatches</a></li>
+    <li><a href="resume.html"><span class="num">04</span>Dossier</a></li>
+    <li><a href="contact.html"><span class="num">05</span>Contact</a></li>
   </ul>
 </div>
 
 <main>
 
-<!-- ── HERO ───────────────────────────────────────────────── -->
-<section class="hero">
-  <div class="hero-left">
-
-    <div class="hero-eyebrow">
-      <span class="badge"><span class="pulse"></span>Open · Jul 2026 · Remote</span>
-      <span style="font-size:.6rem;color:var(--muted)">Vadodara, India</span>
+<!-- ── COVER ─────────────────────────────────────────────── -->
+<section class="cover">
+  <div class="wrap">
+    <div class="cover-strip">
+      <span class="cs-l">Vol. 2026 · Issue 06</span>
+      <span>Folio 01 — Cover</span>
+      <span>Vadodara · India</span>
+      <span>Cloud · Distributed · Security</span>
     </div>
 
-    <h1 class="hero-name fade d1">
-      Utkarsh<span class="last">Batham</span>
-    </h1>
+    <div class="cover-grid">
+      <div>
+        <span class="cover-tag fade">Open to roles · July 2026</span>
 
-    <p class="hero-statement fade d2">
-      I build cloud systems that hold when traffic spikes, servers fail, and<br>
-      <em>someone pushes bad code on a Friday.</em>
-    </p>
+        <h1 class="fade fade-1">
+          Engineering<br>
+          for systems<br>
+          that <em>hold.</em>
+        </h1>
 
-    <p class="hero-line fade d2">
-      Cloud Infrastructure · Platform Engineering · Security Automation
-    </p>
+        <p class="hero-sub fade fade-1">
+          Cloud · Distributed · Security &nbsp;//&nbsp; AWS · Terraform · Kubernetes · Python &nbsp;//&nbsp; Open <strong>July 2026</strong> — remote, intern or contract
+        </p>
 
-    <div class="hero-metrics fade d3">
-      <div class="hm">
-        <div class="hm-val" data-count="15">0</div>
-        <div class="hm-label">AWS Services</div>
+        <p class="cover-lead fade fade-2">
+          I design and operate cloud infrastructure, build distributed services that survive
+          partial failure, and automate security posture. <strong>Wrapping up a 6-month
+          Cloud Computing internship at TEJASKP AI Software</strong> (on-site, Vadodara —
+          ends Jul 2026) while finishing my B.Tech in CSE with a Cloud Technology &amp;
+          Information Security specialisation.
+        </p>
+
+        <aside class="research-banner fade fade-2" aria-label="Research direction">
+          <span class="rb-eyebrow">Research direction</span>
+          <p class="rb-body">
+            Formal verification of <em>security invariants in distributed cloud systems</em> —
+            independent research preprint (<a href="https://doi.org/10.5281/zenodo.20099386" target="_blank" rel="noopener">Zenodo&nbsp;DOI</a>),
+            building toward an <strong>M.Sc.&nbsp;2027</strong> in cloud security &amp; verified systems.
+          </p>
+        </aside>
+
+        <aside class="wild-banner fade fade-2" aria-label="Recent open source contribution">
+          <span class="wb-eyebrow">In the wild · May 2026</span>
+          <p class="wb-body">
+            Authored &amp; shipped <strong>PR <a href="https://github.com/grafana/alloy-scenarios/pull/147" target="_blank" rel="noopener">#147</a></strong>
+            to <strong>grafana/alloy-scenarios</strong> — a CloudWatch metrics scenario for Grafana&#x2019;s
+            official Alloy examples repo. <em>Merged by Grafana DevRel.</em>
+          </p>
+        </aside>
+
+        <div class="cover-meta fade fade-2">
+          <div class="cm-row">
+            <span class="cm-key">Based</span>
+            <span class="cm-val">Vadodara, IN</span>
+          </div>
+          <div class="cm-row">
+            <span class="cm-key">Avail.</span>
+            <span class="cm-val">Jul 2026</span>
+          </div>
+          <div class="cm-row">
+            <span class="cm-key">Mode</span>
+            <span class="cm-val">Remote · Global</span>
+          </div>
+          <div class="cm-row">
+            <span class="cm-key">CGPA</span>
+            <span class="cm-val">9.44 / 10</span>
+          </div>
+          <div class="cm-row">
+            <span class="cm-key">Stack</span>
+            <span class="cm-val">AWS · TF · K8s</span>
+          </div>
+          <div class="cm-row">
+            <span class="cm-key">Focus</span>
+            <span class="cm-val">Platform · SRE</span>
+          </div>
+        </div>
+
+        <div class="cover-cta fade fade-3">
+          <a href="projects.html" class="btn btn-ink">Read the work →</a>
+          <a href="resume.html" class="btn btn-line">Dossier · CV</a>
+          <a href="https://github.com/UTKARSH698" target="_blank" rel="noopener" class="btn btn-ghost">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2.04c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.7 1.25 3.36.95.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.18A10.97 10.97 0 0 1 12 6.7c.97 0 1.95.13 2.86.39 2.18-1.49 3.15-1.18 3.15-1.18.62 1.58.23 2.75.11 3.04.74.81 1.18 1.84 1.18 3.1 0 4.43-2.7 5.41-5.27 5.7.41.36.78 1.07.78 2.17v3.22c0 .31.21.68.8.56C20.21 21.38 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>
+            GitHub
+          </a>
+        </div>
+
+        <div class="cover-stats fade fade-3">
+          <div class="cs-stat">
+            <span class="cs-num"><span data-count="6">0</span></span>
+            <span class="cs-lbl">Pieces shipped</span>
+          </div>
+          <div class="cs-stat">
+            <span class="cs-num"><span data-count="9.44">0</span></span>
+            <span class="cs-lbl">CGPA / 10</span>
+          </div>
+          <div class="cs-stat">
+            <span class="cs-num"><span data-count="99.9" data-suffix="%">0</span></span>
+            <span class="cs-lbl">Target uptime</span>
+          </div>
+          <div class="cs-stat">
+            <span class="cs-num"><span data-count="24" data-suffix="h">0</span></span>
+            <span class="cs-lbl">Reply window</span>
+          </div>
+        </div>
       </div>
-      <div class="hm">
-        <div class="hm-val">1.1K</div>
-        <div class="hm-label">Req/min peak</div>
+
+      <div class="cover-photo fade fade-2">
+        <img src="my_photo.png" alt="Utkarsh Batham" fetchpriority="high" decoding="async">
       </div>
-      <div class="hm">
-        <div class="hm-val">9.35</div>
-        <div class="hm-label">CGPA</div>
-      </div>
-      <div class="hm">
-        <div class="hm-val" data-count="5">0</div>
-        <div class="hm-label">Systems shipped</div>
-      </div>
-    </div>
-
-    <div class="hero-cta fade d4">
-      <a href="contact.html" class="btn btn-p">Start a Conversation →</a>
-      <a href="projects.html" class="btn btn-o">View Systems</a>
-      <a href="resume.html" class="btn btn-ghost">Resume ↗</a>
-    </div>
-
-  </div>
-
-  <div class="hero-right">
-
-    <!-- macOS-style status bar — green dot glows matching rim light -->
-    <div class="photo-topbar">
-      <span class="ptb-dot ptb-red"></span>
-      <span class="ptb-dot ptb-yellow"></span>
-      <span class="ptb-dot ptb-green"></span>
-      <span class="ptb-title">utkarsh@cloud:~$</span>
-      <span class="ptb-live"><span class="ptb-live-dot"></span>available</span>
-    </div>
-
-    <!-- Portrait — left edge blends into page, bottom fades into chips -->
-    <div class="photo-frame">
-      <img src="my_photo.png" alt="Utkarsh Batham — Cloud Infrastructure & Security Automation Engineer">
-    </div>
-
-    <!-- Corner accents — top-right glows because that's where the rim light is -->
-    <div class="photo-corner-tr"></div>
-    <div class="photo-corner-bl"></div>
-
-    <!-- Floating identity chips — anchored in portrait bottom gradient -->
-    <div class="photo-chips">
-      <div class="chip-row">
-        <span class="chip g-chip"><span class="cd" style="background:var(--g)"></span>AWS Expert</span>
-        <span class="chip g-chip"><span class="cd" style="background:var(--g)"></span>Terraform</span>
-        <span class="chip"><span class="cd" style="background:var(--g2)"></span>Kubernetes</span>
-      </div>
-      <div class="chip-row">
-        <span class="chip"><span class="cd" style="background:#f5c518;box-shadow:0 0 4px rgba(245,197,24,.5)"></span>SAA-C03 · Jul 2026</span>
-        <span class="chip">CGPA 9.35</span>
-        <span class="chip">TEJASKP AI</span>
-      </div>
-      <div class="chip-row">
-        <span class="chip"><span class="cd" style="background:var(--g);box-shadow:0 0 4px rgba(61,255,160,.5)"></span>Remote-Ready · Timezone Flexible</span>
-      </div>
-      <div class="chip-identity">
-        <div class="chip-name">Utkarsh Batham</div>
-        <div class="chip-loc">Cloud Infrastructure Engineer · Vadodara, India</div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ── STRIP ───────────────────────────────────────────────── -->
-<div class="strip">
-  <div class="strip-in">
-    <span class="strip-item"><span class="sd">▶</span> BUILDING — CloudFlow SAGA · 1,100+ req/min</span>
-    <span class="strip-item"><span class="sd">▶</span> AVAILABLE — Full-time remote from Jul 2026</span>
-    <span class="strip-item"><span class="sd">▶</span> STACK — AWS · Terraform · Kubernetes · Python · Docker</span>
-    <span class="strip-item"><span class="sd">▶</span> STUDYING — AWS SAA-C03 · CKA incoming</span>
-    <span class="strip-item"><span class="sd">▶</span> SECURITY — CIS Benchmark v1.5 · Zero-trust · IAM hardening</span>
-    <span class="strip-item"><span class="sd">▶</span> BUILDING — CloudFlow SAGA · 1,100+ req/min</span>
-    <span class="strip-item"><span class="sd">▶</span> AVAILABLE — Full-time remote from Jul 2026</span>
-    <span class="strip-item"><span class="sd">▶</span> STACK — AWS · Terraform · Kubernetes · Python · Docker</span>
-    <span class="strip-item"><span class="sd">▶</span> STUDYING — AWS SAA-C03 · CKA incoming</span>
-    <span class="strip-item"><span class="sd">▶</span> SECURITY — CIS Benchmark v1.5 · Zero-trust · IAM hardening</span>
-  </div>
-</div>
-
-<!-- ── SHIPPED SYSTEMS ─────────────────────────────────────── -->
-<div class="wrap">
-<section class="section">
-  <p class="eyebrow">// shipped</p>
-  <h2 class="st">Systems I've Built</h2>
-
-  <div class="systems fade">
-    <a href="projects.html#cloudflow" class="srow">
-      <span class="sn">01</span>
-      <div><div class="sname">CloudFlow — Distributed SAGA Order System</div><div class="sstack">Python · Step Functions · Lambda · DynamoDB · SQS · CDK · X-Ray · LocalStack</div></div>
-      <span class="smetric">1,100+ req/min · P99 &lt;120ms · 30+ tests</span>
-      <span class="sa">→</span>
-    </a>
-    <a href="projects.html#cloudpulse" class="srow">
-      <span class="sn">02</span>
-      <div><div class="sname">CloudPulse — Real-Time Analytics Platform</div><div class="sstack">Python · Kinesis · S3 · Athena · Terraform · React · Cognito · Glue</div></div>
-      <span class="smetric">Dual-path Lambda Architecture</span>
-      <span class="sa">→</span>
-    </a>
-    <a href="projects.html#cspm" class="srow">
-      <span class="sn">03</span>
-      <div><div class="sname">CSPM — Cloud Security Posture Management</div><div class="sstack">Python · Lambda · EventBridge · SNS · S3 · Terraform · GitHub Actions</div></div>
-      <span class="smetric">CIS Benchmark v1.5 · &lt;5s alerts</span>
-      <span class="sa">→</span>
-    </a>
-    <a href="projects.html#agrifuture" class="srow">
-      <span class="sn">04</span>
-      <div><div class="sname">AgriFuture India — Formal Verification Research</div><div class="sstack">TLA+ · BFS Model Checker · Python · Formal Verification · arXiv</div></div>
-      <span class="smetric">Novel finding · Published</span>
-      <span class="sa">→</span>
-    </a>
-    <a href="projects.html#wikisearch" class="srow">
-      <span class="sn">05</span>
-      <div><div class="sname">Wikipedia Smart Search — RAG QA System</div><div class="sstack">Python · RAG · Vector Search · Embeddings · LLMs · Semantic retrieval</div></div>
-      <span class="smetric">Production RAG pipeline</span>
-      <span class="sa">→</span>
-    </a>
-  </div>
-</section>
-
-<!-- ── STACK ───────────────────────────────────────────────── -->
-<section class="section">
-  <p class="eyebrow">// stack</p>
-  <h2 class="st">Engineering Stack</h2>
-  <div class="stack-grid fade">
-    <div class="si core">☁ AWS</div>
-    <div class="si core">◈ Terraform</div>
-    <div class="si core">🐍 Python</div>
-    <div class="si core">⎈ Kubernetes</div>
-    <div class="si core">🐳 Docker</div>
-    <div class="si core">⚙ GitHub Actions</div>
-    <div class="si">λ Lambda</div>
-    <div class="si">∿ Kinesis</div>
-    <div class="si">◉ DynamoDB</div>
-    <div class="si">◎ S3 / Athena</div>
-    <div class="si">◷ EventBridge</div>
-    <div class="si">◬ CloudWatch</div>
-    <div class="si">◉ X-Ray</div>
-    <div class="si">◈ AWS CDK</div>
-    <div class="si">⎈ Helm</div>
-    <div class="si">◎ LocalStack</div>
-    <div class="si">◉ SNS / SQS</div>
-    <div class="si">◈ IAM / Cognito</div>
-    <div class="si">∿ SAGA Pattern</div>
-    <div class="si">◎ Linux / Bash</div>
-  </div>
-</section>
-
-<!-- ── NOW ─────────────────────────────────────────────────── -->
-<section class="section">
-  <p class="eyebrow">// now</p>
-  <h2 class="st">What's Running Right Now</h2>
-  <div class="now-grid fade">
-    <div class="nc">
-      <div class="nc-lbl"><span class="ndot don"></span> Active</div>
-      <div class="nc-title">Internship → TEJASKP AI SOFTWARE</div>
-      <div class="nc-desc">Finishing 6-month run. CloudFlow, CloudPulse, CSPM delivered. Wrapping up July 2026.</div>
-    </div>
-    <div class="nc">
-      <div class="nc-lbl"><span class="ndot don"></span> Active</div>
-      <div class="nc-title">Job search — global remote only</div>
-      <div class="nc-desc">Cloud infrastructure, platform engineering, security automation. US, EU, APAC. No relocation required.</div>
-    </div>
-    <div class="nc">
-      <div class="nc-lbl"><span class="ndot don"></span> Studying</div>
-      <div class="nc-title">AWS SAA-C03 — exam July 2026</div>
-      <div class="nc-desc">Already deploying prod AWS daily. Certification formalises what's already in production.</div>
-    </div>
-    <div class="nc">
-      <div class="nc-lbl"><span class="ndot dmid"></span> Reading</div>
-      <div class="nc-title">Distributed systems + security depth</div>
-      <div class="nc-desc">Zero-trust architecture, CIS hardening, circuit breakers, idempotency, SAGA patterns.</div>
-    </div>
-    <div class="nc">
-      <div class="nc-lbl"><span class="ndot doff"></span> Next</div>
-      <div class="nc-title">CKA after SAA-C03</div>
-      <div class="nc-desc">Running Kubernetes in production already. CKA makes it official.</div>
-    </div>
-    <div class="nc">
-      <div class="nc-lbl"><span class="ndot doff"></span> Next</div>
-      <div class="nc-title">Open source — CSPM tooling</div>
-      <div class="nc-desc">Contributing to cloud security automation projects. Building in public.</div>
-    </div>
-  </div>
-  <p style="margin-top:.85rem;font-size:.6rem;color:var(--dust)">Last updated: May 2026</p>
-</section>
-
-<!-- ── BUILD LOG PREVIEW ───────────────────────────────────── -->
-<section class="section">
-  <p class="eyebrow">// build log</p>
-  <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2.5rem">
-    <h2 class="st" style="margin:0">Engineering Notes</h2>
-    <a href="notes.html" class="btn btn-ghost" style="font-size:.7rem">View all →</a>
-  </div>
-
-  <div class="log-grid fade">
-    <div class="log-entry">
-      <div class="log-date">May 2026</div>
-      <div class="log-content">
-        <div class="log-title">Why SAGA choreography beats orchestration for microservices</div>
-        <div class="log-desc">Built CloudFlow using choreography — each service reacts to events independently. No central brain. Here's what I learned about failure modes, compensating transactions, and idempotency under load.</div>
-      </div>
-      <a href="notes.html" class="tag g">Cloud</a>
-    </div>
-    <div class="log-entry">
-      <div class="log-date">Apr 2026</div>
-      <div class="log-content">
-        <div class="log-title">CIS Benchmark v1.5 — what actually matters in the IAM section</div>
-        <div class="log-desc">After building a CSPM tool that scans against CIS controls, here's what I found: most teams fail the same 4 IAM checks. The fixes are straightforward. The politics around them are not.</div>
-      </div>
-      <a href="notes.html" class="tag r">Security</a>
-    </div>
-    <div class="log-entry">
-      <div class="log-date">Mar 2026</div>
-      <div class="log-content">
-        <div class="log-title">Terraform state management at scale — the decisions nobody tells you about</div>
-        <div class="log-desc">Remote state, workspaces, state locking, import vs refactor — a write-up of every mistake I made setting up Terraform for a multi-environment AWS setup from scratch.</div>
-      </div>
-      <a href="notes.html" class="tag c">DevOps</a>
     </div>
   </div>
 </section>
 
-<!-- ── TESTIMONIALS ────────────────────────────────────────── -->
-<section class="section">
-  <p class="eyebrow">// proof</p>
-  <h2 class="st">What People Say</h2>
+<!-- ── INSIDE THIS ISSUE — TOC ──────────────────────────── -->
+<section class="toc-section">
+  <div class="wrap">
+    <div class="toc-head fade">
+      <div>
+        <span class="eyebrow"><span class="e-mark"></span><span class="e-num">§ 02</span> Inside this issue</span>
+      </div>
+      <h2 class="display h-display">Eight pieces from <em>this year.</em></h2>
+    </div>
 
-  <div class="test-grid fade">
-    <div class="card g-hover tcard">
-      <p class="tquote">Add your internship manager's quote here — one strong sentence from someone who watched you work beats three paragraphs of self-description every time.</p>
-      <div class="tauthor">
-        <div class="tavatar">TK</div>
-        <div>
-          <div class="tname">Manager, TEJASKP AI SOFTWARE</div>
-          <div class="trole">Cloud Engineering · 2026</div>
+    <div class="toc-list">
+      <a href="projects.html#cloudflow" class="toc-row fade">
+        <span class="toc-num">№ 01</span>
+        <span class="toc-title">CloudFlow — <em>Distributed SAGA for E-Commerce</em></span>
+        <span class="toc-cat">Distributed Systems</span>
+        <span class="toc-folio">PY <span class="dots"></span> AWS</span>
+      </a>
+      <a href="projects.html#cloudpulse" class="toc-row fade">
+        <span class="toc-num">№ 02</span>
+        <span class="toc-title">CloudPulse — <em>Real-Time Serverless Analytics Platform</em></span>
+        <span class="toc-cat">Real-Time Analytics</span>
+        <span class="toc-folio">PY <span class="dots"></span> AWS</span>
+      </a>
+      <a href="projects.html#cspm" class="toc-row fade">
+        <span class="toc-num">№ 03</span>
+        <span class="toc-title">CSPM Agent — <em>Continuous Posture Auditor</em></span>
+        <span class="toc-cat">Security</span>
+        <span class="toc-folio">PY <span class="dots"></span> CIS</span>
+      </a>
+      <a href="projects.html#agrifuture" class="toc-row fade">
+        <span class="toc-num">&numero; 04</span>
+        <span class="toc-title">AgriFuture &mdash; <em>Six-Module Gemini AI Platform</em></span>
+        <span class="toc-cat">AI Platform</span>
+        <span class="toc-folio">TS <span class="dots"></span> GEMINI</span>
+      </a>
+      <a href="projects.html#photo-matcher" class="toc-row fade">
+        <span class="toc-num">&numero; 05</span>
+        <span class="toc-title">AI Photo Matcher &mdash; <em>Selfie-based Event Photo Retrieval</em></span>
+        <span class="toc-cat">AI / Computer Vision</span>
+        <span class="toc-folio">PY <span class="dots"></span> CV</span>
+      </a>
+      <a href="projects.html#wikiqa" class="toc-row fade">
+        <span class="toc-num">&numero; 06</span>
+        <span class="toc-title">WikiQA RAG &mdash; <em>Retrieval-Augmented Question Answering</em></span>
+        <span class="toc-cat">AI / ML</span>
+        <span class="toc-folio">RAG <span class="dots"></span> PY</span>
+      </a>
+      <a href="projects.html#alloy" class="toc-row fade">
+        <span class="toc-num">&numero; 07</span>
+        <span class="toc-title">Grafana Alloy &mdash; <em>CloudWatch scenario, merged upstream</em></span>
+        <span class="toc-cat">Open Source &middot; Observability</span>
+        <span class="toc-folio">PR <span class="dots"></span> #147</span>
+      </a>
+      <a href="projects.html#security-invariants" class="toc-row fade">
+        <span class="toc-num">&numero; 08</span>
+        <span class="toc-title">Security Invariants &mdash; <em>TLA&#x207A;-style formal-verification preprint</em></span>
+        <span class="toc-cat">Research &middot; Formal Methods</span>
+        <span class="toc-folio">DOI <span class="dots"></span> TLC</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── EDITOR'S LETTER ─────────────────────────────────── -->
+<section class="editor-section">
+  <div class="wrap">
+    <div class="editor-grid fade">
+      <div>
+        <span class="eyebrow"><span class="e-mark"></span><span class="e-num">§ 03</span> From the editor</span>
+        <h2 class="display h-section" style="margin-top:1rem">A note on the work.</h2>
+      </div>
+      <div>
+        <div class="editor-letter">
+          <p>I build infrastructure for the moments when it has to keep working — when traffic spikes, when a region goes down, when a payment gateway returns errors at 3am. The interesting engineering isn't in the happy path; it's in what happens after the first failure.</p>
+          <p>This issue collects eight pieces &mdash; six systems I&#x2019;ve shipped, one merged upstream contribution, and one formal-methods preprint. A distributed SAGA orchestrator on AWS Step Functions, a real-time Lambda-architecture analytics platform on AWS Kinesis, a security posture agent that audits AWS accounts against CIS v1.5, a six-module Gemini AI platform with payments and OTP behind a single Express server, an event-photography matcher that returns only the photos a guest appears in by indexing faces with InsightFace, a full retrieval-augmented QA pipeline with source-diversity guarantees and an LLM-as-judge evaluator, a small but real PR into <code>grafana/alloy-scenarios</code> that closed a long-standing local-emulator gap &mdash; and a TLA&#x207A;-style proof that three RBAC security invariants, each correct per service, break under cross-service concurrency.</p>
+          <p>Each one is built to a standard I'd be willing to put on call. The architecture, the trade-offs, and the parts I'd do differently are all written out. If any of it is useful or you want to talk about something similar, the contact page is at the back.</p>
+          <p class="editor-sig">— <span class="sig-name">Utkarsh Batham</span>, Vadodara · 2026</p>
         </div>
       </div>
     </div>
-    <div class="card tcard tpending">
-      <div class="tpending-icon">✉</div>
-      <div class="tpending-text">LOR from academic supervisor<br>arriving next week</div>
-    </div>
-    <div class="card tcard tpending">
-      <div class="tpending-icon">✉</div>
-      <div class="tpending-text">Second recommendation<br>arriving next week</div>
+  </div>
+</section>
+
+<!-- ── STATEMENT OF INTENT ─────────────────────────────── -->
+<section class="intent-section">
+  <div class="wrap">
+    <div class="intent-card fade">
+      <div class="intent-head">
+        <span class="eyebrow"><span class="e-mark"></span><span class="e-num">§ 04</span> Statement of intent</span>
+        <span class="intent-meta">M.Sc. Applications · Fall 2027</span>
+      </div>
+      <p class="intent-body">
+        I want to do an <strong>M.Sc. in computer science</strong> focused on the security and
+        verification of distributed cloud systems — the same territory my independent research
+        opens up. The interesting questions for me sit at the seam between formal methods and
+        production cloud-native architecture: how do we state, enforce, and <em>prove</em>
+        security invariants on systems whose components fail independently? I&#x2019;m looking
+        for groups working on cloud security, policy verification, and distributed-systems
+        reliability — and a programme where the research connects back to the platforms people
+        actually run.
+      </p>
+      <div class="intent-foot">
+        <span class="if-tag">Cloud Security</span>
+        <span class="if-tag">Formal Verification</span>
+        <span class="if-tag">Distributed Systems</span>
+        <span class="if-tag">Policy Enforcement</span>
+      </div>
     </div>
   </div>
 </section>
 
-</div><!-- /wrap -->
+<!-- ── STACK INVENTORY ─────────────────────────────────── -->
+<section class="stack-section">
+  <div class="wrap">
+    <div class="stack-grid fade">
+      <div>
+        <span class="eyebrow"><span class="e-mark"></span><span class="e-num">§ 05</span> Stack inventory</span>
+        <h2 class="display h-section" style="margin-top:1rem">Tools I reach for <em>by reflex.</em></h2>
+        <p class="body-prose" style="margin-top:1rem;font-size:.92rem">Daily-driver tools across cloud, distributed systems, and security. Listed in order of fluency, not preference.</p>
+      </div>
+      <div>
+        <div class="stack-row">
+          <div class="stack-cat"><span class="sc-num">A.</span>Cloud / IaC</div>
+          <div class="stack-vals">AWS <span class="sv-sep">·</span> Terraform <span class="sv-sep">·</span> CloudFormation <span class="sv-sep">·</span> CDK</div>
+        </div>
+        <div class="stack-row">
+          <div class="stack-cat"><span class="sc-num">B.</span>Runtimes</div>
+          <div class="stack-vals">Python 3.11+ <span class="sv-sep">·</span> Go <span class="sv-sep">·</span> Node.js <span class="sv-sep">·</span> Bash</div>
+        </div>
+        <div class="stack-row">
+          <div class="stack-cat"><span class="sc-num">C.</span>Orchestration</div>
+          <div class="stack-vals">Kubernetes <span class="sv-sep">·</span> Docker <span class="sv-sep">·</span> Step Functions <span class="sv-sep">·</span> SQS / SNS</div>
+        </div>
+        <div class="stack-row">
+          <div class="stack-cat"><span class="sc-num">D.</span>Observability</div>
+          <div class="stack-vals">Prometheus <span class="sv-sep">·</span> Grafana <span class="sv-sep">·</span> CloudWatch <span class="sv-sep">·</span> OpenTelemetry</div>
+        </div>
+        <div class="stack-row">
+          <div class="stack-cat"><span class="sc-num">E.</span>Data</div>
+          <div class="stack-vals">DynamoDB <span class="sv-sep">·</span> PostgreSQL <span class="sv-sep">·</span> Redis <span class="sv-sep">·</span> S3</div>
+        </div>
+        <div class="stack-row">
+          <div class="stack-cat"><span class="sc-num">F.</span>CI / CD</div>
+          <div class="stack-vals">GitHub Actions <span class="sv-sep">·</span> ArgoCD <span class="sv-sep">·</span> Trivy <span class="sv-sep">·</span> Checkov</div>
+        </div>
+        <div class="stack-row">
+          <div class="stack-cat"><span class="sc-num">G.</span>Security</div>
+          <div class="stack-vals">CIS Benchmarks <span class="sv-sep">·</span> IAM <span class="sv-sep">·</span> KMS <span class="sv-sep">·</span> AWS Config</div>
+        </div>
+        <div class="stack-row">
+          <div class="stack-cat"><span class="sc-num">H.</span>AI / ML</div>
+          <div class="stack-vals">RAG <span class="sv-sep">·</span> Sentence Transformers <span class="sv-sep">·</span> FAISS <span class="sv-sep">·</span> LangChain</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── BACKGROUND ──────────────────────────────────────── -->
+<section class="editor-section">
+  <div class="wrap">
+    <div class="editor-grid fade">
+      <div>
+        <span class="eyebrow"><span class="e-mark"></span><span class="e-num">§ 06</span> Background</span>
+        <h2 class="display h-section" style="margin-top:1rem">Where I work <em>now</em>, and where I trained.</h2>
+      </div>
+      <div>
+        <div class="entry" style="border-bottom:1px solid var(--rule);padding-bottom:2rem;margin-bottom:2rem">
+          <div class="entry-head">
+            <div class="entry-title">Cloud Computing Intern</div>
+            <div class="entry-date">Jan 2026 — Jul 2026</div>
+          </div>
+          <div class="entry-org">TEJASKP AI Software · Vadodara, India · On-site · 6 months</div>
+          <ul>
+            <li>Team-of-3 builds on full-stack AWS-deployed products for TEJASKP&#x2019;s clients — owned pipelines, backend APIs, and the integration seam between backend and frontend on every engagement.</li>
+            <li>Shipped <strong>WikiQA RAG</strong> (Wikipedia-grounded QA · FAISS + cross-encoder + multi-LLM) and <strong>AI Photo Matcher</strong> (InsightFace event-photo recognition); currently building a trader dashboard &amp; stock-prediction system.</li>
+            <li>Stack across engagements: FastAPI, PostgreSQL, S3, JWT auth, Prometheus, Razorpay; FAISS / Pinecone, InsightFace, sentence-transformers, cross-encoder re-rank.</li>
+          </ul>
+        </div>
+        <div class="entry">
+          <div class="entry-head">
+            <div class="entry-title">B.Tech · Computer Science Engineering <span style="color:var(--ink-3);font-weight:400">— Cloud Technology &amp; Information Security</span></div>
+            <div class="entry-date">2022 — 2026</div>
+          </div>
+          <div class="entry-org">ITM Vocational University, Gujarat · CGPA 9.44 / 10</div>
+          <ul>
+            <li>Coursework in distributed systems, cryptography, cloud architecture, IaC, network security.</li>
+            <li>Independent research preprint: <em>Security Invariants in Distributed Cloud Systems</em> — <a href="https://doi.org/10.5281/zenodo.20099386" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:underline;text-underline-offset:3px">Zenodo, May 2026</a>.</li>
+            <li><strong>GATE 2026 — CS</strong> · Score 522 · 97<sup>th</sup> percentile · AIR 6,271 / 211,020.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── DEPARTMENTS ─────────────────────────────────────── -->
+<section class="toc-section" style="border-bottom:none">
+  <div class="wrap">
+    <div class="toc-head fade" style="margin-bottom:2.25rem">
+      <div>
+        <span class="eyebrow"><span class="e-mark"></span><span class="e-num">§ 07</span> Departments</span>
+      </div>
+      <h2 class="display h-section">Continue reading.</h2>
+    </div>
+
+    <div class="depts fade">
+      <a href="projects.html" class="dept">
+        <span class="dept-num">№ 02</span>
+        <h3 class="dept-title">Work</h3>
+        <p class="dept-desc">Eight features — six shipped systems, a merged OSS PR, and a formal-verification preprint. Architecture diagrams, trade-offs, and the parts I&#x2019;d build differently today.</p>
+        <span class="dept-link">Read the work →</span>
+      </a>
+      <a href="notes.html" class="dept">
+        <span class="dept-num">№ 03</span>
+        <h3 class="dept-title">Dispatches</h3>
+        <p class="dept-desc">Short technical notes — what broke, what I learned, and what I'm currently reading.</p>
+        <span class="dept-link">Open dispatches →</span>
+      </a>
+      <a href="contact.html" class="dept">
+        <span class="dept-num">№ 05</span>
+        <h3 class="dept-title">Contact</h3>
+        <p class="dept-desc">For roles, contracts, collaborations, or just a conversation. Reply within 24 hours.</p>
+        <span class="dept-link">Write a letter →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
 </main>
 
-<footer class="footer">
-  <div class="footer-in">
-    <span>© 2026 Utkarsh Batham</span>
-    <div style="display:flex;gap:1.5rem">
-      <a href="https://github.com/UTKARSH698" target="_blank">GitHub</a>
-      <a href="https://www.linkedin.com/in/utkarsh-batham-531913247" target="_blank">LinkedIn</a>
-      <a href="notes.html">Build Log</a>
-      <a href="sitemap.xml">Sitemap</a>
+<footer class="colophon">
+  <div class="colophon-grid">
+    <div class="colophon-brand">
+      <h4>Utkarsh Batham</h4>
+      <p>Cloud infrastructure &amp; security automation engineer. Designing systems that survive contact with real traffic. Vadodara, India — open to remote roles globally.</p>
+      <span class="imp">Vol. 2026 · Issue 06 · Folio 01</span>
     </div>
-    <span>Gujarat · Remote-Ready 🌍</span>
+    <div class="colophon-col">
+      <h5>Sections</h5>
+      <a href="index.html">01 — Cover</a>
+      <a href="projects.html">02 — Work</a>
+      <a href="notes.html">03 — Dispatches</a>
+      <a href="resume.html">04 — Dossier</a>
+      <a href="contact.html">05 — Contact</a>
+    </div>
+    <div class="colophon-col">
+      <h5>Elsewhere</h5>
+      <a href="https://github.com/UTKARSH698" target="_blank" rel="noopener">GitHub ↗</a>
+      <a href="https://www.linkedin.com/in/utkarsh-batham-531913247" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a href="mailto:udaydeepak1928@gmail.com">Email</a>
+    </div>
+    <div class="colophon-col">
+      <h5>Colophon</h5>
+      <p style="font-size:.78rem;color:var(--ink-3);line-height:1.55;margin:0">Set in <em>Fraunces</em> &amp; <em>Inter</em>. Hand-written HTML &amp; CSS. Maintained from Vadodara, India.</p>
+    </div>
+  </div>
+  <div class="colophon-foot">
+    <span>© 2026 Utkarsh Batham</span>
+    <span>Last revised · Jun 2026</span>
+    <span>Vol. 2026 · Issue 06</span>
   </div>
 </footer>
 
-<button class="scroll-top" id="scroll-top">↑</button>
+<button class="scroll-top" id="scroll-top" aria-label="Scroll to top">↑</button>
 <script src="shared.js"></script>
 </body>
 </html>

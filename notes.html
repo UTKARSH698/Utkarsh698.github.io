@@ -3,315 +3,375 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Build Log — Utkarsh Batham</title>
-<meta name="description" content="Engineering notes, build logs, and technical write-ups by Utkarsh Batham. Cloud infrastructure, distributed systems, platform engineering, security automation.">
-<meta property="og:title" content="Build Log — Utkarsh Batham">
-<meta property="og:image" content="https://utkarsh698.github.io/og-image.png">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<title>Dispatches — Utkarsh Batham · Vol. 2026</title>
+<meta name="description" content="Short technical notes by Utkarsh Batham — distributed systems, cloud reliability, security automation, things that broke.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23ede6d6'/><rect x='25' y='25' width='50' height='50' fill='%23b8410e'/></svg>">
 <link rel="stylesheet" href="style.css">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-DZ48W4D1EW"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-DZ48W4D1EW');</script>
-<style>
-.page-hero {
-  padding: calc(var(--nav-h) + 4.5rem) 0 3rem;
-  border-bottom: 1px solid var(--line);
-}
-.page-hero h1 {
-  font-family: var(--sans);
-  font-size: clamp(2.5rem, 6vw, 5rem);
-  font-weight: 800; letter-spacing: -.04em;
-  color: var(--bright); line-height: .92;
-  margin-bottom: 1rem;
-}
-.page-hero p { font-size: .85rem; color: var(--muted); max-width: 480px; line-height: 1.8; }
-
-/* Status bar */
-.log-status {
-  display: flex; align-items: center; gap: 1.5rem;
-  padding: .85rem 1.25rem;
-  background: var(--ink2); border: 1px solid var(--line);
-  border-radius: 5px; margin: 2rem 0;
-  font-size: .68rem; flex-wrap: wrap;
-}
-.ls-item { display:flex; align-items:center; gap:.45rem; color:var(--muted); }
-.ls-dot { width:5px;height:5px;border-radius:50%;background:var(--g); }
-.ls-dot.idle { background:var(--g2); }
-
-/* Tag filter */
-.tag-bar { display:flex; gap:.4rem; flex-wrap:wrap; margin-bottom:2.5rem; padding-top:1.5rem; }
-.tb {
-  font-family:var(--mono); font-size:.62rem;
-  padding:.22rem .65rem; border:1px solid var(--line);
-  background:transparent; color:var(--muted);
-  border-radius:3px; cursor:pointer;
-  transition:all .15s; letter-spacing:.05em; text-transform:uppercase;
-}
-.tb:hover{border-color:var(--line2);color:var(--text)}
-.tb.on{border-color:var(--g);color:var(--g);background:var(--glow2)}
-
-/* Note cards */
-.notes-grid { display:flex; flex-direction:column; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:6px; overflow:hidden; margin-bottom:3rem; }
-
-.note-card {
-  background: var(--ink);
-  display: grid;
-  grid-template-columns: 120px 1fr auto;
-  gap: 1.5rem;
-  padding: 1.4rem 1.75rem;
-  transition: background .15s;
-  cursor: pointer;
-  position: relative;
-}
-.note-card::before {
-  content: '';
-  position: absolute; left: 0; top: 0; bottom: 0;
-  width: 0; transition: width .2s var(--e);
-}
-.note-card.cloud::before { background: var(--g); }
-.note-card.security::before { background: var(--g3); }
-.note-card.devops::before { background: var(--g2); }
-.note-card.research::before { background: #a78bfa; }
-.note-card:hover { background: var(--ink2); }
-.note-card:hover::before { width: 2px; }
-
-.nc-meta { padding-top: .15rem; }
-.nc-date { font-size: .62rem; color: var(--muted); margin-bottom: .35rem; }
-.nc-reading { font-size: .58rem; color: var(--dust); display: flex; align-items: center; gap: .3rem; }
-
-.nc-body {}
-.nc-title { font-family: var(--sans); font-size: .95rem; font-weight: 600; color: var(--bright); margin-bottom: .4rem; line-height: 1.3; }
-.nc-excerpt { font-size: .72rem; color: var(--muted); line-height: 1.75; }
-.nc-tags { display:flex; gap:.35rem; margin-top: .65rem; flex-wrap:wrap; }
-
-.nc-arrow { color: var(--dust); font-size: .8rem; align-self: center; transition: color .15s; }
-.note-card:hover .nc-arrow { color: var(--g); }
-
-/* Coming soon notes */
-.note-card.placeholder { opacity: .55; cursor: default; }
-.note-card.placeholder:hover { background: var(--ink); }
-.note-card.placeholder::before { display: none; }
-.nc-wip { font-size: .58rem; color: var(--stone); border: 1px dashed var(--dust); padding: .15rem .45rem; border-radius: 3px; margin-left: .5rem; display: inline-block; vertical-align: middle; }
-
-/* Currently writing section */
-.writing-now {
-  background: var(--ink2); border: 1px solid var(--line);
-  border-radius: 6px; padding: 1.5rem;
-  margin-bottom: 3rem;
-}
-.wn-title { font-size:.6rem; color:var(--g); text-transform:uppercase; letter-spacing:.15em; margin-bottom:1rem; display:flex; align-items:center; gap:.5rem; }
-.wn-title::after { content: ''; flex:1; height:1px; background:var(--line); }
-.wn-items { display:flex; flex-direction:column; gap:.65rem; }
-.wn-item { display:flex; align-items:center; gap:.85rem; font-size:.78rem; }
-.wn-status { width:6px; height:6px; border-radius:50%; flex-shrink:0; }
-.wn-name { color: var(--text); flex: 1; }
-.wn-pct { font-size:.65rem; color:var(--muted); font-family:var(--mono); }
-.wn-bar { flex:0 0 80px; height:3px; background:var(--ink4); border-radius:2px; overflow:hidden; }
-.wn-fill { height:100%; background:var(--g); border-radius:2px; }
-
-@media(max-width:700px){
-  .note-card{grid-template-columns:1fr}
-  .nc-arrow{display:none}
-  .nc-meta{display:flex;gap:.75rem;align-items:center}
-}
-</style>
 </head>
 <body>
 
-<nav class="nav">
-  <a href="index.html" class="nav-logo"><span class="d">~/</span>utkarsh<span class="d">.dev</span><span class="cursor-blink"></span></a>
-  <ul class="nav-links">
-    <li><a href="projects.html">Projects</a></li>
-    <li><a href="notes.html">Build Log</a></li>
-    <li><a href="resume.html">Resume</a></li>
-    <li><a href="https://github.com/UTKARSH698" target="_blank">GitHub ↗</a></li>
-    <li><a href="contact.html" class="hire">Hire Me</a></li>
-  </ul>
-  <div class="nav-r">
-    <button class="nav-icon" id="theme-btn">◑</button>
-    <button class="nav-icon ham" id="ham"><span></span><span></span><span></span></button>
+<nav class="masthead">
+  <div class="masthead-in">
+    <a href="index.html" class="wordmark">
+      <span class="wm-mark"></span>
+      Utkarsh Batham
+      <span class="wm-sub">Vol. 2026</span>
+    </a>
+    <ul class="nav-index">
+      <li><a href="index.html"><span class="num">01</span>Cover</a></li>
+      <li><a href="projects.html"><span class="num">02</span>Work</a></li>
+      <li><a href="notes.html"><span class="num">03</span>Dispatches</a></li>
+      <li><a href="resume.html"><span class="num">04</span>Dossier</a></li>
+      <li><a href="contact.html"><span class="num">05</span>Contact</a></li>
+    </ul>
+    <div class="masthead-r">
+      <button class="icon-btn" id="theme-btn" aria-label="Toggle theme">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+      <button class="icon-btn ham" id="ham" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </nav>
 <div class="nav-drawer" id="nav-drawer" style="display:none">
   <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="projects.html">Projects</a></li>
-    <li><a href="notes.html">Build Log</a></li>
-    <li><a href="resume.html">Resume</a></li>
-    <li><a href="contact.html">Hire Me</a></li>
+    <li><a href="index.html"><span class="num">01</span>Cover</a></li>
+    <li><a href="projects.html"><span class="num">02</span>Work</a></li>
+    <li><a href="notes.html"><span class="num">03</span>Dispatches</a></li>
+    <li><a href="resume.html"><span class="num">04</span>Dossier</a></li>
+    <li><a href="contact.html"><span class="num">05</span>Contact</a></li>
   </ul>
 </div>
 
 <main>
+
+<header class="folio-head">
+  <div class="wrap">
+    <div class="folio-meta">
+      <span><span class="fm-l">Folio 03</span> · The Dispatches</span>
+      <span>Vol. 2026 · Issue 06</span>
+      <span>1 published · 3 outlines · 3 drafts</span>
+    </div>
+
+    <h1 class="display h-display-lg fade">Dispatches<br>from the <em>build log.</em></h1>
+    <p class="lead fade fade-1" style="margin-top:2rem;max-width:62ch">
+      Short, dated notes — what broke, what I learned, what I&#x2019;m currently reading.
+      The infrastructure equivalent of a field journal.
+    </p>
+
+    <div class="filters fade fade-2">
+      <button class="filter-pill active" data-filter="all">All <span class="fp-num">07</span></button>
+      <button class="filter-pill" data-filter="oss">Open Source <span class="fp-num">01</span></button>
+      <button class="filter-pill" data-filter="cloud">Cloud <span class="fp-num">02</span></button>
+      <button class="filter-pill" data-filter="security">Security <span class="fp-num">01</span></button>
+      <button class="filter-pill" data-filter="devops">DevOps <span class="fp-num">01</span></button>
+      <button class="filter-pill" data-filter="research">Research <span class="fp-num">01</span></button>
+      <button class="filter-pill" data-filter="distributed">Distributed <span class="fp-num">01</span></button>
+    </div>
+  </div>
+</header>
+
 <div class="wrap">
 
-  <div class="page-hero fade">
-    <p class="eyebrow">// build log</p>
-    <h1>Engineering Notes</h1>
-    <p>Things I've learned building distributed systems, debugging production failures, and figuring out what CIS Benchmark controls actually mean in practice.</p>
-  </div>
+<!-- ── PUBLISHED ──────────────────────────────────────── -->
+<section class="dossier-sec">
+  <h2><span class="ds-num">§ 01</span> Published <span class="ds-cnt">— 1 dispatch</span></h2>
 
-  <div class="log-status fade">
-    <div class="ls-item"><span class="ls-dot"></span> 3 published</div>
-    <div class="ls-item"><span class="ls-dot idle"></span> 3 in progress</div>
-    <div class="ls-item" style="color:var(--dust)">Last post: May 2026</div>
-    <div class="ls-item" style="margin-left:auto;color:var(--dust);font-size:.6rem">Updated as I build and learn</div>
-  </div>
+  <article class="dispatch dispatch-full fade" data-cat="oss cloud devops" id="alloy-endpoint">
+    <div class="dispatch-num">№ 01</div>
+    <div class="dispatch-main">
+      <div class="dispatch-meta">
+        <span class="dm-cat">Open Source · Observability</span>
+        <span>May 13, 2026 · 7 min read</span>
+      </div>
+      <h3>The <code>AWS_ENDPOINT_URL</code> seam — <em>or, why my Grafana Alloy PR took twice as long as I expected.</em></h3>
+      <p class="dispatch-deck">
+        Notes from shipping <a href="https://github.com/grafana/alloy-scenarios/pull/147" target="_blank" rel="noopener">PR&nbsp;#147</a>
+        to <strong>grafana/alloy-scenarios</strong> — a CloudWatch metrics scenario that
+        runs without a real AWS account. The Alloy config wasn&#x2019;t the hard part. The
+        hard part was a seam between two layers of AWS&#x2019;s own SDK that nothing in the
+        Alloy docs warns you about.
+      </p>
 
-  <!-- Currently writing -->
-  <div class="writing-now fade">
-    <div class="wn-title">Currently writing</div>
-    <div class="wn-items">
-      <div class="wn-item">
-        <span class="wn-status" style="background:var(--g)"></span>
-        <span class="wn-name">Kubernetes resource limits — what happens when you get them wrong</span>
-        <div class="wn-bar"><div class="wn-fill" style="width:75%"></div></div>
-        <span class="wn-pct">75%</span>
+      <div class="dispatch-body">
+        <p>
+          The scenario is small on paper. LocalStack on port 4566 pretending to be CloudWatch
+          and STS. A Python <code>boto3</code> seeder pushing <em>AWS/EC2 CPUUtilization</em>
+          metrics every 30 seconds so there&#x2019;s a signal to scrape. Grafana Alloy
+          configured with <code>prometheus.exporter.cloudwatch</code>, pointed at LocalStack
+          instead of real AWS. Prometheus scrapes Alloy. End-to-end metrics visible in ~90
+          seconds.
+        </p>
+
+        <h4>Where it broke</h4>
+        <p>
+          Alloy&#x2019;s CloudWatch exporter is a thin wrapper over <em>YACE</em> (Yet Another
+          CloudWatch Exporter). YACE in turn talks to AWS through the standard AWS SDK for Go.
+          Neither YACE nor the Alloy block exposes an <code>endpoint-url</code> flag the way
+          the AWS CLI does. The block accepts a region and a set of credentials and then
+          trusts the SDK to do the right thing.
+        </p>
+        <p>
+          The trick — undocumented in Alloy&#x2019;s reference, but baked into the SDK since
+          v1 — is that <strong>the AWS Go SDK reads an environment variable called
+          <code>AWS_ENDPOINT_URL</code></strong> and routes <em>every</em> outgoing API call
+          through that endpoint when set. Pass it through the container environment and
+          suddenly the YACE-shaped Alloy block is happily querying LocalStack, with no
+          patches to YACE and no fork of Alloy.
+        </p>
+        <p>
+          The seeder needs the same variable for the same reason: <code>boto3</code> reads
+          <code>AWS_ENDPOINT_URL</code> too. If you set it on one container and forget it on
+          the other, you get a quiet half-broken system — LocalStack receives no metrics,
+          but Alloy queries succeed (with an empty result set), and Prometheus shows healthy
+          scrapes with zero series. The failure looks like a config typo, but it&#x2019;s
+          actually two services living in two different versions of reality.
+        </p>
+
+        <h4>What the scenario does about it</h4>
+        <p>
+          One variable, declared once at the top of <code>docker-compose.yml</code>, threaded
+          into <em>both</em> the Alloy container and the seeder container. A short paragraph
+          in the README explaining why — because the next contributor will hit this exact
+          seam, and there&#x2019;s no point making them re-derive it.
+        </p>
+        <p>
+          The whole PR is six small files. The interesting work was an hour of reading SDK
+          source to confirm <code>AWS_ENDPOINT_URL</code> is the right hook (as opposed to
+          something more invasive like a custom HTTP client) and another hour verifying that
+          both YACE-via-Alloy and <code>boto3</code> honour it identically. Merged by Grafana
+          DevRel with all 12 CI checks green: <a href="https://github.com/grafana/alloy-scenarios/pull/147" target="_blank" rel="noopener">PR #147</a>.
+        </p>
+
+        <h4>The lesson, generalised</h4>
+        <p>
+          When a thing &quot;just needs an endpoint override,&quot; check whether the
+          underlying SDK already has an override mechanism before you reach for a wrapper,
+          a fork, or a patch. The AWS SDKs in particular have at least three layers of
+          configuration (env var → shared config → per-call client option) and they tend to
+          merge in surprising ways. The cheapest fix is almost always the lowest one in that
+          stack that does what you need — anything higher up is a code change someone has
+          to maintain.
+        </p>
+        <p>
+          The scenario is now live at
+          <a href="https://github.com/grafana/alloy-scenarios/tree/main/cloudwatch-metrics" target="_blank" rel="noopener">
+            grafana/alloy-scenarios/cloudwatch-metrics</a>
+          — clone it and you&#x2019;ll have a working CloudWatch-to-Prometheus pipeline
+          running locally in roughly the time it takes to read this post.
+        </p>
       </div>
-      <div class="wn-item">
-        <span class="wn-status" style="background:var(--g2)"></span>
-        <span class="wn-name">EventBridge vs CloudWatch Events — the differences that matter</span>
-        <div class="wn-bar"><div class="wn-fill" style="width:40%;background:var(--g2)"></div></div>
-        <span class="wn-pct">40%</span>
+
+      <div class="dispatch-tags">
+        <span class="tag tag-accent">Grafana Alloy</span>
+        <span class="tag">CloudWatch</span>
+        <span class="tag">LocalStack</span>
+        <span class="tag">AWS SDK</span>
+        <span class="tag">YACE</span>
+        <span class="tag">Open Source</span>
       </div>
-      <div class="wn-item">
-        <span class="wn-status" style="background:var(--dust)"></span>
-        <span class="wn-name">Idempotency in Lambda — patterns and when each breaks</span>
-        <div class="wn-bar"><div class="wn-fill" style="width:15%;background:var(--dust)"></div></div>
-        <span class="wn-pct">15%</span>
+    </div>
+  </article>
+</section>
+
+<!-- ── ON DECK — OUTLINES ─────────────────────────────── -->
+<section class="dossier-sec">
+  <h2><span class="ds-num">§ 02</span> On deck <span class="ds-cnt">— 3 outlines, unpublished</span></h2>
+  <p class="body-prose" style="margin:.25rem 0 1.5rem;max-width:62ch;font-size:.92rem;color:var(--ink-2)">
+    Decks I&#x2019;ve worked out enough to commit to writing. Listed here so the topic and
+    angle are public; full posts ship after the first one is finished and reviewed.
+  </p>
+
+  <article class="dispatch fade" data-cat="distributed cloud">
+    <div class="dispatch-num">№ 01</div>
+    <div class="dispatch-main">
+      <div class="dispatch-meta">
+        <span class="dm-cat">Distributed Systems</span>
+        <span>Planned · Outline complete</span>
       </div>
+      <h3>What I learned shipping a SAGA — <em>in production, with money.</em></h3>
+      <p class="dispatch-deck">
+        SAGA looks tidy in the textbook and unfamiliar at 2am. Notes on idempotency, partial failure of the orchestrator itself, and the four bugs you only see under concurrent load.
+      </p>
+      <div class="dispatch-tags">
+        <span class="tag tag-accent">SAGA</span>
+        <span class="tag">DynamoDB</span>
+        <span class="tag">Step Functions</span>
+        <span class="tag">Postmortem</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="dispatch fade" data-cat="security cloud">
+    <div class="dispatch-num">№ 02</div>
+    <div class="dispatch-main">
+      <div class="dispatch-meta">
+        <span class="dm-cat">Cloud Security</span>
+        <span>Planned · Outline complete</span>
+      </div>
+      <h3>Reading the CIS AWS Foundations Benchmark <em>as a system.</em></h3>
+      <p class="dispatch-deck">
+        The CIS controls aren't a checklist; they're a model of failure modes. Which ones cost most to implement, which ones cost most to skip, and where the standard is honestly out of date.
+      </p>
+      <div class="dispatch-tags">
+        <span class="tag tag-accent">CIS</span>
+        <span class="tag">CSPM</span>
+        <span class="tag">IAM</span>
+        <span class="tag">Benchmarks</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="dispatch fade" data-cat="devops cloud">
+    <div class="dispatch-num">№ 03</div>
+    <div class="dispatch-main">
+      <div class="dispatch-meta">
+        <span class="dm-cat">DevOps</span>
+        <span>Planned · Outline complete</span>
+      </div>
+      <h3>Terraform state is the contract — <em>treat it that way.</em></h3>
+      <p class="dispatch-deck">
+        How I split state files for a multi-environment AWS landing zone, the backup story, and why <code>terraform import</code> still owns a non-trivial fraction of my Mondays.
+      </p>
+      <div class="dispatch-tags">
+        <span class="tag tag-accent">Terraform</span>
+        <span class="tag">IaC</span>
+        <span class="tag">AWS</span>
+        <span class="tag">State</span>
+      </div>
+    </div>
+  </article>
+</section>
+
+<!-- ── IN PROGRESS ────────────────────────────────────── -->
+<section class="dossier-sec fade">
+  <h2><span class="ds-num">§ 03</span> In progress <span class="ds-cnt">— 3 drafts</span></h2>
+
+  <div class="progress-row">
+    <div>
+      <div class="progress-title">Tuning Kubernetes resource limits without the spreadsheet</div>
+      <small>Cloud · Kubernetes — Drafting</small>
+    </div>
+    <div>
+      <div class="progress-bar"><span style="width:75%"></span></div>
+      <div class="progress-pct">75 %</div>
     </div>
   </div>
 
-  <div class="tag-bar">
-    <button class="tb on" data-t="all">All</button>
-    <button class="tb" data-t="cloud">Cloud</button>
-    <button class="tb" data-t="security">Security</button>
-    <button class="tb" data-t="devops">DevOps</button>
-    <button class="tb" data-t="research">Research</button>
+  <div class="progress-row">
+    <div>
+      <div class="progress-title">EventBridge for event-driven security automation</div>
+      <small>Security · Cloud — Outlining</small>
+    </div>
+    <div>
+      <div class="progress-bar"><span style="width:40%"></span></div>
+      <div class="progress-pct">40 %</div>
+    </div>
   </div>
 
-  <div class="notes-grid fade">
-
-    <!-- Published -->
-    <div class="note-card cloud" data-tag="cloud">
-      <div class="nc-meta">
-        <div class="nc-date">May 2026</div>
-        <div class="nc-reading">⏱ 6 min read</div>
-      </div>
-      <div class="nc-body">
-        <div class="nc-title">Why SAGA choreography beats orchestration for microservices</div>
-        <p class="nc-excerpt">Built CloudFlow using choreography — each service reacts to events independently. No central brain. Here's what I learned about failure modes, compensating transactions, and idempotency under load at 1,100+ req/min.</p>
-        <div class="nc-tags">
-          <span class="tag g">Cloud</span>
-          <span class="tag">Distributed Systems</span>
-          <span class="tag">SAGA</span>
-        </div>
-      </div>
-      <span class="nc-arrow">→</span>
+  <div class="progress-row">
+    <div>
+      <div class="progress-title">Notes on writing a TLA+ spec for a payment SAGA</div>
+      <small>Research · Distributed — Reading</small>
     </div>
-
-    <div class="note-card security" data-tag="security">
-      <div class="nc-meta">
-        <div class="nc-date">Apr 2026</div>
-        <div class="nc-reading">⏱ 8 min read</div>
-      </div>
-      <div class="nc-body">
-        <div class="nc-title">CIS Benchmark v1.5 — what actually matters in the IAM section</div>
-        <p class="nc-excerpt">After building a CSPM tool that scans against CIS controls, here's what I found: most teams fail the same 4 IAM checks. The fixes are straightforward. The organisational politics around implementing them are not.</p>
-        <div class="nc-tags">
-          <span class="tag r">Security</span>
-          <span class="tag">IAM</span>
-          <span class="tag">CIS</span>
-        </div>
-      </div>
-      <span class="nc-arrow">→</span>
+    <div>
+      <div class="progress-bar"><span style="width:15%"></span></div>
+      <div class="progress-pct">15 %</div>
     </div>
-
-    <div class="note-card devops" data-tag="devops">
-      <div class="nc-meta">
-        <div class="nc-date">Mar 2026</div>
-        <div class="nc-reading">⏱ 10 min read</div>
-      </div>
-      <div class="nc-body">
-        <div class="nc-title">Terraform state management at scale — the decisions nobody tells you about</div>
-        <p class="nc-excerpt">Remote state, workspaces, state locking, import vs refactor — a write-up of every mistake I made setting up Terraform for a multi-environment AWS setup from scratch. Some of these cost hours.</p>
-        <div class="nc-tags">
-          <span class="tag c">DevOps</span>
-          <span class="tag">Terraform</span>
-          <span class="tag">IaC</span>
-        </div>
-      </div>
-      <span class="nc-arrow">→</span>
-    </div>
-
-    <!-- In progress / placeholders -->
-    <div class="note-card cloud placeholder" data-tag="cloud">
-      <div class="nc-meta">
-        <div class="nc-date">Coming soon</div>
-      </div>
-      <div class="nc-body">
-        <div class="nc-title">Kubernetes resource limits — what happens when you get them wrong <span class="nc-wip">in progress</span></div>
-        <p class="nc-excerpt">OOMKilled pods, throttled CPUs, and why setting limits too tight is almost as bad as not setting them at all.</p>
-        <div class="nc-tags"><span class="tag">Kubernetes</span><span class="tag">DevOps</span></div>
-      </div>
-      <span class="nc-arrow">→</span>
-    </div>
-
-    <div class="note-card devops placeholder" data-tag="devops">
-      <div class="nc-meta">
-        <div class="nc-date">Coming soon</div>
-      </div>
-      <div class="nc-body">
-        <div class="nc-title">EventBridge vs CloudWatch Events — the differences that actually matter <span class="nc-wip">in progress</span></div>
-        <p class="nc-excerpt">They look the same. They're not. A guide to when to use which — and what breaks when you pick wrong.</p>
-        <div class="nc-tags"><span class="tag">AWS</span><span class="tag c">DevOps</span></div>
-      </div>
-      <span class="nc-arrow">→</span>
-    </div>
-
-    <div class="note-card research placeholder" data-tag="research">
-      <div class="nc-meta">
-        <div class="nc-date">Coming soon</div>
-      </div>
-      <div class="nc-body">
-        <div class="nc-title">What TLA+ taught me about distributed system correctness <span class="nc-wip">in progress</span></div>
-        <p class="nc-excerpt">How writing a formal spec for AgriFuture India changed the way I think about race conditions in every system I build.</p>
-        <div class="nc-tags"><span class="tag">Research</span><span class="tag">Formal Methods</span></div>
-      </div>
-      <span class="nc-arrow">→</span>
-    </div>
-
   </div>
+</section>
+
+<!-- ── CURRENTLY READING ─────────────────────────────── -->
+<section class="dossier-sec fade">
+  <h2><span class="ds-num">§ 04</span> Currently reading <span class="ds-cnt">— field stack</span></h2>
+  <div class="stack-grid">
+    <div>
+      <p class="body-prose" style="font-size:.92rem">A rotating shelf of papers, posts, and books I'm working through this quarter — mostly distributed systems and reliability.</p>
+    </div>
+    <div>
+      <div class="stack-row">
+        <div class="stack-cat"><span class="sc-num">a.</span>Books</div>
+        <div class="stack-vals">Designing Data-Intensive Applications <span class="sv-sep">·</span> SRE Workbook</div>
+      </div>
+      <div class="stack-row">
+        <div class="stack-cat"><span class="sc-num">b.</span>Papers</div>
+        <div class="stack-vals">Sagas (Garcia-Molina, '87) <span class="sv-sep">·</span> Calvin (Thomson, '12)</div>
+      </div>
+      <div class="stack-row">
+        <div class="stack-cat"><span class="sc-num">c.</span>Online</div>
+        <div class="stack-vals">Marc Brooker's blog <span class="sv-sep">·</span> Fly.io engineering posts</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ───────────────────────────────────────────── -->
+<section class="editor-section" style="text-align:center;border-bottom:none">
+  <span class="eyebrow"><span class="e-mark"></span><span class="e-num">§ 99</span> End of issue</span>
+  <h2 class="display h-display" style="margin:1.5rem 0 1rem">Want the <em>next</em> dispatch in your inbox?</h2>
+  <p class="body-prose" style="margin:0 auto 2rem">No newsletter yet — but a thoughtful email gets a thoughtful reply.</p>
+  <div style="display:flex;justify-content:center;gap:.65rem;flex-wrap:wrap">
+    <a href="contact.html" class="btn btn-ink">Write a letter →</a>
+    <a href="projects.html" class="btn btn-line">Read the work</a>
+  </div>
+</section>
 
 </div>
+
 </main>
 
-<footer class="footer">
-  <div class="footer-in">
-    <span>© 2026 Utkarsh Batham</span>
-    <div style="display:flex;gap:1.5rem">
-      <a href="index.html">Home</a>
-      <a href="projects.html">Projects</a>
-      <a href="contact.html">Contact</a>
+<footer class="colophon">
+  <div class="colophon-grid">
+    <div class="colophon-brand">
+      <h4>Utkarsh Batham</h4>
+      <p>Cloud infrastructure &amp; security automation engineer. Designing systems that survive contact with real traffic. Vadodara, India — open to remote roles globally.</p>
+      <span class="imp">Vol. 2026 · Issue 06 · Folio 03</span>
     </div>
-    <span>Gujarat · Remote-Ready 🌍</span>
+    <div class="colophon-col">
+      <h5>Sections</h5>
+      <a href="index.html">01 — Cover</a>
+      <a href="projects.html">02 — Work</a>
+      <a href="notes.html">03 — Dispatches</a>
+      <a href="resume.html">04 — Dossier</a>
+      <a href="contact.html">05 — Contact</a>
+    </div>
+    <div class="colophon-col">
+      <h5>Elsewhere</h5>
+      <a href="https://github.com/UTKARSH698" target="_blank" rel="noopener">GitHub ↗</a>
+      <a href="https://www.linkedin.com/in/utkarsh-batham-531913247" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a href="mailto:udaydeepak1928@gmail.com">Email</a>
+    </div>
+    <div class="colophon-col">
+      <h5>Colophon</h5>
+      <p style="font-size:.78rem;color:var(--ink-3);line-height:1.55;margin:0">Set in <em>Fraunces</em> &amp; <em>Inter</em>. Hand-written HTML &amp; CSS. Maintained from Vadodara, India.</p>
+    </div>
+  </div>
+  <div class="colophon-foot">
+    <span>© 2026 Utkarsh Batham</span>
+    <span>Last revised · Jun 2026</span>
+    <span>Vol. 2026 · Issue 06</span>
   </div>
 </footer>
 
-<button class="scroll-top" id="scroll-top">↑</button>
+<button class="scroll-top" id="scroll-top" aria-label="Scroll to top">↑</button>
 <script src="shared.js"></script>
 <script>
-document.querySelectorAll('.tb').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    document.querySelectorAll('.tb').forEach(b=>b.classList.remove('on'));
-    btn.classList.add('on');
-    const t=btn.dataset.t;
-    document.querySelectorAll('.note-card').forEach(c=>{
-      c.style.display=(t==='all'||c.dataset.tag===t)?'':'none';
+(function(){
+  const pills = document.querySelectorAll('.filter-pill');
+  const articles = document.querySelectorAll('article[data-cat]');
+  pills.forEach(p => p.addEventListener('click', () => {
+    pills.forEach(x => x.classList.remove('active'));
+    p.classList.add('active');
+    const f = p.dataset.filter;
+    articles.forEach(a => {
+      const cats = (a.dataset.cat || '').split(/\s+/);
+      a.style.display = (f === 'all' || cats.includes(f)) ? '' : 'none';
     });
-  });
-});
+  }));
+})();
 </script>
 </body>
 </html>

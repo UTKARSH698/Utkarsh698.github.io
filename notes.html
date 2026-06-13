@@ -53,7 +53,7 @@
     <div class="folio-meta">
       <span><span class="fm-l">Folio 03</span> · The Dispatches</span>
       <span>Vol. 2026 · Issue 06</span>
-      <span>1 published · 3 outlines · 3 drafts</span>
+      <span>2 published · 3 outlines · 3 drafts</span>
     </div>
 
     <h1 class="display h-display-lg fade">Dispatches<br>from the <em>build log.</em></h1>
@@ -63,13 +63,13 @@
     </p>
 
     <div class="filters fade fade-2">
-      <button class="filter-pill active" data-filter="all">All <span class="fp-num">07</span></button>
+      <button class="filter-pill active" data-filter="all">All <span class="fp-num">08</span></button>
       <button class="filter-pill" data-filter="oss">Open Source <span class="fp-num">01</span></button>
       <button class="filter-pill" data-filter="cloud">Cloud <span class="fp-num">02</span></button>
-      <button class="filter-pill" data-filter="security">Security <span class="fp-num">01</span></button>
+      <button class="filter-pill" data-filter="security">Security <span class="fp-num">02</span></button>
       <button class="filter-pill" data-filter="devops">DevOps <span class="fp-num">01</span></button>
-      <button class="filter-pill" data-filter="research">Research <span class="fp-num">01</span></button>
-      <button class="filter-pill" data-filter="distributed">Distributed <span class="fp-num">01</span></button>
+      <button class="filter-pill" data-filter="research">Research <span class="fp-num">02</span></button>
+      <button class="filter-pill" data-filter="distributed">Distributed <span class="fp-num">02</span></button>
     </div>
   </div>
 </header>
@@ -78,7 +78,7 @@
 
 <!-- ── PUBLISHED ──────────────────────────────────────── -->
 <section class="dossier-sec">
-  <h2><span class="ds-num">§ 01</span> Published <span class="ds-cnt">— 1 dispatch</span></h2>
+  <h2><span class="ds-num">§ 01</span> Published <span class="ds-cnt">— 2 dispatches</span></h2>
 
   <article class="dispatch dispatch-full fade" data-cat="oss cloud devops" id="alloy-endpoint">
     <div class="dispatch-num">№ 01</div>
@@ -172,6 +172,106 @@
         <span class="tag">AWS SDK</span>
         <span class="tag">YACE</span>
         <span class="tag">Open Source</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="dispatch dispatch-full fade" data-cat="research security distributed" id="rbac-invariants">
+    <div class="dispatch-num">№ 02</div>
+    <div class="dispatch-main">
+      <div class="dispatch-meta">
+        <span class="dm-cat">Research · Formal Methods</span>
+        <span>May 9, 2026 · 8 min read</span>
+      </div>
+      <h3>Three RBAC invariants that hold per-service and break under concurrency — <em>or, why local correctness doesn&#x2019;t compose.</em></h3>
+      <p class="dispatch-deck">
+        While building my own AgriFuture marketplace prototype I hit a concurrent-order
+        race that smelled like an authorization bug. So I formalised it. This is the short
+        version of an independent preprint
+        (<a href="https://doi.org/10.5281/zenodo.20099386" target="_blank" rel="noopener">Zenodo · DOI 10.5281/zenodo.20099386</a>):
+        three role-based access-control invariants that each pass when you check a single
+        service, and each fail the moment two services touch shared state at the same time.
+      </p>
+
+      <div class="dispatch-body">
+        <p>
+          The setup is the boring kind of distributed system everyone actually runs: an
+          identity service that owns roles and permissions, an API gateway that caches
+          policy decisions, and an order service that runs transactions. Each one is
+          tested. Each one is &quot;correct.&quot; And yet a permission a user no longer
+          holds can still authorise an action — not because any single service is wrong,
+          but because <em>correctness checked in isolation says nothing about correctness
+          under interleaving.</em>
+        </p>
+
+        <h4>The three invariants</h4>
+        <p>
+          I picked three properties that any RBAC system would claim to guarantee:
+        </p>
+        <p>
+          <strong>RPS — Role-Permission Separation.</strong> A cached authorization
+          decision must never grant a permission the user&#x2019;s current roles don&#x2019;t
+          confer. <strong>TAR — Transaction Atomicity under Revocation.</strong> If a role
+          is revoked mid-transaction, the transaction must not commit using the revoked
+          authority. <strong>APC — API Gateway Policy Consistency.</strong> The gateway&#x2019;s
+          cached policy must agree with the identity service&#x2019;s source of truth.
+        </p>
+        <p>
+          The subtlety is in how you <em>state</em> RPS. The obvious form — &quot;the cache
+          for a role is a subset of that role&#x2019;s permissions&quot; — is trivially true
+          and tells you nothing. The form that actually bites is indexed by <em>user</em>:
+          <code>cache[s][u] &sube; permissions(roles[u])</code>. Once the invariant is about
+          the user&#x2019;s <em>current</em> roles, a revocation that lands between
+          &quot;gateway reads cache&quot; and &quot;identity service updates roles&quot;
+          breaks it.
+        </p>
+
+        <h4>What the model checker found</h4>
+        <p>
+          I wrote two specifications — a buggy design and a fixed one — and walked the
+          <em>complete</em> reachable state space with a breadth-first checker
+          (TLC-equivalent: it explores every interleaving, not a sample). The numbers are
+          the whole point, so here they are exactly:
+        </p>
+        <p>
+          The <strong>buggy</strong> specification reaches <strong>188,160 distinct
+          states</strong>, and <strong>all three invariants are violated</strong> — each one
+          has a concrete counterexample trace: a specific interleaving of revoke / cache-read
+          / commit that ends in an unauthorised action. The <strong>fixed</strong>
+          specification — which makes the revoke-and-invalidate step atomic with respect to
+          the cache — collapses to <strong>4,928 states</strong> and holds all three clean.
+          A 38&times; smaller reachable space, and zero violations.
+        </p>
+        <p>
+          The collapse in state count is itself the lesson: the buggy version is &quot;bigger&quot;
+          because it admits a huge number of inconsistent intermediate worlds that the fixed
+          version simply makes unreachable.
+        </p>
+
+        <h4>The honest scope</h4>
+        <p>
+          This is a <strong>preprint, not peer-reviewed</strong>, and it&#x2019;s
+          <strong>independent work</strong> — done by me, on a problem I ran into myself, not
+          a supervised thesis. The model is a deliberately small abstraction of a real
+          system, which is exactly what makes exhaustive checking tractable; it is not a
+          claim that any production RBAC implementation has these specific bugs. What it
+          does show, rigorously, is that <em>per-component verification is not closed under
+          composition</em> — and that the gap is reachable, not theoretical.
+        </p>
+        <p>
+          Spec, checker, traces, and the full write-up are open:
+          <a href="https://github.com/UTKARSH698/security-invariants-rbac" target="_blank" rel="noopener">github.com/UTKARSH698/security-invariants-rbac</a>.
+          Clone it, run the checker, and you&#x2019;ll reproduce both numbers yourself.
+        </p>
+      </div>
+
+      <div class="dispatch-tags">
+        <span class="tag tag-accent">TLA&#x207A; / TLC</span>
+        <span class="tag">RBAC</span>
+        <span class="tag">Formal Verification</span>
+        <span class="tag">Concurrency</span>
+        <span class="tag">Distributed Systems</span>
+        <span class="tag">Security</span>
       </div>
     </div>
   </article>

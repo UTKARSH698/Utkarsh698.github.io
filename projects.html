@@ -87,7 +87,7 @@
       <div class="feature-num">01</div>
       <div>
         <h2 class="feature-title">CloudFlow &mdash; <em>a SAGA-orchestrated order pipeline.</em></h2>
-        <p class="feature-deck">A serverless order-processing system on AWS: Step Functions SAGA with compensation, event-sourced order log in DynamoDB, idempotency-as-replay-prevention, and a DynamoDB-backed circuit breaker that survives Lambda cold starts.</p>
+        <p class="feature-deck"><strong>A checkout system that never double-charges or oversells — even when a payment provider fails mid-order.</strong> Built on AWS as a Step Functions SAGA with compensation, an event-sourced order log in DynamoDB, idempotent replay-safe handlers, and a DynamoDB-backed circuit breaker that survives Lambda cold starts. Sustained 1,100+ req/min at p50 47 ms.</p>
       </div>
     </div>
 
@@ -182,7 +182,7 @@
       <div class="feature-num">02</div>
       <div>
         <h2 class="feature-title">CloudPulse — <em>a real-time analytics platform on AWS serverless.</em></h2>
-        <p class="feature-deck">A production-grade Lambda Architecture platform — batch and speed layers over the same event stream, Kinesis dual-write at ingest, Hive-partitioned S3 + Athena for history, DynamoDB counters for the live dashboard. Five Lambdas, 15 Terraform files, inside the AWS Free Tier.</p>
+        <p class="feature-deck"><strong>Live dashboards that update in ~12 ms, while the same event stream still answers 90-day historical queries (~1.8 s).</strong> A production-grade Lambda Architecture — batch and speed layers over one stream, Kinesis dual-write at ingest, Hive-partitioned S3 + Athena for history, DynamoDB counters for the live view. Five Lambdas, 15 Terraform files, inside the AWS Free Tier.</p>
       </div>
     </div>
 
@@ -269,7 +269,7 @@
       <div class="feature-num">03</div>
       <div>
         <h2 class="feature-title">CSPM — <em>automated posture management for AWS.</em></h2>
-        <p class="feature-deck">A serverless CSPM agent that runs 23 CIS-v1.5 checks across S3, IAM, EC2 Security Groups, and CloudTrail, scores compliance, alerts on critical findings, and safely auto-remediates the subset it can — DRY_RUN-by-default until you flip the flag.</p>
+        <p class="feature-deck"><strong>Finds the misconfigurations behind most cloud breaches — public S3 buckets, over-permissive security groups, risky IAM — and safely auto-fixes the ones it can.</strong> A serverless agent running 23 CIS-v1.5 checks across S3, IAM, EC2 Security Groups, and CloudTrail; scores compliance, alerts on critical findings, DRY_RUN-by-default until you flip the flag.</p>
       </div>
     </div>
 

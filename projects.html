@@ -349,16 +349,94 @@
   </div>
 </article>
 
-<!-- ── FEATURE 04 — AGRIFUTURE PLATFORM ─────────────────── -->
-<article class="feature" id="agrifuture" data-cat="ai distributed">
+<!-- ── FEATURE 04 — GRAFANA ALLOY (OSS) ─────────────────── -->
+<article class="feature" id="alloy" data-cat="oss cloud">
   <div class="wrap">
     <div class="feature-meta">
-      <span><span class="fm-cat">Feature &numero; 04</span> &middot; AI Platform &middot; Final-Year Project</span>
-      <span>Live on Render &middot; 2025</span>
+      <span><span class="fm-cat">Feature &numero; 04</span> &middot; Open Source &middot; Observability</span>
+      <span>Merged &middot; May 2026</span>
     </div>
 
     <div class="feature-head fade">
       <div class="feature-num">04</div>
+      <div>
+        <h2 class="feature-title">Grafana Alloy — <em>a CloudWatch metrics scenario, merged upstream.</em></h2>
+        <p class="feature-deck">PR&nbsp;<a href="https://github.com/grafana/alloy-scenarios/pull/147" target="_blank" rel="noopener" style="color:inherit;border-bottom:1px solid currentColor;text-decoration:none">#147</a> to <strong>grafana/alloy-scenarios</strong> — a self-contained, AWS-free walkthrough of pulling CloudWatch metrics into Prometheus through Grafana Alloy. Closed issue #98; merged by Grafana DevRel with all 12 CI checks green.</p>
+      </div>
+    </div>
+
+    <div class="feature-body fade fade-1">
+      <div class="feature-main">
+        <p class="body-prose dropcap">
+          Grafana Alloy is Grafana&#x2019;s OpenTelemetry-flavoured collector. Its <em>alloy-scenarios</em> repo is the official examples bench — each folder is a runnable docker-compose stack a new user can clone and see real telemetry inside two minutes. Issue&nbsp;#98 asked for a CloudWatch metrics scenario that didn&#x2019;t require an AWS account, so reviewers and curious engineers could try it without spinning up real infrastructure. I picked it up and shipped the scenario end-to-end.
+        </p>
+
+        <h3><span class="h-num">i.</span> The architecture</h3>
+        <p class="body-prose">
+          Six files, one <code>docker compose up</code>. <strong>LocalStack</strong> emulates the CloudWatch and STS APIs on port&nbsp;4566. A Python <strong>boto3 seeder</strong> publishes synthetic <em>AWS/EC2 CPUUtilization</em> metrics on a 30-second cadence so the scenario has a live signal to scrape. Alloy&#x2019;s <code>prometheus.exporter.cloudwatch</code> block is pointed at LocalStack via <code>AWS_ENDPOINT_URL</code>; the YACE SDK underneath doesn&#x2019;t care that the endpoint isn&#x2019;t real AWS. Prometheus scrapes Alloy, and metrics appear in the local stack within ~90 seconds of startup.
+        </p>
+
+        <h3><span class="h-num">ii.</span> The part that took the longest</h3>
+        <p class="body-prose">
+          The interesting bit wasn&#x2019;t the Alloy config — it was the seam where Alloy&#x2019;s exporter trusts the AWS SDK to do the right thing. The exporter doesn&#x2019;t expose an <code>endpoint-url</code> knob; it expects an SDK already configured to hit real AWS. Threading <code>AWS_ENDPOINT_URL</code> through the container environment so both the exporter and the seeder agree on where &quot;AWS&quot; lives took longer to verify than to write. That detail is now documented in the scenario README so the next contributor doesn&#x2019;t re-derive it.
+        </p>
+
+        <h3><span class="h-num">iii.</span> What it&#x2019;s for</h3>
+        <p class="body-prose">
+          New engineers learning Alloy can clone the scenario and have a working CloudWatch-to-Prometheus pipeline running locally before lunch. Existing Alloy users have a known-good config to copy when they wire up real AWS. The PR also pinned a LocalStack version (<code>image-versions.env</code>) so the scenario doesn&#x2019;t silently rot when upstream containers update.
+        </p>
+
+        <p class="pull">
+          <q>Huge thank you for this contribution.</q>
+          <span class="pull-attr">— Jayclifford345, Grafana DevRel, on merge</span>
+        </p>
+      </div>
+
+      <aside class="feature-aside">
+        <div class="aside-block">
+          <h4>Issue Brief</h4>
+          <div class="aside-fact"><span class="af-k">Status</span><span class="af-v" style="color:var(--sage,#4a6b54);font-weight:700">Merged</span></div>
+          <div class="aside-fact"><span class="af-k">Date</span><span class="af-v">13 May 2026</span></div>
+          <div class="aside-fact"><span class="af-k">Repo</span><span class="af-v">grafana/alloy-scenarios</span></div>
+          <div class="aside-fact"><span class="af-k">PR №</span><span class="af-v">#147</span></div>
+          <div class="aside-fact"><span class="af-k">Closes</span><span class="af-v">Issue #98</span></div>
+          <div class="aside-fact"><span class="af-k">CI</span><span class="af-v">12 / 12 green</span></div>
+          <div class="aside-fact"><span class="af-k">Files</span><span class="af-v">6 added / modified</span></div>
+        </div>
+        <div class="aside-block">
+          <h4>Tags</h4>
+          <div style="display:flex;flex-wrap:wrap;gap:.35rem">
+            <span class="tag tag-accent">Grafana Alloy</span>
+            <span class="tag">CloudWatch</span>
+            <span class="tag">LocalStack</span>
+            <span class="tag">Prometheus</span>
+            <span class="tag">YACE</span>
+            <span class="tag">Docker Compose</span>
+            <span class="tag">Python · boto3</span>
+          </div>
+        </div>
+        <div class="aside-block">
+          <h4>References</h4>
+          <a href="https://github.com/grafana/alloy-scenarios/pull/147" target="_blank" rel="noopener" class="arrow-link arrow-link-accent">View merged PR · grafana/alloy-scenarios#147 →</a>
+          <a href="https://github.com/grafana/alloy-scenarios/issues/98" target="_blank" rel="noopener" class="arrow-link">Original issue · #98 →</a>
+          <a href="https://github.com/grafana/alloy-scenarios/tree/main/cloudwatch-metrics" target="_blank" rel="noopener" class="arrow-link">Scenario folder on main →</a>
+          <a href="https://github.com/UTKARSH698/alloy-scenarios" target="_blank" rel="noopener" class="arrow-link">My fork →</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</article>
+
+<!-- ── FEATURE 05 — AGRIFUTURE PLATFORM ─────────────────── -->
+<article class="feature" id="agrifuture" data-cat="ai distributed">
+  <div class="wrap">
+    <div class="feature-meta">
+      <span><span class="fm-cat">Feature &numero; 05</span> &middot; AI Platform &middot; Final-Year Project</span>
+      <span>Live on Render &middot; 2025</span>
+    </div>
+
+    <div class="feature-head fade">
+      <div class="feature-num">05</div>
       <div>
         <h2 class="feature-title">AgriFuture &mdash; <em>six Gemini AI modules behind one Express server.</em></h2>
         <p class="feature-deck">An AI-powered agricultural intelligence platform: crop recommendation, disease detection, drone terrain analysis, market forecasting, digital twin simulation, and conversational AgriBot &mdash; each backed by Google Gemini with a different prompting strategy. Plus live mandi prices, Razorpay commerce with HMAC verification, JWT auth with email + SMS OTP, and a PWA that works offline.</p>
@@ -434,16 +512,16 @@
   </div>
 </article>
 
-<!-- ── FEATURE 05 — AI PHOTO MATCHER ────────────────────── -->
+<!-- ── FEATURE 06 — AI PHOTO MATCHER ────────────────────── -->
 <article class="feature" id="photo-matcher" data-cat="ai">
   <div class="wrap">
     <div class="feature-meta">
-      <span><span class="fm-cat">Feature &numero; 05</span> &middot; AI / Computer Vision</span>
+      <span><span class="fm-cat">Feature &numero; 06</span> &middot; AI / Computer Vision</span>
       <span>Shipped &middot; 2026 &middot; TEJASKP</span>
     </div>
 
     <div class="feature-head fade">
-      <div class="feature-num">05</div>
+      <div class="feature-num">06</div>
       <div>
         <h2 class="feature-title">AI Photo Matcher &mdash; <em>find your photos at a wedding by uploading one selfie.</em></h2>
         <p class="feature-deck">A full-stack event-photography platform: photographers upload albums, faces are indexed by InsightFace, guests pay via Razorpay (or demo mode), upload one selfie, and get back only the photos they appear in. Matching is scoped to a single event for privacy.</p>
@@ -527,19 +605,19 @@
   </div>
 </article>
 
-<!-- ── FEATURE 05 — WIKIQA RAG ─────────────────────────── -->
+<!-- ── FEATURE 07 — WIKIQA RAG ─────────────────────────── -->
 <article class="feature" id="wikiqa" data-cat="ai">
   <div class="wrap">
     <div class="feature-meta">
-      <span><span class="fm-cat">Feature &numero; 06</span> &middot; AI / ML</span>
+      <span><span class="fm-cat">Feature &numero; 07</span> &middot; AI / ML</span>
       <span>Shipped &middot; 2026</span>
     </div>
 
     <div class="feature-head fade">
-      <div class="feature-num">06</div>
+      <div class="feature-num">07</div>
       <div>
         <h2 class="feature-title">WikiQA RAG &mdash; <em>retrieval-augmented question answering, end-to-end.</em></h2>
-        <p class="feature-deck">A full RAG pipeline over live Wikipedia: NLTK sentence-boundary chunking, bi-encoder retrieval over FAISS or Pinecone, cross-encoder re-ranking, a custom source-diversity guarantee, multi-LLM generation with SSE token streaming, and an LLM-as-judge faithfulness evaluator.</p>
+        <p class="feature-deck">A full retrieval-augmented QA pipeline over live Wikipedia: it splits articles into passages, retrieves the most relevant ones, re-ranks them for precision, guarantees a spread of sources, streams answers token-by-token from multiple LLMs, and grades its own faithfulness with an LLM judge.</p>
       </div>
     </div>
 
@@ -613,84 +691,6 @@
   </div>
 </article>
 
-<!-- ── FEATURE 07 — GRAFANA ALLOY (OSS) ─────────────────── -->
-<article class="feature" id="alloy" data-cat="oss cloud">
-  <div class="wrap">
-    <div class="feature-meta">
-      <span><span class="fm-cat">Feature &numero; 07</span> &middot; Open Source &middot; Observability</span>
-      <span>Merged &middot; May 2026</span>
-    </div>
-
-    <div class="feature-head fade">
-      <div class="feature-num">07</div>
-      <div>
-        <h2 class="feature-title">Grafana Alloy — <em>a CloudWatch metrics scenario, merged upstream.</em></h2>
-        <p class="feature-deck">PR&nbsp;<a href="https://github.com/grafana/alloy-scenarios/pull/147" target="_blank" rel="noopener" style="color:inherit;border-bottom:1px solid currentColor;text-decoration:none">#147</a> to <strong>grafana/alloy-scenarios</strong> — a self-contained, AWS-free walkthrough of pulling CloudWatch metrics into Prometheus through Grafana Alloy. Closed issue #98; merged by Grafana DevRel with all 12 CI checks green.</p>
-      </div>
-    </div>
-
-    <div class="feature-body fade fade-1">
-      <div class="feature-main">
-        <p class="body-prose dropcap">
-          Grafana Alloy is Grafana&#x2019;s OpenTelemetry-flavoured collector. Its <em>alloy-scenarios</em> repo is the official examples bench — each folder is a runnable docker-compose stack a new user can clone and see real telemetry inside two minutes. Issue&nbsp;#98 asked for a CloudWatch metrics scenario that didn&#x2019;t require an AWS account, so reviewers and curious engineers could try it without spinning up real infrastructure. I picked it up and shipped the scenario end-to-end.
-        </p>
-
-        <h3><span class="h-num">i.</span> The architecture</h3>
-        <p class="body-prose">
-          Six files, one <code>docker compose up</code>. <strong>LocalStack</strong> emulates the CloudWatch and STS APIs on port&nbsp;4566. A Python <strong>boto3 seeder</strong> publishes synthetic <em>AWS/EC2 CPUUtilization</em> metrics on a 30-second cadence so the scenario has a live signal to scrape. Alloy&#x2019;s <code>prometheus.exporter.cloudwatch</code> block is pointed at LocalStack via <code>AWS_ENDPOINT_URL</code>; the YACE SDK underneath doesn&#x2019;t care that the endpoint isn&#x2019;t real AWS. Prometheus scrapes Alloy, and metrics appear in the local stack within ~90 seconds of startup.
-        </p>
-
-        <h3><span class="h-num">ii.</span> The part that took the longest</h3>
-        <p class="body-prose">
-          The interesting bit wasn&#x2019;t the Alloy config — it was the seam where Alloy&#x2019;s exporter trusts the AWS SDK to do the right thing. The exporter doesn&#x2019;t expose an <code>endpoint-url</code> knob; it expects an SDK already configured to hit real AWS. Threading <code>AWS_ENDPOINT_URL</code> through the container environment so both the exporter and the seeder agree on where &quot;AWS&quot; lives took longer to verify than to write. That detail is now documented in the scenario README so the next contributor doesn&#x2019;t re-derive it.
-        </p>
-
-        <h3><span class="h-num">iii.</span> What it&#x2019;s for</h3>
-        <p class="body-prose">
-          New engineers learning Alloy can clone the scenario and have a working CloudWatch-to-Prometheus pipeline running locally before lunch. Existing Alloy users have a known-good config to copy when they wire up real AWS. The PR also pinned a LocalStack version (<code>image-versions.env</code>) so the scenario doesn&#x2019;t silently rot when upstream containers update.
-        </p>
-
-        <p class="pull">
-          <q>Huge thank you for this contribution.</q>
-          <span class="pull-attr">— Jayclifford345, Grafana DevRel, on merge</span>
-        </p>
-      </div>
-
-      <aside class="feature-aside">
-        <div class="aside-block">
-          <h4>Issue Brief</h4>
-          <div class="aside-fact"><span class="af-k">Status</span><span class="af-v" style="color:var(--sage,#4a6b54);font-weight:700">Merged</span></div>
-          <div class="aside-fact"><span class="af-k">Date</span><span class="af-v">13 May 2026</span></div>
-          <div class="aside-fact"><span class="af-k">Repo</span><span class="af-v">grafana/alloy-scenarios</span></div>
-          <div class="aside-fact"><span class="af-k">PR №</span><span class="af-v">#147</span></div>
-          <div class="aside-fact"><span class="af-k">Closes</span><span class="af-v">Issue #98</span></div>
-          <div class="aside-fact"><span class="af-k">CI</span><span class="af-v">12 / 12 green</span></div>
-          <div class="aside-fact"><span class="af-k">Files</span><span class="af-v">6 added / modified</span></div>
-        </div>
-        <div class="aside-block">
-          <h4>Tags</h4>
-          <div style="display:flex;flex-wrap:wrap;gap:.35rem">
-            <span class="tag tag-accent">Grafana Alloy</span>
-            <span class="tag">CloudWatch</span>
-            <span class="tag">LocalStack</span>
-            <span class="tag">Prometheus</span>
-            <span class="tag">YACE</span>
-            <span class="tag">Docker Compose</span>
-            <span class="tag">Python · boto3</span>
-          </div>
-        </div>
-        <div class="aside-block">
-          <h4>References</h4>
-          <a href="https://github.com/grafana/alloy-scenarios/pull/147" target="_blank" rel="noopener" class="arrow-link arrow-link-accent">View merged PR · grafana/alloy-scenarios#147 →</a>
-          <a href="https://github.com/grafana/alloy-scenarios/issues/98" target="_blank" rel="noopener" class="arrow-link">Original issue · #98 →</a>
-          <a href="https://github.com/grafana/alloy-scenarios/tree/main/cloudwatch-metrics" target="_blank" rel="noopener" class="arrow-link">Scenario folder on main →</a>
-          <a href="https://github.com/UTKARSH698/alloy-scenarios" target="_blank" rel="noopener" class="arrow-link">My fork →</a>
-        </div>
-      </aside>
-    </div>
-  </div>
-</article>
-
 <!-- ── FEATURE 08 — RESEARCH / FORMAL VERIFICATION ─────── -->
 <article class="feature" id="security-invariants" data-cat="research security" style="border-top:3px double var(--ink-2,#3a3a3a)">
   <div class="wrap">
@@ -704,7 +704,7 @@
       <div>
         <span class="tag tag-accent" style="margin-bottom:.75rem;display:inline-block">Preprint · not peer-reviewed</span>
         <h2 class="feature-title">When Local Correctness Is Not Enough — <em>a TLA&#x207A;-style proof that three RBAC invariants break under concurrency.</em></h2>
-        <p class="feature-deck">A formal specification and a TLC-equivalent model checker for three security invariants that every individual service upholds, yet the <strong>composed</strong> system violates under specific cross-service interleavings. Complete state-space exploration; all three counterexamples reproduced. Zenodo&nbsp;<a href="https://doi.org/10.5281/zenodo.20686317" target="_blank" rel="noopener" style="color:inherit;border-bottom:1px solid currentColor;text-decoration:none">doi:10.5281/zenodo.20686317</a>.</p>
+        <p class="feature-deck">A formal specification and model checker for three security invariants that every individual service upholds, yet the <strong>composed</strong> system violates under specific cross-service orderings. Exhaustive state-space exploration; all three counterexamples reproduced. Zenodo&nbsp;<a href="https://doi.org/10.5281/zenodo.20686317" target="_blank" rel="noopener" style="color:inherit;border-bottom:1px solid currentColor;text-decoration:none">doi:10.5281/zenodo.20686317</a>.</p>
       </div>
     </div>
 

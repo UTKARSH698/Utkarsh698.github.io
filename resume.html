@@ -91,7 +91,6 @@
     <p style="margin:.85rem 0 .9rem;font-size:.92rem;color:var(--ink-2);line-height:1.65">Worked in a team of three under direct mentorship of Mr. Tejas Patel (Proprietor &amp; CEO) on full-stack AWS-deployed product builds for TEJASKP&#x2019;s clients. Owned the engineering depth on each engagement — pipeline work, backend APIs, and the integration seam between backend and frontend.</p>
     <ul>
       <li><strong>WikiQA RAG</strong> <span style="color:var(--ink-3);font-weight:400">— team of 3, my slice: full pipeline + backend + integration.</span> Owned the retrieval-generation pipeline (Wikipedia ingestion with disambiguation, NLTK sentence chunking, sentence-transformer embeddings, FAISS IndexFlatIP with Pinecone serverless drop-in, ms-marco cross-encoder re-ranking, multi-LLM dispatcher across four backends, TTL response cache, source-diversity enforcement) and the FastAPI backend (JWT auth, SSE token streaming, Prometheus instrumentation, evaluation CLI for Precision@k and MRR). Two teammates built the React frontend; I owned every integration contract — SSE event shape, AbortController cleanup on cancelled streams, passage-card data — so every UI-data bug came back to me.</li>
-      <li><strong>AI Photo Matcher</strong> <span style="color:var(--ink-3);font-weight:400">— team of 3, my slice: AI pipeline + backend + integration.</span> Owned the InsightFace pipeline (512-dim embeddings, OpenCV face detection, cosine-similarity matching, single-face selfie validation) and the FastAPI + PostgreSQL backend (events / photos / face_embeddings schema, JWT + bcrypt, S3 organisation under <code>event-images/{event_id}/</code>, Razorpay order/verify with demo fallback, QR-code event sharing). Two teammates built the Next.js dashboards; integration seam was mine.</li>
       <li><strong>Trader dashboard &amp; stock prediction</strong> <span style="color:var(--ink-3);font-weight:400">— currently in flight at the time of writing.</span></li>
     </ul>
   </div>
@@ -99,7 +98,7 @@
 
 <!-- ── KEY PROJECTS ─────────────────────────────── -->
 <section class="dossier-sec fade">
-  <h2><span class="ds-num">&sect; 02</span> Key projects <span class="ds-cnt">&mdash; 6 systems</span></h2>
+  <h2><span class="ds-num">&sect; 02</span> Key projects <span class="ds-cnt">&mdash; 5 systems</span></h2>
 
   <div class="entry">
     <div class="entry-head">
@@ -151,19 +150,6 @@
       <li>Built six distinct Gemini-backed AI modules behind one Express server (crop recommendation, disease detection w/ multi-modal vision, satellite drone terrain analysis, market forecasting, digital twin, streaming AgriBot) &mdash; one API key, six different prompting strategies dispatched via <code>geminiService.ts</code>.</li>
       <li>Security as middleware, not afterthought: JWT in httpOnly cookies, bcrypt (10 rounds), OTP via Nodemailer + MSG91 SMS with crypto-random codes and 15-min TTL in Postgres, IP-scoped rate limiting (5 OTP / 10 login per 15&nbsp;min), Helmet, Zod schemas validating the same shapes client- and server-side. Razorpay payments committed only after server-side HMAC signature verification.</li>
       <li>Full-stack TS discipline at scale: 44+ shared interfaces, 56 TS files, ~12,500 LOC; React 19 + Vite 6 + Tailwind 4 + Framer Motion 12; PWA with cache-first SW and 7 Indian-language localisations; CI/CD via GitHub Actions, one-click deploy configs for Render (<code>render.yaml</code>) and Railway.</li>
-    </ul>
-  </div>
-
-  <div class="entry">
-    <div class="entry-head">
-      <div class="entry-title">AI Photo Matcher &middot; Selfie-based event photo retrieval <span style="color:var(--ink-3);font-weight:400">&mdash; team of 3 (TEJASKP)</span></div>
-      <div class="entry-date">2026</div>
-    </div>
-    <div class="entry-org">FastAPI &middot; PostgreSQL &middot; InsightFace &middot; OpenCV &middot; AWS S3 &middot; Next.js &middot; Razorpay</div>
-    <ul>
-      <li>Owned backend + integration in a 3-person build: FastAPI service layer, SQLAlchemy / PostgreSQL schema (events, photos, faces, match sessions), JWT auth, multipart S3 upload, QR-code event sharing, and the full Razorpay payment flow with a graceful demo-mode bypass when keys aren&#x2019;t configured.</li>
-      <li>Designed the index-at-upload pipeline: InsightFace runs automatically after each photo lands in S3, persists embedding + coords + confidence into Postgres keyed by <code>event_id</code> &mdash; so match time is a single tight cosine loop over just the current event.</li>
-      <li>Event-scoped matching as a privacy boundary; selfie validator rejects images that don&#x2019;t contain exactly one face; tunable <code>FACE_MATCH_THRESHOLD</code> and <code>SELFIE_MIN_FACE_CONFIDENCE</code> for false-positive control.</li>
     </ul>
   </div>
 
@@ -347,7 +333,7 @@
       <li style="padding:.4rem 0;font-size:.85rem;color:var(--ink-2);border-bottom:1px dotted var(--rule)"><span style="font-family:var(--mono);color:var(--accent);font-size:.65rem;letter-spacing:.08em">→</span> Research preprint on <a href="https://doi.org/10.5281/zenodo.20686317" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:3px">Zenodo</a></li>
       <li style="padding:.4rem 0;font-size:.85rem;color:var(--ink-2);border-bottom:1px dotted var(--rule)"><span style="font-family:var(--mono);color:var(--accent);font-size:.65rem;letter-spacing:.08em">→</span> Merged PRs <a href="https://github.com/grafana/alloy-scenarios/pull/147" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:3px">grafana/alloy-scenarios&nbsp;#147</a> &amp; <a href="https://github.com/imran31415/kube-coder/pull/124" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:3px">kube-coder&nbsp;#124</a></li>
       <li style="padding:.4rem 0;font-size:.85rem;color:var(--ink-2);border-bottom:1px dotted var(--rule)"><span style="font-family:var(--mono);color:var(--accent);font-size:.65rem;letter-spacing:.08em">→</span> Open PRs to <a href="https://github.com/prowler-cloud/prowler/pull/11577" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:3px">prowler</a>, <a href="https://github.com/bridgecrewio/checkov/pull/7580" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:3px">checkov</a>, <a href="https://github.com/getmoto/moto/pull/10070" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:3px">moto</a> &amp; <a href="https://github.com/open-telemetry/opentelemetry-python-contrib/pull/4728" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:3px">otel-python-contrib</a></li>
-      <li style="padding:.4rem 0;font-size:.85rem;color:var(--ink-2);border-bottom:1px dotted var(--rule)"><span style="font-family:var(--mono);color:var(--accent);font-size:.65rem;letter-spacing:.08em">→</span> Shipped 6 production systems + 6 OSS PRs (2 merged)</li>
+      <li style="padding:.4rem 0;font-size:.85rem;color:var(--ink-2);border-bottom:1px dotted var(--rule)"><span style="font-family:var(--mono);color:var(--accent);font-size:.65rem;letter-spacing:.08em">→</span> Shipped 5 production systems + 6 OSS PRs (2 merged)</li>
       <li style="padding:.4rem 0;font-size:.85rem;color:var(--ink-2);border-bottom:1px dotted var(--rule)"><span style="font-family:var(--mono);color:var(--accent);font-size:.65rem;letter-spacing:.08em">→</span> Sustained 1.1K rpm under load</li>
       <li style="padding:.4rem 0;font-size:.85rem;color:var(--ink-2)"><span style="font-family:var(--mono);color:var(--accent);font-size:.65rem;letter-spacing:.08em">→</span> 23 CIS rules authored</li>
     </ul>

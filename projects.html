@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Work — Utkarsh Batham · Vol. 2026</title>
-<meta name="description" content="Eight pieces by Utkarsh Batham &mdash; six production systems (distributed SAGA orchestration on AWS, real-time Lambda-architecture analytics, CIS-v1.5 cloud security posture management, a six-module Gemini AI agricultural platform, an InsightFace photo matcher, retrieval-augmented QA over Wikipedia), a merged grafana/alloy-scenarios PR, and a TLA+-style formal-verification preprint on distributed RBAC security invariants.">
+<meta name="description" content="Seven pieces by Utkarsh Batham &mdash; five production systems (distributed SAGA orchestration on AWS, real-time Lambda-architecture analytics, CIS-v1.5 cloud security posture management, a six-module Gemini AI agricultural platform, retrieval-augmented QA over Wikipedia), a merged grafana/alloy-scenarios PR, and a TLA+-style formal-verification preprint on distributed RBAC security invariants.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23ede6d6'/><rect x='25' y='25' width='50' height='50' fill='%23b8410e'/></svg>">
 <link rel="stylesheet" href="style.css">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-DZ48W4D1EW"></script>
@@ -53,12 +53,12 @@
     <div class="folio-meta">
       <span><span class="fm-l">Folio 02</span> · The Work</span>
       <span>Vol. 2026 · Issue 06</span>
-      <span>8 features &middot; ~24 min read</span>
+      <span>7 features &middot; ~21 min read</span>
     </div>
 
     <h1 class="display h-display-lg fade">Features<br>from the <em>field.</em></h1>
     <p class="lead fade fade-1" style="margin-top:2rem;max-width:62ch">
-      Eight pieces — six shipped systems, one merged upstream contribution, and one formal-methods
+      Seven pieces — five shipped systems, one merged upstream contribution, and one formal-methods
       preprint. Each written out with the parts that make engineering real: architecture decisions,
       the failure mode I cared about, and the trade-off I had to live with.
     </p>
@@ -512,109 +512,16 @@
   </div>
 </article>
 
-<!-- ── FEATURE 06 — AI PHOTO MATCHER ────────────────────── -->
-<article class="feature" id="photo-matcher" data-cat="ai">
-  <div class="wrap">
-    <div class="feature-meta">
-      <span><span class="fm-cat">Feature &numero; 06</span> &middot; AI / Computer Vision</span>
-      <span>Shipped &middot; 2026 &middot; TEJASKP</span>
-    </div>
-
-    <div class="feature-head fade">
-      <div class="feature-num">06</div>
-      <div>
-        <h2 class="feature-title">AI Photo Matcher &mdash; <em>find your photos at a wedding by uploading one selfie.</em></h2>
-        <p class="feature-deck">A full-stack event-photography platform: photographers upload albums, faces are indexed by InsightFace, guests pay via Razorpay (or demo mode), upload one selfie, and get back only the photos they appear in. Matching is scoped to a single event for privacy.</p>
-      </div>
-    </div>
-
-    <div class="feature-body fade fade-1">
-      <div class="feature-main">
-        <p class="body-prose dropcap">
-          Wedding and event photographers ship guests an album of 2,000+ photos. Guests want the 30 they&#x2019;re actually in. Today they scroll. Photo Matcher cuts that to a single selfie upload &mdash; InsightFace embeds every face in the album at upload time, the guest&#x2019;s selfie is embedded the same way, cosine similarity against just <em>this event&#x2019;s</em> embeddings returns the personalised gallery.
-        </p>
-
-        <h3><span class="h-num">i.</span> Team of three, my slice</h3>
-        <p class="body-prose">
-          Three-person build at TEJASKP: a frontend engineer on the Next.js / Tailwind UI, an ML engineer on the InsightFace pipeline, and me on <strong>backend + integration</strong> &mdash; FastAPI service layer, PostgreSQL schema (events, photos, faces with coordinates &amp; confidence, match sessions), JWT auth for photographers, multipart S3 upload handling, QR-code generation for event sharing, and the full Razorpay payment flow with a graceful demo-mode bypass when keys aren&#x2019;t configured. The integration seam &mdash; making the AI pipeline run automatically after upload and exposing it cleanly through public endpoints &mdash; was mine.
-        </p>
-
-        <h3><span class="h-num">ii.</span> Architecture</h3>
-        <figure class="fig">
-          <div class="diagram">
-            <div class="dia-row"><span class="dia-label">Photographer</span><span class="dia-node">Next.js dashboard</span><span class="dia-arrow">&rarr;</span><span class="dia-node">FastAPI &middot; JWT</span><span class="dia-arrow">&rarr;</span><span class="dia-node accent">S3 &middot; event-images/&lt;event_id&gt;/</span></div>
-            <div class="dia-row"><span class="dia-label">Index</span><span class="dia-node">Auto-process &lambda;</span><span class="dia-arrow">&rarr;</span><span class="dia-node">OpenCV read</span><span class="dia-arrow">&rarr;</span><span class="dia-node">InsightFace detect + embed</span><span class="dia-arrow">&rarr;</span><span class="dia-node">Postgres &middot; faces(coords, conf, event_id, photo_id)</span></div>
-            <div class="dia-row"><span class="dia-label">Guest</span><span class="dia-node">QR / link</span><span class="dia-arrow">&rarr;</span><span class="dia-node">Razorpay or demo pay</span><span class="dia-arrow">&rarr;</span><span class="dia-node">IG follow confirm</span><span class="dia-arrow">&rarr;</span><span class="dia-node">Selfie upload</span></div>
-            <div class="dia-row"><span class="dia-label">Match</span><span class="dia-node">Validate: exactly 1 face</span><span class="dia-arrow">&rarr;</span><span class="dia-node">Cosine vs <em>this event only</em></span><span class="dia-arrow">&rarr;</span><span class="dia-node accent">Personalised gallery &middot; ZIP download</span></div>
-          </div>
-          <figcaption><span class="fig-num">Fig. 05</span> Photo Matcher &middot; index-at-upload, match-on-demand, event-scoped for privacy.</figcaption>
-        </figure>
-
-        <h3><span class="h-num">iii.</span> Two decisions worth defending</h3>
-        <p class="body-prose">
-          <strong>Index at upload, not at match.</strong> The expensive operation (InsightFace detection + 512-dim embedding) happens once per photo when the album is uploaded, not once per guest. Match time then collapses to a Postgres query + a tight cosine-similarity loop over <em>only this event&#x2019;s</em> embeddings. A wedding with 2,000 photos and 200 guests does 2,000 detections, not 400,000.
-        </p>
-        <p class="body-prose">
-          <strong>Event-scoped matching as a privacy primitive.</strong> The query <code>WHERE faces.event_id = :current_event</code> isn&#x2019;t a performance choice &mdash; it&#x2019;s a policy boundary. A guest&#x2019;s selfie can&#x2019;t leak across events; the threshold (<code>FACE_MATCH_THRESHOLD=0.45</code>) and minimum face confidence (<code>SELFIE_MIN_FACE_CONFIDENCE=0.55</code>) are tunable, but the event scope is structural. The selfie validator also rejects any image that doesn&#x2019;t contain <strong>exactly one</strong> face, which closes the &ldquo;group photo as input&rdquo; abuse vector.
-        </p>
-
-        <p class="pull">
-          The interesting backend problem wasn&#x2019;t the face matching &mdash; it was making the AI pipeline behave like a synchronous experience while running asynchronously, and degrading the Razorpay path to a demo-mode bypass without changing any frontend code.
-          <span class="pull-attr">&mdash; Integration notes</span>
-        </p>
-
-        <h3><span class="h-num">iv.</span> Honest limits</h3>
-        <p class="body-prose">
-          Cosine similarity over InsightFace embeddings is a strong baseline but isn&#x2019;t robust to large pose / lighting / age gaps; a guest who looks meaningfully different from their selfie won&#x2019;t match. Threshold tuning trades recall for false positives, and at scale (10K+ photos per event) the per-event linear scan needs an ANN index (HNSW / FAISS-per-event) rather than a Postgres-side loop. Both are next-iteration concerns rather than design flaws.
-        </p>
-      </div>
-
-      <aside class="feature-aside">
-        <div class="aside-block">
-          <h4>Issue Brief</h4>
-          <div class="aside-fact"><span class="af-k">Status</span><span class="af-v">Shipped</span></div>
-          <div class="aside-fact"><span class="af-k">Built</span><span class="af-v">2026 &middot; TEJASKP</span></div>
-          <div class="aside-fact"><span class="af-k">Team</span><span class="af-v">3 &middot; backend + integration mine</span></div>
-          <div class="aside-fact"><span class="af-k">Backend</span><span class="af-v">FastAPI &middot; SQLAlchemy &middot; Postgres</span></div>
-          <div class="aside-fact"><span class="af-k">Frontend</span><span class="af-v">Next.js &middot; TS &middot; Tailwind</span></div>
-          <div class="aside-fact"><span class="af-k">AI</span><span class="af-v">InsightFace &middot; OpenCV &middot; ONNX</span></div>
-          <div class="aside-fact"><span class="af-k">Storage</span><span class="af-v">AWS S3</span></div>
-          <div class="aside-fact"><span class="af-k">Auth</span><span class="af-v">JWT (HS256)</span></div>
-          <div class="aside-fact"><span class="af-k">Payments</span><span class="af-v">Razorpay + demo bypass</span></div>
-          <div class="aside-fact"><span class="af-k">Match scope</span><span class="af-v">per-event only</span></div>
-        </div>
-        <div class="aside-block">
-          <h4>Tags</h4>
-          <div style="display:flex;flex-wrap:wrap;gap:.35rem">
-            <span class="tag tag-accent">FastAPI</span>
-            <span class="tag">InsightFace</span>
-            <span class="tag">PostgreSQL</span>
-            <span class="tag">AWS S3</span>
-            <span class="tag">JWT</span>
-            <span class="tag">Razorpay</span>
-            <span class="tag">Next.js</span>
-            <span class="tag">Computer Vision</span>
-          </div>
-        </div>
-        <div class="aside-block">
-          <h4>References</h4>
-          <a href="https://github.com/UTKARSH698" target="_blank" rel="noopener" class="arrow-link arrow-link-accent">GitHub profile &rarr;</a>
-        </div>
-      </aside>
-    </div>
-  </div>
-</article>
-
-<!-- ── FEATURE 07 — WIKIQA RAG ─────────────────────────── -->
+<!-- ── FEATURE 06 — WIKIQA RAG ─────────────────────────── -->
 <article class="feature" id="wikiqa" data-cat="ai">
   <div class="wrap">
     <div class="feature-meta">
-      <span><span class="fm-cat">Feature &numero; 07</span> &middot; AI / ML</span>
+      <span><span class="fm-cat">Feature &numero; 06</span> &middot; AI / ML</span>
       <span>Shipped &middot; 2026</span>
     </div>
 
     <div class="feature-head fade">
-      <div class="feature-num">07</div>
+      <div class="feature-num">06</div>
       <div>
         <h2 class="feature-title">WikiQA RAG &mdash; <em>retrieval-augmented question answering, end-to-end.</em></h2>
         <p class="feature-deck">A full retrieval-augmented QA pipeline over live Wikipedia: it splits articles into passages, retrieves the most relevant ones, re-ranks them for precision, guarantees a spread of sources, streams answers token-by-token from multiple LLMs, and grades its own faithfulness with an LLM judge.</p>
@@ -691,7 +598,7 @@
   </div>
 </article>
 
-<!-- ── FEATURE 08 — RESEARCH / FORMAL VERIFICATION ─────── -->
+<!-- ── FEATURE 07 — RESEARCH / FORMAL VERIFICATION ─────── -->
 <article class="feature" id="security-invariants" data-cat="research security" style="border-top:3px double var(--ink-2,#3a3a3a)">
   <div class="wrap">
     <div class="feature-meta">
@@ -700,7 +607,7 @@
     </div>
 
     <div class="feature-head fade">
-      <div class="feature-num">08</div>
+      <div class="feature-num">07</div>
       <div>
         <span class="tag tag-accent" style="margin-bottom:.75rem;display:inline-block">Preprint · not peer-reviewed</span>
         <h2 class="feature-title">When Local Correctness Is Not Enough — <em>a TLA&#x207A;-style proof that three RBAC invariants break under concurrency.</em></h2>

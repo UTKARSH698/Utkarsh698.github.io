@@ -191,7 +191,7 @@
       <div>
         <span class="eyebrow"><span class="e-mark"></span><span class="e-num">§ 02</span> Inside this issue</span>
       </div>
-      <h2 class="display h-display">Eight pieces from <em>this year.</em></h2>
+      <h2 class="display h-display">Seven pieces from <em>this year.</em></h2>
     </div>
 
     <div class="toc-list">
@@ -225,20 +225,14 @@
         <span class="toc-cat">AI Platform</span>
         <span class="toc-folio">TS <span class="dots"></span> GEMINI</span>
       </a>
-      <a href="projects.html#photo-matcher" class="toc-row fade">
-        <span class="toc-num">&numero; 06</span>
-        <span class="toc-title">AI Photo Matcher &mdash; <em>Selfie-based Event Photo Retrieval</em></span>
-        <span class="toc-cat">AI / Computer Vision</span>
-        <span class="toc-folio">PY <span class="dots"></span> CV</span>
-      </a>
       <a href="projects.html#wikiqa" class="toc-row fade">
-        <span class="toc-num">&numero; 07</span>
+        <span class="toc-num">&numero; 06</span>
         <span class="toc-title">WikiQA RAG &mdash; <em>Retrieval-Augmented Question Answering</em></span>
         <span class="toc-cat">AI / ML</span>
         <span class="toc-folio">RAG <span class="dots"></span> PY</span>
       </a>
       <a href="projects.html#security-invariants" class="toc-row fade">
-        <span class="toc-num">&numero; 08</span>
+        <span class="toc-num">&numero; 07</span>
         <span class="toc-title">Security Invariants &mdash; <em>TLA&#x207A;-style formal-verification preprint</em></span>
         <span class="toc-cat">Research &middot; Formal Methods</span>
         <span class="toc-folio">DOI <span class="dots"></span> TLC</span>
@@ -258,7 +252,7 @@
       <div>
         <div class="editor-letter">
           <p>I build infrastructure for the moments when it has to keep working — when traffic spikes, when a region goes down, when a payment gateway returns errors at 3am. The interesting engineering isn't in the happy path; it's in what happens after the first failure.</p>
-          <p>This issue collects eight pieces &mdash; six systems I&#x2019;ve shipped, one merged upstream contribution, and one formal-methods preprint. A distributed SAGA orchestrator on AWS Step Functions, a real-time Lambda-architecture analytics platform on AWS Kinesis, a security posture agent that audits AWS accounts against CIS v1.5, a six-module Gemini AI platform with payments and OTP behind a single Express server, an event-photography matcher that returns only the photos a guest appears in by indexing faces with InsightFace, a full retrieval-augmented QA pipeline with source-diversity guarantees and an LLM-as-judge evaluator, a small but real PR into <code>grafana/alloy-scenarios</code> that closed a long-standing local-emulator gap &mdash; and a TLA&#x207A;-style proof that three RBAC security invariants, each correct per service, break under cross-service concurrency.</p>
+          <p>This issue collects seven pieces &mdash; five systems I&#x2019;ve shipped, one merged upstream contribution, and one formal-methods preprint. A distributed SAGA orchestrator on AWS Step Functions, a real-time Lambda-architecture analytics platform on AWS Kinesis, a security posture agent that audits AWS accounts against CIS v1.5, a six-module Gemini AI platform with payments and OTP behind a single Express server, a full retrieval-augmented QA pipeline with source-diversity guarantees and an LLM-as-judge evaluator, a small but real PR into <code>grafana/alloy-scenarios</code> that closed a long-standing local-emulator gap &mdash; and a TLA&#x207A;-style proof that three RBAC security invariants, each correct per service, break under cross-service concurrency.</p>
           <p>Each one is built to a standard I'd be willing to put on call. The architecture, the trade-offs, and the parts I'd do differently are all written out. If any of it is useful or you want to talk about something similar, the contact page is at the back.</p>
           <p class="editor-sig">— <span class="sig-name">Utkarsh Batham</span>, Vadodara · 2026</p>
         </div>
@@ -359,8 +353,8 @@
           <div class="entry-org">TEJASKP AI Software · Vadodara, India · On-site · 6 months</div>
           <ul>
             <li>Team-of-3 builds on full-stack AWS-deployed products for TEJASKP&#x2019;s clients — owned pipelines, backend APIs, and the integration seam between backend and frontend on every engagement.</li>
-            <li>Shipped <strong>WikiQA RAG</strong> (Wikipedia-grounded QA · FAISS + cross-encoder + multi-LLM) and <strong>AI Photo Matcher</strong> (InsightFace event-photo recognition); currently building a trader dashboard &amp; stock-prediction system.</li>
-            <li>Stack across engagements: FastAPI, PostgreSQL, S3, JWT auth, Prometheus, Razorpay; FAISS / Pinecone, InsightFace, sentence-transformers, cross-encoder re-rank.</li>
+            <li>Shipped <strong>WikiQA RAG</strong> (Wikipedia-grounded QA · FAISS + cross-encoder + multi-LLM); currently building a trader dashboard &amp; stock-prediction system.</li>
+            <li>Stack across engagements: FastAPI, PostgreSQL, S3, JWT auth, Prometheus, Razorpay; FAISS / Pinecone, sentence-transformers, cross-encoder re-rank.</li>
           </ul>
         </div>
         <div class="entry">
@@ -394,7 +388,7 @@
       <a href="projects.html" class="dept">
         <span class="dept-num">№ 02</span>
         <h3 class="dept-title">Work</h3>
-        <p class="dept-desc">Eight features — six shipped systems, six OSS PRs (two merged), and a formal-verification preprint. Architecture diagrams, trade-offs, and the parts I&#x2019;d build differently today.</p>
+        <p class="dept-desc">Seven features — five shipped systems, six OSS PRs (two merged), and a formal-verification preprint. Architecture diagrams, trade-offs, and the parts I&#x2019;d build differently today.</p>
         <span class="dept-link">Read the work →</span>
       </a>
       <a href="notes.html" class="dept">

@@ -111,7 +111,7 @@
       <li>SAGA across 5 Lambdas (Order / Inventory / Payment / Notification / DLQ-Processor) with event-sourced order log in DynamoDB; full compensation path on payment failure.</li>
       <li>Oversell-safe inventory via DynamoDB conditional writes; replay-safe handlers via <code>attribute_not_exists</code> idempotency &mdash; one primitive handles both correctness and at-least-once SQS replay.</li>
       <li>DynamoDB-backed circuit breaker (state shared across Lambda instances) fast-fails in &lt;1 ms instead of waiting on a 30 s provider timeout.</li>
-      <li>1,100+ req/min sustained under load, P50 47 ms / P99 120 ms (LocalStack); 50+ tests across moto + LocalStack; 5 AWS CDK stacks, X-Ray tracing with correlation IDs end-to-end.</li>
+      <li>1,100+ req/min sustained under load, P50 47 ms / P99 120 ms (LocalStack); 48 tests across moto + LocalStack; 5 AWS CDK stacks, X-Ray tracing with correlation IDs end-to-end.</li>
     </ul>
   </div>
 

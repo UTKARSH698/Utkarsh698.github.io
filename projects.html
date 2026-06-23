@@ -126,7 +126,7 @@
 
         <h3><span class="h-num">iv.</span> Measured behaviour</h3>
         <p class="body-prose">
-          Against LocalStack, 10 concurrent threads / 50 orders gave <strong>1,100+ req/min</strong>, P50 47 ms, P95 89 ms, P99 120 ms. Throughput plateaus near 1,300 req/min at 20 threads &mdash; the LocalStack Docker container is the bottleneck, not the design. On real AWS, DynamoDB partitions scale horizontally and the same correctness properties hold; only the absolute clock changes. 50+ tests cover failure paths under both moto mocks (unit) and LocalStack (integration), including duplicate orders, payment declines, circuit-open fast-fail, and atomic oversell rejection.
+          Against LocalStack, 10 concurrent threads / 50 orders gave <strong>1,100+ req/min</strong>, P50 47 ms, P95 89 ms, P99 120 ms. Throughput plateaus near 1,300 req/min at 20 threads &mdash; the LocalStack Docker container is the bottleneck, not the design. On real AWS, DynamoDB partitions scale horizontally and the same correctness properties hold; only the absolute clock changes. 48 tests cover failure paths under both moto mocks (unit) and LocalStack (integration), including duplicate orders, payment declines, circuit-open fast-fail, and atomic oversell rejection.
         </p>
 
         <h3><span class="h-num">v.</span> The open consistency question</h3>
@@ -140,11 +140,11 @@
           <h4>Issue Brief</h4>
           <div class="aside-fact"><span class="af-k">Status</span><span class="af-v">Shipped</span></div>
           <div class="aside-fact"><span class="af-k">Built</span><span class="af-v">Q1 2026</span></div>
-          <div class="aside-fact"><span class="af-k">Lambdas</span><span class="af-v">5 · DynamoDB ×5</span></div>
+          <div class="aside-fact"><span class="af-k">Lambdas</span><span class="af-v">5 · DynamoDB ×6</span></div>
           <div class="aside-fact"><span class="af-k">Throughput</span><span class="af-v">1,100+ req/min</span></div>
           <div class="aside-fact"><span class="af-k">P50 / P99</span><span class="af-v">47 ms · 120 ms</span></div>
           <div class="aside-fact"><span class="af-k">CB fast-fail</span><span class="af-v">&lt;1 ms</span></div>
-          <div class="aside-fact"><span class="af-k">Tests</span><span class="af-v">50+ · moto + LocalStack</span></div>
+          <div class="aside-fact"><span class="af-k">Tests</span><span class="af-v">48 · moto + LocalStack</span></div>
           <div class="aside-fact"><span class="af-k">IaC</span><span class="af-v">AWS CDK · 5 stacks</span></div>
         </div>
         <div class="aside-block">

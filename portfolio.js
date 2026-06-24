@@ -187,14 +187,14 @@
         { text: "  stack     Kinesis \u00B7 Lambda \u00B7 Athena \u00B7 DynamoDB \u00B7 Terraform", color: O },
         { text: "  problem   the seam between real-time dashboards and 90-day history", color: D },
         { text: "  approach  Lambda Architecture: dual-write fork, batch + speed layers, one stream", color: O },
-        { text: "  result    ~12ms realtime p50 \u00B7 ~1.8s Athena \u00B7 inside the AWS Free Tier", color: A }
+        { text: "  result    ~12ms realtime p50 \u00B7 ~1.8s Athena \u00B7 ~$0.36/day (one Kinesis shard)", color: A }
       ],
       cspm: [
         { text: "CSPM Agent — cloud security posture auditor", color: G },
         { text: "  stack     Python \u00B7 boto3 \u00B7 CIS v1.5 \u00B7 Terraform", color: O },
         { text: "  problem   public buckets, open SGs, risky IAM drift unnoticed", color: D },
         { text: "  approach  23 CIS checks over S3/IAM/EC2-SG/CloudTrail, DRY_RUN-by-default auto-fix", color: O },
-        { text: "  result    first scan 80% compliance \u00B7 scanner <6s \u00B7 64 tests (moto)", color: A }
+        { text: "  result    first scan 80% compliance \u00B7 scanner <6s \u00B7 71 tests (moto)", color: A }
       ],
       agrifuture: [
         { text: "AgriFuture — six Gemini AI modules behind one Express server", color: G },
@@ -208,7 +208,7 @@
         { text: "  stack     FAISS \u00B7 cross-encoder \u00B7 FastAPI \u00B7 multi-LLM", color: O },
         { text: "  problem   answer collapse, silent retrieval drift, no faithfulness signal", color: D },
         { text: "  approach  bi-encoder + cross-encoder re-rank, source-diversity guarantee, LLM judge", color: O },
-        { text: "  result    P@5 0.80 \u00B7 MRR 0.85 \u00B7 token-streamed \u00B7 46 pytest \u00B7 fits a t2.micro", color: A }
+        { text: "  result    P@5 0.80 \u00B7 MRR 0.85 \u00B7 token-streamed \u00B7 60 pytest \u00B7 fits a t2.micro", color: A }
       ]
     };
     return d[key] || null;
@@ -512,8 +512,8 @@
 
     heading("SELECTED PROJECTS");
     row("CloudFlow", "SAGA-orchestrated checkout on AWS Step Functions; compensation, event-sourced DynamoDB log, idempotent handlers, cold-start-safe circuit breaker. 1,100+ req/min at p50 47ms; 48 tests (moto + LocalStack).  [Step Functions, DynamoDB, AWS CDK]");
-    row("CloudPulse", "Lambda-architecture real-time analytics: dashboards update in ~12ms while the same Kinesis stream answers 90-day Athena queries (~1.8s). Dual-write at ingest, inside the AWS Free Tier.  [Kinesis, Athena, DynamoDB, Terraform]");
-    row("CSPM Agent", "Serverless cloud-security posture auditor; 23 CIS-v1.5 checks across S3, IAM, EC2 Security Groups, and CloudTrail with DRY_RUN-by-default auto-remediation. First scan 80% compliance; 64 tests.  [Python, boto3, CIS v1.5, Terraform]");
+    row("CloudPulse", "Lambda-architecture real-time analytics: dashboards update in ~12ms while the same Kinesis stream answers 90-day Athena queries (~1.8s). Dual-write at ingest; runs for ~$0.36/day, one Kinesis shard the only non-free piece.  [Kinesis, Athena, DynamoDB, Terraform]");
+    row("CSPM Agent", "Serverless cloud-security posture auditor; 23 CIS-v1.5 checks across S3, IAM, EC2 Security Groups, and CloudTrail with DRY_RUN-by-default auto-remediation. First scan 80% compliance; 71 tests.  [Python, boto3, CIS v1.5, Terraform]");
     row("AgriFuture", "AI agricultural platform: six Gemini modules behind one Express server, JWT+OTP auth, Razorpay HMAC commerce, offline PWA. ~12.5K LOC across 56 TS files; live on Render.  [Gemini, React 19, Express 5, PostgreSQL]");
     row("WikiQA RAG", "End-to-end retrieval-augmented QA over Wikipedia: FAISS retrieval, cross-encoder re-rank, source-diversity guarantee, multi-LLM token streaming, LLM faithfulness judge. P@5 0.80, MRR 0.85.  [FAISS, Cross-Encoder, FastAPI]");
 
@@ -555,7 +555,7 @@
         desc: "A SAGA-orchestrated checkout that never double-charges or oversells — Step Functions compensation, an event-sourced DynamoDB order log, idempotent handlers, and a circuit breaker that survives cold starts.",
         metric: "47ms", metricLabel: "p50 \u00B7 1,100+ req/min", tags: ["Step Functions", "DynamoDB", "Event Sourcing", "AWS CDK"] },
       { key: "cloudpulse", name: "CloudPulse", kind: "Real-time Analytics", status: "shipped", tagColor: "var(--acc-amber)",
-        desc: "A Lambda-architecture analytics platform: live dashboards update in ~12 ms while the same Kinesis stream still answers 90-day Athena queries (~1.8 s). Dual-write at ingest, all inside the AWS Free Tier.",
+        desc: "A Lambda-architecture analytics platform: live dashboards update in ~12 ms while the same Kinesis stream still answers 90-day Athena queries (~1.8 s). Dual-write at ingest; runs for ~$0.36/day — one Kinesis shard is the only piece outside the free tier.",
         metric: "~12ms", metricLabel: "realtime p50 \u00B7 ~1.8s Athena", tags: ["Kinesis", "Athena", "DynamoDB", "Terraform"] },
       { key: "cspm", name: "CSPM Agent", kind: "Cloud Security", status: "shipped", tagColor: "var(--acc-purple)",
         desc: "A serverless posture auditor running 23 CIS-v1.5 checks across S3, IAM, EC2 Security Groups, and CloudTrail — scores compliance, alerts on critical findings, and auto-fixes safe ones (DRY_RUN by default).",

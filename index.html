@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Utkarsh Batham — Cloud Engineer · Vol. 2026</title>
+<title>Utkarsh Batham — Cloud &amp; Distributed-Systems Engineer</title>
 <meta name="description" content="Utkarsh Batham — Cloud infrastructure, distributed systems, and security automation. AWS, Terraform, Kubernetes, Python. Open to global remote roles from July 2026.">
 <meta name="keywords" content="Cloud Engineer, DevOps, AWS, Terraform, Kubernetes, Docker, Python, CSPM, platform engineering, remote, India">
 <meta property="og:title" content="Utkarsh Batham — Cloud Engineer">
@@ -13,436 +13,369 @@
 <meta property="og:image" content="https://utkarsh698.github.io/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://utkarsh698.github.io/og-image.png">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23ede6d6'/><rect x='25' y='25' width='50' height='50' fill='%23b8410e'/></svg>">
-<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%2316191f'/><rect x='28' y='28' width='44' height='44' rx='10' fill='%2342d77d'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-DZ48W4D1EW"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-DZ48W4D1EW');</script>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  :root,html[data-theme="dark"]{
+    --bg:oklch(0.15 0.01 260);--card:oklch(0.18 0.012 260);--card2:oklch(0.21 0.012 260);
+    --bd:oklch(0.28 0.012 260);--bd2:oklch(0.32 0.012 260);--chip:oklch(0.23 0.012 260);
+    --fg:oklch(0.94 0.01 260);--hi:oklch(0.96 0.01 260);--fg2:oklch(0.64 0.01 260);--fg3:oklch(0.55 0.01 260);
+    --nav:oklch(0.16 0.01 260 / .82);
+    --acc-green:oklch(0.84 0.13 150);--acc-amber:oklch(0.82 0.13 85);--acc-blue:oklch(0.84 0.13 230);--acc-purple:oklch(0.8 0.13 300);
+    --cta-bg1:oklch(0.21 0.04 150);--cta-bd:oklch(0.4 0.08 150);--cta-fg:oklch(0.97 0.01 260);--cta-sub:oklch(0.72 0.02 150);
+    --inv-bg:oklch(0.9 0.01 260);--inv-fg:oklch(0.18 0.01 260);--ov:oklch(0.1 0.01 260 / .72);
+  }
+  html[data-theme="light"]{
+    --bg:oklch(0.96 0.005 255);--card:oklch(1 0 0);--card2:oklch(0.985 0.003 255);
+    --bd:oklch(0.9 0.006 255);--bd2:oklch(0.84 0.008 255);--chip:oklch(0.955 0.005 255);
+    --fg:oklch(0.24 0.015 260);--hi:oklch(0.18 0.015 260);--fg2:oklch(0.45 0.012 260);--fg3:oklch(0.55 0.012 260);
+    --nav:oklch(0.99 0.004 255 / .82);
+    --acc-green:oklch(0.5 0.15 150);--acc-amber:oklch(0.56 0.14 70);--acc-blue:oklch(0.5 0.17 255);--acc-purple:oklch(0.5 0.18 300);
+    --cta-bg1:oklch(0.94 0.05 150);--cta-bd:oklch(0.78 0.1 150);--cta-fg:oklch(0.2 0.03 150);--cta-sub:oklch(0.42 0.05 150);
+    --inv-bg:oklch(0.22 0.015 260);--inv-fg:oklch(0.97 0.005 260);--ov:oklch(0.5 0.02 260 / .4);
+  }
+  body{background:var(--bg);overflow-x:hidden;transition:background .4s ease;font-family:'IBM Plex Sans';color:var(--fg)}
+  ::selection{background:oklch(0.78 0.15 150 / .3)}
+  ::-webkit-scrollbar{width:10px;height:10px}
+  ::-webkit-scrollbar-track{background:var(--bg)}
+  ::-webkit-scrollbar-thumb{background:var(--bd2);border-radius:5px}
+  @keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.8)}}
+  @keyframes dash{to{stroke-dashoffset:-24}}
+  @keyframes floatUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes slideIn{from{opacity:0;transform:translateX(24px)}to{opacity:1;transform:translateX(0)}}
+  @keyframes popIn{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:scale(1)}}
+  .reveal{animation:floatUp .7s cubic-bezier(.2,.7,.2,1) both}
+  a{text-decoration:none;color:inherit}
+  [data-hover]{transition:all .2s ease}
+  .nav-links a:hover{background:var(--chip);color:var(--fg)}
+  [data-hover]:hover{filter:brightness(1.07)}
+  .proj-card:hover,.repo-card:hover{border-color:var(--acc-green)!important;transform:translateY(-3px)}
+  .post-row:hover{background:var(--card)}
+  .quick-cmd:hover{border-color:var(--acc-green)!important;color:var(--acc-green)!important}
+  #boot-skip:hover{border-color:oklch(0.5 0.13 150)!important;color:oklch(0.82 0.13 150)!important}
+  #nav-resume:hover{background:var(--acc-green);color:oklch(0.18 0.04 150)}
+  /* ===== responsive ===== */
+  @media(max-width:900px){
+    .nav-links{display:none!important}
+    .hero-grid{grid-template-columns:1fr!important;gap:30px!important}
+    .hero-h1{font-size:48px!important}
+    .stat-grid{grid-template-columns:1fr 1fr!important}
+    .proj-grid{grid-template-columns:1fr!important}
+    .proj-span2{grid-column:auto!important;flex-direction:column!important;align-items:flex-start!important;gap:16px!important}
+    .repo-grid{grid-template-columns:1fr!important}
+    .sysmap-stage{height:auto!important;position:static!important;padding:60px 14px 18px!important}
+    .sysmap-svg{display:none!important}
+    .sysmap-node{position:static!important;transform:none!important;width:auto!important;margin-bottom:12px!important}
+    .sysmap-root{position:static!important;transform:none!important;width:auto!important;margin:0 auto 16px!important}
+    .htop-row,.htop-head{grid-template-columns:50px 1fr 90px 90px!important;gap:8px!important}
+    .post-row{grid-template-columns:1fr!important;gap:8px!important}
+  }
+  @media(max-width:560px){
+    .stat-grid{grid-template-columns:1fr!important}
+    .sect{padding-left:18px!important;padding-right:18px!important}
+    .hero-h1{font-size:40px!important}
+    .cta-h2{font-size:32px!important}
+    .nav-search-label{display:none}
+  }
+</style>
 </head>
 <body>
+<div style="min-height:100vh">
 
-<nav class="masthead">
-  <div class="masthead-in">
-    <a href="index.html" class="wordmark">
-      <span class="wm-mark"></span>
-      Utkarsh Batham
-      <span class="wm-sub">Vol. 2026</span>
-    </a>
-    <ul class="nav-index">
-      <li><a href="index.html"><span class="num">01</span>Cover</a></li>
-      <li><a href="projects.html"><span class="num">02</span>Work</a></li>
-      <li><a href="notes.html"><span class="num">03</span>Dispatches</a></li>
-      <li><a href="resume.html"><span class="num">04</span>Dossier</a></li>
-      <li><a href="contact.html"><span class="num">05</span>Contact</a></li>
-    </ul>
-    <div class="masthead-r">
-      <button class="icon-btn" id="theme-btn" aria-label="Toggle theme">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-      </button>
-      <button class="icon-btn ham" id="ham" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
+<!-- ===== BOOT OVERLAY ===== -->
+<div id="boot" style="position:fixed;inset:0;z-index:200;background:oklch(0.13 0.01 260);display:flex;flex-direction:column;justify-content:center;padding:0 8vw;transition:opacity .55s ease;opacity:1">
+  <div style="font:600 12px 'IBM Plex Mono';letter-spacing:.3em;color:oklch(0.5 0.01 260);text-transform:uppercase;margin-bottom:22px">utkarsh@cloud — boot</div>
+  <div style="font:400 15px/2 'IBM Plex Mono';max-width:680px">
+    <div id="boot-lines"></div>
+    <span style="display:inline-block;width:9px;height:18px;background:oklch(0.82 0.13 150);vertical-align:-3px;animation:blink 1.1s step-end infinite"></span>
   </div>
-</nav>
-<div class="nav-drawer" id="nav-drawer" style="display:none">
-  <ul>
-    <li><a href="index.html"><span class="num">01</span>Cover</a></li>
-    <li><a href="projects.html"><span class="num">02</span>Work</a></li>
-    <li><a href="notes.html"><span class="num">03</span>Dispatches</a></li>
-    <li><a href="resume.html"><span class="num">04</span>Dossier</a></li>
-    <li><a href="contact.html"><span class="num">05</span>Contact</a></li>
-  </ul>
+  <button id="boot-skip" style="position:fixed;bottom:30px;right:34px;padding:9px 16px;border-radius:8px;background:transparent;border:1px solid oklch(0.32 0.012 260);font:500 12px 'IBM Plex Mono';color:oklch(0.6 0.01 260);cursor:pointer">skip ▸</button>
 </div>
 
-<main>
-
-<!-- ── COVER ─────────────────────────────────────────────── -->
-<section class="cover">
-  <div class="wrap">
-    <div class="cover-strip">
-      <span class="cs-l">Vol. 2026 · Issue 06</span>
-      <span>Folio 01 — Cover</span>
-      <span>Vadodara · India</span>
-      <span>Cloud · Distributed · Security</span>
+<!-- ===== COMMAND PALETTE ===== -->
+<div id="cmdk" style="display:none;position:fixed;inset:0;z-index:190;background:var(--ov);backdrop-filter:blur(4px);justify-content:center;align-items:flex-start;padding-top:14vh">
+  <div id="cmdk-panel" style="width:min(620px,92vw);background:var(--card);border:1px solid var(--bd2);border-radius:14px;box-shadow:0 40px 90px -30px rgba(0,0,0,.6);overflow:hidden;animation:popIn .14s ease both">
+    <div style="display:flex;align-items:center;gap:11px;padding:16px 18px;border-bottom:1px solid var(--bd)">
+      <span style="font:600 14px 'IBM Plex Mono';color:var(--acc-green)">⌘</span>
+      <input id="cmdk-input" placeholder="Jump to a section, run a command…" spellcheck="false" style="flex:1;background:transparent;border:none;outline:none;font:400 16px 'IBM Plex Sans';color:var(--fg)" />
+      <span style="font:500 10px 'IBM Plex Mono';color:var(--fg3);border:1px solid var(--bd2);border-radius:5px;padding:3px 6px">esc</span>
     </div>
+    <div id="cmdk-results" style="max-height:46vh;overflow-y:auto;padding:8px"></div>
+  </div>
+</div>
 
-    <div class="cover-grid">
-      <div>
-        <span class="cover-tag fade">Open to roles · July 2026</span>
+<!-- ===== MATRIX OVERLAY ===== -->
+<div id="matrix" style="display:none">
+  <canvas id="matrix-canvas" style="position:fixed;inset:0;z-index:185;background:#000;cursor:pointer"></canvas>
+  <div id="matrix-hint" style="position:fixed;bottom:28px;left:50%;transform:translateX(-50%);z-index:186;font:500 12px 'IBM Plex Mono';color:oklch(0.8 0.2 150);cursor:pointer">click anywhere to exit the matrix ▸</div>
+</div>
 
-        <h1 class="fade fade-1">
-          Engineering<br>
-          for systems<br>
-          that <em>hold.</em>
-        </h1>
+<!-- ===== INCIDENT TOAST ===== -->
+<div id="incident" style="display:none;position:fixed;bottom:26px;right:26px;z-index:170;width:340px;background:var(--card);border:1px solid var(--bd2);border-radius:12px;box-shadow:0 24px 60px -24px rgba(0,0,0,.5);overflow:hidden"></div>
 
-        <p class="hero-sub fade fade-1">
-          Cloud · Distributed · Security &nbsp;//&nbsp; AWS · Terraform · Kubernetes · Python &nbsp;//&nbsp; Open <strong>July 2026</strong> — remote, intern or contract
-        </p>
+<!-- ===== STICKY NAV ===== -->
+<nav style="position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:16px;padding:0 28px;height:60px;background:var(--nav);backdrop-filter:blur(14px);border-bottom:1px solid var(--bd);transition:background .4s,border-color .4s">
+  <a href="#top" style="display:flex;align-items:center;gap:9px">
+    <span style="width:11px;height:11px;border-radius:3px;background:var(--acc-green);box-shadow:0 0 10px oklch(0.78 0.15 150 / .7)"></span>
+    <span style="font:600 14px 'IBM Plex Mono';color:var(--fg)">utkarsh<span style="color:var(--fg3)">@</span>cloud</span>
+  </a>
+  <div class="nav-links" style="margin-left:14px;display:flex;gap:2px;font:500 13px 'IBM Plex Mono'">
+    <a href="#dashboard" data-hover style="padding:7px 11px;border-radius:7px;color:var(--fg3)">dashboard</a>
+    <a href="#systemmap" data-hover style="padding:7px 11px;border-radius:7px;color:var(--fg3)">system map</a>
+    <a href="#projects" data-hover style="padding:7px 11px;border-radius:7px;color:var(--fg3)">projects</a>
+    <a href="#shell" data-hover style="padding:7px 11px;border-radius:7px;color:var(--fg3)">shell</a>
+    <a href="#github" data-hover style="padding:7px 11px;border-radius:7px;color:var(--fg3)">github</a>
+    <a href="#writing" data-hover style="padding:7px 11px;border-radius:7px;color:var(--fg3)">writing</a>
+  </div>
+  <div style="margin-left:auto;display:flex;align-items:center;gap:10px">
+    <button id="nav-search" data-hover style="display:flex;align-items:center;gap:8px;padding:7px 12px;border-radius:8px;background:var(--chip);border:1px solid var(--bd);font:500 12px 'IBM Plex Mono';color:var(--fg3);cursor:pointer"><span class="nav-search-label">Search</span><span style="border:1px solid var(--bd2);border-radius:4px;padding:1px 5px;font-size:10px">⌘K</span></button>
+    <button id="nav-theme" data-hover title="Toggle theme" style="width:36px;height:36px;border-radius:9px;background:var(--chip);border:1px solid var(--bd);font-size:15px;cursor:pointer;color:var(--fg);display:flex;align-items:center;justify-content:center">☀</button>
+    <a id="nav-resume" href="#contact" style="padding:8px 15px;border-radius:8px;background:var(--inv-bg);color:var(--inv-fg);font:600 12px 'IBM Plex Mono';cursor:pointer">Résumé ↓</a>
+  </div>
+</nav>
 
-        <p class="cover-lead fade fade-2">
-          I design and operate cloud infrastructure, build distributed services that survive
-          partial failure, and automate security posture. <strong>Wrapping up a 6-month
-          Cloud Computing internship at TEJASKP AI Software</strong> (on-site, Vadodara —
-          ends Jul 2026) while finishing my B.Tech in CSE with a Cloud Technology &amp;
-          Information Security specialisation.
-        </p>
-
-        <aside class="research-banner fade fade-2" aria-label="Research direction">
-          <span class="rb-eyebrow">Research direction</span>
-          <p class="rb-body">
-            Formal verification of <em>security invariants in distributed cloud systems</em> —
-            independent research preprint (<a href="https://doi.org/10.5281/zenodo.20686317" target="_blank" rel="noopener">Zenodo&nbsp;DOI</a>),
-            building toward an <strong>M.Sc.&nbsp;2027</strong> in cloud security &amp; verified systems.
-          </p>
-        </aside>
-
-        <aside class="wild-banner fade fade-2" aria-label="Recent open source contributions">
-          <span class="wb-eyebrow">In the wild · 2026</span>
-          <p class="wb-body">
-            Authored &amp; shipped <strong>PR <a href="https://github.com/grafana/alloy-scenarios/pull/147" target="_blank" rel="noopener">#147</a></strong>
-            to <strong>grafana/alloy-scenarios</strong> — a CloudWatch metrics scenario for Grafana&#x2019;s
-            official Alloy examples repo, <em>merged by Grafana DevRel</em> — and
-            <strong>PR <a href="https://github.com/imran31415/kube-coder/pull/124" target="_blank" rel="noopener">#124</a></strong>
-            to <strong>kube-coder</strong> (HA replicas &amp; PodDisruptionBudgets, <em>merged</em>).
-            Four more contributions under review:
-            <strong><a href="https://github.com/prowler-cloud/prowler/pull/11577" target="_blank" rel="noopener">prowler #11577</a></strong>
-            (a new Entra Conditional Access check),
-            <strong><a href="https://github.com/bridgecrewio/checkov/pull/7580" target="_blank" rel="noopener">checkov #7580</a></strong>
-            (a Kubernetes check fix),
-            <strong><a href="https://github.com/getmoto/moto/pull/10070" target="_blank" rel="noopener">moto #10070</a></strong>
-            (ECS RunTask capacity-provider support), and
-            <strong><a href="https://github.com/open-telemetry/opentelemetry-python-contrib/pull/4728" target="_blank" rel="noopener">opentelemetry-python-contrib #4728</a></strong>
-            (a Redis cluster-pipeline span fix).
-          </p>
-        </aside>
-
-        <div class="cover-meta fade fade-2">
-          <div class="cm-row">
-            <span class="cm-key">Based</span>
-            <span class="cm-val">Vadodara, IN</span>
-          </div>
-          <div class="cm-row">
-            <span class="cm-key">Avail.</span>
-            <span class="cm-val">Jul 2026</span>
-          </div>
-          <div class="cm-row">
-            <span class="cm-key">Mode</span>
-            <span class="cm-val">Remote · Global</span>
-          </div>
-          <div class="cm-row">
-            <span class="cm-key">CGPA</span>
-            <span class="cm-val">9.44 / 10</span>
-          </div>
-          <div class="cm-row">
-            <span class="cm-key">Stack</span>
-            <span class="cm-val">AWS · TF · K8s</span>
-          </div>
-          <div class="cm-row">
-            <span class="cm-key">Focus</span>
-            <span class="cm-val">Platform · SRE</span>
-          </div>
+<!-- ===== HERO / DASHBOARD ===== -->
+<section id="top" class="sect" style="position:relative;max-width:1280px;margin:0 auto;padding:70px 32px 30px">
+  <a name="dashboard"></a>
+  <div class="hero-grid" style="display:grid;grid-template-columns:1.1fr .9fr;gap:54px;align-items:center">
+    <div class="reveal">
+      <div style="display:flex;align-items:center;gap:16px;margin-bottom:26px">
+        <div style="position:relative;width:118px;height:118px;border-radius:16px;flex-shrink:0;background:linear-gradient(150deg,oklch(0.24 0.02 260),oklch(0.18 0.012 260));border:1px solid var(--bd2);overflow:hidden;box-shadow:0 16px 40px -18px rgba(0,0,0,.6)">
+          <img src="assets/utkarsh.png" alt="Utkarsh Batham" style="width:100%;height:100%;object-fit:cover;object-position:center 22%" />
         </div>
-
-        <div class="cover-cta fade fade-3">
-          <a href="projects.html" class="btn btn-ink">Read the work →</a>
-          <a href="resume.html" class="btn btn-line">Dossier · CV</a>
-          <a href="https://github.com/UTKARSH698" target="_blank" rel="noopener" class="btn btn-ghost">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2.04c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.7 1.25 3.36.95.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.18A10.97 10.97 0 0 1 12 6.7c.97 0 1.95.13 2.86.39 2.18-1.49 3.15-1.18 3.15-1.18.62 1.58.23 2.75.11 3.04.74.81 1.18 1.84 1.18 3.1 0 4.43-2.7 5.41-5.27 5.7.41.36.78 1.07.78 2.17v3.22c0 .31.21.68.8.56C20.21 21.38 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>
-            GitHub
-          </a>
-        </div>
-
-        <div class="cover-stats fade fade-3">
-          <div class="cs-stat">
-            <span class="cs-num"><span data-count="6">0</span></span>
-            <span class="cs-lbl">Pieces shipped</span>
-          </div>
-          <div class="cs-stat">
-            <span class="cs-num"><span data-count="9.44">0</span></span>
-            <span class="cs-lbl">CGPA / 10</span>
-          </div>
-          <div class="cs-stat">
-            <span class="cs-num"><span data-count="99.9" data-suffix="%">0</span></span>
-            <span class="cs-lbl">Target uptime</span>
-          </div>
-          <div class="cs-stat">
-            <span class="cs-num"><span data-count="24" data-suffix="h">0</span></span>
-            <span class="cs-lbl">Reply window</span>
-          </div>
+        <div>
+          <div style="font:600 10px 'IBM Plex Mono';letter-spacing:.16em;color:var(--fg3);text-transform:uppercase">Operator</div>
+          <div style="font:600 15px 'IBM Plex Mono';color:var(--fg);margin-top:3px">utkarsh<span style="color:var(--fg3)">@</span>cloud</div>
+          <div style="display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:4px 10px;border-radius:20px;background:oklch(0.6 0.13 150 / .14);font:600 10px 'IBM Plex Mono';color:var(--acc-green)"><span style="width:6px;height:6px;border-radius:50%;background:var(--acc-green);animation:pulse 1.8s ease-in-out infinite"></span>ONLINE</div>
         </div>
       </div>
+      <div style="font:700 12px 'IBM Plex Mono';letter-spacing:.34em;color:var(--acc-green);text-transform:uppercase">Cloud · Distributed Systems · Security</div>
+      <h1 class="hero-h1" style="font:600 68px/1.02 'Space Grotesk';color:var(--hi);margin-top:18px;letter-spacing:-.02em">Utkarsh<br>Batham</h1>
+      <p style="font:400 18px/1.6 'IBM Plex Sans';color:var(--fg2);margin-top:22px;max-width:480px">I build infrastructure for the moment it has to keep working — when traffic spikes, a region drops, or a payment errors at 3am. CSE final-year, GATE AIR&nbsp;6,271.</p>
+      <div style="display:flex;gap:12px;margin-top:30px;flex-wrap:wrap">
+        <a href="#projects" data-hover style="padding:13px 22px;border-radius:10px;background:var(--acc-green);color:oklch(0.18 0.04 150);font:600 13px 'IBM Plex Mono'">View the work →</a>
+        <a href="#shell" data-hover style="padding:13px 22px;border-radius:10px;background:var(--card);border:1px solid var(--bd2);color:var(--fg);font:600 13px 'IBM Plex Mono'">Run the shell ⌘</a>
+      </div>
+      <div style="display:flex;gap:26px;margin-top:34px;flex-wrap:wrap">
+        <a href="https://github.com/utkarsh698" data-hover style="font:500 13px 'IBM Plex Mono';color:var(--fg3)">GitHub ↗</a>
+        <a href="https://www.linkedin.com/in/utkarsh-batham" target="_blank" data-hover style="font:500 13px 'IBM Plex Mono';color:var(--fg3)">LinkedIn ↗</a>
+        <a href="https://doi.org/10.5281/zenodo.20686317" target="_blank" data-hover style="font:500 13px 'IBM Plex Mono';color:var(--fg3)">Zenodo DOI ↗</a>
+      </div>
+    </div>
 
-      <div class="cover-photo fade fade-2">
-        <img src="my_photo.png" alt="Utkarsh Batham" fetchpriority="high" decoding="async">
-        <div class="cover-photo-cap">
-          <span>Plate 01 &mdash; The Editor</span>
-          <span>Vadodara &middot; &rsquo;26</span>
+    <div class="reveal" style="background:oklch(0.18 0.012 260);border:1px solid oklch(0.28 0.012 260);border-radius:16px;overflow:hidden;box-shadow:0 30px 70px -30px rgba(0,0,0,.7)">
+      <div style="height:42px;display:flex;align-items:center;gap:10px;padding:0 16px;background:oklch(0.21 0.012 260);border-bottom:1px solid oklch(0.28 0.012 260)">
+        <span style="width:10px;height:10px;border-radius:3px;background:oklch(0.74 0.14 30)"></span>
+        <span style="font:600 12px 'IBM Plex Mono';color:oklch(0.82 0.01 260)">production</span>
+        <span style="margin-left:auto;display:flex;align-items:center;gap:6px;font:600 10px 'IBM Plex Mono';color:oklch(0.8 0.13 150)"><span style="width:6px;height:6px;border-radius:50%;background:oklch(0.78 0.15 150);animation:pulse 1.8s ease-in-out infinite"></span>LIVE</span>
+      </div>
+      <div style="padding:16px;display:grid;grid-template-columns:1fr 1fr;gap:11px">
+        <div style="background:oklch(0.21 0.012 260);border:1px solid oklch(0.28 0.012 260);border-radius:10px;padding:13px 15px">
+          <div style="font:500 9px 'IBM Plex Mono';letter-spacing:.12em;text-transform:uppercase;color:oklch(0.56 0.01 260)">p99 latency</div>
+          <div style="font:600 26px 'Space Grotesk';color:oklch(0.84 0.13 230);margin-top:5px"><span id="m-latency">42</span><span style="font-size:13px;color:oklch(0.5 0.01 260)">ms</span></div>
         </div>
+        <div style="background:oklch(0.21 0.012 260);border:1px solid oklch(0.28 0.012 260);border-radius:10px;padding:13px 15px">
+          <div style="font:500 9px 'IBM Plex Mono';letter-spacing:.12em;text-transform:uppercase;color:oklch(0.56 0.01 260)">throughput</div>
+          <div style="font:600 26px 'Space Grotesk';color:oklch(0.84 0.13 85);margin-top:5px"><span id="m-rps">1.28k</span><span style="font-size:13px;color:oklch(0.5 0.01 260)">/s</span></div>
+        </div>
+        <div style="grid-column:span 2;background:oklch(0.21 0.012 260);border:1px solid oklch(0.28 0.012 260);border-radius:10px;padding:13px 15px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline"><div style="font:500 9px 'IBM Plex Mono';letter-spacing:.12em;text-transform:uppercase;color:oklch(0.56 0.01 260)">commit activity · 4 yrs</div><div style="font:600 13px 'IBM Plex Mono';color:oklch(0.8 0.13 150)">↑ <span id="m-uptime">99.98</span>%</div></div>
+          <svg viewBox="0 0 320 70" style="width:100%;height:64px;margin-top:6px" preserveAspectRatio="none">
+            <defs><linearGradient id="hs" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="oklch(0.7 0.14 150)" stop-opacity=".4"></stop><stop offset="1" stop-color="oklch(0.7 0.14 150)" stop-opacity="0"></stop></linearGradient></defs>
+            <path d="M0,58 L29,52 L58,55 L87,44 L116,48 L145,36 L174,39 L203,26 L232,30 L261,17 L290,13 L320,8 L320,70 L0,70 Z" fill="url(#hs)"></path>
+            <path d="M0,58 L29,52 L58,55 L87,44 L116,48 L145,36 L174,39 L203,26 L232,30 L261,17 L290,13 L320,8" fill="none" stroke="oklch(0.78 0.14 150)" stroke-width="2"></path>
+            <circle cx="320" cy="8" r="3.5" fill="oklch(0.84 0.14 150)"></circle>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="reveal stat-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:46px">
+    <div style="background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:18px 20px">
+      <div style="font:600 28px 'Space Grotesk';color:var(--acc-green)">9.44<span style="font-size:14px;color:var(--fg3)">/10</span></div>
+      <div style="font:500 11px 'IBM Plex Mono';letter-spacing:.1em;text-transform:uppercase;color:var(--fg3);margin-top:5px">CGPA</div>
+    </div>
+    <div style="background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:18px 20px">
+      <div style="font:600 28px 'Space Grotesk';color:var(--acc-amber)">AIR 6,271</div>
+      <div style="font:500 11px 'IBM Plex Mono';letter-spacing:.1em;text-transform:uppercase;color:var(--fg3);margin-top:5px">GATE · 97th pct</div>
+    </div>
+    <div style="background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:18px 20px">
+      <div style="font:600 28px 'Space Grotesk';color:var(--acc-blue)">7</div>
+      <div style="font:500 11px 'IBM Plex Mono';letter-spacing:.1em;text-transform:uppercase;color:var(--fg3);margin-top:5px">Systems shipped</div>
+    </div>
+    <div style="background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:18px 20px">
+      <div style="font:600 28px 'Space Grotesk';color:var(--acc-purple)">2<span style="font-size:14px;color:var(--fg3)">/6</span></div>
+      <div style="font:500 11px 'IBM Plex Mono';letter-spacing:.1em;text-transform:uppercase;color:var(--fg3);margin-top:5px">OSS PRs merged</div>
+    </div>
+  </div>
+
+  <!-- htop process monitor -->
+  <div class="reveal" style="margin-top:14px;background:oklch(0.165 0.012 260);border:1px solid oklch(0.28 0.012 260);border-radius:14px;overflow:hidden">
+    <div style="height:38px;display:flex;align-items:center;gap:10px;padding:0 16px;background:oklch(0.2 0.012 260);border-bottom:1px solid oklch(0.28 0.012 260)">
+      <span style="font:600 11px 'IBM Plex Mono';color:oklch(0.62 0.01 260)">htop — skills as running processes</span>
+      <span style="margin-left:auto;font:500 10px 'IBM Plex Mono';color:oklch(0.5 0.01 260)">load avg <span id="load-avg">0.62 0.71 0.68</span></span>
+    </div>
+    <div style="padding:14px 18px">
+      <div class="htop-head" style="display:grid;grid-template-columns:62px 1fr 150px 150px;gap:14px;font:600 10px 'IBM Plex Mono';letter-spacing:.1em;text-transform:uppercase;color:oklch(0.5 0.01 260);padding-bottom:9px;border-bottom:1px solid oklch(0.25 0.012 260)">
+        <span>PID</span><span>COMMAND</span><span>CPU%</span><span>MEM%</span>
+      </div>
+      <div id="procs"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SYSTEM MAP ===== -->
+<section id="systemmap" class="sect" style="max-width:1280px;margin:0 auto;padding:64px 32px 30px">
+  <span style="font:700 12px 'IBM Plex Mono';letter-spacing:.3em;color:var(--acc-blue);text-transform:uppercase">01 — System Map</span>
+  <h2 style="font:600 38px/1.05 'Space Grotesk';color:var(--hi);margin-top:6px;max-width:680px">The work, drawn as the architecture it actually is.</h2>
+
+  <div class="sysmap-stage" style="position:relative;margin-top:30px;background:oklch(0.17 0.012 265);border:1px solid oklch(0.28 0.012 265);border-radius:16px;overflow:hidden;height:560px">
+    <div style="position:absolute;top:0;left:0;right:0;height:46px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;background:oklch(0.2 0.012 265);border-bottom:1px solid oklch(0.28 0.012 265);z-index:5">
+      <div style="display:flex;align-items:center;gap:9px;font:600 11px 'IBM Plex Mono';letter-spacing:.1em;color:oklch(0.62 0.01 265)"><span style="width:8px;height:8px;border-radius:2px;background:oklch(0.74 0.13 150)"></span>REGION · ap-south-1</div>
+      <div style="font:500 11px 'IBM Plex Mono';color:oklch(0.5 0.01 265)">architecture · live</div>
+    </div>
+    <svg class="sysmap-svg" viewBox="0 0 1216 560" style="position:absolute;inset:0;width:100%;height:100%;z-index:1" preserveAspectRatio="none">
+      <g fill="none" stroke="oklch(0.45 0.05 220)" stroke-width="1.4" stroke-dasharray="5 7" style="animation:dash 1.4s linear infinite">
+        <path d="M608,300 L250,180"></path><path d="M608,300 L966,180"></path><path d="M608,300 L250,430"></path><path d="M608,300 L966,430"></path>
+      </g>
+    </svg>
+    <div class="sysmap-root" style="position:absolute;left:50%;top:300px;transform:translate(-50%,-50%);z-index:4;text-align:center;background:oklch(0.22 0.02 265);border:1.5px solid oklch(0.5 0.12 150);border-radius:14px;padding:16px 24px;box-shadow:0 0 0 8px oklch(0.5 0.12 150 / .08),0 16px 40px -12px rgba(0,0,0,.5);width:230px">
+      <div style="font:600 10px 'IBM Plex Mono';letter-spacing:.18em;color:oklch(0.7 0.13 150);text-transform:uppercase">root node</div>
+      <div style="font:600 19px 'Space Grotesk';color:oklch(0.94 0.01 265);margin-top:5px">Utkarsh Batham</div>
+      <div style="display:inline-flex;align-items:center;gap:6px;margin-top:9px;padding:4px 10px;border-radius:20px;background:oklch(0.5 0.12 150 / .14);font:600 9px 'IBM Plex Mono';color:oklch(0.82 0.12 150)"><span style="width:6px;height:6px;border-radius:50%;background:oklch(0.78 0.15 150);animation:pulse 1.8s ease-in-out infinite"></span>HEALTHY</div>
+    </div>
+    <div class="sysmap-node" style="position:absolute;left:46px;top:180px;transform:translateY(-50%);width:300px;z-index:3;background:oklch(0.2 0.012 265);border:1px solid oklch(0.3 0.012 265);border-top:2px solid oklch(0.65 0.13 230);border-radius:10px;padding:13px 15px">
+      <div style="font:600 11px 'IBM Plex Mono';letter-spacing:.14em;color:oklch(0.7 0.12 230);text-transform:uppercase">Stack</div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:10px">
+        <span style="padding:4px 9px;border-radius:6px;background:oklch(0.25 0.012 265);font:500 11px 'IBM Plex Mono';color:oklch(0.82 0.01 265)">AWS</span><span style="padding:4px 9px;border-radius:6px;background:oklch(0.25 0.012 265);font:500 11px 'IBM Plex Mono';color:oklch(0.82 0.01 265)">Terraform</span><span style="padding:4px 9px;border-radius:6px;background:oklch(0.25 0.012 265);font:500 11px 'IBM Plex Mono';color:oklch(0.82 0.01 265)">Kubernetes</span><span style="padding:4px 9px;border-radius:6px;background:oklch(0.25 0.012 265);font:500 11px 'IBM Plex Mono';color:oklch(0.82 0.01 265)">Python</span><span style="padding:4px 9px;border-radius:6px;background:oklch(0.25 0.012 265);font:500 11px 'IBM Plex Mono';color:oklch(0.82 0.01 265)">Go</span><span style="padding:4px 9px;border-radius:6px;background:oklch(0.25 0.012 265);font:500 11px 'IBM Plex Mono';color:oklch(0.82 0.01 265)">Prometheus</span>
+      </div>
+    </div>
+    <div class="sysmap-node" style="position:absolute;right:46px;top:180px;transform:translateY(-50%);width:300px;z-index:3;background:oklch(0.2 0.012 265);border:1px solid oklch(0.3 0.012 265);border-top:2px solid oklch(0.68 0.13 150);border-radius:10px;padding:13px 15px">
+      <div style="font:600 11px 'IBM Plex Mono';letter-spacing:.14em;color:oklch(0.74 0.12 150);text-transform:uppercase">Shipped</div>
+      <div style="margin-top:9px;display:flex;flex-direction:column;gap:7px">
+        <div style="display:flex;align-items:center;gap:8px"><span style="width:6px;height:6px;border-radius:50%;background:oklch(0.78 0.15 150)"></span><span style="font:600 12px 'IBM Plex Mono';color:oklch(0.88 0.01 265)">CloudFlow</span><span style="font:400 11px 'IBM Plex Sans';color:oklch(0.55 0.01 265)">SAGA orchestrator</span></div>
+        <div style="display:flex;align-items:center;gap:8px"><span style="width:6px;height:6px;border-radius:50%;background:oklch(0.78 0.15 150)"></span><span style="font:600 12px 'IBM Plex Mono';color:oklch(0.88 0.01 265)">CloudPulse</span><span style="font:400 11px 'IBM Plex Sans';color:oklch(0.55 0.01 265)">real-time analytics</span></div>
+        <div style="display:flex;align-items:center;gap:8px"><span style="width:6px;height:6px;border-radius:50%;background:oklch(0.78 0.15 150)"></span><span style="font:600 12px 'IBM Plex Mono';color:oklch(0.88 0.01 265)">CSPM Agent</span><span style="font:400 11px 'IBM Plex Sans';color:oklch(0.55 0.01 265)">CIS posture audit</span></div>
+      </div>
+    </div>
+    <div class="sysmap-node" style="position:absolute;left:46px;top:430px;transform:translateY(-50%);width:300px;z-index:3;background:oklch(0.2 0.012 265);border:1px solid oklch(0.3 0.012 265);border-top:2px solid oklch(0.78 0.13 85);border-radius:10px;padding:13px 15px">
+      <div style="font:600 11px 'IBM Plex Mono';letter-spacing:.14em;color:oklch(0.8 0.13 85);text-transform:uppercase">Open Source</div>
+      <div style="margin-top:9px;display:flex;flex-direction:column;gap:7px">
+        <div style="display:flex;align-items:center;gap:8px"><span style="color:oklch(0.78 0.14 150);font-size:10px">●</span><span style="font:600 12px 'IBM Plex Mono';color:oklch(0.88 0.01 265)">alloy-scenarios#147</span><span style="font:400 10px 'IBM Plex Sans';color:oklch(0.55 0.01 265)">merged</span></div>
+        <div style="display:flex;align-items:center;gap:8px"><span style="color:oklch(0.78 0.14 150);font-size:10px">●</span><span style="font:600 12px 'IBM Plex Mono';color:oklch(0.88 0.01 265)">kube-coder#124</span><span style="font:400 10px 'IBM Plex Sans';color:oklch(0.55 0.01 265)">merged</span></div>
+        <div style="display:flex;align-items:center;gap:8px"><span style="color:oklch(0.72 0.14 85);font-size:10px">◐</span><span style="font:400 11px 'IBM Plex Sans';color:oklch(0.6 0.01 265)">prowler · checkov · moto · otel</span></div>
+      </div>
+    </div>
+    <div class="sysmap-node" style="position:absolute;right:46px;top:430px;transform:translateY(-50%);width:300px;z-index:3;background:oklch(0.2 0.012 265);border:1px solid oklch(0.3 0.012 265);border-top:2px solid oklch(0.7 0.13 300);border-radius:10px;padding:13px 15px">
+      <div style="font:600 11px 'IBM Plex Mono';letter-spacing:.14em;color:oklch(0.74 0.13 300);text-transform:uppercase">Research</div>
+      <div style="font:600 12px/1.3 'IBM Plex Mono';color:oklch(0.88 0.01 265);margin-top:8px">Security Invariants in Distributed Cloud Systems</div>
+      <div style="font:400 11px/1.4 'IBM Plex Sans';color:oklch(0.58 0.01 265);margin-top:5px">3 RBAC invariants break under cross-service concurrency.</div>
+      <a href="https://doi.org/10.5281/zenodo.20686317" target="_blank" style="display:inline-block;margin-top:8px;padding:3px 8px;border-radius:5px;background:oklch(0.7 0.13 300 / .16);font:600 10px 'IBM Plex Mono';color:oklch(0.78 0.12 300)">Zenodo DOI ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROJECTS ===== -->
+<section id="projects" class="sect" style="max-width:1280px;margin:0 auto;padding:64px 32px 30px">
+  <span style="font:700 12px 'IBM Plex Mono';letter-spacing:.3em;color:var(--acc-green);text-transform:uppercase">02 — Selected Work</span>
+  <h2 style="font:600 38px/1.05 'Space Grotesk';color:var(--hi);margin-top:6px;max-width:680px">Five systems built for failure.</h2>
+  <p style="font:400 14px 'IBM Plex Mono';color:var(--fg3);margin-top:10px">click any card → opens it in the shell ▸</p>
+
+  <div class="proj-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:24px">
+    <div id="projects-grid" style="display:contents"></div>
+
+    <div class="proj-span2" style="grid-column:span 2;display:flex;align-items:center;gap:26px;background:var(--card);border:1px solid var(--acc-purple);border-radius:14px;padding:24px 28px">
+      <div style="flex:1">
+        <div style="font:600 10px 'IBM Plex Mono';letter-spacing:.14em;text-transform:uppercase;color:var(--acc-purple)">Research · Preprint</div>
+        <div style="font:600 24px 'Space Grotesk';color:var(--fg);margin-top:7px">Security Invariants in Distributed Cloud Systems</div>
+        <p style="font:400 14px/1.55 'IBM Plex Sans';color:var(--fg2);margin-top:9px;max-width:680px">A TLA⁺-style formal model showing three RBAC authorization invariants that silently break under cross-service concurrency — with a counterexample trace and a proposed fix.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:9px;flex-shrink:0">
+        <a href="https://doi.org/10.5281/zenodo.20686317" target="_blank" style="text-align:center;padding:8px 16px;border-radius:8px;background:oklch(0.6 0.13 300 / .16);font:600 12px 'IBM Plex Mono';color:var(--acc-purple)">Zenodo DOI ↗</a>
+        <span style="text-align:center;font:500 11px 'IBM Plex Mono';color:var(--fg3)">M.Sc track → 2027</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── INSIDE THIS ISSUE — TOC ──────────────────────────── -->
-<section class="toc-section">
-  <div class="wrap">
-    <div class="toc-head fade">
-      <div>
-        <span class="eyebrow"><span class="e-mark"></span><span class="e-num">§ 02</span> Inside this issue</span>
-      </div>
-      <h2 class="display h-display">Seven pieces from <em>this year.</em></h2>
-    </div>
+<!-- ===== INTERACTIVE SHELL ===== -->
+<section id="shell" class="sect" style="max-width:1280px;margin:0 auto;padding:64px 32px 30px">
+  <span style="font:700 12px 'IBM Plex Mono';letter-spacing:.3em;color:var(--acc-amber);text-transform:uppercase">03 — The Shell</span>
+  <h2 style="font:600 38px/1.05 'Space Grotesk';color:var(--hi);margin-top:6px;max-width:680px">Or just talk to it directly.</h2>
+  <p style="font:400 15px/1.6 'IBM Plex Sans';color:var(--fg2);margin-top:10px;max-width:560px">A real terminal. Type a command and hit enter — try <code style="font-family:'IBM Plex Mono';color:var(--acc-green)">help</code>, <code style="font-family:'IBM Plex Mono';color:var(--acc-green)">ls</code>, <code style="font-family:'IBM Plex Mono';color:var(--acc-green)">matrix</code>, or <code style="font-family:'IBM Plex Mono';color:var(--acc-green)">sudo hire</code>.</p>
 
-    <div class="toc-list">
-      <a href="projects.html#cloudflow" class="toc-row fade">
-        <span class="toc-num">№ 01</span>
-        <span class="toc-title">CloudFlow — <em>Distributed SAGA for E-Commerce</em></span>
-        <span class="toc-cat">Distributed Systems</span>
-        <span class="toc-folio">PY <span class="dots"></span> AWS</span>
-      </a>
-      <a href="projects.html#cloudpulse" class="toc-row fade">
-        <span class="toc-num">№ 02</span>
-        <span class="toc-title">CloudPulse — <em>Real-Time Serverless Analytics Platform</em></span>
-        <span class="toc-cat">Real-Time Analytics</span>
-        <span class="toc-folio">PY <span class="dots"></span> AWS</span>
-      </a>
-      <a href="projects.html#cspm" class="toc-row fade">
-        <span class="toc-num">№ 03</span>
-        <span class="toc-title">CSPM Agent — <em>Continuous Posture Auditor</em></span>
-        <span class="toc-cat">Security</span>
-        <span class="toc-folio">PY <span class="dots"></span> CIS</span>
-      </a>
-      <a href="projects.html#alloy" class="toc-row fade">
-        <span class="toc-num">&numero; 04</span>
-        <span class="toc-title">Grafana Alloy &mdash; <em>CloudWatch scenario, merged upstream</em></span>
-        <span class="toc-cat">Open Source &middot; Observability</span>
-        <span class="toc-folio">PR <span class="dots"></span> #147</span>
-      </a>
-      <a href="projects.html#agrifuture" class="toc-row fade">
-        <span class="toc-num">&numero; 05</span>
-        <span class="toc-title">AgriFuture &mdash; <em>Six-Module Gemini AI Platform</em></span>
-        <span class="toc-cat">AI Platform</span>
-        <span class="toc-folio">TS <span class="dots"></span> GEMINI</span>
-      </a>
-      <a href="projects.html#wikiqa" class="toc-row fade">
-        <span class="toc-num">&numero; 06</span>
-        <span class="toc-title">WikiQA RAG &mdash; <em>Retrieval-Augmented Question Answering</em></span>
-        <span class="toc-cat">AI / ML</span>
-        <span class="toc-folio">RAG <span class="dots"></span> PY</span>
-      </a>
-      <a href="projects.html#security-invariants" class="toc-row fade">
-        <span class="toc-num">&numero; 07</span>
-        <span class="toc-title">Security Invariants &mdash; <em>TLA&#x207A;-style formal-verification preprint</em></span>
-        <span class="toc-cat">Research &middot; Formal Methods</span>
-        <span class="toc-folio">DOI <span class="dots"></span> TLC</span>
-      </a>
+  <div id="term-shell" style="margin-top:26px;background:oklch(0.165 0.012 260);border:1px solid oklch(0.3 0.012 260);border-radius:14px;overflow:hidden;box-shadow:0 30px 70px -30px rgba(0,0,0,.7);cursor:text">
+    <div style="height:42px;display:flex;align-items:center;gap:8px;padding:0 16px;background:oklch(0.21 0.012 260);border-bottom:1px solid oklch(0.28 0.012 260)">
+      <span style="width:12px;height:12px;border-radius:50%;background:oklch(0.65 0.17 25)"></span><span style="width:12px;height:12px;border-radius:50%;background:oklch(0.78 0.15 85)"></span><span style="width:12px;height:12px;border-radius:50%;background:oklch(0.78 0.15 150)"></span>
+      <span style="flex:1;text-align:center;font:500 12px 'IBM Plex Mono';color:oklch(0.6 0.01 260)">utkarsh@cloud — zsh — 96×32</span>
     </div>
+    <div style="padding:22px 24px;min-height:300px;font:400 13.5px/1.7 'IBM Plex Mono'">
+      <div id="term-lines"></div>
+      <div style="display:flex;align-items:center;gap:8px;margin-top:2px">
+        <span style="color:oklch(0.72 0.15 150);flex-shrink:0">➜ ~</span>
+        <input id="term-input" spellcheck="false" autocomplete="off" placeholder="type a command…" style="flex:1;background:transparent;border:none;outline:none;color:oklch(0.9 0.01 260);font:400 13.5px 'IBM Plex Mono';caret-color:oklch(0.82 0.13 150)" />
+      </div>
+    </div>
+  </div>
+
+  <div id="quick-cmds" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:14px"></div>
+</section>
+
+<!-- ===== EXPERIENCE ===== -->
+<section class="sect" style="max-width:1280px;margin:0 auto;padding:64px 32px 30px">
+  <span style="font:700 12px 'IBM Plex Mono';letter-spacing:.3em;color:var(--acc-blue);text-transform:uppercase">04 — Deploy Log</span>
+  <h2 style="font:600 38px/1.05 'Space Grotesk';color:var(--hi);margin-top:6px">The path so far.</h2>
+  <div id="timeline" style="margin-top:30px;display:flex;flex-direction:column"></div>
+</section>
+
+<!-- ===== GITHUB FEED ===== -->
+<section id="github" class="sect" style="max-width:1280px;margin:0 auto;padding:64px 32px 30px">
+  <div style="display:flex;align-items:center;gap:14px">
+    <span style="font:700 12px 'IBM Plex Mono';letter-spacing:.3em;color:var(--acc-green);text-transform:uppercase">05 — Live from GitHub</span>
+    <span style="display:flex;align-items:center;gap:6px;font:600 10px 'IBM Plex Mono';color:var(--acc-amber)"><span id="gh-dot" style="width:6px;height:6px;border-radius:50%;background:var(--acc-amber);animation:pulse 1.8s infinite"></span><span id="gh-status">connecting…</span></span>
+  </div>
+  <h2 style="font:600 38px/1.05 'Space Grotesk';color:var(--hi);margin-top:6px">Pulled from the API, not pasted.</h2>
+  <p style="font:400 14px 'IBM Plex Sans';color:var(--fg3);margin-top:8px">@utkarsh698 · <span id="gh-meta">fetching repositories…</span></p>
+
+  <div id="repos" class="repo-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px"></div>
+</section>
+
+<!-- ===== WRITING ===== -->
+<section id="writing" class="sect" style="max-width:1280px;margin:0 auto;padding:64px 32px 30px">
+  <span style="font:700 12px 'IBM Plex Mono';letter-spacing:.3em;color:var(--acc-amber);text-transform:uppercase">06 — Writing</span>
+  <h2 style="font:600 38px/1.05 'Space Grotesk';color:var(--hi);margin-top:6px">Notes from the build.</h2>
+  <div id="posts" style="margin-top:28px;display:flex;flex-direction:column"></div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact" class="sect" style="max-width:1280px;margin:0 auto;padding:64px 32px 80px">
+  <div style="background:linear-gradient(120deg,var(--cta-bg1),var(--card) 75%);border:1px solid var(--cta-bd);border-radius:20px;padding:54px 48px;position:relative;overflow:hidden">
+    <div style="display:flex;align-items:center;gap:9px;font:600 12px 'IBM Plex Mono';color:var(--acc-green)"><span style="width:9px;height:9px;border-radius:50%;background:oklch(0.8 0.16 150);box-shadow:0 0 12px oklch(0.8 0.16 150);animation:pulse 1.8s ease-in-out infinite"></span>● AVAILABLE — JULY 2026 · REMOTE / GLOBAL</div>
+    <h2 class="cta-h2" style="font:600 46px/1.05 'Space Grotesk';color:var(--cta-fg);margin-top:18px;max-width:680px;letter-spacing:-.02em">Have a system that has to stay up?</h2>
+    <p style="font:400 17px/1.6 'IBM Plex Sans';color:var(--cta-sub);margin-top:14px;max-width:520px">I reply within 24 hours. Intern or contract, distributed-systems and cloud-infra roles preferred.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:30px">
+      <a href="mailto:udaydeepak1928@gmail.com" data-hover style="padding:14px 24px;border-radius:10px;background:oklch(0.82 0.15 150);color:oklch(0.18 0.04 150);font:600 14px 'IBM Plex Mono'">Email me ↗</a>
+      <a id="cta-resume" href="#" data-hover style="padding:14px 24px;border-radius:10px;background:var(--card2);border:1px solid var(--bd2);color:var(--fg);font:600 14px 'IBM Plex Mono';cursor:pointer">Download résumé ↓</a>
+      <a href="https://github.com/utkarsh698" target="_blank" data-hover style="padding:14px 24px;border-radius:10px;background:var(--card2);border:1px solid var(--bd2);color:var(--fg);font:600 14px 'IBM Plex Mono'">GitHub ↗</a>
+      <a href="https://www.linkedin.com/in/utkarsh-batham" target="_blank" data-hover style="padding:14px 24px;border-radius:10px;background:var(--card2);border:1px solid var(--bd2);color:var(--fg);font:600 14px 'IBM Plex Mono'">LinkedIn ↗</a>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-top:32px;flex-wrap:wrap;gap:12px">
+    <div style="font:500 12px 'IBM Plex Mono';color:var(--fg3)">Built from scratch · IBM Plex + Space Grotesk · press ⌘K anywhere</div>
+    <div style="display:flex;align-items:center;gap:8px;font:500 12px 'IBM Plex Mono';color:var(--fg3)"><span style="width:7px;height:7px;border-radius:50%;background:var(--acc-green);animation:pulse 1.8s ease-in-out infinite"></span>all systems operational</div>
   </div>
 </section>
 
-<!-- ── EDITOR'S LETTER ─────────────────────────────────── -->
-<section class="editor-section">
-  <div class="wrap">
-    <div class="editor-grid fade">
-      <div>
-        <span class="eyebrow"><span class="e-mark"></span><span class="e-num">§ 03</span> From the editor</span>
-        <h2 class="display h-section" style="margin-top:1rem">A note on the work.</h2>
-      </div>
-      <div>
-        <div class="editor-letter">
-          <p>I build infrastructure for the moments when it has to keep working — when traffic spikes, when a region goes down, when a payment gateway returns errors at 3am. The interesting engineering isn't in the happy path; it's in what happens after the first failure.</p>
-          <p>This issue collects seven pieces &mdash; five systems I&#x2019;ve shipped, one merged upstream contribution, and one formal-methods preprint. A distributed SAGA orchestrator on AWS Step Functions, a real-time Lambda-architecture analytics platform on AWS Kinesis, a security posture agent that audits AWS accounts against CIS v1.5, a six-module Gemini AI platform with payments and OTP behind a single Express server, a full retrieval-augmented QA pipeline with source-diversity guarantees and an LLM-as-judge evaluator, a small but real PR into <code>grafana/alloy-scenarios</code> that closed a long-standing local-emulator gap &mdash; and a TLA&#x207A;-style proof that three RBAC security invariants, each correct per service, break under cross-service concurrency.</p>
-          <p>Each one is built to a standard I'd be willing to put on call. The architecture, the trade-offs, and the parts I'd do differently are all written out. If any of it is useful or you want to talk about something similar, the contact page is at the back.</p>
-          <p class="editor-sig">— <span class="sig-name">Utkarsh Batham</span>, Vadodara · 2026</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+</div>
 
-<!-- ── STATEMENT OF INTENT ─────────────────────────────── -->
-<section class="intent-section">
-  <div class="wrap">
-    <div class="intent-card fade">
-      <div class="intent-head">
-        <span class="eyebrow"><span class="e-mark"></span><span class="e-num">§ 04</span> Statement of intent</span>
-        <span class="intent-meta">M.Sc. Applications · Fall 2027</span>
-      </div>
-      <p class="intent-body">
-        I want to do an <strong>M.Sc. in computer science</strong> focused on the security and
-        verification of distributed cloud systems — the same territory my independent research
-        opens up. The interesting questions for me sit at the seam between formal methods and
-        production cloud-native architecture: how do we state, enforce, and <em>prove</em>
-        security invariants on systems whose components fail independently? I&#x2019;m looking
-        for groups working on cloud security, policy verification, and distributed-systems
-        reliability — and a programme where the research connects back to the platforms people
-        actually run.
-      </p>
-      <div class="intent-foot">
-        <span class="if-tag">Cloud Security</span>
-        <span class="if-tag">Formal Verification</span>
-        <span class="if-tag">Distributed Systems</span>
-        <span class="if-tag">Policy Enforcement</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── STACK INVENTORY ─────────────────────────────────── -->
-<section class="stack-section">
-  <div class="wrap">
-    <div class="stack-grid fade">
-      <div>
-        <span class="eyebrow"><span class="e-mark"></span><span class="e-num">§ 05</span> Stack inventory</span>
-        <h2 class="display h-section" style="margin-top:1rem">Tools I reach for <em>by reflex.</em></h2>
-        <p class="body-prose" style="margin-top:1rem;font-size:.92rem">Daily-driver tools across cloud, distributed systems, and security. Listed in order of fluency, not preference.</p>
-      </div>
-      <div>
-        <div class="stack-row">
-          <div class="stack-cat"><span class="sc-num">A.</span>Cloud / IaC</div>
-          <div class="stack-vals">AWS <span class="sv-sep">·</span> Terraform <span class="sv-sep">·</span> CloudFormation <span class="sv-sep">·</span> CDK</div>
-        </div>
-        <div class="stack-row">
-          <div class="stack-cat"><span class="sc-num">B.</span>Runtimes</div>
-          <div class="stack-vals">Python 3.11+ <span class="sv-sep">·</span> Go <span class="sv-sep">·</span> Node.js <span class="sv-sep">·</span> Bash</div>
-        </div>
-        <div class="stack-row">
-          <div class="stack-cat"><span class="sc-num">C.</span>Orchestration</div>
-          <div class="stack-vals">Kubernetes <span class="sv-sep">·</span> Docker <span class="sv-sep">·</span> Step Functions <span class="sv-sep">·</span> SQS / SNS</div>
-        </div>
-        <div class="stack-row">
-          <div class="stack-cat"><span class="sc-num">D.</span>Observability</div>
-          <div class="stack-vals">Prometheus <span class="sv-sep">·</span> Grafana <span class="sv-sep">·</span> CloudWatch <span class="sv-sep">·</span> OpenTelemetry</div>
-        </div>
-        <div class="stack-row">
-          <div class="stack-cat"><span class="sc-num">E.</span>Data</div>
-          <div class="stack-vals">DynamoDB <span class="sv-sep">·</span> PostgreSQL <span class="sv-sep">·</span> Redis <span class="sv-sep">·</span> S3</div>
-        </div>
-        <div class="stack-row">
-          <div class="stack-cat"><span class="sc-num">F.</span>CI / CD</div>
-          <div class="stack-vals">GitHub Actions <span class="sv-sep">·</span> ArgoCD <span class="sv-sep">·</span> Trivy <span class="sv-sep">·</span> Checkov</div>
-        </div>
-        <div class="stack-row">
-          <div class="stack-cat"><span class="sc-num">G.</span>Security</div>
-          <div class="stack-vals">CIS Benchmarks <span class="sv-sep">·</span> IAM <span class="sv-sep">·</span> KMS <span class="sv-sep">·</span> AWS Config</div>
-        </div>
-        <div class="stack-row">
-          <div class="stack-cat"><span class="sc-num">H.</span>AI / ML</div>
-          <div class="stack-vals">RAG <span class="sv-sep">·</span> Sentence Transformers <span class="sv-sep">·</span> FAISS <span class="sv-sep">·</span> LangChain</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── BACKGROUND ──────────────────────────────────────── -->
-<section class="editor-section">
-  <div class="wrap">
-    <div class="editor-grid fade">
-      <div>
-        <span class="eyebrow"><span class="e-mark"></span><span class="e-num">§ 06</span> Background</span>
-        <h2 class="display h-section" style="margin-top:1rem">Where I work <em>now</em>, and where I trained.</h2>
-      </div>
-      <div>
-        <div class="entry" style="border-bottom:1px solid var(--rule);padding-bottom:2rem;margin-bottom:2rem">
-          <div class="entry-head">
-            <div class="entry-title">Cloud Computing Intern</div>
-            <div class="entry-date">Jan 2026 — Jul 2026</div>
-          </div>
-          <div class="entry-org">TEJASKP AI Software · Vadodara, India · On-site · 6 months</div>
-          <ul>
-            <li>Team-of-3 builds on full-stack AWS-deployed products for TEJASKP&#x2019;s clients — owned pipelines, backend APIs, and the integration seam between backend and frontend on every engagement.</li>
-            <li>Shipped <strong>WikiQA RAG</strong> (Wikipedia-grounded QA · FAISS + cross-encoder + multi-LLM); currently building a trader dashboard &amp; stock-prediction system.</li>
-            <li>Stack across engagements: FastAPI, PostgreSQL, S3, JWT auth, Prometheus, Razorpay; FAISS / Pinecone, sentence-transformers, cross-encoder re-rank.</li>
-          </ul>
-        </div>
-        <div class="entry">
-          <div class="entry-head">
-            <div class="entry-title">B.Tech · Computer Science Engineering <span style="color:var(--ink-3);font-weight:400">— Cloud Technology &amp; Information Security</span></div>
-            <div class="entry-date">2022 — 2026</div>
-          </div>
-          <div class="entry-org">ITM Vocational University, Gujarat · CGPA 9.44 / 10</div>
-          <ul>
-            <li>Coursework in distributed systems, cryptography, cloud architecture, IaC, network security.</li>
-            <li>Independent research preprint: <em>Security Invariants in Distributed Cloud Systems</em> — <a href="https://doi.org/10.5281/zenodo.20686317" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:underline;text-underline-offset:3px">Zenodo, May 2026</a>.</li>
-            <li><strong>GATE 2026 — CS</strong> · Score 522 · 97<sup>th</sup> percentile · AIR 6,271 / 211,020.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── DEPARTMENTS ─────────────────────────────────────── -->
-<section class="toc-section" style="border-bottom:none">
-  <div class="wrap">
-    <div class="toc-head fade" style="margin-bottom:2.25rem">
-      <div>
-        <span class="eyebrow"><span class="e-mark"></span><span class="e-num">§ 07</span> Departments</span>
-      </div>
-      <h2 class="display h-section">Continue reading.</h2>
-    </div>
-
-    <div class="depts fade">
-      <a href="projects.html" class="dept">
-        <span class="dept-num">№ 02</span>
-        <h3 class="dept-title">Work</h3>
-        <p class="dept-desc">Seven features — five shipped systems, six OSS PRs (two merged), and a formal-verification preprint. Architecture diagrams, trade-offs, and the parts I&#x2019;d build differently today.</p>
-        <span class="dept-link">Read the work →</span>
-      </a>
-      <a href="notes.html" class="dept">
-        <span class="dept-num">№ 03</span>
-        <h3 class="dept-title">Dispatches</h3>
-        <p class="dept-desc">Short technical notes — what broke, what I learned, and what I'm currently reading.</p>
-        <span class="dept-link">Open dispatches →</span>
-      </a>
-      <a href="contact.html" class="dept">
-        <span class="dept-num">№ 05</span>
-        <h3 class="dept-title">Contact</h3>
-        <p class="dept-desc">For roles, contracts, collaborations, or just a conversation. Reply within 24 hours.</p>
-        <span class="dept-link">Write a letter →</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-</main>
-
-<footer class="colophon">
-  <div class="colophon-grid">
-    <div class="colophon-brand">
-      <h4>Utkarsh Batham</h4>
-      <p>Cloud infrastructure &amp; security automation engineer. Designing systems that survive contact with real traffic. Vadodara, India — open to remote roles globally.</p>
-      <span class="imp">Vol. 2026 · Issue 06 · Folio 01</span>
-    </div>
-    <div class="colophon-col">
-      <h5>Sections</h5>
-      <a href="index.html">01 — Cover</a>
-      <a href="projects.html">02 — Work</a>
-      <a href="notes.html">03 — Dispatches</a>
-      <a href="resume.html">04 — Dossier</a>
-      <a href="contact.html">05 — Contact</a>
-    </div>
-    <div class="colophon-col">
-      <h5>Elsewhere</h5>
-      <a href="https://github.com/UTKARSH698" target="_blank" rel="noopener">GitHub ↗</a>
-      <a href="https://www.linkedin.com/in/utkarsh-batham-531913247" target="_blank" rel="noopener">LinkedIn ↗</a>
-      <a href="mailto:udaydeepak1928@gmail.com">Email</a>
-    </div>
-    <div class="colophon-col">
-      <h5>Colophon</h5>
-      <p style="font-size:.78rem;color:var(--ink-3);line-height:1.55;margin:0">Set in <em>Fraunces</em> &amp; <em>Inter</em>. Hand-written HTML &amp; CSS. Maintained from Vadodara, India.</p>
-    </div>
-  </div>
-  <div class="colophon-foot">
-    <span>© 2026 Utkarsh Batham</span>
-    <span>Last revised · Jun 2026</span>
-    <span>Vol. 2026 · Issue 06</span>
-  </div>
-</footer>
-
-<button class="scroll-top" id="scroll-top" aria-label="Scroll to top">↑</button>
-<script src="shared.js"></script>
+<script src="portfolio.js"></script>
 </body>
 </html>

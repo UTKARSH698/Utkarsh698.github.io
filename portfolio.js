@@ -268,7 +268,9 @@
       out.push({ text: "grafana/alloy-scenarios #147  \u2713 merged — CloudWatch scenario", color: G });
       out.push({ text: "kube-coder #124               \u2713 merged — HA replicas + PDB", color: G });
       out.push({ text: "prowler #11577                \u2713 merged — Entra CA exclusion-gap check", color: G });
-      out.push({ text: "checkov \u00B7 moto \u00B7 otel \u00B7 aws-cdk \u00B7 aws-cdk-cli   \u25D0 under review", color: A });
+      out.push({ text: "moto #10070                   \u2713 merged — ECS capacityProviderStrategy", color: G });
+      out.push({ text: "aws-cdk-cli #1672             \u2713 merged — customizable role session name", color: G });
+      out.push({ text: "checkov \u00B7 otel \u00B7 aws-cdk            \u25D0 under review", color: A });
     }
     else if (c === "paper" || c === "research") {
       out.push({ text: "Security Invariants in Distributed Cloud Systems", color: P });
@@ -521,7 +523,8 @@
     heading("OPEN SOURCE");
     para("grafana/alloy-scenarios #147 - merged a CloudWatch scenario.   kube-coder #124 - merged HA replicas + PodDisruptionBudget.", 9.6, 0.2);
     para("prowler #11577 - merged a new Entra Conditional Access exclusion-gap check.", 9.6, 0.2);
-    para("Under review: checkov, moto, opentelemetry-contrib, aws-cdk, aws-cdk-cli.", 9.6, 0.2); y += 6;
+    para("moto #10070 - merged ECS RunTask capacityProviderStrategy support.   aws-cdk-cli #1672 - merged a customizable STS role session name.", 9.6, 0.2);
+    para("Under review: checkov, opentelemetry-contrib, aws-cdk.", 9.6, 0.2); y += 6;
 
     heading("RESEARCH");
     para("Security Invariants in Distributed Cloud Systems - a TLA+-style model showing three RBAC authorization invariants that break under cross-service concurrency, with a counterexample trace and a proposed fix. Archived on Zenodo (DOI). M.Sc research track to 2027.", 9.6, 0.2); y += 6;

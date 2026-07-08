@@ -399,17 +399,17 @@
 
   /* ---------- GitHub feed ---------- */
   function langColor(l) {
-    var m = { Python: "oklch(0.7 0.13 230)", Go: "oklch(0.72 0.13 200)", JavaScript: "oklch(0.82 0.14 95)", TypeScript: "oklch(0.65 0.14 250)", HCL: "oklch(0.6 0.16 300)", Shell: "oklch(0.74 0.14 150)", HTML: "oklch(0.66 0.16 35)", Jupyter: "oklch(0.74 0.15 60)" };
+    var m = { Python: "oklch(0.7 0.13 230)", Go: "oklch(0.72 0.13 200)", JavaScript: "oklch(0.82 0.14 95)", TypeScript: "oklch(0.65 0.14 250)", HCL: "oklch(0.6 0.16 300)", Shell: "oklch(0.74 0.14 150)", HTML: "oklch(0.66 0.16 35)", Jupyter: "oklch(0.74 0.15 60)", TeX: "oklch(0.62 0.14 145)" };
     return m[l] || "oklch(0.6 0.02 260)";
   }
   function fallbackRepos() {
     return [
       { name: "CloudFlow", desc: "SAGA-orchestrated order pipeline on AWS Step Functions with compensation and a circuit breaker.", lang: "Python", stars: 0, updated: "recent", url: "https://github.com/UTKARSH698/CloudFlow" },
-      { name: "Cloud_Pulse", desc: "Lambda-architecture real-time analytics — Kinesis dual-write, Athena history, DynamoDB live view.", lang: "Python", stars: 0, updated: "recent", url: "https://github.com/UTKARSH698/Cloud_Pulse" },
+      { name: "Cloud_Pulse", desc: "Lambda-architecture real-time analytics — Kinesis dual-write, Athena history, DynamoDB live view.", lang: "HCL", stars: 0, updated: "recent", url: "https://github.com/UTKARSH698/Cloud_Pulse" },
       { name: "CSPM", desc: "Serverless cloud-security posture auditor — 23 CIS-v1.5 checks with safe auto-remediation.", lang: "Python", stars: 0, updated: "recent", url: "https://github.com/UTKARSH698/CSPM" },
       { name: "agrifuture-platform", desc: "Six Gemini AI modules behind one Express server — JWT+OTP, Razorpay HMAC, offline PWA.", lang: "TypeScript", stars: 0, updated: "recent", url: "https://github.com/UTKARSH698/agrifuture-platform" },
       { name: "wikiqa-rag-system", desc: "End-to-end retrieval-augmented QA over Wikipedia — FAISS, cross-encoder re-rank, LLM judge.", lang: "Python", stars: 0, updated: "recent", url: "https://github.com/UTKARSH698/wikiqa-rag-system" },
-      { name: "security-invariants-rbac", desc: "TLA+-style model checker for distributed RBAC invariants that break under concurrency.", lang: "Python", stars: 0, updated: "recent", url: "https://github.com/UTKARSH698/security-invariants-rbac" }
+      { name: "security-invariants-rbac", desc: "TLC-equivalent model checker for distributed RBAC invariants that break under cross-service concurrency.", lang: "TeX", stars: 0, updated: "recent", url: "https://github.com/UTKARSH698/security-invariants-rbac" }
     ];
   }
   function ago(iso) {

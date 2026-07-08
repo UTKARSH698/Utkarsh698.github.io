@@ -85,8 +85,8 @@
 
   /* ---------- live metrics ---------- */
   function tickMetrics() {
-    $("m-latency").textContent = 38 + Math.floor(Math.random() * 28);
-    $("m-rps").textContent = (1.18 + Math.random() * 0.34).toFixed(2) + "k";
+    $("m-latency").textContent = 45 + Math.floor(Math.random() * 6);
+    $("m-rps").textContent = (1.05 + Math.random() * 0.12).toFixed(2) + "k";
     $("m-uptime").textContent = (99.95 + Math.random() * 0.04).toFixed(2);
     $("load-avg").textContent = [0, 0, 0].map(function () {
       return (0.4 + Math.random() * 0.7).toFixed(2);
@@ -242,7 +242,7 @@
     }
     else if (c === "whoami") {
       out.push({ text: "Utkarsh Batham \u00B7 Cloud & Distributed-Systems Engineer", color: O });
-      out.push({ text: "Vadodara, IN — CSE final-year, GATE AIR 6,271. Open Jul 2026.", color: D });
+      out.push({ text: "Vadodara, IN — CSE final-year, GATE top 3% (AIR 6,271 / ~1M). Open Jul 2026.", color: D });
     }
     else if (c === "ls" || c === "ls -la" || c === "ls projects") {
       out.push({ text: "CloudFlow      SAGA-orchestrated order pipeline \u00B7 Step Functions", color: O });
@@ -507,11 +507,11 @@
     text("Utkarsh Batham", 21, true, 0); y += 17;
     text("Cloud & Distributed-Systems Engineer", 11.5, false, 0.32); y += 16;
     text("udaydeepak1928@gmail.com  |  github.com/utkarsh698  |  linkedin.com/in/utkarsh-batham  |  Vadodara, IN", 8.6, false, 0.35); y += 12;
-    text("GATE AIR 6,271 (97th pct)  |  CGPA 9.44/10  |  Zenodo DOI: 10.5281/zenodo.20686317", 8.6, false, 0.35); y += 9;
+    text("GATE 2026: top 3% (AIR 6,271 of ~1M)  |  CGPA 9.44/10  |  Zenodo DOI: 10.5281/zenodo.20686317", 8.6, false, 0.35); y += 9;
     ops.push({ t: "rule", x1: x, y1: y, x2: x + W, y2: y }); y += 20;
 
     heading("SUMMARY");
-    para("Final-year CSE engineer focused on cloud infrastructure and distributed systems. I build services for the failure case - traffic spikes, regional outages, and partial failures - using AWS, Kubernetes, and strong observability. GATE AIR 6,271.", 9.6, 0.2); y += 6;
+    para("Final-year CSE engineer focused on cloud infrastructure and distributed systems. I build services for the failure case - traffic spikes, regional outages, and partial failures - using AWS, Kubernetes, and strong observability. GATE 2026: top 3% nationally (AIR 6,271 of ~1M candidates).", 9.6, 0.2); y += 6;
 
     heading("SELECTED PROJECTS");
     row("CloudFlow", "SAGA-orchestrated checkout on AWS Step Functions; compensation, event-sourced DynamoDB log, idempotent handlers, cold-start-safe circuit breaker. 1,100+ req/min at p50 47ms; 48 tests (moto + LocalStack).  [Step Functions, DynamoDB, AWS CDK]");

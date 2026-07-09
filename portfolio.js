@@ -455,7 +455,13 @@
       .then(function (r) { if (!r.ok) throw new Error("status " + r.status); return r.json(); })
       .then(function (list) {
         if (!Array.isArray(list) || !list.length) throw new Error("empty");
-        state.repos = list.filter(function (r) { return !r.fork; })
+        state.repos = list.filter(function (r) {
+            if (r.fork) return false;
+            var n = (r.name || "").toLowerCase();
+            if (/\.github\.io$/.test(n)) return false;      // the portfolio site itself
+            if (n === "utkarsh698") return false;            // profile-readme repo
+            return true;
+          })
           .sort(function (a, b) { return (b.stargazers_count - a.stargazers_count) || (new Date(b.updated_at) - new Date(a.updated_at)); })
           .slice(0, 6)
           .map(function (r) { return { name: r.name, desc: r.description || "\u2014", lang: r.language || "\u2014", stars: r.stargazers_count, updated: ago(r.updated_at), url: r.html_url }; });

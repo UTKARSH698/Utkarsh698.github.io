@@ -271,7 +271,8 @@
       out.push({ text: "moto #10070                   \u2713 merged — ECS capacityProviderStrategy", color: G });
       out.push({ text: "aws-cdk-cli #1672             \u2713 merged — customizable role session name", color: G });
       out.push({ text: "beenuar/AiSOC #375            \u2713 merged — IAM UpdateAccessKey detection", color: G });
-      out.push({ text: "checkov \u00B7 otel \u00B7 aws-cdk \u00B7 prowler  \u25D0 under review", color: A });
+      out.push({ text: "checkov #7580                 \u2713 merged — CKV_K8S_40 hostUsers pass", color: G });
+      out.push({ text: "prowler \u00B7 aws-cdk \u00B7 otel           \u25D0 under review", color: A });
     }
     else if (c === "paper" || c === "research") {
       out.push({ text: "Security Invariants in Distributed Cloud Systems", color: P });
@@ -525,8 +526,8 @@
     para("grafana/alloy-scenarios #147 - merged a CloudWatch scenario.   kube-coder #124 - merged HA replicas + PodDisruptionBudget.", 9.6, 0.2);
     para("prowler #11577 - merged a new Entra Conditional Access exclusion-gap check.", 9.6, 0.2);
     para("moto #10070 - merged ECS RunTask capacityProviderStrategy support.   aws-cdk-cli #1672 - merged a customizable STS role session name.", 9.6, 0.2);
-    para("beenuar/AiSOC #375 - merged an AWS IAM UpdateAccessKey detection for privileged principals.", 9.6, 0.2);
-    para("Under review: prowler, aws-cdk, opentelemetry-python-contrib, checkov.", 9.6, 0.2); y += 6;
+    para("beenuar/AiSOC #375 - merged an AWS IAM UpdateAccessKey detection for privileged principals.   checkov #7580 - merged a CKV_K8S_40 fix for hostUsers.", 9.6, 0.2);
+    para("Under review: prowler, aws-cdk, opentelemetry-python-contrib.", 9.6, 0.2); y += 6;
 
     heading("RESEARCH");
     para("Security Invariants in Distributed Cloud Systems - a TLA+-style model showing three RBAC authorization invariants that break under cross-service concurrency, with a counterexample trace and a proposed fix. Archived on Zenodo (DOI). M.Sc research track to 2027.", 9.6, 0.2); y += 6;

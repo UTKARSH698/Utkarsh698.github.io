@@ -272,7 +272,11 @@
       out.push({ text: "aws-cdk-cli #1672             \u2713 merged — customizable role session name", color: G });
       out.push({ text: "beenuar/AiSOC #375            \u2713 merged — IAM UpdateAccessKey detection", color: G });
       out.push({ text: "checkov #7580                 \u2713 merged — CKV_K8S_40 hostUsers pass", color: G });
-      out.push({ text: "prowler \u00B7 aws-cdk \u00B7 otel           \u25D0 under review", color: A });
+      out.push({ text: "prowler #11839                \u25D0 under review — Glue connection secrets check", color: A });
+      out.push({ text: "aws-cdk #38195                \u25D0 under review — account-root ARN in policies", color: A });
+      out.push({ text: "otel-python-contrib #4728     \u25D0 under review — Redis ClusterPipeline spans", color: A });
+      out.push({ text: "tf-provider-aws #48907        \u25D0 under review — SMB cache_stale_timeout 0", color: A });
+      out.push({ text: "tf-provider-aws #48908        \u25D0 under review — NFS cache_stale_timeout 0", color: A });
     }
     else if (c === "paper" || c === "research") {
       out.push({ text: "Security Invariants in Distributed Cloud Systems", color: P });
@@ -533,7 +537,7 @@
     para("prowler #11577 - merged a new Entra Conditional Access exclusion-gap check.", 9.6, 0.2);
     para("moto #10070 - merged ECS RunTask capacityProviderStrategy support.   aws-cdk-cli #1672 - merged a customizable STS role session name.", 9.6, 0.2);
     para("beenuar/AiSOC #375 - merged an AWS IAM UpdateAccessKey detection for privileged principals.   checkov #7580 - merged a CKV_K8S_40 fix for hostUsers.", 9.6, 0.2);
-    para("Under review: prowler, aws-cdk, opentelemetry-python-contrib.", 9.6, 0.2); y += 6;
+    para("Under review: prowler #11839 (Glue connection secrets check), aws-cdk #38195 (account-root ARN in resource policies), opentelemetry-python-contrib #4728 (Redis ClusterPipeline spans), terraform-provider-aws #48907 & #48908 (Storage Gateway SMB/NFS cache-timeout 0).", 9.6, 0.2); y += 6;
 
     heading("RESEARCH");
     para("Security Invariants in Distributed Cloud Systems - a TLA+-style model showing three RBAC authorization invariants that break under cross-service concurrency, with a counterexample trace and a proposed fix. Archived on Zenodo (DOI). M.Sc research track to 2027.", 9.6, 0.2); y += 6;

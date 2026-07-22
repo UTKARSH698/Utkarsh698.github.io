@@ -277,6 +277,7 @@
       out.push({ text: "otel-python-contrib #4728     \u2713 merged — Redis ClusterPipeline spans", color: G });
       out.push({ text: "prowler #11839                \u25D0 under review — Glue connection secrets check", color: A });
       out.push({ text: "aws-cdk #38195                \u25D0 under review — account-root ARN in policies", color: A });
+      out.push({ text: "Climate-Vision/ClimateVision #124  \u25D0 under review — carbon analytics API + impact report", color: A });
     }
     else if (c === "paper" || c === "research") {
       out.push({ text: "Security Invariants in Distributed Cloud Systems", color: P });
@@ -539,7 +540,7 @@
     para("beenuar/AiSOC #375 - merged an AWS IAM UpdateAccessKey detection for privileged principals.   checkov #7580 - merged a CKV_K8S_40 fix for hostUsers.", 9.6, 0.2);
     para("aws-samples/sample-well-architected-skills #104 - merged full-review subagent pillar-playbook loading.   Lynpoint/CyberVerse #32 - merged a pluggable vector-store backend with optional Milvus.", 9.6, 0.2);
     para("opentelemetry-python-contrib #4728 - merged Redis ClusterPipeline span metadata for redis-py 6+.", 9.6, 0.2);
-    para("Under review: prowler #11839 (Glue connection secrets check), aws-cdk #38195 (account-root ARN in resource policies).", 9.6, 0.2); y += 6;
+    para("Under review: prowler #11839 (Glue connection secrets check), aws-cdk #38195 (account-root ARN in resource policies), Climate-Vision/ClimateVision #124 (carbon analytics API + impact report).", 9.6, 0.2); y += 6;
 
     heading("RESEARCH");
     para("Security Invariants in Distributed Cloud Systems - a TLA+-style model showing three RBAC authorization invariants that break under cross-service concurrency, with a counterexample trace and a proposed fix. Archived on Zenodo (DOI). M.Sc research track to 2027.", 9.6, 0.2); y += 6;

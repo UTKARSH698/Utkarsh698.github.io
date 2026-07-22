@@ -43,7 +43,7 @@
     { text: "booting utkarsh-portfolio v3.0 \u2026", color: "oklch(0.55 0.01 260)" },
     { text: "[ ok ] mounting /cloud", color: "oklch(0.82 0.13 150)" },
     { text: "[ ok ] distributed-systems daemon started", color: "oklch(0.82 0.13 150)" },
-    { text: "[ ok ] loaded 5 shipped services", color: "oklch(0.82 0.13 150)" },
+    { text: "[ ok ] loaded 6 shipped services", color: "oklch(0.82 0.13 150)" },
     { text: "[ ok ] observability online — prometheus + grafana", color: "oklch(0.82 0.13 150)" },
     { text: "[ ok ] security posture: CIS v1.5 passing", color: "oklch(0.82 0.13 150)" },
     { text: "[ ok ] availability: OPEN \u00B7 Jul 2026", color: "oklch(0.82 0.13 150)" },
@@ -209,6 +209,13 @@
         { text: "  problem   answer collapse, silent retrieval drift, no faithfulness signal", color: D },
         { text: "  approach  bi-encoder + cross-encoder re-rank, source-diversity guarantee, LLM judge", color: O },
         { text: "  result    P@5 0.80 \u00B7 MRR 0.85 \u00B7 token-streamed \u00B7 60 pytest \u00B7 fits a t2.micro", color: A }
+      ],
+      iamprover: [
+        { text: "iamprover — formally verify AWS IAM invariants with Z3", color: G },
+        { text: "  stack     Python \u00B7 Z3 (SMT) \u00B7 Terraform \u00B7 IAM", color: O },
+        { text: "  problem   individually-correct IAM policies compose into globally-unsafe states", color: D },
+        { text: "  approach  encode IAM eval semantics into Z3, prove invariants over every action/resource", color: O },
+        { text: "  result    proofs over all wildcard expansions \u00B7 counterexample traces \u00B7 CI exit-gate \u00B7 pip install", color: A }
       ]
     };
     return d[key] || null;
@@ -226,7 +233,7 @@
     if (!cmd) { push([{ text: "\u279C ~", color: G }]); return; }
     var c = cmd.toLowerCase();
     var out = [];
-    var aliases = { cloudflow: "cloudflow", cloudpulse: "cloudpulse", cspm: "cspm", "cspm-agent": "cspm", agrifuture: "agrifuture", wikiqa: "wikiqa", "wikiqa-rag": "wikiqa" };
+    var aliases = { cloudflow: "cloudflow", cloudpulse: "cloudpulse", cspm: "cspm", "cspm-agent": "cspm", agrifuture: "agrifuture", wikiqa: "wikiqa", "wikiqa-rag": "wikiqa", iamprover: "iamprover" };
     var m = c.match(/^(?:open|cat)\s+([a-z\-]+)$/);
     var arg = m ? m[1] : (aliases[c] ? c : null);
 
@@ -250,6 +257,7 @@
       out.push({ text: "CSPM-Agent     posture auditor \u00B7 23 CIS v1.5 checks", color: O });
       out.push({ text: "AgriFuture     six Gemini AI modules \u00B7 Express \u00B7 live on Render", color: O });
       out.push({ text: "WikiQA-RAG     retrieval-augmented QA \u00B7 FAISS + cross-encoder", color: O });
+      out.push({ text: "iamprover      AWS IAM invariants proven with Z3 SMT \u00B7 not grep", color: O });
       out.push({ text: "invariants.tla TLA+ proof \u00B7 Zenodo DOI", color: P });
       out.push({ text: "\u2192 tip: 'open cloudflow' for detail.", color: D });
     }
@@ -334,6 +342,7 @@
       { label: "Open CloudPulse in shell", hint: "project", icon: "$", act: function () { openProject("cloudpulse"); go("#shell")(); } },
       { label: "Open CSPM Agent in shell", hint: "project", icon: "$", act: function () { openProject("cspm"); go("#shell")(); } },
       { label: "Open WikiQA RAG in shell", hint: "project", icon: "$", act: function () { openProject("wikiqa"); go("#shell")(); } },
+      { label: "Open iamprover in shell", hint: "project", icon: "$", act: function () { openProject("iamprover"); go("#shell")(); } },
       { label: "Download r\u00e9sum\u00e9 (PDF)", hint: "action", icon: "\u2193", act: function () { makeResume(); } },
       { label: "Open LinkedIn profile", hint: "link", icon: "in", act: function () { window.open("https://www.linkedin.com/in/utkarsh-batham", "_blank"); } },
       { label: "Open Zenodo paper (DOI)", hint: "link", icon: "doi", act: function () { window.open("https://doi.org/10.5281/zenodo.20686317", "_blank"); } },
@@ -532,6 +541,7 @@
     row("CSPM Agent", "Serverless cloud-security posture auditor; 23 CIS-v1.5 checks across S3, IAM, EC2 Security Groups, and CloudTrail with DRY_RUN-by-default auto-remediation. First scan 80% compliance; 71 tests.  [Python, boto3, CIS v1.5, Terraform]");
     row("AgriFuture", "AI agricultural platform: six Gemini modules behind one Express server, JWT+OTP auth, Razorpay HMAC commerce, offline PWA. ~12.5K LOC across 56 TS files; live on Render.  [Gemini, React 19, Express 5, PostgreSQL]");
     row("WikiQA RAG", "End-to-end retrieval-augmented QA over Wikipedia: FAISS retrieval, cross-encoder re-rank, source-diversity guarantee, multi-LLM token streaming, LLM faithfulness judge. P@5 0.80, MRR 0.85.  [FAISS, Cross-Encoder, FastAPI]");
+    row("iamprover", "Formally verifies AWS IAM security invariants with the Z3 SMT solver - proves an invariant over every action, resource, and wildcard expansion, or returns a concrete counterexample (principal, action, resource). Gates Terraform IAM changes in CI; pip-installable.  [Z3/SMT, IAM, Terraform, Python]");
 
     heading("OPEN SOURCE");
     para("grafana/alloy-scenarios #147 - merged a CloudWatch scenario.   kube-coder #124 - merged HA replicas + PodDisruptionBudget.", 9.6, 0.2);
@@ -586,7 +596,10 @@
         metric: "6", metricLabel: "AI modules \u00B7 ~12.5K LOC", tags: ["Gemini", "React 19", "Express 5", "PostgreSQL"] },
       { key: "wikiqa", name: "WikiQA RAG", kind: "Applied ML", status: "shipped", tagColor: "var(--acc-blue)",
         desc: "End-to-end retrieval-augmented QA over live Wikipedia — FAISS retrieval, a cross-encoder re-rank, a source-diversity guarantee, token-streamed answers from multiple LLMs, and an LLM faithfulness judge.",
-        metric: "0.80", metricLabel: "P@5 \u00B7 MRR 0.85", tags: ["FAISS", "Cross-Encoder", "FastAPI", "RAG"] }
+        metric: "0.80", metricLabel: "P@5 \u00B7 MRR 0.85", tags: ["FAISS", "Cross-Encoder", "FastAPI", "RAG"] },
+      { key: "iamprover", name: "iamprover", kind: "Cloud Security", status: "shipped", tagColor: "var(--acc-purple)",
+        desc: "Formally verifies AWS IAM security invariants with the Z3 SMT solver — proves an invariant holds over every action, resource, and wildcard expansion, or hands back a concrete counterexample (principal, action, resource). Gates Terraform IAM changes in CI.",
+        metric: "Z3", metricLabel: "SMT proofs \u00B7 counterexample traces", tags: ["Z3 / SMT", "IAM", "Terraform", "Python"] }
     ];
     var grid = $("projects-grid");
     grid.innerHTML = "";
